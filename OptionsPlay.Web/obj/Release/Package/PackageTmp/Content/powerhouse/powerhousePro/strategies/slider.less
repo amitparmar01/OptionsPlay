@@ -1,0 +1,103 @@
+﻿@import 'variables.less';
+
+#sdSliderContainer {
+	width: 100%;
+	height: @strategies-sdSlider-height;
+	text-align: center;
+
+	.height-100 {
+		height: 100%;
+	}
+
+	.btn {
+		font-size: 11px;
+		margin-left: 10px;
+		width: 70px;
+	}
+
+	.btn-left {
+		left: 30px;
+	}
+
+	.btn-right {
+		right: 30px;
+	}
+
+	> .btn {
+		width: 15%;
+		font-size: 11px;
+		padding: 2px 4px;
+		margin-top: -5px;
+	}
+
+	#sdSliderText {
+		margin: 10px auto;
+		color: @new-theme-blue;
+		font-weight: 600;
+
+		input {
+			border-color: @new-theme-blue;
+		}
+
+		.expiry-select {
+			position: absolute;
+			right: 25px;
+			z-index: 9;
+			padding-top: 6px;
+
+			option.gray {
+				background-color: lightgray;
+			}
+		}
+	}
+
+	#sdRangeChartWrapper {
+		font-size: 12px;
+
+		.position-absolute {
+			width: 50px;
+			margin-left: -25px;
+		}
+	}
+
+	#sdRangeChart {
+		margin: auto;
+		width: 450px;
+		height: 150px;
+	}
+
+	#sdRangeSlider {
+		margin: auto;
+		width: 450px;
+		position: relative;
+
+		#sdSlider {
+			margin: 16px auto 12px auto;
+			display: inline-block;
+			font-size: 12px;
+			width: 100%;
+		}
+
+		.slider-handler-label {
+			position: absolute;
+			width: 100px;
+			margin-left: -50px;
+			font-weight: 600;
+			color: @new-theme-blue;
+			z-index: 8;
+
+			&.top {
+				top: 0;
+			}
+
+			&.bottom {
+				bottom: 0;
+			}
+		}
+	}
+
+	#sdRangeSelector {
+		width: 150px;
+		display: inline-block;
+	}
+}

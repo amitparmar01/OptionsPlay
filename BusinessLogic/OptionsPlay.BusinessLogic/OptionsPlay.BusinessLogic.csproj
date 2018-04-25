@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F2E3C277-6CF8-468E-A6AE-7414419E13E8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OptionsPlay.BusinessLogic</RootNamespace>
+    <AssemblyName>OptionsPlay.BusinessLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <DontImportPostSharp>True</DontImportPostSharp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dev|AnyCPU'">
+    <OutputPath>bin\Dev\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics, Version=2.6.1.30, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\MathNet.Numerics.3.3.0\lib\net40\MathNet.Numerics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\..\packages\mongocsharpdriver.1.9.1\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\..\packages\mongocsharpdriver.1.9.1\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp, Version=3.1.41.9, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\PostSharp.3.1.41\lib\net20\PostSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap, Version=3.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\structuremap.3.0.3.116\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Net4, Version=3.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\structuremap.3.0.3.116\lib\net40\StructureMap.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authentication\AuthenticationService.cs" />
+    <Compile Include="Authentication\UserService.cs" />
+    <Compile Include="BaseService.cs" />
+    <Compile Include="Cache\DatabaseCacheService.cs" />
+    <Compile Include="Configuration\ConfigurationService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoveredCallService.cs" />
+    <Compile Include="Helpers\Convertors\UserLoginInformationConvertor.cs" />
+    <Compile Include="Indicators\TechnicalRankService.cs" />
+    <Compile Include="PredictionAndStdDevService.cs" />
+    <Compile Include="Scheduler\SchedulerCoreService.cs" />
+    <Compile Include="ShanghaiStockExchangeWorkTimeService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignalsProxyService.cs" />
+    <Compile Include="SignalsService.cs" />
+    <Compile Include="Strategy\StrategyGroupService.cs" />
+    <Compile Include="Strategy\StrategyService.cs" />
+    <Compile Include="Strategy\SuggestedStrategiesService.cs" />
+    <Compile Include="TradeIdea\TradeIdeaLog.cs" />
+    <Compile Include="TradeIdea\TradeIdeaService.cs" />
+    <Compile Include="TradeIdea\TradeIdeasGenerator.cs" />
+    <Compile Include="TradeIdea\TradeIdeasGeneratorArgument.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\OptionsPlay.Common\OptionsPlay.Common.csproj">
+      <Project>{85025E83-4476-400A-B282-363256F61EFA}</Project>
+      <Name>OptionsPlay.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\OptionsPlay.Logging\OptionsPlay.Logging.csproj">
+      <Project>{69F28C8C-7550-4A78-996A-BE2C015D4E52}</Project>
+      <Name>OptionsPlay.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\OptionsPlay.Security\OptionsPlay.Security.csproj">
+      <Project>{602965F3-B562-4545-9E08-4642ED018187}</Project>
+      <Name>OptionsPlay.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\OptionsPlay.TechnicalAnalysis\OptionsPlay.TechnicalAnalysis.csproj">
+      <Project>{C1F21DED-A481-451F-B2E3-42E457663CCE}</Project>
+      <Name>OptionsPlay.TechnicalAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\Common\OptionsPlay.DAL.Interfaces\OptionsPlay.DAL.Interfaces.csproj">
+      <Project>{4EB7D6F0-8A8A-4F15-AC2F-078DCDF8F4D1}</Project>
+      <Name>OptionsPlay.DAL.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\Common\OptionsPlay.Model\OptionsPlay.Model.csproj">
+      <Project>{187287E1-CE16-4B99-B56D-AE6308E06DC8}</Project>
+      <Name>OptionsPlay.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\EntityFramework\OptionsPlay.EF.Encryption\OptionsPlay.EF.Encryption.csproj">
+      <Project>{C6D9EDCC-E9A7-4C3C-AE4A-51897DADCA58}</Project>
+      <Name>OptionsPlay.EF.Encryption</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.Common\OptionsPlay.DAL.SZKingdom.Common.csproj">
+      <Project>{0FDE2710-C57E-4F17-84B4-4F005E15C971}</Project>
+      <Name>OptionsPlay.DAL.SZKingdom.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OptionsPlay.Aspects\OptionsPlay.Aspects.csproj">
+      <Project>{20D9A997-F0A2-4117-9757-1DBD495E5F3B}</Project>
+      <Name>OptionsPlay.Aspects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OptionsPlay.BusinessLogic.MarketDataProcessing.Common\OptionsPlay.BusinessLogic.MarketDataProcessing.Common.csproj">
+      <Project>{a02b554a-97e6-47bf-b521-f747be3b5deb}</Project>
+      <Name>OptionsPlay.BusinessLogic.MarketDataProcessing.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OptionsPlay.BusinessLogic.MarketDataProcessing\OptionsPlay.BusinessLogic.MarketDataProcessing.csproj">
+      <Project>{bb02289d-7587-4cb5-8f11-1fcd21d02c5c}</Project>
+      <Name>OptionsPlay.BusinessLogic.MarketDataProcessing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OptionsPlay.MarketData.Indicators\OptionsPlay.MarketData.Indicators.csproj">
+      <Project>{6c995254-8d66-4aaf-989c-75fb702d30a4}</Project>
+      <Name>OptionsPlay.MarketData.Indicators</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OptionsPlay.Optimization\OptionsPlay.Optimization.csproj">
+      <Project>{cf4e252e-3e78-4461-80c1-efe6491913d7}</Project>
+      <Name>OptionsPlay.Optimization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OptionsPlay.BusinessLogic.Common\OptionsPlay.BusinessLogic.Common.csproj">
+      <Project>{CC96AA47-CE03-42C3-B832-B3F5E7B2CB35}</Project>
+      <Name>OptionsPlay.BusinessLogic.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\packages\PostSharp.3.1.41\tools\PostSharp.targets" Condition="Exists('..\..\packages\PostSharp.3.1.41\tools\PostSharp.targets')" />
+  <Target Name="EnsurePostSharpImported" BeforeTargets="BeforeBuild" Condition="'$(PostSharp30Imported)' == ''">
+    <Error Condition="!Exists('..\..\packages\PostSharp.3.1.41\tools\PostSharp.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://www.postsharp.net/links/nuget-restore." />
+    <Error Condition="Exists('..\..\packages\PostSharp.3.1.41\tools\PostSharp.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://www.postsharp.net/links/nuget-restore." />
+  </Target>
+  <Import Project="..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

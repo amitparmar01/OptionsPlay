@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1B481514-54A1-44E7-B29A-0FC5317FE9BE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OptionsPlay.IoC</RootNamespace>
+    <AssemblyName>OptionsPlay.IoC</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dev|AnyCPU'">
+    <OutputPath>bin\Dev\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=3.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\structuremap.3.0.3.116\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Net4, Version=3.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\structuremap.3.0.3.116\lib\net40\StructureMap.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Web">
+      <HintPath>..\..\packages\structuremap.web.3.0.0.108\lib\net40\StructureMap.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IocConfigurator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registries\CacheRegistry.cs" />
+    <Compile Include="Registries\DBContextRegistry.cs" />
+    <Compile Include="Registries\BusinessLogicRegistry.cs" />
+    <Compile Include="Registries\ControllerRegistry.cs" />
+    <Compile Include="Registries\MongoDBContextRegistry.cs" />
+    <Compile Include="Registries\RepositoryRegistry.cs" />
+    <Compile Include="Registries\CommonRegistry.cs" />
+    <Compile Include="Registries\ThirdPartyRegistry.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BusinessLogic\OptionsPlay.BusinessLogic.Common\OptionsPlay.BusinessLogic.Common.csproj">
+      <Project>{CC96AA47-CE03-42C3-B832-B3F5E7B2CB35}</Project>
+      <Name>OptionsPlay.BusinessLogic.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BusinessLogic\OptionsPlay.BusinessLogic.MarketData\OptionsPlay.BusinessLogic.MarketData.csproj">
+      <Project>{6B386E25-5A7F-4792-8978-B4E9066117F2}</Project>
+      <Name>OptionsPlay.BusinessLogic.MarketData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BusinessLogic\OptionsPlay.BusinessLogic\OptionsPlay.BusinessLogic.csproj">
+      <Project>{f2e3c277-6cf8-468e-a6ae-7414419e13e8}</Project>
+      <Name>OptionsPlay.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\Common\OptionsPlay.DAL.Core\OptionsPlay.DAL.Core.csproj">
+      <Project>{e9ca7d35-96d1-4328-b8f0-be0cad2dac4a}</Project>
+      <Name>OptionsPlay.DAL.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\Common\OptionsPlay.DAL.Interfaces\OptionsPlay.DAL.Interfaces.csproj">
+      <Project>{4EB7D6F0-8A8A-4F15-AC2F-078DCDF8F4D1}</Project>
+      <Name>OptionsPlay.DAL.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\Common\OptionsPlay.Model\OptionsPlay.Model.csproj">
+      <Project>{187287e1-ce16-4b99-b56d-ae6308e06dc8}</Project>
+      <Name>OptionsPlay.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\EntityFramework\OptionsPlay.DAL.EF.Core\OptionsPlay.DAL.EF.Core.csproj">
+      <Project>{BA944BFF-020E-406A-A1D2-5706E69D0FF4}</Project>
+      <Name>OptionsPlay.DAL.EF.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\EntityFramework\OptionsPlay.DAL.EF.Repositories\OptionsPlay.DAL.EF.Repositories.csproj">
+      <Project>{7DC630EF-360B-408A-A9E2-869E7E1BCB8C}</Project>
+      <Name>OptionsPlay.DAL.EF.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\MongoDB\OptionsPlay.DAL.MongoDB.Repositories\OptionsPlay.DAL.MongoDB.Repositories.csproj">
+      <Project>{91E85C5D-28C3-4FC7-B000-DF50D5472A39}</Project>
+      <Name>OptionsPlay.DAL.MongoDB.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.Common\OptionsPlay.DAL.SZKingdom.Common.csproj">
+      <Project>{0FDE2710-C57E-4F17-84B4-4F005E15C971}</Project>
+      <Name>OptionsPlay.DAL.SZKingdom.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.DataProvider\OptionsPlay.DAL.SZKingdom.DataProvider.csproj">
+      <Project>{D9CF000C-F46B-426E-A3BB-BC18A1F1EC57}</Project>
+      <Name>OptionsPlay.DAL.SZKingdom.DataProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OptionsPlay.MarketData.Indicators\OptionsPlay.MarketData.Indicators.csproj">
+      <Project>{6c995254-8d66-4aaf-989c-75fb702d30a4}</Project>
+      <Name>OptionsPlay.MarketData.Indicators</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OptionsPlay.MarketData\OptionsPlay.MarketData.csproj">
+      <Project>{abab6c17-967a-4efe-ac63-4e9bcf25025b}</Project>
+      <Name>OptionsPlay.MarketData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Web\OptionsPlay.Web.SignalR\OptionsPlay.Web.SignalR.csproj">
+      <Project>{F785F5E4-0F59-4F51-8C54-D211CB717B9E}</Project>
+      <Name>OptionsPlay.Web.SignalR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OptionsPlay.Cache\OptionsPlay.Cache.csproj">
+      <Project>{1A11B4AD-4D09-4A15-9C73-FEFCB138CDE4}</Project>
+      <Name>OptionsPlay.Cache</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

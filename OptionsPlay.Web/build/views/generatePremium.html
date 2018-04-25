@@ -1,0 +1,112 @@
+﻿<div id="generatePremium">
+	<div class="toolbox1">
+		<div class="filter-zone">
+			<span data-bind="t: 'generatePremium.selectFilters'"></span>
+		</div>
+		<div class="radios-zone">
+			<div class="radio-zone">
+				<input data-bind="click:changePriceFilter(1)" type="radio" name="priceFilter" class="defaultFilter"/>
+				<span data-bind="t: 'generatePremium.aboveSD'"></span>
+				<!--input data-bind="value: priceFilterValue1" class="radio-input" /-->
+				<input data-bind="kendoNumericTextBox: {value: priceFilterValue1, min: 0, max: 2, step: 0.1}" class="k-numerictextbox radio-input numberic-input" />
+			</div>
+			<div class="radio-zone">
+				<input data-bind="click:changePriceFilter(2)" type="radio" name="priceFilter" />
+				<span data-bind="t: 'generatePremium.aboveStrike'"></span>
+				<input data-bind="kendoNumericTextBox: {value: priceFilterValue2, step: 1, decimal: 0} " class="radio-input numberic-input" />
+			</div>
+			<div class="radio-zone">
+				<input data-bind="click:changePriceFilter(3)" type="radio" name="priceFilter" />
+				<span data-bind="t: 'generatePremium.aboveStrikePercent'"></span>
+				<input data-bind="kendoNumericTextBox: {value: priceFilterValue3, min: 0, max: 100, step: 1}" class="radio-input numberic-input" />
+			</div>
+		</div>
+	</div>
+
+	<div class="toolbox2">
+		<div class="gen-chart-zone">
+			<!-- ko if: combinationChart() && combination() -->
+			<h4 class="text-center strategy-title">
+				<a data-bind="with: combination">
+					<span data-bind="t: 'strategies.' + buyOrSell()"></span>
+					<span data-bind="t: 'strategies.unit', i18nOptions: {count: absQuantity()}"></span>
+					<span data-bind="text: expiries().join('/')"></span>
+					<span data-bind="text: strikes().join('/')"></span>
+					<span data-bind="t: 'strategies.' + strategyName()"></span>
+				</a>
+			</h4>
+			<div data-bind="plChart: combinationChart, css: combination().sentiment()" class="gen-chart sentiment-border">
+			</div>
+			<button data-bind="click: prefill" class="order-btn"><span data-bind="t: 'generatePremium.order'"></span></button>
+			<!-- /ko -->
+		</div>
+	</div>
+
+	<div class="toolbox3">
+		<div class="filter-zone">
+			<span data-bind="t: 'generatePremium.inputRange'"></span>
+		</div>
+		<div class="range-zone">
+			<div data-bind="t: 'generatePremium.expiryRange'">
+			</div>
+			<div class="days-filter">
+				<span data-bind="t: 'generatePremium.start'"></span>
+				<input data-bind="value: start" class="check-input" />
+				<span data-bind="t: 'generatePremium.to'"></span>
+				<input data-bind="value: end" class="check-input" />
+				<span data-bind="t: 'generatePremium.daysBefore'"></span>
+			</div>
+			<div class="checks-zone">
+				<div class="check-zone">
+					<input data-bind="click:flipPremiumFilter()" type="checkbox" checked="checked" />
+					<span data-bind="t: 'generatePremium.minPremium'"></span>
+					<input data-bind="value: minPremium" class="check-input" />
+				</div>
+				<div class="check-zone">
+					<input data-bind="click:flipReturnFilter()" type="checkbox" checked="checked" />
+					<span data-bind="t: 'generatePremium.minReturn'"></span>
+					<input data-bind="value: minReturn" class="check-input" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- todo: localization -->
+	<div id="genGridContainer" class="base-grid height-100">
+		<table id="genGrid" data-bind="kendoGrid: gridOptions, kendoSpinner: gridReady">
+			<thead>
+				<tr>
+					<th data-bind="t: 'generatePremium.bid'" ></th>
+					<th data-bind="t: 'generatePremium.annualReturn'" ></th>
+					<th data-bind="t: 'generatePremium.otm'" ></th>
+					<th data-bind="t: 'generatePremium.breakeven'"></th>
+					<th data-bind="t: 'generatePremium.prob'" ></th>
+					<th data-bind="t: 'generatePremium.strike'"></th>
+					<th data-bind="t: 'generatePremium.expiry'"></th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	
+	<ul id="optionChainsRowContextMenu" data-bind="kendoExtContextMenu: premiumContextMenu">
+		<li class="selltoCoveredCall">
+			<span class="k-icon k-i-custom"></span><span data-bind="t: 'trade.stockBizOptions.openCoveredCall'"></span>
+		</li>
+		<li class="selltoOpen">
+			<span class="k-icon k-i-custom"></span><span data-bind="t: 'trade.stockBizOptions.sellToOpen'"></span>
+		</li>
+	</ul>
+
+	<script id="genRowTemplate" type="text/html">
+		<tr data-bind="css:{chosen: chosen}, event: {mousedown:$parent.popPl, dblclick: $parent.dblChoose}" class="gen-body-row">
+			<td data-bind="textFormatted: bid, format: '#.000'"></td>
+			<td data-bind="textFormatted: annualReturn, format: '#.00%'"></td>
+			<td data-bind="textFormatted: otm, format: '#.00%'"></td>
+			<td data-bind="textFormatted: breakeven, format: '#.00'"></td>
+			<td data-bind="textFormatted: prob, format: '#.00%'"></td>
+			<td data-bind="textFormatted: strike, format: '#.00'"></td>
+			<td data-bind="textFormatted: new Date(expiryDate.date), format: {type: 'date', dateFormat: 'yyyy年MM月'}"></td>
+		</tr>
+	</script>
+</div>

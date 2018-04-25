@@ -1,0 +1,95 @@
+﻿<div>
+	<!-- ko if: hasOption -->
+	<div data-bind="css: { 'fade': !hasOptimal() || !isTradable() }" id="incomeControl">
+		<span>
+			<span>Own shares of </span><span data-bind="text: symbol" class="symbol"></span><span>?</span>
+			<span class="btn-group">
+				<button data-bind="click: activateIncomeStrategy.bind($data, true), css: { 'btn-active': hasShares() === true }, activityTracker: { events: 'click', name: 'hasShares', value: 'yes' }" type="button" class="btn">Yes</button>
+				<button data-bind="click: activateIncomeStrategy.bind($data, false), css: { 'btn-active': hasShares() === false }, activityTracker: { events: 'click', name: 'hasShares', value: 'no' }" type="button" class="btn">No</button>
+			</span>
+		</span>
+		<!-- ko if: hasShares -->
+			<span class="bold pull-right">
+				<span>Number Of Shares:</span>
+				<input type="text" data-bind="autoNumeric: shares, settings: { vMin: 0, mDec: 0 }, activityTracker: { events: 'change', name: 'numberOfShares' }"
+					   class="input-mini" />
+				<span>Cost Basis:</span>
+				<input type="text" data-bind="currency: costBasis, activityTracker: { events: 'change', name: 'costBasis' }" class="input-mini" placeholder="$" />
+			</span>
+		<!-- /ko -->
+	</div>
+
+	<div data-bind="foreach: incomeCombinations" id="incomeChartContainer">
+		<div data-bind="click: $parent.activeIncomeStrategy, css: { 'default': $parent.activeIncomeStrategy() === null, 'active-strategy': $parent.activeIncomeStrategy() === $data, 'inactive-strategy': $parent.activeIncomeStrategy() && $parent.activeIncomeStrategy() !== $data }"
+			 class="income-box">
+			<!-- ko ifnot: combination -->
+				<h5 class="padding-10">Based on the currently available options on <b data-bind="text: $parent.symbol()"></b>, OptionsPlay® did not find an optimal <b data-bind="	text: legType"></b> to write which provides a good balance between return and risk of <!-- ko if: legType == 'CALL' -->losing<!-- /ko --><!-- ko if: legType == 'PUT' -->purchasing<!-- /ko --> the stock. To view more <b>aggressive</b> strategies, <a href="#" class="bold" data-bind="	click: showIncomeComb,  activityTracker: { events: 'click', name: 'showAggresiveStrategiesButton', value: legType }">click here</a>.</h5>
+			<!-- /ko -->
+			<!-- ko if: combination -->
+				<div data-bind="with: combination, css: combination().classes" class="pl-chart">
+					<div data-bind="click: $parents[1].tradeCombination, activityTracker: { events: 'click', name: 'incomeStrategiesTradeCombinationButtonAboveChart', value: '' }, template: 'combinationHeading'" class="heading-border-bottom">
+					</div>
+					<div class="position-relative">
+						<div class="overlay" data-bind="click: $parents[1].expandIncomeCombination, activityTracker: { events: 'click', name: 'incomeStrategiesExpandButton', value: '' }"></div>
+						<div data-bind="css: incomeChartVM.freeChosenQuadrandName" class="pl-chart-click-modal fa fa-search"></div>
+						<div class="text-center">
+							<div data-bind="plChart: incomeChartVM" class="pl-chart-container"></div>
+						</div>
+					</div>
+					<!-- ko template: 'comb-detail-table'-->
+					<!-- /ko -->
+					<div class="btn-group trade-modify-panel">
+						<div class="trade-btn-help"></div>
+						<input type="button"
+							   data-bind="click:$parents[1].tradeCombination, activityTracker: { events: 'click', name: 'incomeStrategiesTradeCombinationButtonBelowChart', value: $parents[1].tradeTicket.loggedData }"
+							   value="Trade"
+							   class="btn trade-btn" />
+						<input type="button"
+							   data-bind="click: $parents[1].editIncomeCombination, activityTracker: { events: 'click', name: 'incomeStrategiesEditCombinationButton', value: $parents[1].tradeTicket.loggedData }"
+							   value="Modify"
+							   class="btn modify-btn" />
+						<div class="modify-btn-help"></div>
+					</div>
+				</div>
+				<div data-bind="visible: $parent.showEditorIncomeCombination() !== combination()" class="income-combination-english text-left">
+					<span data-bind="html: combination().returnSentence"></span>
+					<span data-bind="html: $parent.sharesToWrite, visible: !$index()"></span>
+				</div>
+			<!-- /ko -->
+		</div>
+	</div>
+
+	<div id="incomeToolboxContainer">
+		<div data-bind="with: showEditorIncomeCombination, visible: showEditorIncomeCombination" id="incomeCombinationEditor">
+			<!-- ko if: $data -->
+				<div data-bind="template: { name: 'combination-editor', data: editorVM}"></div>
+			<!-- /ko -->
+		</div>
+	</div>
+
+	<div data-bind="with: expandedIncomeCombination, css: { 'in': expandedIncomeCombination(), 'invisible': !expandedIncomeCombination() }" id="expandedChartContainer" class="fade">
+		<div id="expandedTitle">
+			<span data-bind="text: fullName, css: {'font-14': fullName().length > 25 && fullName().length <= 40, 'font-12': fullName().length > 40 }"></span>
+			<button data-bind="click: $parent.closeExpandedIncomeCombination" class="close">&times;</button>
+		</div>
+		<div data-bind="css: sentiment" id="expandedStrategyZone" class="pl-chart">
+			<div data-bind="plChart: expandedChart" class="pl-chart-container">
+			</div>
+		</div>
+		<div data-bind="if: deltaDetails" id="expandedEnglish">
+			<p data-bind="with: deltaDetails"><b data-bind="text: sentiment"></b> w/ <b data-bind="text: riskProfile"></b></p>
+			<div class="font-10">
+				<!-- ko template: { name: 'greeks-explanation-message' } -->
+				<!-- /ko -->
+			</div>
+		</div>
+	</div>
+	<div data-bind="fadeBackdropVisible: expandedIncomeCombination" class="backdrop"></div>
+	<!-- /ko -->
+
+	<!-- ko ifnot: hasOption -->
+		<div id="incomeMessageContainer">
+			<div>Since there are no listed options for <span data-bind="text: symbol"></span>, there are no Income Strategies available for this stock.</div>
+		</div>
+	<!-- /ko -->
+</div>

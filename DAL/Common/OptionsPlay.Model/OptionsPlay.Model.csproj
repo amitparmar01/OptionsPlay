@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{187287E1-CE16-4B99-B56D-AE6308E06DC8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OptionsPlay.Model</RootNamespace>
+    <AssemblyName>OptionsPlay.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dev|AnyCPU'">
+    <OutputPath>bin\Dev\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=1.9.1.221, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\mongocsharpdriver.1.9.1\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=1.9.1.221, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\mongocsharpdriver.1.9.1\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\DbfFileMapAttribute.cs" />
+    <Compile Include="Attributes\TxtFileMapAttribute.cs" />
+    <Compile Include="Entities\EF\Cache\CacheStatus.cs" />
+    <Compile Include="Entities\EF\Cache\MarketData\OptionBasicInformationCache.cs" />
+    <Compile Include="Entities\EF\Cache\MarketData\SecurityInformationCache.cs" />
+    <Compile Include="Entities\EF\Configuration\Holiday.cs" />
+    <Compile Include="Entities\EF\Core\MasterSecurity.cs" />
+    <Compile Include="Entities\EF\ITrackableItem.cs" />
+    <Compile Include="Entities\EF\Log\Log.cs" />
+    <Compile Include="Entities\EF\Trade\Trade.cs" />
+    <Compile Include="Entities\EF\Trade\TradeLeg.cs" />
+    <Compile Include="Entities\EF\UserConfiguration\UserSetting.cs" />
+    <Compile Include="Entities\EF\WatchList\WatchList.cs" />
+    <Compile Include="Entities\EF\WatchList\WatchListItem.cs" />
+    <Compile Include="Entities\Mongo\MarketData\EarningsCalendar.cs" />
+    <Compile Include="Entities\Mongo\MarketData\HistoricalQuote.cs" />
+    <Compile Include="Entities\EF\Membership\FCUser.cs" />
+    <Compile Include="Entities\EF\Membership\WebUser.cs" />
+    <Compile Include="Entities\Mongo\MarketData\QuoteInfo.cs" />
+    <Compile Include="Entities\Mongo\MarketData\StockMarketIndex.cs" />
+    <Compile Include="Entities\Mongo\MarketData\StockQuoteInfo.cs" />
+    <Compile Include="Entities\Mongo\MarketData\OptionQuoteInfo.cs" />
+    <Compile Include="Entities\Mongo\Scheduler\SchedulerQueue.cs" />
+    <Compile Include="Entities\Mongo\Scheduler\SchedulerTask.cs" />
+    <Compile Include="Entities\EF\Strategy\Image.cs" />
+    <Compile Include="Entities\Mongo\BaseMongoEntity.cs" />
+    <Compile Include="Entities\EF\Configuration\ConfigDirectory.cs" />
+    <Compile Include="Entities\EF\Configuration\ConfigValue.cs" />
+    <Compile Include="Entities\EF\IBaseEntity.cs" />
+    <Compile Include="Entities\EF\Membership\Role.cs" />
+    <Compile Include="Entities\EF\Membership\User.cs" />
+    <Compile Include="Entities\EF\Strategy\StrategyGroup.cs" />
+    <Compile Include="Entities\EF\Strategy\StrategyLeg.cs" />
+    <Compile Include="Entities\EF\Strategy\StrategyDetail.cs" />
+    <Compile Include="Entities\EF\Strategy\Strategy.cs" />
+    <Compile Include="Entities\Mongo\SectorAndIndustry\BaseCalc.cs" />
+    <Compile Include="Entities\Mongo\SectorAndIndustry\IndustryCalculation.cs" />
+    <Compile Include="Entities\Mongo\SectorAndIndustry\SectorAndIndustry.cs" />
+    <Compile Include="Entities\Mongo\SectorAndIndustry\SectorCalculation.cs" />
+    <Compile Include="Entities\Mongo\TradeIdea\DailyPlay.cs" />
+    <Compile Include="Entities\Mongo\TradeIdea\Signal.cs" />
+    <Compile Include="Entities\Mongo\TradeIdea\TradeIdea.cs" />
+    <Compile Include="Entities\Mongo\TradeIdea\TradeIdeaRuleWrapper.cs" />
+    <Compile Include="Entities\Mongo\UserActivity\UiActivity.cs" />
+    <Compile Include="Entities\Mongo\UserActivity\UserActivity.cs" />
+    <Compile Include="Enums\Cache\CacheEntity.cs" />
+    <Compile Include="Enums\Cache\CacheEntryStatus.cs" />
+    <Compile Include="Enums\Environment.cs" />
+    <Compile Include="Enums\LegType.cs" />
+    <Compile Include="Enums\BuyOrSell.cs" />
+    <Compile Include="Enums\Logs\ApplicationType.cs" />
+    <Compile Include="Enums\Logs\LogLevel.cs" />
+    <Compile Include="Enums\Period.cs" />
+    <Compile Include="Enums\RiskTolerance.cs" />
+    <Compile Include="Enums\Scheduler\SchedulerExecutionStatus.cs" />
+    <Compile Include="Enums\Scheduler\SchedulerTaskType.cs" />
+    <Compile Include="Enums\Sentiment.cs" />
+    <Compile Include="Enums\Risk.cs" />
+    <Compile Include="Enums\Membership\PermissionCollection.cs" />
+    <Compile Include="Enums\Membership\RoleCollection.cs" />
+    <Compile Include="Enums\StrategyLeg\NearestStrike.cs" />
+    <Compile Include="Enums\StrategyLeg\StrikeGapMethod.cs" />
+    <Compile Include="Enums\StrategyLeg\StrikeGapMethodDirection.cs" />
+    <Compile Include="Enums\TradeIdeaRule.cs" />
+    <Compile Include="Enums\TradeIdeasSentiment.cs" />
+    <Compile Include="Enums\UserActivityType.cs" />
+    <Compile Include="Enums\UserSettings\NewsletterType.cs" />
+    <Compile Include="Extensions\OptionQuoteInfoExtensions.cs" />
+    <Compile Include="Extensions\SchedulerTaskTypeExtension.cs" />
+    <Compile Include="Extensions\StockQuoteInfoExtensions.cs" />
+    <Compile Include="Extensions\TradeIdeaExtension.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\OptionsPlay.Common\OptionsPlay.Common.csproj">
+      <Project>{85025E83-4476-400A-B282-363256F61EFA}</Project>
+      <Name>OptionsPlay.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EntityFramework\OptionsPlay.EF.Encryption\OptionsPlay.EF.Encryption.csproj">
+      <Project>{C6D9EDCC-E9A7-4C3C-AE4A-51897DADCA58}</Project>
+      <Name>OptionsPlay.EF.Encryption</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.Common\OptionsPlay.DAL.SZKingdom.Common.csproj">
+      <Project>{0fde2710-c57e-4f17-84b4-4f005e15c971}</Project>
+      <Name>OptionsPlay.DAL.SZKingdom.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

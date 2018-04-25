@@ -1,0 +1,86 @@
+﻿@using System.Web.Optimization
+@using OptionsPlay.Web.Infrastructure.Helpers
+<!DOCTYPE html>
+<html>
+<head>
+	<title>第一创业期权交易</title>
+	<meta charset="utf-8" />
+	<link rel="shortcut icon" href="@Url.Content("~/Content/images/favicon.ico")">
+	
+	@Scripts.Render("~/Scripts/chartIQBundle")
+	
+	@Styles.Render("~/Content/vendor")
+	@Styles.Render("~/Content/kendo/css")
+	@Styles.Render("~/Content/custom/global")
+	
+	@Styles.Render("~/Content/powerhousePro/styles")
+
+    @{if (ScriptsVersioning.IsReleaseBuild())
+    {
+        @Styles.Render("~/Content/custom/views/custom.min.css")
+    }
+    else {
+        @Styles.Render("~/Content/custom/views/bottom.less")
+        @Styles.Render("~/Content/custom/views/chains.less")
+        @Styles.Render("~/Content/custom/views/generatePremium.less")
+        @Styles.Render("~/Content/custom/views/help.less")
+        @Styles.Render("~/Content/custom/views/languagePicker.less")
+        @Styles.Render("~/Content/custom/views/manageStrategies.less")
+        @Styles.Render("~/Content/custom/views/optionList.less")
+        @Styles.Render("~/Content/custom/views/portfolio.less")
+        @Styles.Render("~/Content/custom/views/quotes.less")
+        @Styles.Render("~/Content/custom/views/shell.less")
+        @Styles.Render("~/Content/custom/views/signIn.less")
+        @Styles.Render("~/Content/custom/views/strategies.less")
+        @Styles.Render("~/Content/custom/views/trade.less")
+    }}
+
+
+
+
+</head>
+<body>
+	<div id="applicationHost">
+		<div id="splash">
+			<div>
+				<div>
+					第一创业
+					<img src="@Url.Content("~/Content/kendo/silver/loading_2x.gif")" alt="loader for splash screen" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	@Scripts.Render("~/Scripts/jquery")
+
+	<div id="loader">
+		<div class="loaderBackground"></div>
+		<div class="loaderImg">
+			<img src="@Url.Content("~/Content/kendo/silver/loading_2x.gif")" alt="global page loader">
+		</div>
+	</div>
+
+	<script id="defaultValidationMessageTemplate" type="text/html">
+		<!-- ko if: field.isModified() && !field.isValid()-->
+		<span class="validation-tooltip k-widget k-tooltip k-tooltip-validation k-invalid-msg" role="alert">
+			<span class="k-icon k-warning"></span>
+			<span data-bind="t: field.error"></span>
+		</span>
+		<!-- /ko -->
+	</script>
+	<script id="noDataTemplate" type="text/html">
+		<div data-bind="t: 'app.common.noData'"></div>
+	</script>
+    @{if (ScriptsVersioning.IsReleaseBuild())
+    {
+        <script type="text/javascript" src="@Url.Content("~/Scripts/require-2.1.11.js")" data-main="@Url.Content("~/build/main.js")"></script>
+    }
+    else
+    {
+        <script type="text/javascript" src="@Url.Content("~/Scripts/require-2.1.11.js")" data-main="@Url.Content("~/App/main.js")"></script>
+    }}
+    
+
+</body>
+</html>
+

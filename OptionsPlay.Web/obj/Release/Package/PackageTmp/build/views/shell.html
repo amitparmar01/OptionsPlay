@@ -1,0 +1,260 @@
+﻿<!-- wrapper div is essential for knockout virtual bindings to work -->
+<div id="authenticatedView">
+    <div class="light">
+        <div id="loadingDiv" data-bind="visible: router.isNavigating || context.isTradeIdPanelLoading || context.isHowPanelLoading" style="">
+            <div style=""> </div>
+        </div>
+        <div id="header">
+            <div class="pull-left">
+                <div class="inline-block">
+                    <img src="Content/images/logo.png" alt="OptionsPlay logo" />
+                </div>
+                <!-- ko if: session.isAuthenticated() -->
+                <div class="menu inline-block">
+                    <div>
+                        <!-- ko foreach: router.navigationModel -->
+                        <a data-bind="attr: { href: hash }, t: title, css: { active: isActive }" class="k-link"></a>
+                        <!-- /ko -->
+                        <a data-bind="click: expandTrade" class="k-link">交易</a>
+                    </div>
+
+                    <!--<div data-bind="visible: router.isNavigating" id="routerIsNavigatingIndicator">
+                        <img src="Content/kendo/silver/loading.gif">
+                    </div>-->
+                </div>
+                <!-- /ko -->
+            </div>
+
+            <div id="accountInfo" class="pull-right">
+                <!-- ko if: session.isAuthenticated() -->
+                <div data-bind="template: 'dropDownMenu'" id="userMenu"></div>
+                <div id="helpToggle" data-bind="visible:!router.activeInstruction().fragment">
+                    <i class="fa fa-question-sign"></i>
+                    <a data-bind="t: 'labels.help', click: help.toggleMarkers"></a>
+                </div>
+                <!-- /ko -->
+            </div>
+        </div>
+
+        <div data-bind="router: { transition: 'entrance' }" id="mainContainer" class="light"></div>
+
+        <!-- ko if: session.isAuthenticated -->
+        <div data-bind="compose: 'viewmodels/bottom'" id="footer">
+        </div>
+        <!-- /ko -->
+
+        <div data-bind="kendoGlobalNotification: kendoNotification"></div>
+
+        <div data-bind="kendoWindow: transferFundsOptions" id="transferWindow">
+            <div style="width: 37%; float:left; min-width:302px;padding-left:2%">
+                <div class="row">
+                    <div class="fstLabel">
+                        <span data-bind="t: 'pages.transferBank'"></span>:
+                    </div>
+                    <div>
+                        <input data-bind="kendoDropDownList: bankOptions" />
+                    </div>
+                </div>
+                <!--<div class="row">
+                    <div class="fstLabel">
+                        <span data-bind="t: 'pages.fundsPassword'"></span>:
+                    </div>
+                    <div>
+                        <input data-bind="value: fundPassword" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="fstLabel">
+                        <span data-bind="t: 'pages.bankPassword'"></span>:
+                    </div>
+                    <div>
+                        <input data-bind="value: bankPassword" />
+                    </div>
+                </div>-->
+
+                <div class="row">
+                    <div class="fstLabel">
+                        <span data-bind="t: 'pages.bankFunds'"></span>:
+                    </div>
+
+                    <div>
+                        <input class="dataPanelCenter" disabled /><button data-bind="t: 'labels.query',click:activeBankPasswordWindow" style=" margin-left:5px;"></button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="fstLabel">
+                        <span data-bind="t: 'pages.accountFunds'"></span>
+                    </div>
+                    <div>
+                        <input id="fundValueInBox" class="dataPanelCenter" disabled /><button data-bind="t: 'labels.query',click:showFund" style="margin-left:5px;"></button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="fstLabel">
+                        <span data-bind="t: 'pages.transferNum'"></span>:
+                    </div>
+                    <div>
+                        <input data-bind="value: transferNum, style: { backgroundColor: fundHasOrNot() < 0 ? 'pink' : 'white' }" />
+                    </div>
+
+                </div>
+                <div class="row ">
+                    <div class="fstLabel" style="visibility:hidden">
+                        <span data-bind="t: 'pages.transferNum'"></span>:
+                    </div>
+                    <div>
+                        <input data-bind="value: warningInfo, " style="border: hidden ;outline:none; color:red;" />
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="fstButtom">
+                        <button data-bind="t: 'pages.brokerToBank',click:activeBrokeToBankWindow" style="margin-left:17px"></button>
+                    </div>
+                    <div class="fstButtom">
+                        <button data-bind="t: 'pages.bankToBroker',click:activeBankToBrokeWindow" style="margin-left:10px"></button>
+                    </div>
+                </div>
+            </div>
+            <div id="historicalFundTransferContainer" class="base-grid height-100" style="width:60%; float:left; padding-top: 4px">
+                <span data-bind="t: '起始日期'"></span>
+                <input data-bind="kendoDatePicker: {value: transactionDateStart, format: 'yyyy/MM/dd'}" class="datepicker" style="width:33%" />
+                <span style="width:5%;display:inline-block">   </span>
+                <span data-bind="t: '结束日期'"></span>
+                <input data-bind="kendoDatePicker: {value: transactionDateEnd, format: 'yyyy/MM/dd'}" class="datepicker" style="width:33%" />
+                <table id="historicalFundTransferGrid" data-bind="kendoGrid: hisotoricalFundTransferGridOptions, kendoSpinner: gridReady">
+                    <thead>
+                        <tr>
+                            <!--<th data-bind="t: 'pages.id'"></th>
+                            <th data-bind="t: 'pages.customerName'"></th>-->
+                            <th data-bind="t: 'pages.transferAmount'"style="width:100px"></th>
+                            <!--<th data-bind="t: 'pages.fundBalance'"></th>-->
+                            <th data-bind="t: 'pages.idCode'" style="width:200px"></th>
+                            <th data-bind="t: 'pages.occurDate'" style="width:200px"></th>
+                            <th data-bind="t: 'pages.cubsbTradeStatus'" style="width:75px"></th>
+                            <th data-bind="t: 'pages.cubsbTradeId'" style="width:115px"></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+        </div>
+
+        <div data-bind="kendoWindow: changePasswordWindow" id="changePasswordWindow">
+            <div class="margin-left-50 margin-top-10">
+                <div>
+                    <span data-bind="t: 'pages.passwordType'"></span>
+                    <input type="text" data-bind="kendoDropDownList: kendoPasswordTypes" class="width-110 margin-left-50" />
+                </div>
+                <div class="margin-top-5">
+                    <span data-bind="t: 'pages.currentPassword'"></span>
+                    <input type="password" data-bind="value: currentPassword" class="margin-left-50" />
+                </div>
+                <div class="margin-top-5">
+                    <span data-bind="t: 'pages.newPassword'"></span>
+                    <input type="password" data-bind="value: newPassword" class="margin-left-64" />
+                </div>
+                <div class="margin-top-5">
+                    <span data-bind="t: 'pages.newPasswordAgain'"></span>
+                    <input type="password" data-bind="value: newPasswordAgain" class="margin-left-8" />
+                </div>
+                <div class="margin-top-5">
+                    <button class="margin-left-180" data-bind="click: changePassword"><span data-bind="t: 'pages.updatePassword'"></span></button>
+                </div>
+            </div>
+
+        </div>
+
+        <div data-bind="kendoWindow:bankPasswordWindow" id="bankPasswordWindow">
+            <div>
+                <div>
+                    <input type="password" id="bankPasswordCheck" />
+                    <button data-bind="click:excuteBankPassword"><span data-bind="t: '确定'"></span></button>
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <div data-bind="kendoWindow:fundPasswordWindow" id="fundPasswordWindow">
+            <div>
+                <div>
+                    <input type="password" id="fundPasswordCheck" />
+                    <button data-bind="click:excuteFundPassword"><span data-bind="t: '确定'"></span></button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div data-bind="kendoWindow:bankToBrokeWindow" id="bankToBrokeWindow">
+            <div>
+                <div>
+                    <input type="password" data-bind="value:bankPassword" />
+                    <button data-bind="click:excuteBankToBrokeWindow"><span data-bind="t: '确定'"></span></button>
+                </div>
+
+            </div>
+        </div>
+
+        <div data-bind="kendoWindow:BrokeToBankWindow" id="BrokeToBankWindow">
+            <div>
+                <div>
+                    <input type="password" data-bind="value:fundPassword" />
+                    <button data-bind="click:excuteBrokeToBankWindow"><span data-bind="t: '确定'"></span></button>
+                </div>
+
+            </div>
+        </div>
+        <script id="historicalFundTransferRowTemplate" type="text/html">
+            <tr>
+                <!--<td data-bind="text: qtyPos + 1"></td>
+                <td data-bind="text: customerName"></td>-->
+                <td data-bind="textFormatted: bidAmount, format: '#.00'" style="width:100px"></td>
+                <!--<td data-bind="text: fundBalance"></td>-->
+                <td data-bind="text: idCode" style="width:200px"></td>
+                <td data-bind="textFormatted: occurTime, format: {dateFormat: 'yyyy-MM-dd'}" style="width:200px"></td>
+                <td data-bind="t: 'pages.tradeStatus.' + cubsbTradeStatus" style="width:75px"></td>
+                <td style="width:115px" data-bind="t: (cubsbTradeId != '11' && cubsbTradeId != '12' && cubsbTradeId != '13' && cubsbTradeId != '18') ? ('pages.tradeId.unknown') : ('pages.tradeId.' + cubsbTradeId)">
+</tr>
+        </script>
+
+    </div>
+</div>
+
+<script type="text/html" id="dropDownMenu">
+    <ul data-bind="kendoMenu: {}">
+        <li>
+            <!-- ko text: session.userName() || session.accountNumber() -->
+            <!-- /ko -->
+            <ul>
+                <!-- ko ifHasPermissions: 'ManageStrategies' -->
+                <li>
+                    <a data-bind="t: 'pages.strategies'" href="#/strategy/all"></a>
+                </li>
+                <li>
+                    <a data-bind="t: 'pages.strategyGroups'" href="#/strategy/group/all">Strategy Groups</a>
+                </li>
+                <!-- /ko -->
+                <li>
+                    <a data-bind="t: 'pages.transferFunds', click: transfer"></a>
+                </li>
+                <li>
+                    <a data-bind="t: 'pages.changePassword', click: changePW"></a>
+                </li>
+                <li id="divider"></li>
+                <li>
+                    <a data-bind="t: 'labels.signOut', click: signOut" class="k-link"></a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</script>
+
+<script type="html/text" id="transferFundsHeaderTemplate">
+    <div data-bind="t: 'pages.transferFunds'"></div>
+</script>

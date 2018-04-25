@@ -1,0 +1,356 @@
+﻿<div>
+	<div data-bind="foreach: allCombinations" id="chartContainer">
+		<div class="trade-box">
+			<!-- ko ifnot: originalName -->
+			<!-- ko ifnot: true -->
+			<div class="pl-chart text-center">
+				<div class="text-center heading-border-bottom">
+					<div class="combination-heading uppercase">
+						<span data-bind="text: $parent.symbol() + '不可交易'"></span>
+					</div>
+				</div>
+			</div>
+			<!-- /ko -->
+			<!-- ko if: true -->
+			<div class="pl-chart text-center">
+				<div data-bind="click: $parent.tradeCombination, activityTracker: { events: 'click', name: 'tradingStrategiesTradeCombinationButtonAboveChart', value: $parent.tradeTicket.loggedData }, template: 'combinationHeading'" class="heading-border-bottom">
+				</div>
+				<div class="pl-chart-wrapper">
+					<!--<div class="overlay" data-bind="click: $parent.expandChartClick, activityTracker: { events: 'click', name: 'tradingStrategiesExpandButton', value: '' }"></div>-->
+					<!--<div data-bind="css: chartVM.freeChosenQuadrandName" class="pl-chart-click-modal share-icon-custom"></div>-->
+					<div class="text-center stretched">
+						<div data-bind="plChart: chartVM, updating: $parent.chartSPrices" class="pl-chart-container"></div>
+					</div>
+				</div>
+				<div class="chart-toolbox">
+					<div data-bind="css: { flipped: !$parent.showOptionsPlayScore() }" class="comb-detail-pane flip-container">
+						<div class="flipper">
+							<div data-bind="click: $parent.toggleOptionsPlayScore.bind($data, $parent.hasOption()), activityTracker: { events: 'click', name: 'showOptionsPlayScore', value: '' }" class="text-center cursor-pointer front">
+								<div>
+									适合趋势:
+									<span data-bind="t: 'strategies.' + sentiment(), css: sentiment" class="sentiment-name"></span>
+								</div>
+								<div>
+									成本:
+									<strong data-bind="textFormatted: cost(), format: { type: 'currency', decimalPlace: 0 }, css: {'font-12': Math.abs(cost()) > 999999 }" class="trade-cost"></strong>
+								</div>
+								<div>
+									<h5>策略评级</h5>
+									<img data-bind="css: { 'invisible': !($index() === $parent.bestOPScoreCombIndex() && $parent.bestOPCombCheckListAllGreen()) }"
+										 src="Content/images/light-bulb.png" class="options-play-logo" alt="Options Play Logo" />
+									<div data-bind="text: opScoreFormatted, css: opScoreCssClass" class="optionsplay-score-round"></div>
+									<img data-bind="css: { 'invisible': !($index() === $parent.bestOPScoreCombIndex() && !$parent.bestOPCombCheckListAllGreen()) }"
+										 src="Content/images/icon-checkmark.png" class="check-mark" alt="recommend" />
+								</div>
+							</div>
+							<div class="back">
+								<div data-bind="template: { name: 'comb-detail-table' }, click: $parent.toggleOptionsPlayScore.bind($data, $parent.hasOption())"
+									 class="cursor-pointer">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="btn-group trade-modify-panel">
+						<div class="trade-btn-help"></div>
+                        
+						<input type="button"
+							   data-bind="click:$parent.tradeCombination, activityTracker: { events: 'click', name: 'tradingStrategiesTradeCombinationButtonBelowChart', value:  $parent.tradeTicket.loggedData }"
+							   value="下单"
+							   class="btn trade-btn" />
+						<input type="button"
+							   data-bind="click: $parent.editCombination, css: { 'btn-active': $parent.showEditorCombination() == $data }, activityTracker: { events: 'click', name: 'tradingStrategiesEditCombinationButton', value: $parent.tradeTicket.loggedData }"
+							   value="修改"
+							   class="btn modify-btn" />
+                        
+						<div class="modify-btn-help"></div>
+					</div>
+				</div>
+			</div>
+			<!-- /ko -->
+			<!-- /ko -->
+			<!-- ko if: originalName -->
+			<div>
+				<!-- ko if: !$parent.hasOption() && $index() == 1 -->
+				<div class="pl-chart text-center">
+					<div class="text-center heading-border-bottom">
+						<div class="combination-heading">
+							<div>
+								<span data-bind="text: $parent.symbol() + '没有场内交易的期权'"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /ko -->
+				<!-- ko if: $parent.hasOption() -->
+				<div>
+					<div class="pl-chart bt-container">
+						<div class="text-center">
+							<button class="no-optimal uppercase">
+								<div>
+									<span>没有优化的</span>
+									<!-- ko if: $index() === 1 && $parent.sentiment() && $parent.sentiment().match(/bearish/i) -->
+									<span>认沽</span>
+									<!-- /ko -->
+									<!-- ko if: $index() === 1 && $parent.sentiment() && $parent.sentiment().match(/bullish/i) -->
+									<span>认购</span>
+									<!-- /ko -->
+									<!-- ko if: $index() === 2 -->
+									<span>价差组合</span>
+									<!-- /ko -->
+								</div>
+							</button>
+						</div>
+					</div>
+					<div class="pl-chart text-container">
+						<div class="padding-12 height-fixed">
+							对于<span data-bind="text:$parent.symbolFullName"></span>目前没有适合<span data-bind="text: $parent.sentiment"></span>的交易策略。
+						</div>
+						<div class="padding-12">
+							<b><a data-bind="click: $parent.buildOwnStrategy" href="#">点击这里</a></b>创建一个自定义策略.
+						</div>
+					</div>
+				</div>
+				<!-- /ko -->
+			</div>
+			<!-- /ko -->
+		</div>
+	</div>
+
+	<div id="toolboxContainer">
+		<div id="tradingPanels">
+			<div data-bind="click: slideToolboxLeft, css: {'hidden': displayedToolboxIndex() <= 0}, activityTracker: { events: 'click', name: 'tradingPanelSlideToolbox', value:  'left' }" class="carousel-control left">
+				<i class="fa fa-angle-left"></i>
+			</div>
+			<div data-bind="click: slideToolboxRight, css: {'hidden': displayedToolboxIndex() >= 4}, activityTracker: { events: 'click', name: 'tradingPanelSlideToolbox', value:  'right' }" class="carousel-control right">
+				<i class="fa fa-angle-right"></i>
+			</div>
+			<div data-bind="carousel: displayedToolboxIndex, carouselOptions: toolboxCarouselOptions" id="tradingToolboxWrapper" class="carousel slide">
+				<div class="carousel-inner">
+					<div class="item active" id="whatifPane">
+						<div class="carousel-header">
+                            损益模拟
+						</div>
+						<div class="carousel-content">
+							<div data-bind="foreach: allCombinations" id="whatifDetailsPane">
+								<div class="trade-box">
+									<div data-bind="ifnot: $data.originalName" class="text-center">
+										<!-- ko if: true -->
+										<div data-bind="css: { 'best': $data == $parent.bestTradingStrategy() }" class="whatif-pl">
+											<div class="trade-name">
+												<div data-bind="template: 'combinationHeading'">
+												</div>
+											</div>
+											<div data-bind="with: whatifTheoretical()" class="whatif-pl-value">
+												<div>
+													<span data-bind="html: payoffFormatted"></span><br />
+													<span class="font-14">
+														<b data-bind="html: returnPercentageFormatted, redGreen: payoffValue, attr: { title: returnPercentageFormatted }"></b>
+													</span>
+												</div>
+											</div>
+										</div>
+										<!-- /ko -->
+									</div>
+								</div>
+							</div>
+							<div class="text-center theme-blue">
+								<h5>上述损益模拟标的股票在如下指定日期达到指定价格：</h5>
+							</div>
+							<div id="whatifTool">
+								<div class="no-margin">
+									<div data-bind="css: { 'no-tick': !hasOption() }" class="control-slider">
+										<div class="slider-value">
+											<span class="slider-label">指定股票价格：</span>
+											<input type="text" data-bind="currency: whatifSPrice, activityTracker: { events: 'blur', name: 'whatIfSPrice', value: whatifSPrice }" class="input-mini text-right" />
+										</div>
+										<div class="slider-main">
+											<span data-bind="textFormatted: lowPrice, format: 'currency'"></span>
+											<div data-bind="customSlider: { min: lowPrice, max: highPrice, step: 0.01, value: whatifSPrice, slide: whatifSPriceOnSlide, change: whatifSPriceOnSlide }, sliderTicks: sdSliderTicks, anchor: whatifSPriceAnchor, activityTracker: { events: 'slidechange', name: 'whatIfSPrice', value: whatifSPrice }" id="whatifSPrice" class="inline-block ui-slider-custom"></div>
+											<span data-bind="textFormatted: highPrice, format: 'currency'"></span>
+										</div>
+									</div>
+									<div data-bind="css: { 'zero-opacity': !hasOption() }" class="control-slider">
+										<div class="slider-value">
+											<span class="slider-label">在指定日期：</span>
+											<input type="text" data-bind="datepicker: whatifDate, datepickerOptions: { defaultOffset: dateSliderMaxDays, startDate: new Date(), availablePeriod: dateSliderMaxDays, displayFormat: 'm/dd/yyyy' }, activityTracker: { events: 'blur', name: 'whatIfDateInput', value: whatifDays }" id="whatifDateInput" class="input-mini" />
+										</div>
+										<div class="slider-main">
+											<span>Today</span>
+											<div data-bind="customSlider: { min: 0, max: dateSliderMaxDays, range: 'min', value: whatifDays, slide: whatifDateOnSlide, change: whatifDateOnSlide }, activityTracker: { events: 'slidechange', name: 'whatIfDateInput', value: whatifDays }" id="whatifDate" class="inline-block ui-slider-custom"></div>
+											<span>Expiry</span>
+										</div>
+									</div>
+									<div data-bind="css: { 'zero-opacity': !hasOption() }" class="control-slider">
+										<div class="slider-value">
+											<span class="slider-label">如果波动率达到：</span>
+											<input type="text" data-bind="autoNumeric: whatifVolatility, settings: {aSign: '%', pSign: 'a', mDec: 2}, activityTracker: { events: 'blur', name: 'whatIfVolatilityInput', value: whatifVolatility }" id="whatifVolatilityInput" class="input-mini text-right" />
+										</div>
+										<div class="slider-main">
+											<span data-bind="textFormatted: minVolatility, format: 'percentage'"></span>
+											<div data-bind="customSlider: { min: minVolatility, max: maxVolatility, step: 0.01, value: whatifVolatility, slide: whatifVolatilityOnSlide, change: whatifVolatilityOnSlide }, anchor: whatifVolatilityAnchor, activityTracker: { events: 'slidechange', name: 'whatIfDateInput', value: whatifDays }" id="whatifDate" class="inline-block ui-slider-custom"></div>
+											<span data-bind="textFormatted: maxVolatility, format: 'percentage'"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item" id="strategiesSentences">
+						<div class="carousel-header">
+							策略风险详解
+						</div>
+						<div data-bind="foreach: allCombinations" class="carousel-content sentence-container">
+							<div class="trade-box">
+								<!-- ko ifnot: $data.originalName -->
+								<div class="trade-name">
+									<div data-bind="template: 'combinationHeading'"></div>
+								</div>
+                                <!--<div id="flagLocation-strategiesSentences">-->
+                                <div class="english-box font-10   flagLocation-strategiesSentences   ">
+                                    <!-- ko if: sentiments().length -->
+                                    <p>这个策略适合<b data-bind="text: sentimentProfile"></b>趋势，<b data-bind="text: riskDesc"></b>，<b data-bind="text: rewardDesc()"></b>。</p>
+                                    <p>当股票价格<span data-bind="if: expiry">在<b data-bind="textFormatted: expiry, format: { type: 'date', dateFormat: $root.DATE_FORMAT }"></b></span><b data-bind="text: breakevenDesc"></b>时，策略可以获得盈利.</p>
+                                    <!-- ko if: quote.hasOptions -->
+                                    <p>该策略赢利概率为<b data-bind="text: profitProb()"></b>。</p>
+                                    <!-- /ko -->
+                                    <!-- /ko -->
+                                </div>
+                                <!--</div>-->
+
+								<!-- /ko -->
+								<!-- ko if: $data.originalName -->
+								<div class="trade-name">
+								</div>
+								<div class="english-box"></div>
+								<!-- /ko -->
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="carousel-header">
+							风险投资计算
+						</div>
+						<div id="investmentAmount" class="carousel-content text-center">
+							<div id="radioWrapper">
+								<div class="text-left radio-container">
+
+									<div class="radio radio-custom flagLocationCarousel1">
+										<label>
+											<input type="radio" data-bind="checked: amountType, activityTracker: { events: 'click', name: 'investmentType', value: 'I want to invest' }" value="investment" name="investmentAmountMean" class="ace" />
+											<span class="lbl"> 我想要<b>稳健投资</b>:</span>
+										</label>
+									</div>
+                                    <div class="radio radio-custom flagLocationCarousel2">
+                                        <label>
+                                            <input type="radio" data-bind="checked: amountType, activityTracker: { events: 'click', name: 'investmentType', value: 'I want to risk' }" value="risk" name="investmentAmountMean" class="ace" />
+                                            <span class="lbl"> 我愿意<b>冒险投资</b>:</span>
+                                        </label>
+                                    </div>
+								</div>
+								<div id="investmentAmountInputWrapper">
+									<input type="text" data-bind="currency: buyPower, settings: {mDec: 2},  activityTracker: { events: 'change', name: 'investmentAmount' }" id="investmentAmountInput" class="input-small" placeholder="￥" title="Investment Amount" />
+								</div>
+								<div id="calculateButtonWrapper">
+									<button data-bind="click: investmentRiskCalculate,  activityTracker: { events: 'click', name: 'investmentCalculateButton', value: buyPower }" class="btn">自动计算</button>
+								</div>
+							</div>
+							<div class="font-12 text-left instruction-container">
+								<p>
+									<b>稳健投资</b>金额表示您想要购买的股票数量，自动计算对应的期权张数。
+								</p>
+								<p>
+									<b>冒险投资</b>表示您最大可以损失的金额。 对于<i>有限风险</i>的策略，该金额等于最大可能的损失；对于<i>无限风险</i>的策略，该金额等于<i>最有可能</i>的最大损失（基于技术计算）。
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="carousel-header">
+							交易范围模拟
+						</div>
+						<div data-bind="if: hasOption" id="sdSliderContainer" class="carousel-content">
+							<div class="text-center height-100">
+								<div id="sdSliderText" class="text-center">
+									<span>输入股票价格范围：</span>
+									<input type="text" data-bind="currency: chartLowPrice, activityTracker: { events: 'blur', name: 'chartLowPrice' }" id="sdLowInput" class="input-mini text-right" />
+									<span>&nbsp;&nbsp;到&nbsp;&nbsp;</span>
+									<input type="text" data-bind="currency: chartHighPrice, activityTracker: { events: 'blur', name: 'chartHighPrice' }" class="input-mini text-right" id="sdHighInput" />
+									<!--span>&nbsp;&nbsp;Probability:</span>
+									<span data-bind="textFormatted: chartRangeProb, format: 'percentage'"></span-->
+
+									<button class="btn" data-bind="css: { 'btn-active': narrowRange() }, click: turnToNarrow, activityTracker: {events: 'click', name: 'turnToNarrowButton', value: ''}">一般波动</button>
+									<button class="btn" data-bind="css: { 'btn-active': wideRange() }, click: turnToWide, activityTracker: {events: 'click', name: 'turnToWideButton', value: ''}">剧烈波动</button>
+                                    <div data-bind="if: hasOption" class="pull-right expiry-select">
+										<!-- ko if: hasOption -->
+										<span>到期日：</span>
+                                        <select data-bind="options: expirySelectOptions, optionsText: 'dateOnSelector', optionsValue: 'expiryStr', value: expiryStr" class="select-exp"></select>
+										<!-- /ko -->
+									</div>
+								</div>
+								<div class="position-relative" id="sdRangeChartWrapper">
+									<div data-bind="template: { afterRender: showRangeChart }" id="sdRangeChart"></div>
+									<div data-bind="textFormatted: leftProbPos().prob, format: 'percentage', style: {left: leftProbPos().left, bottom: leftProbPos().bottom }, css: {hidden: !leftProbPos().display}" class="position-absolute"></div>
+									<div data-bind="textFormatted: rightProbPos().prob, format: 'percentage', style: {left: rightProbPos().left, bottom: rightProbPos().bottom }, css: {hidden: !rightProbPos().display}" class="position-absolute"></div>
+								</div>
+								<div id="sdRangeSlider" data-bind="activityTracker: { events: 'click' , name: 'editorChartSlider' , value: chartSPrices }">
+									<div data-bind="customSlider: { values: chartSPrices, min: chartLowBound, max: chartHighBound, range: true, change: sdSliderOnChange, slide: sdSliderOnSlide }, sliderTicks: sdSliderTicks, supportAndResistance: SRValue, activityTracker: { events: 'slidechange' , name: 'editorChartSlider' , value: chartSPrices }" id="sdSlider" class="ui-slider-custom"></div>
+									<div data-bind="textFormatted: (chartLowPrice() - whatifSPriceAnchor()), format: 'currency', relativeLabel: chartLowPrice, lowBound: chartLowBound, highBound: chartHighBound, stopPosition: 46" class="slider-handler-label top"></div>
+									<div data-bind="textFormatted: (chartHighPrice() - whatifSPriceAnchor()), format: 'currency', relativeLabel: chartHighPrice, lowBound: chartLowBound, highBound: chartHighBound, stopPosition: 54" class="slider-handler-label top"></div>
+									<div data-bind="textFormatted: chartLowPrice, format: 'currency', relativeLabel: chartLowPrice, lowBound: chartLowBound, highBound: chartHighBound, stopPosition: 46" class="slider-handler-label bottom"></div>
+									<div data-bind="textFormatted: chartHighPrice, format: 'currency', relativeLabel: chartHighPrice, lowBound: chartLowBound, highBound: chartHighBound, stopPosition: 54" class="slider-handler-label bottom"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="carousel-header">
+							<span>编辑策略 - </span>
+							<!-- ko if: showEditorCombination -->
+							<span data-bind="text: showEditorCombination().fullName(), css: {'font-14': showEditorCombination().fullName().length > 25, 'font-12': showEditorCombination().fullName().length > 45}" class="no-text-transform"></span>
+							<!-- /ko -->
+						</div>
+						<div data-bind="with: showEditorCombination" id="combinationEditor" class="carousel-content">
+							<div data-bind="if: $data">
+								<!-- ko if: $parent.hasOption -->
+								<div id="strategySelector">
+									<span>自动组合策略：</span>
+									<div class="inline-block dropdown">
+										<a data-toggle="dropdown" class="btn dropdown-toggle" href="#">
+											<span data-bind="t: 'strategies.' + ($parent.selectedStrategy() ? $parent.selectedStrategy().displayedName : 'Custom Strategy'), css: { 'font-smaller': $parent.selectedStrategy() && $parent.selectedStrategy().displayedName.length > 24 }" class="pull-left"></span>
+											<i class="fa fa-angle-down pull-right"></i>
+											<i data-bind="css:  'stg-' + ($parent.selectedStrategy() ? $parent.selectedStrategy().iconName : 'CustomStrategy')" class="pull-right strategy-icon"></i>
+										</a>
+										<ul data-bind="foreach: $parent.sentimentOptions" class="dropdown-menu" role="menu">
+											<li class="dropdown-submenu">
+                                                <a data-bind="t:'strategies.'+($data), click: $parents[1].toggleSubmenu, clickBubble: false" href="#"></a>
+												<ul data-bind="foreach: $parents[1].sentimentStrategyMap()[$data]" class="dropdown-menu">
+													<li data-bind="click: $parents[2].selectStrategyToConstruct,  activityTracker: { events: 'click' , name: 'editorStrategySelector' , value: displayedName }">
+														<a>
+															<span data-bind="t: 'strategies.' + (displayedName), css: { 'font-smaller': displayedName.length > 24 }" class="pull-left"></span>
+															<i data-bind="css: 'stg-' + iconName" class="pull-right strategy-icon"></i>
+														</a>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<!-- /ko -->
+								<div data-bind="template: { name: 'combination-editor', data: editorVM }" class="combination-editor-wrapper"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="tradingToolboxIndicator">
+				<ol class="carousel-indicators">
+					<li data-bind="click: displayedToolboxIndex.bind(this, 0), css: {'active': displayedToolboxIndex() == 0}, activityTracker: { events: 'click', name: 'tradingPanelSlideToolboxIndex', value:  0 }" class="active"></li>
+					<li data-bind="click: displayedToolboxIndex.bind(this, 1), css: {'active': displayedToolboxIndex() == 1}, activityTracker: { events: 'click', name: 'tradingPanelSlideToolboxIndex', value:  1 }" class="active"></li>
+					<li data-bind="click: displayedToolboxIndex.bind(this, 2), css: {'active': displayedToolboxIndex() == 2}, activityTracker: { events: 'click', name: 'tradingPanelSlideToolboxIndex', value:  2 }" class="active"></li>
+					<li data-bind="click: displayedToolboxIndex.bind(this, 3), css: {'active': displayedToolboxIndex() == 3}, activityTracker: { events: 'click', name: 'tradingPanelSlideToolboxIndex', value:  3 }" class="active"></li>
+					<li data-bind="click: displayedToolboxIndex.bind(this, 4), css: {'active': displayedToolboxIndex() == 4}, activityTracker: { events: 'click', name: 'tradingPanelSlideToolboxIndex', value:  4 }" class="active"></li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</div>

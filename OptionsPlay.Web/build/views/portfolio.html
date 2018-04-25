@@ -1,0 +1,267 @@
+﻿<div id="portfolioWarnings">
+   <!-- <img src="Content/images/icons/alertStrip.png" data-bind="css: { blinking: hasTodayExpiration }" alt="alert strip" />-->
+    <i class=" fa fa-exclamation-circle red " />
+    <span data-bind="text: expiryWarningsMessage"></span>
+</div>
+
+<div data-bind="kendoSpinner: dataFetched, if: portfolioDataReady" id="portfolioGridContainer" class="base-grid height-100">
+    <table id="portfolioGrid" data-bind="kendoGrid: gridOptions" class="table table-condensed table-fixed-width right-justified-table">
+        <thead>
+            <tr>
+                <th>行权</th>
+                <th>买卖平仓</th>
+                <!--<th colspan="1"><img data-bind="click: toggleHistoricalOrder" src="Content/images/icons/hcToggle.png" class="hcToggle pull-left"></th>-->
+              
+                <th data-field="optionExercise" data-bind=""></th>
+                <th data-field="optionNumber" data-bind="t: 'portfolio.symbolID'"></th>
+                <th data-field="optionName" data-bind="t: 'portfolio.name'"></th>
+                <th nowrap data-field="optionType" data-bind="t: 'portfolio.type'"></th>
+                <th data-field="optionBalance" data-bind="t: 'portfolio.balance'"></th>
+                <th data-field="optionAvailableQuantity" data-bind="t: 'portfolio.availableQuantity'"></th>
+                <th data-field="optionCoveredFlag" data-bind="t: 'portfolio.coveredFlag'"></th>
+
+                <th nowrap>
+                    <span data-bind="click: toggleColumns" class="cursor-pointer">
+                        <i data-bind="visible: !details()" class="fa fa-angle-left"></i>
+                        <span data-bind="text: toggleColumnText"></span>
+                        <i data-bind="visible: details" class="fa fa-angle-right"></i>
+                    </span>
+                </th>
+
+                <!-- Cost Basis View -->
+                <th data-field="optionRealtimeCostBasis" data-bind="t: 'portfolio.realtimeCostBasis'" class="k-header2"></th>
+                <th data-field="lastPrice" data-bind="t: 'portfolio.lastPrice'" class="k-header2"></th>
+                <th data-field="optionFloatingPL" data-bind="t: 'portfolio.realtimeUnrealizedPL'" class="k-header2"></th>
+                <th data-field="optionMarketValue" data-bind="t: 'portfolio.marketValue'" class="k-header2"></th>
+                <th data-field="optionMargin" data-bind="t: 'portfolio.margin'" class="k-header2"></th>
+
+                <!-- Greeks View -->
+                <!-- ko if: groupList().length > 0 -->
+                <th data-field="greekDelta" data-bind="t: 'portfolio.greekDelta', visible: false"></th>
+                <th data-field="greekGamma" data-bind="t: 'portfolio.greekGamma', visible: false"></th>
+                <th data-field="greekTheta" data-bind="t: 'portfolio.greekTheta', visible: false"></th>
+                <th data-field="greekVega" data-bind="t: 'portfolio.greekVega', visible: false"></th>
+                <th data-field="greekRho" data-bind="t: 'portfolio.greekRho', visible: false"></th>
+                <!-- /ko -->
+            </tr>
+        </thead>
+    </table>
+
+    <script id="portfolioGridRowTemplate" type="text/html">
+        <!-- ko ifnot: isStockGroup -->
+        <tr style="background-color: #FFFFFF; ">
+            <td></td>
+
+            <td>
+                <a href="#" data-bind="click: $parent.closeComplexPosition" class="btn btn-default btn-xs">
+                    平仓
+                    <!--  <img data-bind="attr: { src: ('Content/images/icons/{ICON}.png').replace('{ICON}', $parent.complexPositionIconPath()) }" alt="close position" />-->
+                </a>
+            </td>
+            
+            <td>
+                <a href="#" data-bind="click: $parent.collapseRow, visible: expanded">
+                    <i class="fa fa-minus-square-o"></i>
+                </a>
+                <a href="#" data-bind="click: $parent.expandRow, visible: collapsed">
+                    <i class="fa fa-plus-square-o"></i>
+                </a>
+            </td>
+
+            <td data-bind="text: underlyingCode" class="center"></td>
+            <td data-bind="text: underlyingName" class="center"></td>
+            <td data-bind="t: 'strategies.' + strategy()"></td>
+            <td data-bind="text: quantityFormatted"></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+
+            <td>
+                <a href="#" data-bind="click: $parent.toggleColumns">
+                    <img data-bind="attr: { src: ('Content/images/icons/{ICON}.png').replace('{ICON}', strategyGraphPath()) }" alt="P/L" />
+                </a>
+            </td>
+
+            <!-- Cost Basis View -->
+            <td data-bind="textFormatted: realtimeCostBasis, format: '#.0000'" class="center"></td>
+            <td data-bind="textFormatted: mark, format: '#.0000', changeFlash: mark" class="center"></td>
+            <td data-bind="textFormatted: floatingPL, format: '#.00', css: {'bullish-red': floatingPL() > 0, 'bearish-green': floatingPL() < 0}, changeFlash: floatingPL" class="center"></td>
+            <td data-bind="textFormatted: marketValue, format: '#.00', changeFlash: marketValue" class="center"></td>
+            <td data-bind="textFormatted: margin, format: '#.00'" class="center"></td>
+
+            <!-- Greeks View -->
+            <td data-bind="textFormatted: greeks.delta, format: '#.0000', visible: false" class="center"></td>
+            <td data-bind="textFormatted: greeks.gamma, format: '#.0000', visible: false" class="center"></td>
+            <td data-bind="textFormatted: greeks.theta, format: '#.0000', visible: false" class="center"></td>
+            <td data-bind="textFormatted: greeks.vega, format: '#.0000', visible: false" class="center"></td>
+            <td data-bind="textFormatted: greeks.rho, format: '#.0000', visible: false" class="center"></td>
+        </tr>
+        <!-- /ko -->
+        <!-- ko foreach: items-->
+        <tr data-bind="attr : { 'data-collapsable': true , 'data-parent': $parent.id }, event: {dblclick: $parents[1].closePosition}">
+            <td>
+                <!-- ko ifnot: isStock -->
+
+                <a href="#" data-bind="click: $parents[1].exercisePosition, tt: 'portfolio.exercisePosition'">
+                    <!-- ko if: expiresInTwoDaysNotToday -->
+                    <i class=" fa fa-exclamation-circle red " />
+                    <!-- /ko -->
+                    <!-- ko if: expiresToday() && adjustedAvailableQuantity() > 0 -->
+                    <i class=" fa fa-exclamation-circle red" />
+                    <!-- /ko -->
+                </a>
+                <!-- /ko -->
+            </td>
+            <td>
+                <!-- ko ifnot: isStock -->
+                <a href="#" data-bind=" click: $parents[1].closePosition, visible: closeVisible, tt: 'portfolio.closePosition'" class="btn btn-default btn-xs">
+                    平仓
+                    <!-- <img data-bind="attr: { src: ('Content/images/icons/{ICON}.png').replace('{ICON}', $parents[1].closePositionIconPath()) }" />-->
+                </a>
+                <!-- /ko -->
+
+
+            </td>
+
+
+            <td>
+                <!-- ko if: isStock -->
+                <a href="#" data-bind="click: $parents[1].generatePremium, visible: generatePremiumVisible">
+               
+                    <!--<img src="Content/images/icons/generatePremium.png" alt="generate premium" />-->
+                </a>
+                <!-- /ko -->
+            </td>
+
+            <td data-bind="text: itemCode" class="center"></td>
+            <td data-bind="text: itemName" class="center"></td>
+            <td nowrap data-bind="t: 'portfolio.' + optionTypeFormatted(), style: optionTypeStyle"></td>
+            <td data-bind="text: optionBalanceFormatted"></td>
+            <td data-bind="text: formattedAvailableQuantity"></td>
+            <td data-bind="t: optionCoveredFlagFormatted"></td>
+
+            <td>
+                <a href="#" data-bind="click: $parents[1].toggleColumns">
+                    <img data-bind="attr: { src: ('Content/images/icons/{ICON}.png').replace('{ICON}', iconProfitLossChart()) }" alt="plChart" />
+                </a>
+            </td>
+
+            <!-- Cost Basis View -->
+            <td data-bind="textFormatted: adjustedRealtimeCostBasis, format: '#.0000'" class="center"></td>
+            <td data-bind="textFormatted: lastPrice, format: '#.0000', changeFlash: lastPrice" class="center"></td>
+            <td data-bind="textFormatted: floatingPL, format: '#.00', changeFlash: floatingPL, css: {'bullish-red': floatingPL() > 0, 'bearish-green': floatingPL() < 0}" class="center"></td>
+            <td data-bind="textFormatted: marketValue, format: '#.00', changeFlash: marketValue" class="center"></td>
+            <td data-bind="textFormatted: ($data.optionMargin ? optionMargin() : 0), format: '#.00'" class="center"></td>
+
+            <!-- Greeks View -->
+            <td data-bind="textFormatted: greeks != null ? greeks.delta() : 0, format: '#.0000', visible: false" class="center"></td>
+            <td data-bind="textFormatted: greeks != null ? greeks.gamma() : 0, format: '#.0000', visible: false" class="center"></td>
+            <td data-bind="textFormatted: greeks != null ? greeks.theta() : 0, format: '#.0000', visible: false" class="center"></td>
+            <td data-bind="textFormatted: greeks != null ? greeks.vega() : 0, format: '#.0000', visible: false" class="center"></td>
+            <td data-bind="textFormatted: greeks != null ? greeks.rho() : 0, format: '#.0000', visible: false" class="center"></td>
+        </tr>
+        <!-- /ko -->
+    </script>
+
+    <ul id="portfolioGridRowContextMenu" data-bind="kendoExtContextMenu: contextMenuOptions">
+        <!-- ko if: contextMenuOptions.currentItem() -->
+        <!-- ko with: contextMenuOptions.currentItem() -->
+		<li class="closePosition" data-bind="visible: !typeIsGroup()">
+			<span class="k-icon k-i-custom"></span><span data-bind="t: 'portfolio.contextMenu.close'"></span>
+		</li>
+        <li class="closeComplex" data-bind="visible: typeIsGroup()">
+            <span class="k-icon k-i-custom"></span><span data-bind="t: 'portfolio.contextMenu.close'"></span>
+        </li>
+        <li class="exercise" data-bind="visible: !typeIsGroup() && !isStock() && expiresToday()">
+            <span class="k-icon k-i-custom"></span><span data-bind="t: 'portfolio.contextMenu.exercise'"></span>
+        </li>
+<!--         <li class="viewUnderlyingChart" data-bind="visible: !typeIsGroup() && !isStock()">
+            <span class="k-icon k-i-custom"></span><span data-bind="t: 'portfolio.contextMenu.viewSymbolChart'"></span>
+        </li> -->
+        <!-- /ko -->
+        <!-- /ko -->
+    </ul>
+
+    <!--<div id="resetColumnWidth">
+        <button data-bind="click: resetColumnWidth">
+            <span class="k-icon k-i-restore"></span>
+        </button>
+    </div>-->
+
+    <div id="portfolioPLGraph" data-bind="with: portfolioPLGraphOptions, kendoWindow: plGraphWindowOptions">
+        <div class="strategy-container-portfolio">
+            <!-- ko if: combination -->
+            <div class="sentiment-border" data-bind="css: combination().sentiment">
+                <div data-bind="widget: { kind: 'plChartAndDetails', combination: combination() }"></div>
+                <div data-bind="visible: portfolio().closeVisible" class="closePositionButton">
+                    <button data-bind="click: $parent.closePositionFromPLGraph, t: 'portfolio.graph.closePosition'"></button>
+                </div>
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
+
+    <script type="html/text" id="autoExerciseInstructionsHeaderTemplate">
+        <div data-bind="t: 'portfolio.autoExercise.instructions'" style="padding-left: 10px; font-family: Calibri,'Microsoft Yahei';"></div>
+    </script>
+
+    <script type="html/text" id="autoExerciseInstructionsTemplate">
+        <div>
+            <table>
+
+                <tr>
+                    <td data-bind="t:'portfolio.autoExercise.optionNumber'"></td>
+                    <td>:</td>
+                    <td data-bind="text: currentAutoExerciseInstructions().contractNumber"></td>
+                </tr>
+                <tr>
+                    <td data-bind="t:'portfolio.autoExercise.optionType'"></td>
+                    <td>:</td>
+                    <td data-bind="text: currentAutoExerciseInstructions().optionType"></td>
+                </tr>
+                <tr>
+                    <td data-bind="t:'portfolio.autoExercise.availableQuantity'"></td>
+                    <td>:</td>
+                    <td data-bind="text: currentAutoExerciseInstructions().optionAvailableQuantity"></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td data-bind="t:'portfolio.autoExercise.exercisingQuantity'"></td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" data-bind="kendoNumericTextBox: quantityOptions" class="width-100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td data-bind="t:'portfolio.autoExercise.exercisingStrategyType'"></td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" data-bind="kendoDropDownList: strategyOptions" class="width-100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td data-bind="t:'portfolio.autoExercise.exercisingStrategyValue'"></td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" data-bind="kendoNumericTextBox: thresholdOptions" class="width-100" />
+                    </td>
+                </tr>
+            </table>
+            <div class="text-center">
+                <button data-bind="click: submitAutoExerciseInstructions">
+                    <span data-bind="t: 'portfolio.autoExercise.submit'"></span>
+                </button>
+                <button data-bind="click: closeAutoExerciseInstructions">
+                    <span data-bind="t: 'portfolio.autoExercise.cancel'"></span>
+                </button>
+            </div>
+        </div>
+    </script>
+
+    <div id="autoExerciseInstructions" data-bind="kendoWindow: autoExerciseInstructionWindowOptions">
+    </div>
+    <div class="hide">
+        <!-- ko compose: 'viewmodels/compositions/historicalInquiry' -->
+        <!-- /ko -->
+    </div>
+</div>

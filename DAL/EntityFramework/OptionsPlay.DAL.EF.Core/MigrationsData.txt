@@ -1,0 +1,3 @@
+﻿Add-Migration -project:OptionsPlay.DAL.EF.Core -Force
+
+Update-Database -project:OptionsPlay.DAL.EF.Core -Force -Verbose

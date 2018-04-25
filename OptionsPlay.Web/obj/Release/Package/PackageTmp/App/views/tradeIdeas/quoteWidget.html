@@ -1,0 +1,96 @@
+﻿<section id="symbolWidget" class="powerhouse-section">
+	<div data-bind="css: syrahSentiments.combinedCssClass" class="sentiment-gradient"></div>
+	<div class="symbol-widget-content">
+		<div class="inline-blocks-justified">
+			<div data-bind="css: { smaller: isSentimentTextLong }" id="symbolCompanyNameAndLastPrice">
+				<div data-bind="css: {'idea': isSymbolTradeIdea }" id="symbolInput" class="pull-left">
+					<div>
+						<input type="text" data-bind="value: securitySearch, typeahead: typeaheadOptions, activityTracker: { events: 'change', name:'SymbolInput' }, event: { focus: selectTextBoxContent, keypress: loseFocusOnEnter }"
+							   placeholder="股票代码" />
+					</div>
+					<div data-bind="click: lookupButtonClick">
+						<i class="fa fa-search"></i>
+					</div>
+				</div>
+				<div id="symbolInputHelp"></div>
+				<div data-bind="with: quote(), css: { 'tablet-smaller': isSentimentTextLong() || quote().lastPrice() > 999 }" id="trendAnalysis">
+					<div data-bind="text: securityName, attr: { title:securityName }" id="companyName"></div>
+					<div id="lastPriceAndChange">
+						<span data-bind="textFormatted: lastPrice, format: '#.000'" class="last-price"></span>
+						<span data-bind="redGreen: change" class="change">
+							<span data-bind="textFormatted: change, format: '#.000'"></span>
+							(<span data-bind="textFormatted: changePercentage, format: {type: 'percentage100', signed: true}"></span>)
+						</span>
+					</div>
+				</div>
+			</div>
+			<div id="termAnalysis">
+				<table data-bind="with: quote()">
+					<tbody>
+						<tr>
+							<td class="caption">今开</td>
+							<td data-bind="textFormatted: openPrice" class="sentiment-name uppercase"></td>
+							<td class="caption">昨收</td>
+							<td data-bind="textFormatted: previousClose" class="sentiment-name uppercase"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<span id="sentimentHelp"></span>
+
+		<div data-bind="with: quote" id="quoteInfo" class="inline-blocks-justified">
+			<div>
+				<table>
+					<tr>
+						<td class="caption">最高：</td>
+						<td>
+							<span data-bind="textFormatted: highPrice, format: 'currency'"></span>
+						</td>
+					</tr>
+<!-- 					<tr>
+						<td class="caption">市盈率&nbsp;</td>
+						<td>
+							<span data-bind="textFormatted: 'N/A'"></span>
+						</td>
+					</tr> -->
+				</table>
+			</div>
+			<div>
+				<table>
+					<tr>
+						<td class="caption">最低：</td>
+						<td data-bind="textFormatted: lowPrice"></td>
+					</tr>
+					<tr>
+						<td class="caption">振幅：</td>
+						<td data-bind="textFormatted: (highPrice() - lowPrice()) / previousClose(), format: 'percentage100'"></td>
+					</tr>
+				</table>
+			</div>
+			<div>
+				<table>
+					<tr>
+						<td class="caption">成交量：</td>
+						<td data-bind="textFormatted: volume, format: 'volume'"></td>
+					</tr>
+					<tr>
+						<td class="caption">成交额：</td>
+						<td data-bind="textFormatted: turnover, format: 'volume'"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script type="text/html" id="sentiment-row-template">
+	<td data-bind="text: caption + '&nbsp;'" class="caption"></td>
+	<td data-bind="css: cssClass" class="sentiment-name uppercase">
+		<span data-bind="text: name"></span>
+		<!-- ko if: secondary() -->
+		<span data-bind="attr: { title: secondary }">(*)</span>
+		<!-- /ko -->
+	</td>
+</script>

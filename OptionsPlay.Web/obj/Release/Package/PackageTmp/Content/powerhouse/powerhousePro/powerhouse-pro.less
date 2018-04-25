@@ -1,0 +1,389 @@
+﻿@import '../open-sans-font.less';
+@import '../validation.less';
+@import '../custom-animate.less';
+
+@import '3rd-party-overrides.less';
+@import 'portfolio.less';
+@import 'trade-ideas.less';
+@import 'symbol.less';
+@import 'symbol-widget.less';
+@import 'strategies.less';
+//@import 'header-footer.less';
+@import 'help-framework.less';
+@import 'profile.less';
+@import 'modals.less';
+@import 'global-loader.less';
+@import 'local-loader.less';
+@import 'strategiesIcons.less';
+@import 'landingPage.less';
+@import '../font-awesome.less';
+
+body {
+    font-family: Microsoft Yahei, "黑体";
+    overflow-x: hidden;
+    /*&.pace-done {
+        #loadingImage, .pace {
+            display: none !important;
+        }
+    }
+
+    &.pace-running:not(.pace-done) {
+        #loadingImage {
+            display: block;
+        }
+    }
+
+    &:not(.pace-done) {
+        #authenticatedView {
+            opacity: 0;
+            // fixes issue with IE
+            div {
+                opacity: 0;
+            }
+        }
+    }*/
+    &.pace-running:not(.pace-done) {
+        #authenticatedView {
+            opacity: 0;
+            // fixes issue with IE
+            div {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+#authenticatedView {
+    .overlay {
+        .overlay();
+    }
+}
+
+#loadingImage {
+    position: absolute;
+    top: 50%;
+    margin-top: -135px;
+    left: 50%;
+    margin-left: -100px;
+
+    img {
+        width: 200px;
+        height: 118px;
+    }
+
+    i {
+        opacity: 0;
+    }
+}
+
+.full-size {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.auth-container {
+    line-height: 1.5;
+    font-size: 13px;
+
+    input {
+        &[type=text], &[type=password] {
+            box-shadow: none;
+            border-radius: 0;
+            line-height: 1.2;
+        }
+    }
+}
+
+.authenticated {
+    .auth-container {
+        display: none;
+    }
+}
+
+#powerhousePro {
+    height: 100%;
+
+    #themePicker {
+        margin-left: 0;
+
+        > div:first-child {
+            margin-bottom: 2px;
+        }
+
+        select {
+            color: @black;
+        }
+    }
+
+    #whyAndHowContainer {
+        position: relative;
+        margin-left: @tradeIdeas-section-width + 20px;
+        height: 100%;
+    }
+
+    #powerhouseProContent {
+        width: 100%;
+        padding: 10px;
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;
+        height: 100%;
+    }
+
+    #whatPanelPlaceholder {
+        float: left;
+        width: @tradeIdeas-section-width;
+        height: @total-height;
+    }
+
+    .trade-panel-visible {
+        #powerhouseProContent {
+            min-width: 1010px;
+            max-width: @total-width;
+        }
+
+        #strategiesSection {
+            display: block;
+        }
+    }
+
+    .trade-panel-invisible {
+        #powerhouseProContent {
+            width: 860px;
+        }
+
+        #chartsAndEnglish #powerhouseProHistoricalsChart.fullscreen #powerhouseProHistoricalChart-contentWrapper {
+            max-width: (@total-width - 430px)*0.8;
+            left: ((@total-width - 430px)*0.4*-1);
+            margin-left: 50%;
+        }
+
+        #strategiesSection {
+            display: none;
+        }
+
+        #symbolSection {
+            margin-right: 0;
+        }
+    }
+
+    .ps-scrollbar-y-rail:hover, .ps-scrollbar-x-rail:hover {
+        background-color: transparent;
+    }
+
+    .inline-blocks-justified {
+        &:after {
+            content: '';
+            display: inline-block;
+            width: 100%;
+            height: 0;
+            font-size: 0;
+            line-height: 0;
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            width: 100%;
+            margin-bottom: -1.2em;
+        }
+
+        > div {
+            display: inline-block;
+            vertical-align: middle;
+            top: 1.2em;
+            position: relative;
+        }
+
+        text-align: justify;
+    }
+
+    .backdrop {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+        background: @black;
+        opacity: 0.3;
+
+        &.invisible {
+            opacity: 0;
+        }
+
+        &.fixed {
+            position: fixed;
+        }
+
+        &.relative {
+            position: relative;
+        }
+
+        .lh-transition(visibility 0.3s ease, opacity 0.3s ease);
+    }
+
+    .symbol {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .company-name {
+        font-size: 0.8em;
+    }
+
+    .company-name,
+    .symbol {
+        text-transform: uppercase;
+        .ellipsis-overflow();
+    }
+
+    .flip-container {
+        position: relative;
+
+        .flipped-hidden() {
+            .lh-transform(rotateY(180deg));
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .flipped-visible() {
+            visibility: visible;
+            opacity: 1;
+            .lh-transform(rotateY(0));
+        }
+
+        &.flipped {
+            .back {
+                .flipped-visible();
+            }
+
+            .front {
+                .flipped-hidden()
+            }
+        }
+
+        .front, .back {
+            .lh-backface-visibility(hidden);
+            .lh-transition(0.5s);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .front {
+            .flipped-visible();
+        }
+
+        .back {
+            .flipped-hidden()
+        }
+    }
+
+    .middle-alligned-blocks {
+        .middle-alligned-blocks();
+    }
+
+    .behind-modal {
+        z-index: 1049;
+    }
+
+    .logo-big {
+        .square(30px)
+    }
+
+    .logo-small {
+        .square(25px)
+    }
+}
+
+.middle-alligned-block {
+    position: relative;
+    top: 50%;
+    .lh-translateY(-50%);
+}
+
+#powerhouseProScrollbar {
+    position: absolute;
+    bottom: @footer-height;
+    overflow: auto;
+    width: 100%;
+}
+
+.fa.fa-angle-down {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 1px;
+}
+
+.sentiment-name {
+    font-weight: bold;
+}
+
+.secondary {
+    font-size: 0.8em;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.yellow {
+    color: @yellow !important;
+}
+
+.bg-green {
+    background-color: @green !important;
+}
+
+.bg-red {
+    background-color: @red !important;
+}
+
+.theme-blue {
+    color: @new-theme-blue;
+}
+
+.allign-left {
+    text-align: left;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.smaller {
+    font-size: 0.8em;
+}
+
+.bigger {
+    font-size: 1.3em;
+}
+
+@import 'responsive/desktop.less';
+@import 'responsive/tablet.less';

@@ -1,0 +1,86 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly OptionsPlay.DAL.SZKingdom.ManagementWrapper, Version=1.0.*, Culture=固定语言(固定国家/地区): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class OptionsPlay.DAL.SZKingdom.KCBPConnectionOptions: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String SendQName 'get set' : 
+    System.String ReceiveQName 'get set' : 
+    Int32 Port 'get set' : 
+    Int32 Protocol 'get set' : 
+    System.String Address 'get set' : 
+    System.String ServerName 'get set' : 
+  Methods:
+    get_ServerName(): PrivateScope, Public, HideBySig, SpecialName
+    set_ServerName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Address(): PrivateScope, Public, HideBySig, SpecialName
+    set_Address(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Protocol(): PrivateScope, Public, HideBySig, SpecialName
+    set_Protocol(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Port(): PrivateScope, Public, HideBySig, SpecialName
+    set_Port(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ReceiveQName(): PrivateScope, Public, HideBySig, SpecialName
+    set_ReceiveQName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_SendQName(): PrivateScope, Public, HideBySig, SpecialName
+    set_SendQName(String): PrivateScope, Public, HideBySig, SpecialName
+Class OptionsPlay.DAL.SZKingdom.KCBPConnectionOptionsExt: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :OptionsPlay.DAL.SZKingdom.KCBPConnectionOptions
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String SSL 'get set' : 
+    System.String Proxy 'get set' : 
+  Methods:
+    get_Proxy(): PrivateScope, Public, HideBySig, SpecialName
+    set_Proxy(String): PrivateScope, Public, HideBySig, SpecialName
+    get_SSL(): PrivateScope, Public, HideBySig, SpecialName
+    set_SSL(String): PrivateScope, Public, HideBySig, SpecialName
+Class OptionsPlay.DAL.SZKingdom.KCBPLibraryWrapperException: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Exception
+    Void .ctor(System.String, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 ErrorCode 'get set' : 
+  Methods:
+    get_ErrorCode(): PrivateScope, Public, HideBySig, SpecialName
+    set_ErrorCode(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class OptionsPlay.DAL.SZKingdom.KCBPLibraryWrapper: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    SetConnectionOption(KCBPConnectionOptions): PrivateScope, Public, HideBySig
+    GetConnectionOption(): PrivateScope, Public, HideBySig
+    ConnectToServer(String, String, String): PrivateScope, Public, HideBySig
+    Disconnect(): PrivateScope, Public, HideBySig
+    BeginWrite(): PrivateScope, Public, HideBySig
+    CallProgramAndCommit(String): PrivateScope, Public, HideBySig
+    SetValue(String, String): PrivateScope, Public, HideBySig
+    RsOpen(): PrivateScope, Public, HideBySig
+    RsMore(): PrivateScope, Public, HideBySig
+    RsClose(): PrivateScope, Public, HideBySig
+    RsGetCol(String): PrivateScope, Public, HideBySig
+    RsGetCol(Int32): PrivateScope, Public, HideBySig
+    RsGetColName(Int32): PrivateScope, Public, HideBySig
+    RsFetchRow(): PrivateScope, Public, HideBySig
+    RsGetRowNum(): PrivateScope, Public, HideBySig
+    RsGetColNum(): PrivateScope, Public, HideBySig
+    SetCliTimeOut(Int32): PrivateScope, Public, HideBySig
+    GetErr(String&(Out)): PrivateScope, Public, HideBySig
+    GetVersion(): PrivateScope, Public, HideBySig
+    CallProgram(String): PrivateScope, Public, HideBySig
+    Commit(): PrivateScope, Public, HideBySig
+    RollBack(): PrivateScope, Public, HideBySig
+    TryGetValue(String, String&(Out)): PrivateScope, Public, HideBySig
+    RsGetColByName(String): PrivateScope, Public, HideBySig
+    GetCommLen(): PrivateScope, Public, HideBySig
+    EncryptPassword(String, String): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig

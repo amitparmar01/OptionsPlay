@@ -1,0 +1,88 @@
+﻿<div class="editor-container">
+	<div class="editor-toolbar">
+		<table class="">
+			<tr>
+				<td class="leg-buy-sell">
+					<a data-bind="click: flipBuySell" class="editor-toolbar-btn">
+						<i class="fa fa-retweet"></i>
+					</a>
+				</td>
+				<td class="leg-tool-quantity">
+					<a data-bind="click: increaseQuantity" class="editor-toolbar-btn">
+						<i class="fa fa-arrow-up"></i>
+					</a>
+					<span data-bind="t: 'strategies.quantity'"></span>
+					<a data-bind="click: decreaseQuantity" class="editor-toolbar-btn">
+						<i class="fa fa-arrow-down"></i>
+					</a>
+				</td>
+				<td class="leg-tool-expiry">
+					<a data-bind="click: forwardExpiry.bind(this, -1)" class="editor-toolbar-btn">
+						<i class="fa fa-arrow-left"></i>
+					</a>
+					<span data-bind="t: 'strategies.expiry'"></span>
+					<a data-bind="click: forwardExpiry.bind(this, 1)" class="editor-toolbar-btn">
+						<i class="fa fa-arrow-right"></i>
+					</a>
+				</td>
+				<td class="leg-tool-strike">
+					<a data-bind="click: forwardStrike.bind(this, -1)" class="editor-toolbar-btn">
+						<i class="fa fa-arrow-down"></i>
+					</a>
+					<span data-bind="t: 'strategies.strike'"></span>
+					<a data-bind="click: forwardStrike.bind(this, 1)" class="editor-toolbar-btn">
+						<i class="fa fa-arrow-up"></i>
+					</a>
+				</td>
+				<td class="leg-add">
+					<a data-bind="click: addNewLeg" class="editor-toolbar-btn">
+						<i class="fa fa-plus"></i>
+					</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div data-bind="foreach: combination.positions" class="editor-body">
+		<table>
+			<tr>
+				<td class="leg-buy-sell">
+					<label>
+						<input type="checkbox" data-bind="checked: buySellFlag" class="checkbox-buy-sell" />
+						<span class="lbl"><span data-bind="t: 'strategies.' + (buySellFlag() ? 'BUY' : 'SELL')"></span></span>
+					</label>
+				</td>
+				<td data-bind="css: {'leg-type-security': type() === 'SECURITY'}" class="leg-quantity">
+					<input data-bind="kendoNumericTextBox: {value: absQuantity, min: 1, step: 1, format: '#'}" />
+				</td>
+				<td data-bind="css: {'leg-type-security': type() === 'SECURITY'}" class="leg-expiry">
+					<!-- ko ifnot: type() === 'SECURITY' -->
+					<input data-bind="kendoDropDownList: {data: $parent.expiryList, value: expiry, dataTextField: 'key', dataValueField: 'value'}" />
+					<!-- /ko -->
+				</td>
+				<td data-bind="css: {'leg-type-security': type() === 'SECURITY'}" class="leg-strike">
+					<!-- ko ifnot: type() === 'SECURITY' -->
+					<input data-bind="kendoDropDownList: {data: $parent.expiryStrikes()[expiryStr()], value: strikePrice}" />
+					<!-- /ko -->
+				</td>
+				<td data-bind="css: {'leg-type-security': type() === 'SECURITY'}" class="leg-type">
+					<!-- ko ifnot: type() === 'SECURITY' -->
+					<label>
+						<input type="checkbox" data-bind="checked: callPutFlag" class="checkbox-call-put" />
+						<span class="lbl"><span data-bind="t: 'strategies.' + type()"></span></span>
+					</label>
+					<!-- /ko -->
+					<!-- ko if: type() === 'SECURITY' -->
+					<label data-bind="t: 'strategies.SECURITY'"></label>
+					<!-- /ko -->
+				</td>
+				<td data-bind="textFormatted: price, format: '#.000'" class="leg-price"></td>
+				<td class="leg-remove">
+					<a data-bind="click: $parent.removeLeg" class="editor-toolbar-btn"><i class="fa fa-times"></i></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="editor-menu">
+		<button data-bind="t: 'strategies.combinationEditor.reset', click: resetCombination"></button>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+D:\OptionsPlay\Mainline\Common\OptionsPlay.TechnicalAnalysis\bin\Debug\OptionsPlay.TechnicalAnalysis.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.TechnicalAnalysis\bin\Debug\OptionsPlay.TechnicalAnalysis.pdb
+D:\OptionsPlay\Mainline\Common\OptionsPlay.TechnicalAnalysis\bin\Debug\MathNet.Numerics.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.TechnicalAnalysis\bin\Debug\MathNet.Numerics.xml
+D:\OptionsPlay\Mainline\Common\OptionsPlay.TechnicalAnalysis\obj\Debug\OptionsPlay.TechnicalAnalysis.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.TechnicalAnalysis\obj\Debug\OptionsPlay.TechnicalAnalysis.pdb
+D:\OptionsPlay\Mainline\Common\OptionsPlay.TechnicalAnalysis\obj\Debug\OptionsPlay.TechnicalAnalysis.csprojResolveAssemblyReference.cache
+D:\tfs200\OptionsPlay\FC\Mainline_John\Common\OptionsPlay.TechnicalAnalysis\bin\Debug\OptionsPlay.TechnicalAnalysis.dll
+D:\tfs200\OptionsPlay\FC\Mainline_John\Common\OptionsPlay.TechnicalAnalysis\bin\Debug\OptionsPlay.TechnicalAnalysis.pdb
+D:\tfs200\OptionsPlay\FC\Mainline_John\Common\OptionsPlay.TechnicalAnalysis\bin\Debug\MathNet.Numerics.dll
+D:\tfs200\OptionsPlay\FC\Mainline_John\Common\OptionsPlay.TechnicalAnalysis\bin\Debug\MathNet.Numerics.xml
+D:\tfs200\OptionsPlay\FC\Mainline_John\Common\OptionsPlay.TechnicalAnalysis\obj\Debug\OptionsPlay.TechnicalAnalysis.dll
+D:\tfs200\OptionsPlay\FC\Mainline_John\Common\OptionsPlay.TechnicalAnalysis\obj\Debug\OptionsPlay.TechnicalAnalysis.pdb
+D:\tfs200\OptionsPlay\FC\Mainline_John\Common\OptionsPlay.TechnicalAnalysis\obj\Debug\OptionsPlay.TechnicalAnalysis.csprojResolveAssemblyReference.cache

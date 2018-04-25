@@ -1,0 +1,3522 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>d:\deploy</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App/dataServices/authenticationService.js">
+      <publishTime>02/10/2015 13:20:53</publishTime>
+    </File>
+    <File Include="App/dataServices/configurationService.js">
+      <publishTime>02/10/2015 13:20:53</publishTime>
+    </File>
+    <File Include="App/dataServices/dataContext.js">
+      <publishTime>05/29/2015 16:55:37</publishTime>
+    </File>
+    <File Include="App/dataServices/dataServiceBase.js">
+      <publishTime>04/28/2015 17:58:49</publishTime>
+    </File>
+    <File Include="App/dataServices/hostResolver.js">
+      <publishTime>02/10/2015 13:20:53</publishTime>
+    </File>
+    <File Include="App/dataServices/models/defaultModel.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/dataServices/models/historicalOrderModel.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/dataServices/models/historicalStrikeModel.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/dataServices/models/historicalTradeModel.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/dataServices/models/intradayOrderModel.js">
+      <publishTime>05/29/2015 16:55:37</publishTime>
+    </File>
+    <File Include="App/dataServices/models/intradayTradeModel.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/dataServices/models/optionChainsModel.js">
+      <publishTime>04/17/2015 10:40:46</publishTime>
+    </File>
+    <File Include="App/dataServices/models/portfolioItemGroupModel.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/dataServices/models/portfolioItemModel.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/dataServices/models/predictionsModel.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/dataServices/models/standardDeviationModel.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/dataServices/models/supportAndResistanceModel.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/dataServices/signalrDataService.js">
+      <publishTime>02/10/2015 13:20:53</publishTime>
+    </File>
+    <File Include="App/dataServices/socketConnection.js">
+      <publishTime>05/18/2015 11:28:13</publishTime>
+    </File>
+    <File Include="App/dataServices/traceDataService.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/main.js">
+      <publishTime>05/18/2015 11:28:13</publishTime>
+    </File>
+    <File Include="App/modules/baseForm.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/browserDetection.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/cache/cache.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/cache/stores.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/combination/combinationChart.js">
+      <publishTime>04/10/2015 15:45:15</publishTime>
+    </File>
+    <File Include="App/modules/combination/combinationEditor.js">
+      <publishTime>03/13/2015 11:37:13</publishTime>
+    </File>
+    <File Include="App/modules/combination/combinationHelpers.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/combination/combinationViewModel.js">
+      <publishTime>06/11/2015 20:22:50</publishTime>
+    </File>
+    <File Include="App/modules/combination/enums.js">
+      <publishTime>04/17/2015 15:38:16</publishTime>
+    </File>
+    <File Include="App/modules/combination/strategyHelpers.js">
+      <publishTime>04/10/2015 15:38:47</publishTime>
+    </File>
+    <File Include="App/modules/combinationTextGeneration.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/configurations.js">
+      <publishTime>06/11/2015 15:42:28</publishTime>
+    </File>
+    <File Include="App/modules/context.js">
+      <publishTime>06/12/2015 11:30:46</publishTime>
+    </File>
+    <File Include="App/modules/custom/canvasHelpers.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/custom/chartIQCommon.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/custom/chartIQSmall.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/disposableViewModel.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/dropDownList.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/events.js">
+      <publishTime>05/29/2015 16:55:37</publishTime>
+    </File>
+    <File Include="App/modules/formatting.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/grid.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/help.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/helpers.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/kendoNumericTextBox.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/kendoWindow.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/knockoutBindings/arrowMove.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/knockoutBindings/bootstrap.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/knockoutBindings/bootstrapDatePicker.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/knockoutBindings/changeFlash.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/knockoutBindings/chartBindings.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/knockoutBindings/customBindings.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/knockoutBindings/customControls.js">
+      <publishTime>06/02/2015 14:48:29</publishTime>
+    </File>
+    <File Include="App/modules/knockoutBindings/customExtenders.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/knockoutBindings/fadeBackdropVisible.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/knockoutBindings/kendoExt.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/knockoutBindings/koExtenders.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/knockoutBindings/perfectScrollbar.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/knockoutBindings/redGreen.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/knockoutBindings/slideVisible.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/knockoutBindings/textFormatted.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/knockoutBindings/translate.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/loader.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/localizer.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/notifications.js">
+      <publishTime>04/17/2015 10:40:46</publishTime>
+    </File>
+    <File Include="App/modules/orderEnums.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/sentimentsModel.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/session.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/strategies/strategyTemplates.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/strategy.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/strategyGroup.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/validation.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/validation/addToValidationContext.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/validation/notEqualTo.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/modules/validation/onlyOneSecurityLeg.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/bottom.js">
+      <publishTime>05/18/2015 11:30:15</publishTime>
+    </File>
+    <File Include="App/viewmodels/chains.js">
+      <publishTime>05/22/2015 17:47:34</publishTime>
+    </File>
+    <File Include="App/viewmodels/compositions/historicalInquiry.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/compositions/languagePicker.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/compositions/symbolLookup.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/generatePremium.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/howPanel/incomeStrategies.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/howPanel/singleTrade.js">
+      <publishTime>04/17/2015 10:40:46</publishTime>
+    </File>
+    <File Include="App/viewmodels/howPanel/tradingStrategies.js">
+      <publishTime>06/11/2015 15:42:40</publishTime>
+    </File>
+    <File Include="App/viewmodels/index.js">
+      <publishTime>05/08/2015 13:23:22</publishTime>
+    </File>
+    <File Include="App/viewmodels/optionList.js">
+      <publishTime>05/08/2015 13:23:22</publishTime>
+    </File>
+    <File Include="App/viewmodels/portfolio.js">
+      <publishTime>05/27/2015 11:35:06</publishTime>
+    </File>
+    <File Include="App/viewmodels/quotes.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/shell.js">
+      <publishTime>05/08/2015 13:23:22</publishTime>
+    </File>
+    <File Include="App/viewmodels/signIn.js">
+      <publishTime>03/09/2015 15:50:07</publishTime>
+    </File>
+    <File Include="App/viewmodels/strategies/strategies.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/strategies/strategyComparison.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/strategy/all.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/strategy/edit.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/strategy/group/all.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/strategy/group/edit.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/strategy/group/new.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/strategy/new.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/trace.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/trade/exercise.js">
+      <publishTime>05/29/2015 16:55:37</publishTime>
+    </File>
+    <File Include="App/viewmodels/trade/intradayOrders.js">
+      <publishTime>05/18/2015 17:37:15</publishTime>
+    </File>
+    <File Include="App/viewmodels/trade/intradayTrades.js">
+      <publishTime>05/18/2015 17:37:15</publishTime>
+    </File>
+    <File Include="App/viewmodels/trade/orderEntry.js">
+      <publishTime>05/29/2015 16:55:37</publishTime>
+    </File>
+    <File Include="App/viewmodels/trade/paramSet.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/trade/portfolioList.js">
+      <publishTime>05/29/2015 16:55:37</publishTime>
+    </File>
+    <File Include="App/viewmodels/trade/queryGrid.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/trade/queryOption.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/tradeIdeas/chartIq.js">
+      <publishTime>04/23/2015 16:39:01</publishTime>
+    </File>
+    <File Include="App/viewmodels/tradeIdeas/howPanel.js">
+      <publishTime>04/17/2015 15:45:08</publishTime>
+    </File>
+    <File Include="App/viewmodels/tradeIdeas/quoteWidget.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/viewmodels/tradeIdeas/tradeIdeaGrid.js">
+      <publishTime>05/08/2015 13:23:23</publishTime>
+    </File>
+    <File Include="App/viewmodels/tradeIdeas/tradeIdeas.js">
+      <publishTime>04/01/2015 17:41:12</publishTime>
+    </File>
+    <File Include="App/viewmodels/tradeIdeas/whyPanel.js">
+      <publishTime>05/08/2015 13:23:22</publishTime>
+    </File>
+    <File Include="App/views/bottom.html">
+      <publishTime>05/07/2015 13:28:58</publishTime>
+    </File>
+    <File Include="App/views/chains.html">
+      <publishTime>06/10/2015 12:45:36</publishTime>
+    </File>
+    <File Include="App/views/compositions/historicalInquiry.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/compositions/languagePicker.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/compositions/symbolLookup.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/generatePremium.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/howPanel/incomeStrategies.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/howPanel/singleTrade.html">
+      <publishTime>04/17/2015 10:40:47</publishTime>
+    </File>
+    <File Include="App/views/howPanel/tradingStrategies.html">
+      <publishTime>05/08/2015 13:23:22</publishTime>
+    </File>
+    <File Include="App/views/index.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/modals/badBrowser.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/modals/contact.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/modals/disclaimer.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/modals/sessionTimeout.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/modals/share.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/modals/shareAuthenticate.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/modals/tradeTicket.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/optionList.html">
+      <publishTime>06/08/2015 17:59:58</publishTime>
+    </File>
+    <File Include="App/views/portfolio.html">
+      <publishTime>05/22/2015 17:47:34</publishTime>
+    </File>
+    <File Include="App/views/quotes.html">
+      <publishTime>05/08/2015 13:23:22</publishTime>
+    </File>
+    <File Include="App/views/shell.html">
+      <publishTime>05/29/2015 16:55:37</publishTime>
+    </File>
+    <File Include="App/views/signIn.html">
+      <publishTime>05/18/2015 11:30:15</publishTime>
+    </File>
+    <File Include="App/views/strategies/strategies.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/strategies/strategyComparison.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/strategy/all.cshtml">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/strategy/edit.cshtml">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/strategy/group/all.cshtml">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/strategy/group/edit.cshtml">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/strategy/group/new.cshtml">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/strategy/new.cshtml">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/trace.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/trade/exercise.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/trade/intradayOrders.html">
+      <publishTime>04/17/2015 10:40:46</publishTime>
+    </File>
+    <File Include="App/views/trade/intradayTrades.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/trade/lockableStocks.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/trade/orderEntry.html">
+      <publishTime>05/29/2015 16:55:37</publishTime>
+    </File>
+    <File Include="App/views/trade/paramSet.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/trade/portfolioList.html">
+      <publishTime>05/29/2015 16:55:37</publishTime>
+    </File>
+    <File Include="App/views/trade/queryGrid.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/trade/queryOption.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/tradeIdeas/chartIq.html">
+      <publishTime>04/23/2015 16:39:01</publishTime>
+    </File>
+    <File Include="App/views/tradeIdeas/howPanel.html">
+      <publishTime>03/13/2015 15:12:01</publishTime>
+    </File>
+    <File Include="App/views/tradeIdeas/quoteWidget.html">
+      <publishTime>04/17/2015 10:40:47</publishTime>
+    </File>
+    <File Include="App/views/tradeIdeas/tradeIdeas.html">
+      <publishTime>04/23/2015 16:39:01</publishTime>
+    </File>
+    <File Include="App/views/tradeIdeas/whyPanel.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/views/web.config">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/Web.config">
+      <publishTime>06/12/2015 11:34:37</publishTime>
+    </File>
+    <File Include="App/widgets/chartIQ/view.html">
+      <publishTime>04/20/2015 09:59:15</publishTime>
+    </File>
+    <File Include="App/widgets/chartIQ/viewmodel.js">
+      <publishTime>05/22/2015 17:47:34</publishTime>
+    </File>
+    <File Include="App/widgets/combinationEditor/view.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/widgets/combinationEditor/viewmodel.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/widgets/intradayChart/view.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/widgets/intradayChart/viewmodel.js">
+      <publishTime>06/12/2015 10:11:37</publishTime>
+    </File>
+    <File Include="App/widgets/marketDataDetail/view.html">
+      <publishTime>04/10/2015 15:45:15</publishTime>
+    </File>
+    <File Include="App/widgets/marketDataDetail/viewmodel.js">
+      <publishTime>05/22/2015 17:47:34</publishTime>
+    </File>
+    <File Include="App/widgets/option5DepthQuotes/view.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/widgets/option5DepthQuotes/viewmodel.js">
+      <publishTime>05/08/2015 13:23:22</publishTime>
+    </File>
+    <File Include="App/widgets/plChartAndDetails/view.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/widgets/plChartAndDetails/viewmodel.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/widgets/_buttons/back/view.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/widgets/_buttons/back/viewmodel.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/widgets/_buttons/new/view.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/widgets/_buttons/new/viewmodel.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/widgets/_buttons/submit/view.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App/widgets/_buttons/submit/viewmodel.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="App_Data/Configurations/log4net.config">
+      <publishTime>06/10/2015 13:18:07</publishTime>
+    </File>
+    <File Include="App_Data/Configurations/log4netDev.config">
+      <publishTime>04/28/2015 10:40:13</publishTime>
+    </File>
+    <File Include="App_Data/Configurations/log4netRelease.config">
+      <publishTime>02/26/2015 09:54:25</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="bin/App_Data/Configurations/log4net.config">
+      <publishTime>06/10/2015 13:18:07</publishTime>
+    </File>
+    <File Include="bin/App_Data/Configurations/log4netDev.config">
+      <publishTime>04/28/2015 10:40:13</publishTime>
+    </File>
+    <File Include="bin/App_Data/Configurations/log4netRelease.config">
+      <publishTime>02/26/2015 09:54:25</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.dll">
+      <publishTime>02/10/2015 13:20:59</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.Net4.dll">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="bin/BundleTransformer.Core.dll">
+      <publishTime>02/10/2015 13:21:01</publishTime>
+    </File>
+    <File Include="bin/BundleTransformer.Less.dll">
+      <publishTime>02/10/2015 13:21:01</publishTime>
+    </File>
+    <File Include="bin/dotless.Core.dll">
+      <publishTime>02/10/2015 13:21:01</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.BulkInsert.dll">
+      <publishTime>02/10/2015 13:21:02</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>02/10/2015 13:21:02</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.MappingAPI.dll">
+      <publishTime>02/10/2015 13:21:02</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>02/10/2015 13:21:02</publishTime>
+    </File>
+    <File Include="bin/Fasterflect.dll">
+      <publishTime>02/10/2015 13:21:02</publishTime>
+    </File>
+    <File Include="bin/IntelliLock.Licensing.dll">
+      <publishTime>02/10/2015 13:21:03</publishTime>
+    </File>
+    <File Include="bin/JavaScriptEngineSwitcher.Core.dll">
+      <publishTime>02/10/2015 13:21:03</publishTime>
+    </File>
+    <File Include="bin/JavaScriptEngineSwitcher.Msie.dll">
+      <publishTime>02/10/2015 13:21:03</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>02/10/2015 13:21:03</publishTime>
+    </File>
+    <File Include="bin/MathNet.Numerics.dll">
+      <publishTime>02/10/2015 13:21:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.SignalR.Core.dll">
+      <publishTime>02/10/2015 13:21:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.SignalR.SystemWeb.dll">
+      <publishTime>02/10/2015 13:21:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>02/10/2015 13:21:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>02/10/2015 13:21:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>02/10/2015 13:21:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>02/10/2015 13:21:01</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>02/10/2015 13:21:08</publishTime>
+    </File>
+    <File Include="bin/MongoDB.Bson.dll">
+      <publishTime>02/10/2015 13:21:08</publishTime>
+    </File>
+    <File Include="bin/MongoDB.Driver.dll">
+      <publishTime>02/10/2015 13:21:08</publishTime>
+    </File>
+    <File Include="bin/MsieJavaScriptEngine.dll">
+      <publishTime>02/10/2015 13:21:08</publishTime>
+    </File>
+    <File Include="bin/NDbfReader.dll">
+      <publishTime>02/10/2015 13:21:08</publishTime>
+    </File>
+    <File Include="bin/NewRelic.Api.Agent.dll">
+      <publishTime>02/10/2015 13:21:09</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>02/10/2015 13:21:09</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.Aspects.dll">
+      <publishTime>06/11/2015 17:45:53</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.BusinessLogic.Common.dll">
+      <publishTime>06/11/2015 16:30:57</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.BusinessLogic.dll">
+      <publishTime>06/12/2015 10:08:06</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.BusinessLogic.MarketData.dll">
+      <publishTime>06/12/2015 10:08:03</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.BusinessLogic.MarketDataProcessing.Common.dll">
+      <publishTime>06/12/2015 10:08:00</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.BusinessLogic.MarketDataProcessing.dll">
+      <publishTime>06/12/2015 10:08:03</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.Cache.dll">
+      <publishTime>06/11/2015 16:30:56</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.Common.dll">
+      <publishTime>06/11/2015 16:30:56</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.DAL.Core.dll">
+      <publishTime>06/11/2015 17:45:54</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.DAL.EF.Core.dll">
+      <publishTime>06/11/2015 17:45:52</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.DAL.EF.Repositories.dll">
+      <publishTime>06/11/2015 17:45:54</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.DAL.Interfaces.dll">
+      <publishTime>06/11/2015 17:45:51</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.DAL.MongoDB.Repositories.dll">
+      <publishTime>06/11/2015 17:45:53</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.DAL.SZKingdom.Common.dll">
+      <publishTime>06/11/2015 16:30:56</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.DAL.SZKingdom.DataProvider.dll">
+      <publishTime>06/11/2015 17:45:57</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.DAL.SZKingdom.ManagementWrapper.dll">
+      <publishTime>06/11/2015 16:06:11</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.EF.Encryption.dll">
+      <publishTime>06/11/2015 16:30:55</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.IoC.dll">
+      <publishTime>06/12/2015 10:08:06</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.Logging.dll">
+      <publishTime>06/11/2015 16:30:55</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.MarketData.dll">
+      <publishTime>06/12/2015 10:07:59</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.MarketData.Indicators.dll">
+      <publishTime>06/11/2015 16:30:57</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.Model.dll">
+      <publishTime>06/11/2015 16:30:57</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.Optimization.dll">
+      <publishTime>06/11/2015 17:45:52</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.Resources.dll">
+      <publishTime>06/11/2015 16:30:55</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.Security.dll">
+      <publishTime>06/11/2015 17:45:53</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.TechnicalAnalysis.dll">
+      <publishTime>06/11/2015 16:30:55</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.Web.AutoMapperPlugin.dll">
+      <publishTime>06/11/2015 17:45:55</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.Web.dll">
+      <publishTime>06/12/2015 10:08:17</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.Web.Infrastructure.dll">
+      <publishTime>06/11/2015 17:45:55</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.Web.SignalR.dll">
+      <publishTime>06/11/2015 17:45:56</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.Web.ViewModels.dll">
+      <publishTime>06/11/2015 16:30:58</publishTime>
+    </File>
+    <File Include="bin/OptionsPlay.Web.ViewModels.Providers.dll">
+      <publishTime>06/11/2015 17:45:54</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>02/10/2015 13:21:13</publishTime>
+    </File>
+    <File Include="bin/PostSharp.dll">
+      <publishTime>02/10/2015 13:21:13</publishTime>
+    </File>
+    <File Include="bin/protobuf-net.dll">
+      <publishTime>02/10/2015 13:21:13</publishTime>
+    </File>
+    <File Include="bin/ru-ru/BundleTransformer.Core.resources.dll">
+      <publishTime>02/10/2015 13:21:01</publishTime>
+    </File>
+    <File Include="bin/ru-ru/BundleTransformer.Less.resources.dll">
+      <publishTime>02/10/2015 13:21:01</publishTime>
+    </File>
+    <File Include="bin/ru-ru/JavaScriptEngineSwitcher.Core.resources.dll">
+      <publishTime>02/10/2015 13:21:03</publishTime>
+    </File>
+    <File Include="bin/ru-ru/MsieJavaScriptEngine.resources.dll">
+      <publishTime>02/10/2015 13:21:08</publishTime>
+    </File>
+    <File Include="bin/StructureMap.dll">
+      <publishTime>02/10/2015 13:21:16</publishTime>
+    </File>
+    <File Include="bin/StructureMap.Net4.dll">
+      <publishTime>02/10/2015 13:21:16</publishTime>
+    </File>
+    <File Include="bin/StructureMap.Web.dll">
+      <publishTime>02/10/2015 13:21:16</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>02/10/2015 13:21:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>02/10/2015 13:21:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>02/10/2015 13:21:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>02/10/2015 13:21:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>02/10/2015 13:21:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>02/10/2015 13:21:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.Less.dll">
+      <publishTime>02/10/2015 13:21:16</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>02/10/2015 13:21:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>02/10/2015 13:21:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>02/10/2015 13:21:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>02/10/2015 13:21:08</publishTime>
+    </File>
+    <File Include="bin/TA-Lib-Core.dll">
+      <publishTime>02/10/2015 13:21:17</publishTime>
+    </File>
+    <File Include="bin/WebActivator.dll">
+      <publishTime>02/10/2015 13:21:17</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>02/10/2015 13:21:17</publishTime>
+    </File>
+    <File Include="build/main.js">
+      <publishTime>06/12/2015 11:34:31</publishTime>
+    </File>
+    <File Include="build/views/bottom.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/chains.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/compositions/historicalInquiry.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/compositions/languagePicker.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/compositions/symbolLookup.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/generatePremium.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/howPanel/incomeStrategies.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/howPanel/singleTrade.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/howPanel/tradingStrategies.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/index.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/modals/badBrowser.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/modals/contact.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/modals/disclaimer.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/modals/sessionTimeout.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/modals/share.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/modals/shareAuthenticate.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/modals/tradeTicket.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/optionList.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/portfolio.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/quotes.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/shell.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/signIn.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/strategies/strategies.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/strategies/strategyComparison.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/strategy/all.cshtml">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/strategy/edit.cshtml">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/strategy/group/all.cshtml">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/strategy/group/edit.cshtml">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/strategy/group/new.cshtml">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/strategy/new.cshtml">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/trace.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/trade/exercise.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/trade/intradayOrders.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/trade/intradayTrades.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/trade/lockableStocks.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/trade/orderEntry.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/trade/paramSet.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/trade/portfolioList.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/trade/queryGrid.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/trade/queryOption.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/tradeIdeas/chartIq.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/tradeIdeas/howPanel.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/tradeIdeas/quoteWidget.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/tradeIdeas/tradeIdeas.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/tradeIdeas/whyPanel.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/views/web.config">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/Web.config">
+      <publishTime>06/12/2015 11:34:37</publishTime>
+    </File>
+    <File Include="build/widgets/chartIQ/view.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/widgets/chartIQ/viewmodel.js">
+      <publishTime>06/12/2015 11:34:34</publishTime>
+    </File>
+    <File Include="build/widgets/combinationEditor/view.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/widgets/combinationEditor/viewmodel.js">
+      <publishTime>06/12/2015 11:34:34</publishTime>
+    </File>
+    <File Include="build/widgets/intradayChart/view.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/widgets/intradayChart/viewmodel.js">
+      <publishTime>06/12/2015 11:34:34</publishTime>
+    </File>
+    <File Include="build/widgets/marketDataDetail/view.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/widgets/marketDataDetail/viewmodel.js">
+      <publishTime>06/12/2015 11:34:34</publishTime>
+    </File>
+    <File Include="build/widgets/option5DepthQuotes/view.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/widgets/option5DepthQuotes/viewmodel.js">
+      <publishTime>06/12/2015 11:34:34</publishTime>
+    </File>
+    <File Include="build/widgets/plChartAndDetails/view.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/widgets/plChartAndDetails/viewmodel.js">
+      <publishTime>06/12/2015 11:34:34</publishTime>
+    </File>
+    <File Include="build/widgets/_buttons/back/view.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/widgets/_buttons/back/viewmodel.js">
+      <publishTime>06/12/2015 11:34:34</publishTime>
+    </File>
+    <File Include="build/widgets/_buttons/new/view.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/widgets/_buttons/new/viewmodel.js">
+      <publishTime>06/12/2015 11:34:34</publishTime>
+    </File>
+    <File Include="build/widgets/_buttons/submit/view.html">
+      <publishTime>06/12/2015 11:34:27</publishTime>
+    </File>
+    <File Include="build/widgets/_buttons/submit/viewmodel.js">
+      <publishTime>06/12/2015 11:34:34</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/custom/chartIQ.less">
+      <publishTime>04/17/2015 14:22:40</publishTime>
+    </File>
+    <File Include="Content/custom/global.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/custom/globalMixins.less">
+      <publishTime>05/18/2015 11:30:15</publishTime>
+    </File>
+    <File Include="Content/custom/globalVariables.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/custom/kendoGlobalOverrides.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/custom/stx-demo-theme-1.css">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/custom/stx-demo-theme-2.css">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/custom/views/bottom.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/custom/views/chains.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/custom/views/custom.min.css">
+      <publishTime>06/12/2015 11:34:34</publishTime>
+    </File>
+    <File Include="Content/custom/views/generatePremium.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/custom/views/help.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/custom/views/languagePicker.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/custom/views/manageStrategies.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/custom/views/optionList.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/custom/views/portfolio.less">
+      <publishTime>04/17/2015 10:40:47</publishTime>
+    </File>
+    <File Include="Content/custom/views/quotes.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/custom/views/shell.less">
+      <publishTime>02/26/2015 16:51:24</publishTime>
+    </File>
+    <File Include="Content/custom/views/signIn.less">
+      <publishTime>02/16/2015 10:17:00</publishTime>
+    </File>
+    <File Include="Content/custom/views/strategies.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/custom/views/trade.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/font-awesome.css">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/fonts/fontawesome-webfont.eot">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/fonts/fontawesome-webfont.svg">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/fonts/fontawesome-webfont.ttf">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/fonts/fontawesome-webfont.woff">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/fonts/FontAwesome.otf">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/fonts/OpenSans-Bold-webfont.woff">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/fonts/OpenSans-Italic-webfont.woff">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/fonts/OpenSans-Regular-webfont.woff">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/fonts/OpenSans.woff">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/chartIQ/stx-icons-arrow-color.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/chartIQ/stx-icons-chart-control.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/chartIQ/stx-icons-chart-panels.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/chartIQ/stx-icons-chart-zoom.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/chartIQ/stx-icons-draw.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/chartIQ/stx-sprite.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/favicon.ico">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/firstCapitalLogo.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/flags/china.gif">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/flags/greatBritain.gif">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/helpFlag.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icon-checkmark.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icon-plSimulations_OPGreen.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/alert.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/alertStrip.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/arrow-up.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/autoExerciseFullQty.PNG">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/autoExerciseNone.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/autoExercisePartial.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/buyCallPL.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/buyCoveredCallPL.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/buyPutPL.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Call ButterflyBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Call ButterflySell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Call CalendarBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Call CalendarSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Call CondorBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Call CondorSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Call DiagonalBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Call DiagonalSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Call Ratio 1x2Buy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Call Ratio 1x2Sell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Call Ratio 2x3Buy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Call Ratio 2x3Sell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Call VerticalBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Call VerticalSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/CallBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/CallSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/cancelOrder.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/closePosition.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/closePosition_en-US.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/closePosition_zh-CN.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/CollarBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/CollarSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/complexPosition_en-US.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/complexPosition_zh-CN.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/costBasis_en-US.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/costBasis_zh-CN.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Covered CallBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Covered CallSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Custom StrategyBuy.PNG">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Custom StrategySell.PNG">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Double DiagonalBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Double DiagonalSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/exercisedPosition.PNG">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/exerciseOrder.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Financed VerticalBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Financed VerticalSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/flag.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/generatePremium.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/greekToggle.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/greekToggle1.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/hcToggle.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Iron ButterflyBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Iron ButterflySell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Iron CondorBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Iron CondorSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/lastPriceToggle_en-US.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/lastPriceToggle_zh-CN.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/longStockPL.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/numberTextBox.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/positionListLookup.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/positionSymbolLookup.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Protective PutBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Put ButterflyBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Put ButterflySell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Put CalendarBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Put CalendarSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Put CondorBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Put CondorSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Put DiagonalBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Put DiagonalSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Put Ratio 1x2Buy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Put Ratio 1x2Sell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Put Ratio 2x3Buy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Put Ratio 2x3Sell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Put VerticalBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Put VerticalSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/PutBuy.PNG">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/PutSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/refresh.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/sellCallPL.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/sellPutPL.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/showGreeks.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/StockBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/StockSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/StraddleBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/StraddleSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/StrangleBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/StrangleSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Synthetic StockBuy.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/icons/Synthetic StockSell.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/light-bulb.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/logo.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/images/strategies-icons.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/black/sprite.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/kendo.common.core.min.css">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/kendo.common.min.css">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/kendo.silver.min.css">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/kendo.web.plugins.min.css">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/silver/editor.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/silver/imagebrowser.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/silver/indeterminate.gif">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/silver/loading-image.gif">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/silver/loading.gif">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/silver/loading_2x.gif">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/silver/loding_big.gif">
+      <publishTime>02/16/2015 10:17:00</publishTime>
+    </File>
+    <File Include="Content/kendo/silver/markers.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/silver/markers_2x.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/silver/slider-h.gif">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/silver/slider-v.gif">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/silver/sprite.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/silver/sprite_2x.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/brushed-metal.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/dots1.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/dots10.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/dots11.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/dots12.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/dots13.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/dots2.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/dots3.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/dots4.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/dots5.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/dots6.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/dots7.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/dots8.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/dots9.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/glass-lighter.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/glass.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/highlight.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/hsv-gradient.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/hue.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/leather1.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/leather2.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/noise.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/stripe1.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/stripe2.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/stripe3.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/stripe4.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/stripe5.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/stripe6.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/transparency.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/kendo/textures/transtexture.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/lesshat-prefixed.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/localization/en-US.json">
+      <publishTime>05/29/2015 16:55:37</publishTime>
+    </File>
+    <File Include="Content/localization/zh-CN.json">
+      <publishTime>05/29/2015 16:55:37</publishTime>
+    </File>
+    <File Include="Content/pace.css">
+      <publishTime>02/16/2015 10:17:00</publishTime>
+    </File>
+    <File Include="Content/perfect-scrollbar.css">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/custom-animate.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/font-awesome.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/global-loader.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/mixins.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/open-sans-font.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhouse-compatibility.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhouse-responsive.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhouse.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhouseFull/myOptionsPlay.bootstrap.modal.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/3rd-party-overrides.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/common-variables.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/global-loader.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/header-footer.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/help-framework.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/landingPage.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/local-loader.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/modals.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/portfolio.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/powerhouse-pro.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/profile.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/responsive/common.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/responsive/desktop.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/responsive/tablet.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/share-modal.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/strategies.less">
+      <publishTime>04/10/2015 15:45:15</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/strategies/combination-editors.less">
+      <publishTime>03/09/2015 15:50:07</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/strategies/expanded-chart-container.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/strategies/single-trade-view.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/strategies/slider.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/strategies/toolbox.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/strategies/variables.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/strategiesIcons.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/symbol-widget.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/symbol.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/themes/dark.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/themes/light.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/powerhouse/powerhousePro/trade-ideas.less">
+      <publishTime>04/17/2015 10:40:47</publishTime>
+    </File>
+    <File Include="Content/powerhouse/validation.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/animated-overlay.gif">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_222222_256x240.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_454545_256x240.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_888888_256x240.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery-ui.css">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Content/toastr.less">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>02/10/2015 13:20:53</publishTime>
+    </File>
+    <File Include="Gruntfile.js">
+      <publishTime>06/12/2015 11:31:21</publishTime>
+    </File>
+    <File Include="newrelic/extensions/CoreInstrumentation.xml">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="newrelic/extensions/extension.xsd">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="newrelic/NewRelic.Agent.Core.dll">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="newrelic/newrelic.config">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="newrelic/NewRelic.Profiler.dll">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/.bin/r.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/.bin/r.js.cmd">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt-contrib-requirejs/LICENSE-MIT">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="node_modules/grunt-contrib-requirejs/package.json">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="node_modules/grunt-contrib-requirejs/README.md">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="node_modules/grunt-contrib-requirejs/tasks/requirejs.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="node_modules/grunt/.npmignore">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/appveyor.yml">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/CONTRIBUTING.md">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/internal-tasks/bump.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/internal-tasks/subgrunt.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/lib/grunt.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/lib/grunt/cli.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/lib/grunt/config.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/lib/grunt/event.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/lib/grunt/fail.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/lib/grunt/file.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/lib/grunt/help.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/lib/grunt/option.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/lib/grunt/task.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/lib/grunt/template.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/lib/util/task.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/LICENSE-MIT">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/.bin/cake">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/.bin/cake.cmd">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/.bin/coffee">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/.bin/coffee.cmd">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/.bin/js-yaml">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/.bin/js-yaml.cmd">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/.bin/nopt">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/.bin/nopt.cmd">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/.bin/rimraf">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/.bin/rimraf.cmd">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/.bin/which">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/.bin/which.cmd">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/async/.gitmodules">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/async/.npmignore">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/async/index.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/async/lib/async.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/async/LICENSE">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/async/Makefile">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/async/package.json">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/async/README.md">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/.npmignore">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/bin/cake">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/bin/coffee">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/CNAME">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/extras/jsl.conf">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/lib/coffee-script/browser.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/lib/coffee-script/cake.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/lib/coffee-script/coffee-script.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/lib/coffee-script/command.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/lib/coffee-script/grammar.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/lib/coffee-script/helpers.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/lib/coffee-script/index.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/lib/coffee-script/lexer.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/lib/coffee-script/nodes.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/lib/coffee-script/optparse.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/lib/coffee-script/parser.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/lib/coffee-script/repl.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/lib/coffee-script/rewriter.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/lib/coffee-script/scope.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/LICENSE">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/package.json">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/Rakefile">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/coffee-script/README">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/colors/colors.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/colors/example.html">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/colors/example.js">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/colors/MIT-LICENSE.txt">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/colors/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/colors/ReadMe.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/colors/test.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/colors/themes/winston-dark.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/colors/themes/winston-light.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/dateformat/lib/dateformat.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/dateformat/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/dateformat/Readme.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/dateformat/test/test_weekofyear.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/dateformat/test/test_weekofyear.sh">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/eventemitter2/index.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/eventemitter2/lib/eventemitter2.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/eventemitter2/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/eventemitter2/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/.jshintrc">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/.npmignore">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/.travis.yml">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/Gruntfile.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/lib/exit.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/LICENSE-MIT">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/test/exit_test.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/test/fixtures/10-stderr.txt">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/test/fixtures/10-stdout-stderr.txt">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/test/fixtures/10-stdout.txt">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/test/fixtures/100-stderr.txt">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/test/fixtures/100-stdout-stderr.txt">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/test/fixtures/100-stdout.txt">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/test/fixtures/1000-stderr.txt">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/test/fixtures/1000-stdout-stderr.txt">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/test/fixtures/1000-stdout.txt">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/test/fixtures/create-files.sh">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/test/fixtures/log-broken.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/exit/test/fixtures/log.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/.jshintrc">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/.npmignore">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/.travis.yml">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/Gruntfile.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/lib/findup-sync.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/LICENSE-MIT">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/.npmignore">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/.travis.yml">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/examples/g.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/examples/usr-local.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/glob.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/LICENSE">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/inherits/inherits.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/inherits/inherits_browser.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/inherits/LICENSE">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/inherits/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/inherits/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/inherits/test.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/.npmignore">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/LICENSE">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/minimatch.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/lru-cache/.npmignore">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/lru-cache/CONTRIBUTORS">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/lru-cache/lib/lru-cache.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/lru-cache/LICENSE">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/lru-cache/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/lru-cache/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/lru-cache/test/basic.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/lru-cache/test/foreach.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/lru-cache/test/memory-leak.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/sigmund/bench.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/sigmund/LICENSE">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/sigmund/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/sigmund/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/sigmund/sigmund.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/sigmund/test/basic.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/test/basic.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/test/brace-expand.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/test/caching.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/test/defaults.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/test/extglob-ending-with-state-char.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/00-setup.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/bash-comparison.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/bash-results.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/cwd-test.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/globstar-match.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/mark.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/new-glob-optional-options.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/nocase-nomagic.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/pause-resume.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/readme-issue.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/root-nomount.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/root.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/stat.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/zz-cleanup.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/lodash/dist/lodash.compat.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/lodash/dist/lodash.compat.min.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/lodash/dist/lodash.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/lodash/dist/lodash.min.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/lodash/dist/lodash.underscore.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/lodash/dist/lodash.underscore.min.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/lodash/LICENSE.txt">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/lodash/lodash.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/lodash/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/node_modules/lodash/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/test/findup-sync_test.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/test/fixtures/a.txt">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/test/fixtures/a/b/bar.txt">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/test/fixtures/a/foo.txt">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/findup-sync/test/fixtures/aaa.txt">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/getobject/.jshintrc">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/getobject/.npmignore">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/getobject/.travis.yml">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/getobject/Gruntfile.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/getobject/lib/getobject.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/getobject/LICENSE-MIT">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/getobject/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/getobject/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/getobject/test/namespace_test.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/.npmignore">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/.travis.yml">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/examples/g.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/examples/usr-local.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/glob.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/LICENSE">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/node_modules/graceful-fs/.npmignore">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/node_modules/graceful-fs/graceful-fs.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/node_modules/graceful-fs/LICENSE">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/node_modules/graceful-fs/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/node_modules/graceful-fs/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/node_modules/graceful-fs/test/open.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/node_modules/graceful-fs/test/ulimit.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/node_modules/inherits/inherits.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/node_modules/inherits/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/node_modules/inherits/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/test/00-setup.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/test/bash-comparison.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/test/bash-results.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/test/cwd-test.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/test/mark.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/test/nocase-nomagic.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/test/pause-resume.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/test/root-nomount.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/test/root.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/glob/test/zz-cleanup.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/.jshintrc">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/.npmignore">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/.travis.yml">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/examples.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/Gruntfile.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/index.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/LICENSE-MIT">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/lodash/dist/lodash.compat.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/lodash/dist/lodash.compat.min.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/lodash/dist/lodash.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/lodash/dist/lodash.min.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/lodash/dist/lodash.underscore.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/lodash/dist/lodash.underscore.min.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/lodash/LICENSE.txt">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/lodash/lodash.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/lodash/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/lodash/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/.travis.yml">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/component.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/dist/underscore.string.min.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/Gemfile">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/Gemfile.lock">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/lib/underscore.string.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/libpeerconnection.log">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/Rakefile">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/README.markdown">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/run-qunit.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/speed.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/strings.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/strings_standalone.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/test.html">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/test_standalone.html">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/test_underscore/arrays.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/test_underscore/chaining.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/test_underscore/collections.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/test_underscore/functions.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/test_underscore/index.html">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/test_underscore/objects.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/test_underscore/speed.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/test_underscore/utility.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/test_underscore/vendor/jquery.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/test_underscore/vendor/jslitmus.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/test_underscore/vendor/qunit.css">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/test_underscore/vendor/qunit.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/test/underscore.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-log/test/index.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-util/.jshintrc">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-util/.npmignore">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-util/.travis.yml">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-util/Gruntfile.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-util/index.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-util/LICENSE-MIT">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-util/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-util/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-util/test/fixtures/exec.cmd">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-util/test/fixtures/exec.sh">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-util/test/fixtures/Gruntfile-execArgv-child.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-util/test/fixtures/Gruntfile-execArgv.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-util/test/fixtures/Gruntfile-print-text.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-util/test/fixtures/spawn-multibyte.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-util/test/fixtures/spawn.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/grunt-legacy-util/test/index.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/hooker/child.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/hooker/dist/ba-hooker.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/hooker/dist/ba-hooker.min.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/hooker/grunt.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/hooker/lib/hooker.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/hooker/LICENSE-MIT">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/hooker/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/hooker/parent.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/hooker/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/hooker/test/hooker_test.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/.npmignore">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/.travis.yml">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/encodings/big5.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/encodings/gbk.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/encodings/singlebyte.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/encodings/table/big5.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/encodings/table/gbk.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/generation/generate-big5-table.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/generation/generate-singlebyte.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/index.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/LICENSE">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/README.md~">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/test/big5-test.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/test/big5File.txt">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/test/cyrillic-test.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/test/gbk-test.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/test/gbkFile.txt">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/test/greek-test.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/test/main-test.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/test/performance.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/iconv-lite/test/turkish-test.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/bin/js-yaml.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/examples/custom_types.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/examples/custom_types.yaml">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/examples/dumper.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/examples/dumper.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/examples/sample_document.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/examples/sample_document.yaml">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/HISTORY.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/index.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/common.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/dumper.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/exception.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/loader.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/mark.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/require.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/schema.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/schema/default.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/schema/minimal.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/schema/safe.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/type.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/type/binary.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/type/bool.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/type/float.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/type/int.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/type/js/function.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/type/js/regexp.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/type/js/undefined.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/type/map.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/type/merge.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/type/null.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/type/omap.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/type/pairs.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/type/seq.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/type/set.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/type/str.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/lib/js-yaml/type/timestamp.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/LICENSE">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/.bin/esparse">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/.bin/esparse.cmd">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/.bin/esvalidate">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/.bin/esvalidate.cmd">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/examples/arguments.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/examples/choice.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/examples/constants.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/examples/help.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/examples/nargs.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/examples/parents.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/examples/prefix_chars.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/examples/sub_commands.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/examples/sum.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/examples/testformatters.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/HISTORY.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/index.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/action.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/action/append.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/action/append/constant.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/action/count.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/action/help.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/action/store.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/action/store/constant.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/action/store/false.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/action/store/true.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/action/subparsers.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/action/version.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/action_container.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/argparse.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/argument/error.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/argument/exclusive.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/argument/group.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/argument_parser.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/const.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/help/added_formatters.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/help/formatter.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/namespace.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/LICENSE">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/.npmignore">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/.travis.yml">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/bower.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/component.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/foo.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/gulpfile.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/lib/underscore.string.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/libpeerconnection.log">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/README.markdown">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore/LICENSE">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore/underscore-min.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore/underscore.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/argparse/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/esprima/bin/esparse.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/esprima/bin/esvalidate.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/esprima/esprima.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/esprima/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/esprima/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/esprima/test/compat.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/esprima/test/reflect.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/esprima/test/run.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/esprima/test/runner.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/node_modules/esprima/test/test.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/js-yaml/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/lodash/lodash.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/lodash/lodash.min.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/lodash/lodash.underscore.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/lodash/lodash.underscore.min.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/lodash/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/lodash/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/.npmignore">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/LICENSE">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/minimatch.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/node_modules/lru-cache/.npmignore">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/node_modules/lru-cache/CONTRIBUTORS">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/node_modules/lru-cache/lib/lru-cache.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/node_modules/lru-cache/LICENSE">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/node_modules/lru-cache/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/node_modules/lru-cache/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/node_modules/lru-cache/test/basic.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/node_modules/lru-cache/test/foreach.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/node_modules/lru-cache/test/memory-leak.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/node_modules/sigmund/bench.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/node_modules/sigmund/LICENSE">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/node_modules/sigmund/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/node_modules/sigmund/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/node_modules/sigmund/sigmund.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/node_modules/sigmund/test/basic.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/test/basic.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/test/brace-expand.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/test/caching.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/test/defaults.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/minimatch/test/extglob-ending-with-state-char.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/nopt/.gitignore">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/nopt/bin/nopt.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/nopt/examples/my-program.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/nopt/lib/nopt.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/nopt/LICENSE">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/nopt/node_modules/abbrev/abbrev.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/nopt/node_modules/abbrev/CONTRIBUTING.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/nopt/node_modules/abbrev/LICENSE">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/nopt/node_modules/abbrev/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/nopt/node_modules/abbrev/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/nopt/node_modules/abbrev/test.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/nopt/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/nopt/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/rimraf/AUTHORS">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/rimraf/bin.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/rimraf/LICENSE">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/rimraf/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/rimraf/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/rimraf/rimraf.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/rimraf/test/run.sh">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/rimraf/test/setup.sh">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/rimraf/test/test-async.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/rimraf/test/test-sync.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/.travis.yml">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/dist/underscore.string.min.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/Gemfile">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/Gemfile.lock">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/lib/underscore.string.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/Rakefile">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/README.markdown">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/run-qunit.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/speed.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/strings.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/strings_standalone.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/test.html">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/test_standalone.html">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/test_underscore/arrays.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/test_underscore/chaining.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/test_underscore/collections.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/test_underscore/functions.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/test_underscore/objects.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/test_underscore/speed.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/test_underscore/temp.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/test_underscore/temp_tests.html">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/test_underscore/test.html">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/test_underscore/utility.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/test_underscore/vendor/jquery.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/test_underscore/vendor/jslitmus.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/test_underscore/vendor/qunit.css">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/test_underscore/vendor/qunit.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/underscore.string/test/underscore.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/which/bin/which">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/which/LICENSE">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/which/package.json">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/which/README.md">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/node_modules/which/which.js">
+      <publishTime>02/10/2015 13:20:55</publishTime>
+    </File>
+    <File Include="node_modules/grunt/package.json">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/grunt/README.md">
+      <publishTime>02/10/2015 13:20:54</publishTime>
+    </File>
+    <File Include="node_modules/requirejs/bin/r.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="node_modules/requirejs/package.json">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="node_modules/requirejs/README.md">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="node_modules/requirejs/require.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="package.json">
+      <publishTime>02/10/2015 13:20:53</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>02/10/2015 13:20:53</publishTime>
+    </File>
+    <File Include="Scripts/almond-custom.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/autoNumeric-1.9.25.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap-datepicker.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap-tagsinput.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/chartIQ/getComputedStyleFix.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/chartIQ/restoreAlert.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/chartIQ/stx.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/chartIQ/stxCustom.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/chartIQ/stxKernelOs.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/chartIQ/stxModulus.js">
+      <publishTime>04/23/2015 16:39:01</publishTime>
+    </File>
+    <File Include="Scripts/chartIQ/stxThirdParty.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/chartIQ/stxTimeZoneData.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/durandal/activator.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/durandal/app.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/durandal/binder.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/durandal/composition.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/durandal/events.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/durandal/plugins/dialog.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/durandal/plugins/history.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/durandal/plugins/http.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/durandal/plugins/observable.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/durandal/plugins/router.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/durandal/plugins/serializer.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/durandal/plugins/widget.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/durandal/system.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/durandal/transitions/animateCss.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/durandal/transitions/entrance.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/durandal/viewEngine.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/durandal/viewLocator.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/highstock.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/i18next.amd.withJQuery-1.7.2.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/isotope.pkgd.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/isotope.pkgd.min.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.0.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.10.4.custom.min.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/jquery.cookie.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/jquery.hotkeys.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/jquery.placeholder.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/jquery.signalR-2.1.2.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/jquery.signalR-2.1.2.min.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/jquery.ui.touch-punch.min.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate/jquery.validate.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate/jquery.validate.unobtrusive.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/jstat-0.1.0.min.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/kendo/kendo.all.min.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/kendo/kendo.culture.zh-CN.min.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/kendo/kendo.web.plugins.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/knockout-3.1.0.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/knockout-kendo.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/knockout-kendo.min.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/knockout.mapping-2.4.1.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/knockout.validation.debug.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/knockout.validation.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/pace.js">
+      <publishTime>02/16/2015 10:17:00</publishTime>
+    </File>
+    <File Include="Scripts/perfect-scrollbar.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/r.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/require-2.1.11.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/text.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Scripts/toastr.js">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>05/18/2015 11:30:15</publishTime>
+    </File>
+    <File Include="Views/Shared/Strategy/_Strategy.cshtml">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Views/Shared/Strategy/_StrategyDetail.cshtml">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Views/Shared/Strategy/_StrategyGroup.cshtml">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Views/Shared/_ValidationErrors.cshtml">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Views/web.config">
+      <publishTime>02/10/2015 13:20:58</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/12/2015 11:34:37</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

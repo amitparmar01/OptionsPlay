@@ -1,0 +1,33 @@
+﻿
+<div id="lookup">
+	<!-- ko t: 'labels.lookup' -->
+	<!-- /ko -->
+	<input id="symbolLookup" type="text" data-bind="kendoAutoComplete: symbolViewOptions" />
+	<!-- ko if: quoteReady -->
+	<span data-bind="with: quote">
+		<span class='security-name' data-bind="text: securityName"></span>
+		<span class='last-price' data-bind="textFormatted: lastPrice, css: {'up': change() > 0, 'down': change() < 0}"></span>
+		<span class='change' data-bind="css: {'up': change() > 0, 'down': change() < 0}">
+			<!-- ko textFormatted: change --><!-- /ko -->
+			(<!-- ko textFormatted: changePercentage, format: '+#.00%;-#.00%' --><!-- /ko -->)
+		</span>
+	</span>
+	<!-- /ko -->
+</div>
+
+<script type="text/html" id="symbolViewTemplate">
+	<li class="k-item autocomplete-row">
+		<div class="autocomplete-cell" data-field="code">
+			#: securityCode #
+		</div>
+		<div class="autocomplete-cell" data-field="name">
+			#: securityName #
+		</div>
+	</li>
+</script>
+
+<script type="text/html" id="symbolViewExpandButtonTemplate">
+	<span class="symbolLookupExpandButton">
+		<img src="Content/images/icons/positionSymbolLookup.png" />
+	</span>
+</script>

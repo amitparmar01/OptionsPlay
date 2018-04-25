@@ -1,0 +1,36 @@
+10.02.2015 13:42:14  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+10.02.2015 13:42:14  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+10.02.2015 14:06:35  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+10.02.2015 14:13:55  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+10.02.2015 14:58:26  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+10.02.2015 15:17:35  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Saving OptionQuotesInfo
+10.02.2015 15:18:25  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+10.02.2015 15:18:28  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Saving OptionQuotesInfo
+10.02.2015 15:20:27  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+10.02.2015 15:20:31  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Saving OptionQuotesInfo
+10.02.2015 15:28:23  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+10.02.2015 15:29:10  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Saving OptionQuotesInfo
+10.02.2015 16:51:47  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+10.02.2015 16:54:49  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+10.02.2015 16:55:38  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+10.02.2015 16:55:59  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+10.02.2015 16:56:20  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+10.02.2015 17:04:43  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+10.02.2015 17:59:06  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting LatestStockQuoteInfo
+10.02.2015 17:59:07  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Mapping LatestStockQuoteInfo
+10.02.2015 17:59:07  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Saving LatestStockQuoteInfo
+10.02.2015 17:59:07  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Completed
+10.02.2015 17:59:27  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting LatestStockQuoteInfo
+10.02.2015 17:59:43  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Mapping LatestStockQuoteInfo
+10.02.2015 17:59:43  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Saving LatestStockQuoteInfo
+10.02.2015 17:59:43  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Completed
+10.02.2015 18:00:00  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting LatestStockQuoteInfo
+10.02.2015 18:01:33  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Mapping LatestStockQuoteInfo
+10.02.2015 18:01:34  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Saving LatestStockQuoteInfo
+10.02.2015 18:01:59  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Completed
+10.02.2015 18:02:16  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting LatestStockQuoteInfo
+10.02.2015 18:02:32  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Mapping LatestStockQuoteInfo
+10.02.2015 18:03:24  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Saving LatestStockQuoteInfo
+10.02.2015 18:03:24  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Completed
+10.02.2015 18:03:43  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting LatestStockQuoteInfo
+10.02.2015 18:03:43  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Mapping LatestStockQuoteInfo

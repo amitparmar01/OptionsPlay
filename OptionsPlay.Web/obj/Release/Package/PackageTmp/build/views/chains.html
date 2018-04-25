@@ -1,0 +1,168 @@
+﻿ <div id="chains" class="container-fluid height-full position-relative">
+	<div class="row">
+		<div class="col-md-3">
+			<ul class="nav nav-tabs nav-tabs-justified">
+				<li class="active">
+					<a data-bind="tab: {}, click: showQueryArea" href="#chainGridContainer" id="chainsTab">
+						<span>T型报价</span>
+					</a>
+				</li>
+
+				<li>
+                    <a data-bind="tab: {}, click: hideQueryArea" href="#listGridContainer" id="listTab">
+                        <span>期权列表</span>
+                    </a>
+				</li>
+			</ul>
+		</div>
+        <!-- ko if: isTDisplay() -->
+		<div data-bind="" class="chains-toolbox-expiry col-md-8 pull-right">
+			<!-- ko if: !greekToggled() -->
+			<img data-bind="click: toggleGreek" src="Content/images/icons/greekToggle.png" class="greekToggle">
+			<!-- /ko -->
+			<!-- ko if: greekToggled() -->
+			<img data-bind="click: toggleGreek, attr: {src: 'Content/images/icons/{0}.png'.replace('{0}', greeksToggleIcon())}" src="" class="greekToggle">
+			<!-- /ko -->
+			<span>合约单位：</span>
+			<input data-bind="kendoDropDownList: multipliersOptions" class="options-multipliers" />
+			<span>到期日：</span>
+			<input data-bind="kendoDropDownList: expiryDropDownOptions" class="options-expiries" />
+		</div>
+        <!-- /ko -->
+	</div>
+	<div class="row">
+		<div class="tab-content">
+			<div id="chainGridContainer" class="base-grid tab-pane active fade in">
+				<table data-bind="kendoGrid: gridOptions, kendoSpinner: gridReady" id="chainsGrid">
+					<thead>
+						<tr class="snd-head">
+							<th data-field="callNumber">代码</th>
+							<!-- ko if: !greekToggled() -->
+							<th data-field="callImpVol" data-bind="t: 'chains.callImpVol'" class="imp-th"></th>
+							<th data-field="callVol" data-bind="t: 'chains.callVol'"></th>
+							<th data-field="callOI" data-bind="t: 'chains.callOI'"></th>
+							<th data-field="callLast" data-bind="t: 'chains.last'"></th>
+							<th data-field="callChange" data-bind="t: 'chains.change'"></th>
+							<!-- /ko -->
+							<!-- ko if: greekToggled() -->
+							<th data-field="callDelta" data-bind="t: 'chains.callDelta'"></th>
+							<th data-field="callTheta" data-bind="t: 'chains.callTheta'"></th>
+							<th data-field="callGamma" data-bind="t: 'chains.callGamma'"></th>
+							<th data-field="callVega" data-bind="t: 'chains.callVega'"></th>
+							<th data-field="callRho" data-bind="t: 'chains.callRho'"></th>
+							<!-- /ko -->
+							<th data-field="callBid" data-bind="t: 'chains.callBid'"></th>
+							<th data-field="callAsk" data-bind="t: 'chains.callAsk'"></th>
+							<th data-field="strikePrice">购《行权价》沽&uarr;</th>
+							<th data-field="putNumber">代码</th>
+							<th data-field="putBid" data-bind="t: 'chains.putBid'"></th>
+							<th data-field="putAsk" data-bind="t: 'chains.putAsk'"></th>
+							<!-- ko if: !greekToggled() -->
+							<th data-field="putLast" data-bind="t: 'chains.last'"></th>
+							<th data-field="putChange" data-bind="t: 'chains.change'"></th>
+							<th data-field="putVol" data-bind="t: 'chains.putVol'"></th>
+							<th data-field="putOI" data-bind="t: 'chains.putOI'"></th>
+							<th data-field="putImpVol" data-bind="t: 'chains.putImpVol'" class="imp-th"></th>
+							<!-- /ko -->
+							<!-- ko if: greekToggled() -->
+							<th data-field="putDelta" data-bind="t: 'chains.putDelta'"></th>
+							<th data-field="putTheta" data-bind="t: 'chains.putTheta'"></th>
+							<th data-field="putGamma" data-bind="t: 'chains.putGamma'"></th>
+							<th data-field="putVega" data-bind="t: 'chains.putVega'"></th>
+							<th data-field="putRho" data-bind="t: 'chains.putRho'"></th>
+							<!-- /ko -->
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div id="listGridContainer" class="tab-pane">
+				<!-- ko compose: 'viewmodels/optionList' -->
+				<!-- /ko -->
+			</div>
+		</div>
+	</div>
+
+	<div id="optionPLGraph" data-bind="kendoWindow: plGraphWindowOptions">
+		<div class="strategy-container-portfolio">
+			<!-- ko if: isPlVisible() && combination() -->
+			<div data-bind="widget: { kind: 'plChartAndDetails', combination: combination() }, css: combination().sentiment()" class="sentiment-border"></div>
+			<!-- /ko -->
+		</div>
+		<div class="order-btn-zone">
+			<button data-bind="click: prefill" class="order-btn"><span data-bind="t: 'chains.order'"></span></button>
+		</div>
+	</div>
+	<script id="chainsRowTemplate" type="text/html">
+		<tr data-bind="css: {'option-row': !isExpiryRow}, event: {click: $parent.onDoubleClick}, css:{ itm:cmpPrice < $parent.lastPrice(), otm: cmpPrice >= $parent.lastPrice(), 'callSelected': $parent.selectedOptionNumber() == callOption.optionNumber, 'putSelected': $parent.selectedOptionNumber() == putOption.optionNumber}">
+			<!-- ko if: !isExpiryRow -->
+			<td data-bind="text: callOption.optionNumber" class="call"></td>
+			<!-- ko if: !$parent.greekToggled() -->
+			<td data-bind="textFormatted: callOption.greeks.sigma, format: '#.0000', css:{itm:cmpPrice < $parent.lastPrice(), otm: cmpPrice >= $parent.lastPrice()}" class="call"></td>
+			<td data-bind="text: callOption.volume, changeFlash: callOption.volume" class="call"></td>
+			<td data-bind="text: callOption.openInterest, changeFlash: callOption.openInterest" class="call"></td>
+			<td data-bind="textFormatted: callOption.latestTradedPrice, format: '#.0000', redGreen: callOption.change,css:{itm:cmpPrice < $parent.lastPrice(), otm: cmpPrice >= $parent.lastPrice()}, changeFlash: callOption.latestTradedPrice" class="call"></td>
+			<td data-bind="textFormatted: callOption.change, format: '#.0000', redGreen: callOption.change, changeFlash: callOption.change" class="call"></td>
+			<!-- /ko -->
+			<!-- ko if: $parent.greekToggled() -->
+			<td data-bind="textFormatted: callOption.greeks.delta, format: '#.00', changeFlash: callOption.greeks.delta" class="call"></td>
+			<td data-bind="textFormatted: callOption.greeks.theta, format: '#.000', changeFlash: callOption.greeks.theta" class="call"></td>
+			<td data-bind="textFormatted: callOption.greeks.gamma, format: '#.00', changeFlash: callOption.greeks.gamma" class="call"></td>
+			<td data-bind="textFormatted: callOption.greeks.vega, format: '#.00', changeFlash: callOption.greeks.vega" class="call"></td>
+			<td data-bind="textFormatted: callOption.greeks.rho, format: '#.000', changeFlash: callOption.greeks.rho" class="call"></td>
+			<!-- /ko -->
+			<td data-bind="textFormatted: callOption.bid, format: '#.0000', redGreen: callOption.change,css:{ itm:cmpPrice < $parent.lastPrice(), otm: cmpPrice >= $parent.lastPrice()}, click_: $parent.popPl, changeFlash: callOption.bid" class="clickable call bid sell"></td>
+			<td data-bind="textFormatted: callOption.ask, format: '#.0000', redGreen: callOption.change,css:{itm:cmpPrice < $parent.lastPrice(), otm: cmpPrice >= $parent.lastPrice()}, click_: $parent.popPl, changeFlash: callOption.ask" class="clickable call ask buy"></td>
+
+			<td data-bind="text: strikePrice" class="strike-column"></td>
+			<!-- ko if: putOption.bid != 0 -->
+			<td data-bind="text: putOption.optionNumber" class="put"></td>
+			<!-- ko if: $parent.gridType()!=3 -->
+			<td data-bind="textFormatted: putOption.bid, format: '#.0000', redGreen: putOption.change, click_: $parent.popPl, changeFlash: putOption.bid" class="clickable put bid sell"></td>
+			<td data-bind="textFormatted: putOption.ask, format: '#.0000', redGreen: putOption.change, click_: $parent.popPl, changeFlash: putOption.ask" class="clickable put ask buy"></td>
+			<!-- ko if: !$parent.greekToggled() -->
+            <td data-bind="textFormatted: putOption.latestTradedPrice,changeFlash: putOption.latestTradedPrice, format: '#.0000', redGreen: putOption.change,css:{ itm:cmpPrice >= $parent.lastPrice(), otm: cmpPrice < $parent.lastPrice()}" class="put"></td>
+            <td data-bind="textFormatted: putOption.change,changeFlash:putOption.change, format: '#.0000', redGreen: putOption.change,css:{ down: putOption.change() > 0, itm:cmpPrice >= $parent.lastPrice(), otm: cmpPrice < $parent.lastPrice()}" class="put"></td>
+            <td data-bind="text: putOption.volume, changeFlash:putOption.volume" class="put"></td>
+            <td data-bind="text: putOption.openInterest, changeFlash:putOption.openInterest" class="put"></td>
+            <td data-bind="textFormatted: putOption.greeks.sigma, format: '#.0000', changeFlash:putOption.greeks.sigma" class="put"></td>
+			<!-- /ko -->
+			<!-- ko if: $parent.greekToggled() -->
+			<td data-bind="textFormatted: putOption.greeks.delta, format: '#.00', changeFlash: putOption.greeks.delta" class="put"></td>
+			<td data-bind="textFormatted: putOption.greeks.theta, format: '#.000', changeFlash: putOption.greeks.theta" class="put"></td>
+			<td data-bind="textFormatted: putOption.greeks.gamma, format: '#.00', changeFlash: putOption.greeks.gamma" class="put"></td>
+			<td data-bind="textFormatted: putOption.greeks.vega, format: '#.00', changeFlash: putOption.greeks.vega" class="put"></td>
+			<td data-bind="textFormatted: putOption.greeks.rho, format: '#.000', changeFlash: putOption.greeks.rho" class="put"></td>
+			<!-- /ko -->
+			<!-- /ko -->
+			<!-- /ko -->
+			<!-- ko if: $parent.gridType()==3 -->
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<!-- /ko -->
+			<!-- /ko -->
+		</tr>
+	</script>
+
+	<ul id="optionChainsRowContextMenu" data-bind="kendoExtContextMenu: kendoContextMenu">
+		<!-- ko if: kendoContextMenu.currentItem() -->
+	 	<!-- ko with: kendoContextMenu.currentItem() -->
+ 		<li class="buy">
+ 			<span class="k-icon k-i-custom"></span><span data-bind="t: 'trade.stockBizOptions.buyToOpen'"></span>
+ 		</li>
+		<li class="sell">
+			<span class="k-icon k-i-custom"></span><span data-bind="t: 'trade.stockBizOptions.sellToOpen'"></span>
+		</li>
+		<!-- ko if: combLegs -->
+		<li data-bind="visible: combLegs.length == 1 && combLegs[0].legType == 'Call'" class="sell covered-call">
+			<span class="k-icon k-i-custom"></span><span data-bind="t: 'trade.stockBizOptions.openCoveredCall'"></span>
+		</li>
+		<!-- /ko -->
+		<!-- /ko -->
+		<!-- /ko -->
+ 	</ul>
+</div>

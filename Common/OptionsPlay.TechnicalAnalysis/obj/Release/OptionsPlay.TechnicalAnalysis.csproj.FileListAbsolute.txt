@@ -1,0 +1,7 @@
+D:\OptionsPlay\Mainline\Common\OptionsPlay.TechnicalAnalysis\bin\Release\OptionsPlay.TechnicalAnalysis.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.TechnicalAnalysis\bin\Release\OptionsPlay.TechnicalAnalysis.pdb
+D:\OptionsPlay\Mainline\Common\OptionsPlay.TechnicalAnalysis\bin\Release\MathNet.Numerics.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.TechnicalAnalysis\bin\Release\MathNet.Numerics.xml
+D:\OptionsPlay\Mainline\Common\OptionsPlay.TechnicalAnalysis\obj\Release\OptionsPlay.TechnicalAnalysis.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.TechnicalAnalysis\obj\Release\OptionsPlay.TechnicalAnalysis.pdb
+D:\OptionsPlay\Mainline\Common\OptionsPlay.TechnicalAnalysis\obj\Release\OptionsPlay.TechnicalAnalysis.csprojResolveAssemblyReference.cache

@@ -1,0 +1,194 @@
+﻿@import '../globalVariables';
+@import '../globalMixins';
+
+#bottom {
+    @bottom-height: @footer-height;
+    @border: 2px solid #eee;
+    @icon-height: (@bottom-height * 0.8);
+
+    //border-bottom: @border;
+    @toolbar-width: 240px;
+	width: 100%;
+    &.expanded {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .bottom-title {
+
+  .appearWhenDown{background-color:#000000;}
+        height: @bottom-height;
+        position: relative;
+        background-color:#000000;
+        .fund-number-container {
+            //float: left;
+            margin-right: @toolbar-width;
+
+            & > a {
+                border-left: @border;
+                padding: 0 15px;
+                line-height: @bottom-height;
+                height: 35px;
+                float: left;
+                color: #DE7241;
+                font-size: 1.2em;
+                //word-spacing: 0.3em;
+                display: block;
+                float: left;
+                //width: 11%;
+                .border-box;
+
+                &.fund-number {
+                    width: 20%;
+                }
+
+                &:hover {
+                    //background-color: white !important;
+                    //color: white !important;
+                }
+            }
+        }
+
+        .bottom-toolbar {
+            float: right;
+            width: @toolbar-width;
+            color: white;
+            font-size: 1.4em;
+            word-spacing: 0.3em;
+
+            .icon-refresh {
+                height: @icon-height;
+                width: (@icon-height * 1.185);
+                padding: 5px 0;
+            }
+
+            .icon-expand {
+                height: @icon-height;
+                width: @icon-height;
+                position: absolute;
+                top: 5px;
+                right: 10px;
+
+                &.expanded {
+                    .rotate(180deg);
+                }
+            }
+
+            .fa {
+                color: @blue;
+                vertical-align: middle;
+            }
+
+            & > a {
+                height: @menu-height;
+                line-height: @menu-height;
+                padding: 0 4px;
+
+                &:hover {
+                    background-color: white !important;
+                    color: @blue !important;
+                }
+
+                &.expand-btn {
+                    line-height: @menu-height;
+                    padding-right: 40px;
+                }
+
+                &.refresh-btn {
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    #tradeDock {
+        width: 100%;
+        height: 320px;
+    }
+
+    #trace {
+        width: 35%;
+        position: fixed;
+        bottom: 40px;
+        right: 0;
+        font-size: 10px;
+
+        .notification {
+            margin-bottom: 2px;
+
+            &.completed {
+                background-color: fade(green, 30%);
+            }
+
+            &.failed {
+                background-color: fade(red, 30%);
+            }
+
+            &.running {
+                background-color: fade(blue, 30%);
+            }
+
+            div {
+                display: inline-block;
+            }
+        }
+
+        .function-name {
+            width: 55%;
+        }
+
+        .state {
+            width: 30%;
+        }
+    }
+
+    #bottomMainContainer {
+        position: relative;
+        background-color: #F4F5FF;
+
+        #ordersContainer {
+            .tab-nav {
+                height: 40px;
+                background-color: #F4F5FF;
+            }
+        }
+
+        & > .tab-nav {
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: 50px;
+            background-color: #4B6C8B;
+            li a {
+                 width: 50px;
+                padding: 15px;
+              
+            }
+        }
+
+        & > .tab-content {
+            margin-left: 50px;
+        }
+    }
+}
+.tabOptions{font-size:15px;color:white; }
+
+@media screen and (max-width: 1025px) {
+    #bottom {
+        .bottom-title {
+
+            .fund-number-container > a {
+                font-size: 1em;
+                word-spacing: normal;
+                padding: 0 4px;
+            }
+        }
+    }
+}
+
+
+.appearWhenUp{display:none;}
+.pull-right{cursor:pointer;}
+
+
+

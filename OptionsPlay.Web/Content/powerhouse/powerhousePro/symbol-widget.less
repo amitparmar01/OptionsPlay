@@ -1,0 +1,144 @@
+﻿@import 'common-variables.less';
+@import '../mixins.less';
+
+#powerhousePro {
+	#symbolWidget {
+		font-size: 12px;
+		margin-bottom: 10px;
+		border-radius: @border-radius;
+		position: relative;
+
+		.sentiment-gradient {
+			border-radius: @border-radius 0 0 @border-radius;
+		}
+
+		.symbol-widget-content {
+			height: 92px;
+			border-radius: @border-radius;
+			padding-left: @sentiment-indicator-in-widget-width + 2px;
+
+			> div {
+				padding-top: 5px;
+				padding-right: 8px;
+			}
+		}
+
+		.caption {
+			font-weight: normal;
+			text-align: right;
+		}
+
+		table {
+			border-spacing: 0;
+		}
+
+		.change {
+			font-size: 1.3em;
+			font-weight: bold;
+		}
+
+		.last-price {
+			font-size: 1.5em;
+			margin-right: 2px;
+		}
+
+		#companyName {
+			font-size: 1.3em;
+			display: block;
+		}
+
+		#companyName, #lastPriceAndChange {
+			.ellipsis-overflow();
+		}
+	}
+
+	#symbolCompanyNameAndLastPrice {
+		width: 68%;
+
+		&.smaller {
+			font-size: inherit;
+			width: 63%;
+		}
+	}
+	#termAnalysis {
+		width: 30%;
+		font-size: 1.2em;
+		table {
+			width: 100%;
+			line-height: 2em;
+		}
+	}
+
+	#symbolInput.idea {
+		border-style: solid;
+		border-color: @dark-blue;
+	}
+
+	#symbolInput {
+		.middle-alligned-blocks();
+		background: white;
+		border-radius: @border-radius;
+		border: 1px solid @black;
+		color: @black;
+		margin: 7px 7px 3px 3px;
+		padding: 5px;
+		width: 100px;
+		z-index: 1;
+
+		.tt-hint {
+			display: none;
+		}
+
+		input[type=text] {
+			width: 58px;
+			border: transparent;
+			text-transform: uppercase;
+			font-size: 1.4em;
+
+			&:focus {
+				box-shadow: none;
+			}
+
+			.input-placeholder-style {
+				font-size: 11px;
+				padding-top: 5px;
+				margin-bottom: 5px;
+				text-transform: capitalize;
+			}
+
+			&::-webkit-input-placeholder {
+				.input-placeholder-style;
+			}
+
+			&::-moz-placeholder {
+				.input-placeholder-style;
+			}
+
+			&:-moz-placeholder { /* Older versions of Firefox */
+				.input-placeholder-style;
+			}
+
+			&:-ms-input-placeholder {
+				.input-placeholder-style;
+			}
+
+			&::input-placeholder {
+				.input-placeholder-style;
+			}
+		}
+
+		> div:nth-of-type(2) {
+			cursor: pointer;
+			width: 16px;
+		}
+
+		&.loading {
+			background: rgb(238, 238, 238);
+
+			span {
+				text-align: left;
+				cursor: no-drop;
+			}
+		}
+	}
+}

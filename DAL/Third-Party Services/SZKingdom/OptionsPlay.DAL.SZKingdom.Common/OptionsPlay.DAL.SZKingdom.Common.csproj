@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0FDE2710-C57E-4F17-84B4-4F005E15C971}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OptionsPlay.DAL.SZKingdom.Common</RootNamespace>
+    <AssemblyName>OptionsPlay.DAL.SZKingdom.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dev|AnyCPU'">
+    <OutputPath>bin\Dev\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\SZKingdomConfiguration.cs" />
+    <Compile Include="Configuration\SZKingdomConfigurationBak.cs" />
+    <Compile Include="Configuration\SZKingdomPoolConfiguration.cs" />
+    <Compile Include="Entities\Account\AccountCommonInformation.cs" />
+    <Compile Include="Entities\Account\AccountInformation.cs" />
+    <Compile Include="Entities\Account\BankCodeInformation.cs" />
+    <Compile Include="Entities\Account\HistoricalFundTransfer.cs" />
+    <Compile Include="Entities\Account\FundTransferSerialNo.cs" />
+    <Compile Include="Entities\Account\UserLoginInformation.cs" />
+    <Compile Include="Entities\Arguments\IAccountManager\TransferFundArguments.cs" />
+    <Compile Include="Entities\Arguments\IOrderManager\AssignableExerciseDetailArguments.cs" />
+    <Compile Include="Entities\Arguments\IOrderManager\AssignableHistoricalExerciseDetailArguments.cs" />
+    <Compile Include="Entities\Arguments\IOrderManager\IntradayOptionOrderArguments.cs" />
+    <Compile Include="Entities\Arguments\IOrderManager\OptionOrderArguments.cs" />
+    <Compile Include="Entities\Arguments\IOrderManager\OptionOrderCancellationArguments.cs" />
+    <Compile Include="Entities\Arguments\IOrderManager\OptionOrderMaxQuantityArguments.cs" />
+    <Compile Include="Entities\Arguments\IOrderManager\OrderMarginArguments.cs" />
+    <Compile Include="Entities\Arguments\IOrderManager\UnderlyingSecurityLockUnlockArguments.cs" />
+    <Compile Include="Entities\Arguments\IPortfolioManager\OptionPositionsArguments.cs" />
+    <Compile Include="Entities\Assets\AssetsCommonInformation.cs" />
+    <Compile Include="Entities\Assets\CustomerAutomaticOptionExercisingInformation.cs" />
+    <Compile Include="Entities\Assets\OptionableStockPositionInformation.cs" />
+    <Compile Include="Entities\Assets\FundInformation.cs" />
+    <Compile Include="Entities\Assets\OptionPositionInformation.cs" />
+    <Compile Include="Entities\Assets\RiskLevelInformation.cs" />
+    <Compile Include="Entities\OptionBasicInformation.cs" />
+    <Compile Include="Entities\OptionCommonInformation.cs" />
+    <Compile Include="Entities\Order\AssignableExerciseDetail.cs" />
+    <Compile Include="Entities\Order\AssignableHistoricalExerciseDetail.cs" />
+    <Compile Include="Entities\Order\HistoricalOptionOrderInformation.cs" />
+    <Compile Include="Entities\Arguments\IOrderManager\HistoricalOptionOrdersArguments.cs" />
+    <Compile Include="Entities\Order\HistoricalOptionTradeInformation.cs" />
+    <Compile Include="Entities\Order\IntradayOptionOrderBasicInformation.cs" />
+    <Compile Include="Entities\Order\IntradayOptionTradeInformation.cs" />
+    <Compile Include="Entities\Order\IntradayOptionOrderInformation.cs" />
+    <Compile Include="Entities\Order\LockableUnderlyingInformation.cs" />
+    <Compile Include="Entities\Order\OptionOrderCancellationInformation.cs" />
+    <Compile Include="Entities\Order\OptionOrderCommonInformation.cs" />
+    <Compile Include="Entities\Order\OptionOrderInformation.cs" />
+    <Compile Include="Entities\Order\OptionOrderMaxQuantityInformation.cs" />
+    <Compile Include="Entities\OptionQuotationInformation.cs" />
+    <Compile Include="Entities\Order\OptionOrderBasicInformation.cs" />
+    <Compile Include="Entities\Order\OrderMarginInformation.cs" />
+    <Compile Include="Entities\QuotationInformation.cs" />
+    <Compile Include="Entities\SecurityInformation.cs" />
+    <Compile Include="Attributes\SZKingdomField.cs" />
+    <Compile Include="Entities\Order\UnderlyingSecurityLockUnlockInformation.cs" />
+    <Compile Include="Enums\AuthenticationType.cs" />
+    <Compile Include="Enums\AutoExerciseControl.cs" />
+    <Compile Include="Enums\ExerciseSide.cs" />
+    <Compile Include="Enums\OwnerType.cs" />
+    <Compile Include="Enums\EncryptionType.cs" />
+    <Compile Include="Enums\IdType.cs" />
+    <Compile Include="Enums\IsWithdraw.cs" />
+    <Compile Include="Enums\IsWithdrawn.cs" />
+    <Compile Include="Enums\TransferType.cs" />
+    <Compile Include="Enums\OrderValidFlag.cs" />
+    <Compile Include="Enums\PasswordUseScope.cs" />
+    <Compile Include="Enums\LoginAccountType.cs" />
+    <Compile Include="Enums\Currency.cs" />
+    <Compile Include="Enums\FundStatus.cs" />
+    <Compile Include="Enums\LotFlag.cs" />
+    <Compile Include="Enums\MarketValueFlag.cs" />
+    <Compile Include="Enums\MatchedType.cs" />
+    <Compile Include="Enums\OperationChannel.cs" />
+    <Compile Include="Enums\OptionCoveredFlag.cs" />
+    <Compile Include="Enums\OptionExecuteType.cs" />
+    <Compile Include="Enums\OptionSide.cs" />
+    <Compile Include="Enums\OptionStatus.cs" />
+    <Compile Include="Enums\OptionType.cs" />
+    <Compile Include="Enums\OrderStatus.cs" />
+    <Compile Include="Enums\SecurityLevel.cs" />
+    <Compile Include="Enums\StockBoard.cs" />
+    <Compile Include="Enums\StockBusiness.cs" />
+    <Compile Include="Enums\StockBusinessAction.cs" />
+    <Compile Include="Enums\StockClass.cs" />
+    <Compile Include="Enums\StockExchange.cs" />
+    <Compile Include="Enums\StockStatus.cs" />
+    <Compile Include="Enums\SuspendedFlag.cs" />
+    <Compile Include="Enums\TradeAccountStatus.cs" />
+    <Compile Include="Enums\TradeRegStatus.cs" />
+    <Compile Include="Enums\UserRole.cs" />
+    <Compile Include="IAccountManager.cs" />
+    <Compile Include="IMarketDataProvider.cs" />
+    <Compile Include="IOrderManager.cs" />
+    <Compile Include="IPortfolioManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Common\OptionsPlay.Common\OptionsPlay.Common.csproj">
+      <Project>{85025E83-4476-400A-B282-363256F61EFA}</Project>
+      <Name>OptionsPlay.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

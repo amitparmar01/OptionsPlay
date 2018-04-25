@@ -1,0 +1,224 @@
+﻿a {
+	&[href='#/strategy/new'],
+	&[href='#/strategy/group/new'],
+	&#backButton {
+		margin: 10px 0;
+	}
+}
+
+#strategyGroupImage {
+	max-height: 400px;
+}
+
+#validationErrorMessages {
+	color: #a94442;
+	background-color: #f2dede;
+	border: 1px solid #ebccd1;
+	padding: 15px;
+	margin-top: 10px;
+	font-weight: bold;
+	display: inline-block;
+}
+
+#gridContainer .k-grid.k-widget {
+	display: table;
+
+	> table {
+		@border: 1px solid #dbdbde;
+
+		&#strategiesGrid tbody tr.even,
+		&#strategyGroupsGrid tbody tr:nth-child(even) {
+			background-color: #f5f5f5;
+		}
+
+		&#strategiesGrid tr {
+			th.toggle {
+				width: 15px;
+			}
+
+			> td.toggle {
+				cursor: pointer;
+			}
+
+			&.details-row > td {
+				border-bottom: @border;
+
+				&:not(:first-child) {
+					border-top: @border;
+				}
+				// main td with strategy details
+				&:nth-child(2) {
+					border-left: none;
+					max-width: 561px;
+				}
+
+				div.inline-block {
+					&:not(:first-child) {
+						margin-left: 5px;
+					}
+
+					table {
+						width: auto;
+						border: @border;
+
+						tr td:first-child {
+							background-color: #f3f3f4;
+							vertical-align: top;
+						}
+					}
+				}
+
+				.strategy-legs {
+					margin-bottom: 5px;
+
+					> div {
+						margin-top: 5px;
+					}
+				}
+			}
+		}
+
+		thead {
+			th {
+				// 'customize' table header
+				&.strategy-name {
+					width: 150px;
+				}
+
+				&#imageHeader {
+					width: 38px;
+				}
+
+				&#widthHeader {
+					width: 35px;
+				}
+
+				&#wingspanHeader {
+					width: 62px;
+				}
+
+				&#expiryHeader {
+					width: 37px;
+				}
+			}
+			// 'can customize width' table header
+			tr:nth-child(2) th:first-child {
+				border-left: @border;
+			}
+		}
+	}
+}
+
+#strategyForm, #strategyGroupForm {
+	#formCaption {
+		margin: 0;
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 5px;
+	}
+
+	hr {
+		border: 0;
+		border-top: 1px solid lightgray;
+		margin: 10px 0;
+	}
+
+	.label-margin-bottom {
+		margin-bottom: 5px;
+	}
+
+	.input-validation-error {
+		border: 1px solid red !important;
+		background-color: #fee !important;
+	}
+
+	.field-validation-error {
+		color: red;
+	}
+
+	input[type=text] + .field-validation-error {
+		vertical-align: super;
+	}
+
+	input[type=text], input[type=file], select {
+		margin-bottom: 10px;
+	}
+
+	select {
+		padding: 4px 6px;
+		border-color: rgb(219, 219, 222);
+
+		&:hover {
+			border-color: rgb(182, 189, 202);
+		}
+	}
+
+	label {
+		display: block;
+		.label-margin-bottom;
+	}
+
+	.checkbox {
+		display: inline-block;
+		.label-margin-bottom;
+
+		input[type=checkbox] {
+			vertical-align: middle;
+		}
+
+		label {
+			display: inline-block;
+			margin-bottom: 0;
+		}
+	}
+}
+
+#strategyDetails {
+	margin-bottom: 5px;
+
+	> div {
+		display: inline-block;
+
+		.strategy-detail {
+			border: 1px solid lightgray;
+			border-radius: 5px;
+			padding: 10px;
+			margin: 5px 5px 5px 0;
+		}
+	}
+}
+
+.strategy-detail, .strategy-leg {
+	border: 1px solid lightgray;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 5px 5px 5px 0;
+}
+
+#addLegButton {
+	background: #47a447;
+	color: white;
+
+	&:active {
+		box-shadow: none;
+	}
+}
+
+.strategy-leg {
+	display: inline-block;
+	position: relative;
+
+	.k-button {
+		position: absolute;
+		right: 5px;
+		top: 5px;
+		padding-top: 0;
+		padding-bottom: 0;
+		background-color: red;
+		color: white;
+
+		&:active {
+			box-shadow: none !important;
+		}
+	}
+}

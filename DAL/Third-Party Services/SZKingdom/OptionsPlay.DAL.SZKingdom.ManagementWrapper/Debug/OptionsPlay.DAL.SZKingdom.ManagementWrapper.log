@@ -1,0 +1,47 @@
+﻿生成启动时间为 2015/6/9 10:53:07。
+     1>项目“D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\OptionsPlay.DAL.SZKingdom.ManagementWrapper.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\..\NativeLibrary\include" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib AssemblyInfo.cpp KCBPLibraryWrapper.cpp
+         AssemblyInfo.cpp
+         KCBPLibraryWrapper.cpp
+         正在生成代码...
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\..\NativeLibrary\include" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /analyze- /errorReport:prompt "C:\Users\Administrator\AppData\Local\Temp\.NETFramework,Version=v4.5.AssemblyAttributes.cpp"
+         .NETFramework,Version=v4.5.AssemblyAttributes.cpp
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\Debug\OptionsPlay.DAL.SZKingdom.ManagementWrapper.dll" /INCREMENTAL /NOLOGO /LIBPATH:"D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\..\NativeLibrary\lib" KCBPCli.lib KCBPPacketOpApi.lib kcxpapi.lib kbss_encrypt.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib Delayimp.lib /DELAYLOAD:kbss_encrypt.dll /DELAYLOAD:KCBPCli.dll /DELAYLOAD:KCBPCrypt.dll /DELAYLOAD:KCBPPacketOpApi.dll /DELAYLOAD:kcxpapi.dll /DELAYLOAD:KDGBKcbp.dll /DELAYLOAD:libdes.dll /DELAYLOAD:libeay32.dll /DELAYLOAD:libidea.dll /DELAYLOAD:libidea1.dll /DELAYLOAD:libzip.dll /DELAYLOAD:libzlib.dll /DELAYLOAD:libzlib1.dll /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\Debug\OptionsPlay.DAL.SZKingdom.ManagementWrapper.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /DLL Debug\AssemblyInfo.obj
+         Debug\KCBPLibraryWrapper.obj
+         "Debug\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
+     1>LINK : warning LNK4199: 已忽略 /DELAYLOAD:KCBPCrypt.dll；未找到来自 KCBPCrypt.dll 的导入
+     1>LINK : warning LNK4199: 已忽略 /DELAYLOAD:KCBPPacketOpApi.dll；未找到来自 KCBPPacketOpApi.dll 的导入
+     1>LINK : warning LNK4199: 已忽略 /DELAYLOAD:kcxpapi.dll；未找到来自 kcxpapi.dll 的导入
+     1>LINK : warning LNK4199: 已忽略 /DELAYLOAD:KDGBKcbp.dll；未找到来自 KDGBKcbp.dll 的导入
+     1>LINK : warning LNK4199: 已忽略 /DELAYLOAD:libdes.dll；未找到来自 libdes.dll 的导入
+     1>LINK : warning LNK4199: 已忽略 /DELAYLOAD:libeay32.dll；未找到来自 libeay32.dll 的导入
+     1>LINK : warning LNK4199: 已忽略 /DELAYLOAD:libidea.dll；未找到来自 libidea.dll 的导入
+     1>LINK : warning LNK4199: 已忽略 /DELAYLOAD:libidea1.dll；未找到来自 libidea1.dll 的导入
+     1>LINK : warning LNK4199: 已忽略 /DELAYLOAD:libzip.dll；未找到来自 libzip.dll 的导入
+     1>LINK : warning LNK4199: 已忽略 /DELAYLOAD:libzlib.dll；未找到来自 libzlib.dll 的导入
+     1>LINK : warning LNK4199: 已忽略 /DELAYLOAD:libzlib1.dll；未找到来自 libzlib1.dll 的导入
+         OptionsPlay.DAL.SZKingdom.ManagementWrapper.vcxproj -> D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\Debug\OptionsPlay.DAL.SZKingdom.ManagementWrapper.dll
+       PostBuildEvent:
+         XCOPY "D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\..\NativeLibrary\dll\*.dll"  "D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\Debug\" /Y
+         :VCEnd
+         D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\..\NativeLibrary\dll\kbss_encrypt.dll
+         D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\..\NativeLibrary\dll\KCBPCli.dll
+         D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\..\NativeLibrary\dll\KCBPCrypt.dll
+         D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\..\NativeLibrary\dll\KCBPPacketOpApi.dll
+         D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\..\NativeLibrary\dll\kcxpapi.dll
+         D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\..\NativeLibrary\dll\KDGBKcbp.dll
+         D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\..\NativeLibrary\dll\libdes.dll
+         D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\..\NativeLibrary\dll\libeay32.dll
+         D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\..\NativeLibrary\dll\libidea.dll
+         D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\..\NativeLibrary\dll\libidea1.dll
+         D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\..\NativeLibrary\dll\libzip.dll
+         D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\..\NativeLibrary\dll\libzlib.dll
+         D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\..\NativeLibrary\dll\libzlib1.dll
+         复制了 13 个文件
+     1>已完成生成项目“D:\OptionsPlay\Mainline\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.ManagementWrapper\OptionsPlay.DAL.SZKingdom.ManagementWrapper.vcxproj”(Rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:07.36

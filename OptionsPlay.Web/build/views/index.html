@@ -1,0 +1,15 @@
+﻿<div id="powerhousePro">
+	<div id="powerhouseProContent" class="trade-panel-visible">
+		<!-- ko with: what -->
+		<div data-bind="compose: 'viewmodels/tradeIdeas/tradeIdeas'" id="tradeIdeas" class="height-full"></div>
+		<!-- /ko -->
+		<div id="whyAndHowContainer">
+			<!-- ko with: why -->
+			<div data-bind="compose: 'viewmodels/tradeIdeas/whyPanel'" id="symbolSection" class="height-full"></div>
+			<!-- /ko -->
+			<!-- ko with: how -->
+			<div data-bind="compose: 'viewmodels/tradeIdeas/howPanel'" id="strategiesSection" class="height-full"></div>
+			<!-- /ko -->
+		</div>
+	</div>
+</div>

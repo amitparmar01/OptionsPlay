@@ -1,0 +1,413 @@
+﻿
+<div class="chartIq-widget">
+	<div class="stx-wrapper">
+		<div class="stx-content">
+			<div class="stx-nav">
+				<div id="search" class="hide">
+					<input type="text" id="symbol" name="symbol" autocapitalize="off" autocorrect="off" spellcheck="off">
+				</div>
+				<div id="periodBtn" class="btn menu stxMenu">
+					<span data-bind="t: 'quotes.period'"></span><em></em>
+					<ul id="periodicity" class="periodicity menuSelect menuOutline" style="display:none">
+						<li data-bind="click: changePeriodicity.bind($data, 'day')"><span data-bind="t: 'quotes.1D'"></span></li>
+						<li data-bind="click: changePeriodicity.bind($data, 'week')"><span data-bind="t: 'quotes.1W'"></span></li>
+						<li data-bind="click: changePeriodicity.bind($data, 'month')"><span data-bind="t: 'quotes.1M'"></span></li>
+					</ul>
+				</div>
+				<!--<div class="drawBtn btn" onClick="stxx.undoLast()">Undo</div>-->
+				<div class="drawBtn btn menu stxMenu hide" >
+					<span id="toolSelection" class="hide"></span> <span data-bind="t: 'quotes.Select Tool'"></span><em></em>
+					<ul id="toolbarDraw" class="draw menuSelect menuOutline" style="display:none">
+						<li data-bind="click: function() {crossHairOnOff(false)}"><span data-bind="t: 'quotes.None'"></span></li>
+						<li data-bind="click: function() {crossHairOnOff(true)}"><span data-bind="t: 'quotes.Crosshairs'"></span></li>
+						<li data-bind="click: function() {setVectorType('annotation')}"><span data-bind="t: 'quotes.Annotation'"></span></li>
+						<li data-bind="click: function() {setVectorType('fibonacci')}"><span data-bind="t: 'quotes.Fibonacci'"></span></li>
+						<li data-bind="click: function() {setVectorType('horizontal')}"><span data-bind="t: 'quotes.Horizontal'"></span></li>
+						<li data-bind="click: function() {setVectorType('line')}"><span data-bind="t: 'quotes.Line'"></span></li>
+						<li data-bind="click: function() {setVectorType('ray')}"><span data-bind="t: 'quotes.Ray'"></span></li>
+						<li data-bind="click: function() {setVectorType('segment')}"><span data-bind="t: 'quotes.Segment'"></span></li>
+						<li data-bind="click: function() {setVectorType('rectangle')}"><span data-bind="t: 'quotes.Rectangle'"></span></li>
+						<li data-bind="click: function() {setVectorType('ellipse')}"><span data-bind="t: 'quotes.Ellipse'"></span></li>
+						<li data-bind="click: function() {setVectorType()}"><span data-bind="t: 'quotes.Clear Drawings'"></span></li>
+					</ul>
+				</div>
+				<div class="stx-drawing stx-toolbar">
+					<div class="stx-draw-settings stxToolbarFill">
+						<div class="heading">Fill:</div>
+						<div class="color stxFillColorPicker" style="background-color: #7DA6F5;"><span></span></div>
+					</div>
+					<div class="stx-draw-settings stxToolbarLine">
+						<div class="heading">Line:</div>
+						<div class="color stxLineColorPicker" style="background-color: transparent;"><span></span></div>
+						<div class="stx-line-style btn menu stxMenu stxToolbarLinePicker">
+							<span class="stx-line style1 weight1 stxLineDisplay"></span><em></em>
+							<ul id="stx-line-style-menu" class="stx-line-style-menu menuSelect menuOutline" style="display:none;">
+								<li stxtoggle="STXDrawingToolbar.setLine(1,'solid')"><span class="stx-line style1 weight1"></span></li>
+								<li stxtoggle="STXDrawingToolbar.setLine(3,'solid')"><span class="stx-line style1 weight2"></span></li>
+								<li stxtoggle="STXDrawingToolbar.setLine(5,'solid')"><span class="stx-line style1 weight3"></span></li>
+								<li class="stxToolbarDotted divider"></li>
+								<li class="stxToolbarDotted" stxtoggle="STXDrawingToolbar.setLine(1,'dotted')"><span class="stx-line style2 weight1"></span></li>
+								<li class="stxToolbarDotted" stxtoggle="STXDrawingToolbar.setLine(3,'dotted')"><span class="stx-line style2 weight2"></span></li>
+								<li class="stxToolbarDotted" stxtoggle="STXDrawingToolbar.setLine(5,'dotted')"><span class="stx-line style2 weight3"></span></li>
+								<li class="stxToolbarDashed divider"></li>
+								<li class="stxToolbarDashed" stxtoggle="STXDrawingToolbar.setLine(1,'dashed')"><span class="stx-line style3 weight1"></span></li>
+								<li class="stxToolbarDashed" stxtoggle="STXDrawingToolbar.setLine(3,'dashed')"><span class="stx-line style3 weight2"></span></li>
+								<li class="stxToolbarDashed" stxtoggle="STXDrawingToolbar.setLine(5,'dashed')"><span class="stx-line style3 weight3"></span></li>
+								<li class="stxToolbarNone divider"></li>
+								<li class="stxToolbarNone" stxtoggle="STXDrawingToolbar.setLine(0,'none')">None</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+
+
+				<!-- These are very basic sample menus. You may replace these with another menuing system. Just follow the same onClick convention
+				or provide proxy functions that call the same code-->
+
+				<div id="menus">
+					<ul class="hu">
+						<li><span class="huLabel">开盘: </span><span id="huOpen" class="huField"></span></li>
+						<li><span class="huLabel">最高: </span><span id="huHigh" class="huField"></span></li>
+						<li><span class="huLabel">总量: </span><span id="huVolume" class="huField"></span></li>
+						<li><span class="huLabel">收盘: </span><span id="huClose" class="huField"></span></li>
+						<li><span class="huLabel">最低: </span><span id="huLow" class="huField"></span></li>
+					</ul>
+					<div class="btn menu stxMenu hide">
+						<span data-bind="t: 'quotes.chart'"></span><em></em>
+						<ul id="chart-display" class="chart-display menuSelect menuOutline" style="display:none">
+							<li class="heading"><span data-bind="t: 'quotes.chart'"></span></li>
+							<li data-bind="click: setChartType.bind(this,'candle')"><span data-bind="t: 'quotes.candle'"></span></li>
+							<li data-bind="click: setChartType.bind(this,'bar')"><span data-bind="t: 'quotes.bar'"></span></li>
+							<li data-bind="click: setChartType.bind(this,'colored_bar')"><span data-bind="t: 'quotes.colored bar'"></span></li>
+							<li data-bind="click: setChartType.bind(this,'line')"><span data-bind="t: 'quotes.line'"></span></li>
+							<li data-bind="click: setChartType.bind(this,'hollow_candle')"><span data-bind="t: 'quotes.hollow candle'"></span></li>
+							<li data-bind="click: setChartType.bind(this,'mountain')"><span data-bind="t: 'quotes.moutain'"></span></li>
+							<li class="divider"></li>
+							<li class="heading"><span data-bind="t: 'quotes.chart scale'"></span></li>
+							<li class="stx-option" data-bind="click: toggleLog">
+								<span data-bind="t: 'quotes.log scale'"></span>
+								<span data-bind="css:{false: !logToggled(), true: logToggled()}" class="stx-checkbox"></span>
+							</li>
+						</ul>
+					</div>
+					<div id="studyMenu" class="btn menu stxMenu">
+						<span data-bind="t: 'quotes.studies'"></span><em></em>
+						<div id="studies" class="studies menuSelect menuOutline" style="display:none">
+							<ul class="col">
+								<li data-bind="click: studiesDialog.bind(this,'Acc Swing')"><span data-bind="t:'quotes.Accumulative Swing Index'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Aroon')"><span data-bind="t:'quotes.Aroon'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Aroon Osc')"><span data-bind="t:'quotes.Aroon Oscillator'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'ATR')"><span data-bind="t:'quotes.Average True Range'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Bollinger Bands')"><span data-bind="t:'quotes.Bollinger Bands'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'COG')"><span data-bind="t:'quotes.Center Of Gravity'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Chaikin MF')"><span data-bind="t:'quotes.Chaikin Money Flow'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Chaikin Vol')"><span data-bind="t:'quotes.Chaikin Volatility'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Chande Fcst')"><span data-bind="t:'quotes.Chande Forecast Oscillator'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Chande Mtm')"><span data-bind="t:'quotes.Chande Momentum Oscillator'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'CCI')"><span data-bind="t:'quotes.Commodity Channel Index'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Coppock')"><span data-bind="t:'quotes.Coppock Curve'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Detrended')"><span data-bind="t:'quotes.Detrended Price Oscillator'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Directional')"><span data-bind="t:'quotes.Directional Movement System'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'EOM')"><span data-bind="t:'quotes.Ease of Movement'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Ehler Fisher')"><span data-bind="t:'quotes.Ehler Fisher Transform'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Elder Force')"><span data-bind="t:'quotes.Elder Force Index'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Elder Ray')"><span data-bind="t:'quotes.Elder Ray'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Fractal Chaos Bands')"><span data-bind="t:'quotes.Fractal Chaos Bands'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Fractal Chaos')"><span data-bind="t:'quotes.Fractal Chaos Oscillator'"></span></li>
+							</ul>
+							<ul class="col">
+								<li data-bind="click: studiesDialog.bind(this,'Gopala')"><span data-bind="t:'quotes.Gopalakrishnan Range Index'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'High Low')"><span data-bind="t:'quotes.High Low Bands'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'High-Low')"><span data-bind="t:'quotes.High Minus Low'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'HHV')"><span data-bind="t:'quotes.Highest High Value'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Hist Vol')"><span data-bind="t:'quotes.Historical Volatility'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Intraday Mtm')"><span data-bind="t:'quotes.Intraday Momentum Index'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Keltner')"><span data-bind="t:'quotes.Keltner Channel'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Klinger')"><span data-bind="t:'quotes.Klinger Volume Oscillator'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Lin Fcst')"><span data-bind="t:'quotes.Linear Reg Forecast'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Lin Incpt')"><span data-bind="t:'quotes.Linear Reg Intercept'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Lin R2')"><span data-bind="t:'quotes.Linear Reg R2'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'LR Slope')"><span data-bind="t:'quotes.Linear Reg Slope'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'LLV')"><span data-bind="t:'quotes.Lowest Low Value'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'macd')"><span data-bind="t:'quotes.MACD'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Mass Idx')"><span data-bind="t:'quotes.Mass Index'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Med Price')"><span data-bind="t:'quotes.Median Price'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Momentum')"><span data-bind="t:'quotes.Momentum Oscillator'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'M Flow')"><span data-bind="t:'quotes.Money Flow Index'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'ma')"><span data-bind="t:'quotes.Moving Average'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'MA Env')"><span data-bind="t:'quotes.Moving Average Envelope'"></span></li>
+							</ul>
+							<ul class="col">
+								<li data-bind="click: studiesDialog.bind(this,'Neg Vol')"><span data-bind="t:'quotes.Negative Volume Index'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'On Bal Vol')"><span data-bind="t:'quotes.On Balance Volume'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'PSAR')"><span data-bind="t:'quotes.Parabolic SAR'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Perf Idx')"><span data-bind="t:'quotes.Performance Index'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Pos Vol')"><span data-bind="t:'quotes.Positive Volume Index'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Pretty Good')"><span data-bind="t:'quotes.Pretty Good Oscillator'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Price Osc')"><span data-bind="t:'quotes.Price Oscillator'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Price ROC')"><span data-bind="t:'quotes.Price Rate of Change'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Price Vol')"><span data-bind="t:'quotes.Price Volume Trend'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Prime Number Bands')"><span data-bind="t:'quotes.Prime Number Bands'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Prime Number')"><span data-bind="t:'quotes.Prime Number Oscillator'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'QStick')"><span data-bind="t:'quotes.QStick'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Random Walk')"><span data-bind="t:'quotes.Random Walk Index'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'RAVI')"><span data-bind="t:'quotes.RAVI'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'rsi')"><span data-bind="t:'quotes.RSI'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Schaff')"><span data-bind="t:'quotes.Schaff Trend Cycle'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'STD Dev')"><span data-bind="t:'quotes.Standard Deviation'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'stochastics')"><span data-bind="t:'quotes.Stochastics'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Stch Mtm')"><span data-bind="t:'quotes.Stochastic Momentum Index'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'stochastics')"><span data-bind="t:'quotes.Stochastic Oscillator'"></span></li>
+							</ul>
+							<ul class="col">
+								<li data-bind="click: studiesDialog.bind(this,'Swing')"><span data-bind="t:'quotes.Swing Index'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Time Fcst')"><span data-bind="t:'quotes.Time Series Forecast'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Trade Vol')"><span data-bind="t:'quotes.Trade Volume Index'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'TRIX')"><span data-bind="t:'quotes.TRIX'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'True Range')"><span data-bind="t:'quotes.True Range'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Twiggs')"><span data-bind="t:'quotes.Twiggs Money Flow'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Typical Price')"><span data-bind="t:'quotes.Typical Price'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Ultimate')"><span data-bind="t:'quotes.Ultimate Oscillator'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'VT HZ Filter')"><span data-bind="t:'quotes.Vertical Horizontal Filter'"></span></li>
+								<li data-bind="click: createVolumePanel"><span data-bind="t:'quotes.Volume'"></span></li>
+								<li data-bind="click: toggleVolumeUnderlay"><span data-bind="t:'quotes.Vol Underlay'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Vol Osc')"><span data-bind="t:'quotes.Volume Oscillator'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Vol ROC')"><span data-bind="t:'quotes.Volume Rate of Change'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Weighted Close')"><span data-bind="t:'quotes.Weighted Close'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'Williams %R')"><span data-bind="t:'quotes.Williams %R'"></span></li>
+								<li data-bind="click: studiesDialog.bind(this,'W Acc Dist')"><span data-bind="t:'quotes.Williams Accumulation Distribution'"></span></li>
+							</ul>
+						</div>
+					</div>
+					<!--<div id="cogBtn" class="btn menu stxMenu hide">
+						&nbsp;<em></em>
+						<ul id="cog" class="cog menuSelect menuOutline" style="display:none">
+							<li class="heading"><span data-bind="t: 'quotes.timezone'"></span></li>
+							<li stxtoggle="STXDialogManager.displayDialog('timezoneDialog');STXTimeZoneWidget.populateDialog('timezoneDialog', true);"><span data-bind="t: 'quotes.changetimezone'"></span></li>
+							<li class="divider">&nbsp;</li>
+							<li class="heading"><span data-bind="t: 'quotes.defaultThemes'"></span></li>
+							<li class="content">
+								<ul class="menuSelect" id="builtInThemeSelector">
+									<li><span data-bind="t: 'quotes.white'"></span></li>
+									<li><span data-bind="t: 'quotes.dark'"></span></li>
+								</ul>
+							</li>
+							<li class="content">
+								<ul class="injected" id="customThemeSelector">
+									<li class="heading"><span data-bind="t: 'quotes.customthemes'"></span></li>
+									<li class="themeSelectorTemplate" style="display:none">
+										<a class="stxItem"></a>
+										<div class="btn icon"><span class="close stxClose">x</span></div>
+									</li>
+								</ul>
+							</li>
+							<li class="content"><div class="btn theme" data-bind="click: customizeTheme"><span class="stxClose"></span><span data-bind="t: 'quotes.newcustomtheme'"></span></div></li>
+						</ul>
+					</div>-->
+					<div class="btn hide" onclick="toggleFullScreenMode()">
+						F
+					</div>
+				</div>
+			</div>
+
+			<div class="stx-toolbar hide" id="stx-toolbar">
+				<div class="drawOptions">
+					<!--<div class="drawBtn btn" onClick="stxx.undoLast()">Undo</div>-->
+					<div class="drawBtn btn menu stxMenu">
+
+						<ul id="toolbarDraw" class="draw menuSelect menuOutline" style="display:none">
+							<li stxtoggle="STXDrawingToolbar.setVectorType(stxx,'');STXDrawingToolbar.crosshairs(stxx,false)">None</li>
+							<li stxtoggle="STXDrawingToolbar.setVectorType(stxx,'');STXDrawingToolbar.crosshairs(stxx,true)">Crosshairs</li>
+							<li stxtoggle="STXDrawingToolbar.setVectorType(stxx,'annotation');">Annotation</li>
+							<li stxtoggle="STXDrawingToolbar.setVectorType(stxx,'fibonacci');">Fibonacci</li>
+							<li stxtoggle="STXDrawingToolbar.setVectorType(stxx,'horizontal');">Horizontal</li>
+							<li stxtoggle="STXDrawingToolbar.setVectorType(stxx,'line');">Line</li>
+							<li stxtoggle="STXDrawingToolbar.setVectorType(stxx,'ray');">Ray</li>
+							<li stxtoggle="STXDrawingToolbar.setVectorType(stxx,'segment');">Segment</li>
+							<li stxtoggle="STXDrawingToolbar.setVectorType(stxx,'rectangle');">Rectangle</li>
+							<li stxtoggle="STXDrawingToolbar.setVectorType(stxx,'ellipse');">Ellipse</li>
+							<li stxtoggle="stxx.clearDrawings()">Clear Drawings</li>
+						</ul>
+					</div>
+					<div class="stx-drawing">
+						<div class="stx-draw-settings stxToolbarFill">
+							<div class="heading">Fill:</div>
+							<div class="color stxFillColorPicker" style="background-color: #7DA6F5;"><span></span></div>
+						</div>
+						<div class="stx-draw-settings stxToolbarLine">
+							<div class="heading">Line:</div>
+							<div class="color stxLineColorPicker" style="background-color: transparent;"><span></span></div>
+							<div class="stx-line-style btn menu stxMenu stxToolbarLinePicker">
+								<span class="stx-line style1 weight1 stxLineDisplay"></span><em></em>
+								<ul id="stx-line-style-menu" class="stx-line-style-menu menuSelect menuOutline" style="display:none;">
+									<li stxtoggle="STXDrawingToolbar.setLine(1,'solid')"><span class="stx-line style1 weight1"></span></li>
+									<li stxtoggle="STXDrawingToolbar.setLine(3,'solid')"><span class="stx-line style1 weight2"></span></li>
+									<li stxtoggle="STXDrawingToolbar.setLine(5,'solid')"><span class="stx-line style1 weight3"></span></li>
+									<li class="stxToolbarDotted divider"></li>
+									<li class="stxToolbarDotted" stxtoggle="STXDrawingToolbar.setLine(1,'dotted')"><span class="stx-line style2 weight1"></span></li>
+									<li class="stxToolbarDotted" stxtoggle="STXDrawingToolbar.setLine(3,'dotted')"><span class="stx-line style2 weight2"></span></li>
+									<li class="stxToolbarDotted" stxtoggle="STXDrawingToolbar.setLine(5,'dotted')"><span class="stx-line style2 weight3"></span></li>
+									<li class="stxToolbarDashed divider"></li>
+									<li class="stxToolbarDashed" stxtoggle="STXDrawingToolbar.setLine(1,'dashed')"><span class="stx-line style3 weight1"></span></li>
+									<li class="stxToolbarDashed" stxtoggle="STXDrawingToolbar.setLine(3,'dashed')"><span class="stx-line style3 weight2"></span></li>
+									<li class="stxToolbarDashed" stxtoggle="STXDrawingToolbar.setLine(5,'dashed')"><span class="stx-line style3 weight3"></span></li>
+									<li class="stxToolbarNone divider"></li>
+									<li class="stxToolbarNone" stxtoggle="STXDrawingToolbar.setLine(0,'none')">None</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<ul class="hu">
+					<li><span class="huLabel">O: </span><span id="huOpen" class="huField"></span></li>
+					<li><span class="huLabel">H: </span><span id="huHigh" class="huField"></span></li>
+					<li><span class="huLabel">V: </span><span id="huVolume" class="huField"></span></li>
+					<li><span class="huLabel">C: </span><span id="huClose" class="huField"></span></li>
+					<li><span class="huLabel">L: </span><span id="huLow" class="huField"></span></li>
+				</ul>
+			</div>
+
+			<!--TODO: invalid path-->
+			<!--<img id="loading" src="stx-loading.gif" style="display:none">-->
+			<!-- Indicator Dialogs -->
+			<div class="dialogContainer">
+				<!-- The studiesDialog is a general purpose dialog for entering the parameters for studies. It may be customized so long
+				as the id an class names remain the same. Note that it contains templates which are replicated dynamically -->
+				<div id="studyDialog" style="display:none;" class="stx-dialog">
+					<h4 class="title"></h4>
+					<div onclick="STXDialogManager.dismissDialog()" class="btn icon close"><span class="close"></span></div>
+					<div id="inputs">
+						<div class="inputTemplate" style="display: none;">
+							<div class="stx-heading">Heading</div>
+							<div class="stx-data"></div>
+						</div>
+					</div>
+					<div id="outputs">
+						<hr />
+						<div class="outputTemplate" style="display:none;">
+							<div class="stx-heading">Heading</div>
+							<div class="stx-color"><span></span></div>
+						</div>
+					</div>
+					<div data-bind="click: createStudy" class="btn">Create</div>
+				</div>
+			</div>
+
+			<div id="studyOverZones" style="display:none">
+				Show Zones<input id="studyOverZonesEnabled" type="checkbox">
+				<div class="outputTemplate">
+					<div class="heading">OverBought</div>
+					<div class="data">
+						<input id="studyOverBoughtValue" type="text" style="width:18px;">
+						<div class="color" id="studyOverBoughtColor"><span></span></div>
+					</div>
+				</div>
+				<div class="outputTemplate">
+					<div class="heading">OverSold</div>
+					<div class="data">
+						<input id="studyOverSoldValue" type="text" style="width:18px;">
+						<div class="color" id="studyOverSoldColor"><span></span></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Timezone Dialogs -->
+			<div class="dialogContainer">
+				<div id="timezoneDialog" style="display:none;" class="dialog">
+					<h4 class="title">Choose Timezone</h4>
+					<div onclick="STXDialogManager.dismissDialog()" class="btn icon close"><span class="close">Close</span></div>
+					<p>To set your timezone use the location button below, or scroll through the following list...</p>
+					<div class="detect">
+						<div class="btn" onclick="STXTimeZoneWidget.removeTimeZone();STXDialogManager.dismissDialog();">Use My Current Location</div>
+					</div>
+					<div id="timezoneDialogWrapper" style="max-height:360px;">
+						<ul>
+							<li id="timezoneTemplate" style="display:none;cursor:pointer;"></li>
+						</ul>
+					</div>
+					<div class="instruct">(Scroll for more options)</div>
+				</div>
+			</div>
+
+
+
+			<!-- Theme Dialog -->
+			<!--<div class="dialogContainer">
+				<div id="themeDialog" style="display:none" class="dialog">
+					<h4>Create a New Custom Theme</h4>
+					<div onclick="STXDialogManager.dismissDialog()" class="btn icon close"><span class="close">Close</span></div>
+					<div class="settings">
+						<ul>
+							<li class="heading">Chart Style</li>
+							<li>
+								<div class="heading">Candles</div>
+								<div class="data">
+									<div class="color stx_candle_up"><span></span></div>
+									<div class="color stx_candle_down"><span></span></div>
+								</div>
+							</li>
+							<li>
+								<div class="heading"><input id="candleBordersOn" type="checkbox" checked> Border</div>
+								<div class="data">
+									<div class="border stx_candle_up"><span></span></div>
+									<div class="border stx_candle_down"><span></span></div>
+								</div>
+							</li>
+							<li>
+								<div class="heading">Line/Bar/Wick</div>
+								<div class="data">
+									<div class="color stx_candle_shadow"><span></span></div>
+								</div>
+							</li>
+						</ul>
+						<ul>
+							<li class="heading">Background</li>
+							<li>
+								<div class="heading">Background</div>
+								<div class="data">
+									<div class="color backgroundColor"><span></span></div>
+								</div>
+							</li>
+							<li>
+								<div class="heading">Grid Lines</div>
+								<div class="data">
+									<div class="color stx_grid"><span></span></div>
+								</div>
+							</li>
+							<li>
+								<div class="heading">Date Dividers</div>
+								<div class="data">
+									<div class="color stx_grid_dark"><span></span></div>
+								</div>
+							</li>
+							<li>
+								<div class="heading">Axis Text</div>
+								<div class="data">
+									<div class="color stx_xaxis_dark"><span></span></div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<label class="themeName" for="themeName">New Theme Name:</label><input type="text" id="themeName" name="themeName" autocapitalize="off" autocorrect="off" spellcheck="off">
+					<div data-bind="click: saveTheme" class="btn">Save Theme</div>
+				</div>
+			</div>-->
+
+			<div id="chartContainer">
+				<!-- This is the container for the chart itself. This div will be passed in to the STXChart object. You may place this anywhere on your page. -->
+				<!--
+								   IE8 is supported through the excanvas.js library. For IE8, canvas elements must be included in the html
+								   code itself. The library will clone these canvases internally. If you don't plan on supporting IE8 you
+								   can safely remove these elements.
+								   -->
+				<!--[if IE 8]><canvas id="ie8canvas" width="0" height="0" style="display:none"></canvas><![endif]-->
+				<!--[if IE 8]><canvas id="ie8canvasTemp" width="0" height="0" style="display:none"></canvas><![endif]-->
+						<div id="closeXTemplate" class="closeX">
+							<div><i class="icon-remove fa fa-times"></i></div>
+						</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,30 @@
+﻿<div data-bind="" class="trades-leg-container ">
+    <ul data-bind="with: exerciseTicket" class="field-list-3">
+        <li>
+            <label data-bind="t: 'trade.optionName'" class="text-right">名称:</label>
+            <span data-bind="text: optionName" class="option-name width-130 color:#36373B "></span>
+        </li>
+        <li>
+            <label data-bind="t: 'trade.optionNumber'" class="text-right">编码:</label>
+            <input type="text" data-bind="kendoAutoComplete: optionNumberAutoComp" class="width-110 blue" />
+        </li>
+
+        <li>
+            <label data-bind="t: 'trade.availableQuantity'" class="text-right">可用:</label>
+            <!--<span data-bind="textFormatted: maxOrderQuantity" class="white"></span>-->
+            <span data-bind="textFormatted: maxOrderQuantity"></span>
+        </li>
+        <li>
+            <label data-bind="t: 'trade.orderQuantity'" class="text-right">数量:</label>
+            <input type="text" data-bind="kendoNumericTextBox: kendoOrderQuantity" class="width-110" />
+        </li>
+        <li>
+			<a data-bind="click: $parent.postExerciseTicket, disable: $parent.submittingOrder" href="#" class="btn btn-default btn-xs center-block" style="width:120px">
+				行权
+			</a>
+        </li>
+    </ul>
+</div>
+
+
+

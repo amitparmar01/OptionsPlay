@@ -1,0 +1,34 @@
+﻿<div>
+	<div class="comparison-toggle">
+		<a data-bind="click: toggleComparison">
+			<span class="fa fa-arrow-circle-left toggle-arrow"></span>
+			<span data-bind="t: 'strategies.goToComparison'"></span>
+			<span data-bind="text: comparedCombinations().length"></span>
+		</a>
+	</div>
+	<div data-bind="foreach: comparedCombinations" class="comparison-container">
+		<div data-bind="css: sentiments().join(' ')" class="sentiment-border strategy-container">
+			<a data-bind="click: $parent.removeFromComparison" class="pull-right k-button remove-from-compare">
+				<span class="k-icon k-si-close"></span>
+			</a>
+			<div data-bind="widget: {kind: 'plChartAndDetails', combination: $data, stockPriceLowerBound: $parent.stockPriceLowerBound,
+			stockPriceHigherBound: $parent.stockPriceHigherBound, chartPriceRange: $parent.chartPriceRange}">
+			</div>
+			<div class="">
+				<button data-bind="t: 'strategies.editLeg', click: $parent.editCombination, attr: {'disabled': $parent.edittedCombination() == $data}" class=""></button>
+				<button data-bind="t: 'strategies.prefillOrder', click: $parent.prefillOrder" class=""></button>
+			</div>
+		</div>
+	</div>
+	<div class="strategy-editor-container">
+		<h4 data-bind="" class="strategy-editor-title">
+			<span data-bind="t: 'strategies.legEditor'"></span>
+			<!-- ko if: edittedCombination() -->
+			<span data-bind="t: 'strategies.' + edittedCombination().strategyName()"></span>
+			<!-- /ko -->
+		</h4>
+		<!-- ko if: edittedCombination() -->
+		<div data-bind="widget: {kind: 'combinationEditor', combination: edittedCombination()}"></div>
+		<!-- /ko -->
+	</div>
+</div>

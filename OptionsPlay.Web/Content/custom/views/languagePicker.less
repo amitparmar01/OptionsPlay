@@ -1,0 +1,19 @@
+﻿#languages {
+	text-transform: uppercase;
+	margin-bottom: 7px;
+
+	span {
+		float: left;
+		padding: 5px 5px 2px 5px;
+		border-bottom: 1px solid transparent;
+
+		&.active {
+			cursor: default;
+		}
+
+		&:not(.active):hover {
+			cursor: pointer;
+			border-color: white;
+		}
+	}
+}

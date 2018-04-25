@@ -1,0 +1,151 @@
+﻿@import '../globalVariables';
+
+.toolbox1 {
+	float:left;
+	width: 33%;
+	height: 200px;
+	text-align: center;
+	border: 2px solid @yellow;
+	color: @blue;
+
+	.filter-zone {
+		background-color: @yellow;
+		color: white;
+		text-align: center;
+		padding:5px;
+		font-size: 18px;
+		font-weight: bold;
+	}
+
+	.radios-zone {
+		margin: 10px auto;
+		width: 75%;
+
+		.radio-zone {
+			margin-top:25px;
+			clear:both;
+			text-align: left;
+
+			.radio-input {
+				float:right;
+			}
+			.numberic-input{
+				border-color: lightgray;
+				border-width:1px;
+				width: 42%;
+			}
+		}
+	}	
+}
+
+.toolbox2 {
+	float:left;
+	width: 33%;
+	height: 200px;
+	text-align: center;
+	border: 2px solid @yellow;
+	color: @blue;
+
+	h4 {
+		margin-top:2px;
+		margin-bottom: 2px;
+	}
+
+	.gen-chart {
+		width:250px;
+		height: 150px;
+	}
+
+	.gen-chart-zone {
+		margin:0 auto;
+		width:250px;
+		height: 200px;
+	}
+
+	.order-btn {
+		background-color:@yellow;
+		color:@blue;
+		cursor: pointer;
+		margin-top:2px;
+	}
+
+}
+
+.toolbox3 {
+	float:left;
+	width: 33%;
+	height: 200px;
+	text-align: center;
+	border: 2px solid @yellow;
+	color: @blue;
+
+	.filter-zone {
+		background-color: @yellow;
+		color: white;
+		text-align: center;
+		padding:5px;
+		font-size: 18px;
+		font-weight: bold;
+	}
+
+	.days-filter {
+		margin-top:10px;
+	}
+
+	.range-zone {
+		margin: 15px auto;
+		width: 80%;
+
+		.check-input {
+			width: 70px;
+		}
+
+		.checks-zone {
+			width: 58%;
+			margin: 0 auto;
+			margin-top:20px;
+
+			.check-zone {
+			margin-top:20px;
+			text-align: left;
+				.check-input {
+					float:right;
+				}
+			}
+		}		
+	}	
+}
+
+#genGridContainer {
+	clear:both;
+}
+
+#genGrid {
+	thead th {
+		background-color: @blue;
+		color: @yellow;
+	}
+
+	.gen-body-row:hover {
+		td {
+			background-color: lightblue;
+		}
+		cursor: pointer;
+	}
+
+	.chosen td{
+		background-color: lightblue;
+	}
+}
+
+.hide {
+	display: none;
+}
+
+
+
+
+
+#generatePremium input {
+	text-align:right
+}

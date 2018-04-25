@@ -1,0 +1,536 @@
+﻿@import 'variables.less';
+// todo: refactoring required
+
+#combinationEditor {
+	text-align: center;
+
+	#alterLeg {
+		font-size: 12px;
+		color: @background-light-color;
+		padding-top: 5px;
+	}
+
+	#strikesSelector {
+		font-size: 12px;
+		padding: 4px 20px;
+		text-align: left;
+		position: absolute;
+		top: 36px;
+		right: 40px;
+	}
+
+	#strategySelector {
+		font-size: 12px;
+		padding: 4px 5px;
+		text-align: left;
+
+		.font-smaller {
+			word-spacing: -2px;
+			line-height: 20px;
+		}
+
+		.dropdown {
+			width: 240px;
+
+			.dropdown-toggle {
+				width: 100%;
+				text-align: left;
+			}
+		}
+
+		.dropdown-menu {
+			max-height: 200px;
+			overflow-x: visible;
+			min-width: 120px;
+		}
+
+		.dropdown-submenu {
+
+			.dropdown-menu {
+				top: 0;
+				left: 90%;
+				margin-top: -6px;
+				margin-left: -1px;
+				border-radius: 0 6px 6px 6px;
+				overflow-y: auto;
+				overflow-x: visible;
+				height: 200px;
+				width: 250px;
+
+				> li > a {
+					padding: 3px 10px;
+					overflow: hidden;
+					cursor: pointer;
+				}
+			}
+
+			&.open > .dropdown-menu {
+				display: block;
+			}
+
+			& > a:after {
+				display: block;
+				content: " ";
+				float: right;
+				width: 0;
+				height: 0;
+				border-color: transparent;
+				border-style: solid;
+				border-width: 5px 0 5px 5px;
+				border-left-color: #cccccc;
+				margin-top: 5px;
+				margin-right: -10px;
+			}
+
+			&:hover > a:after {
+				border-left-color: #ffffff;
+			}
+		}
+		/*#region Price by */
+		#priceByTitle,
+		#priceByToggle {
+			vertical-align: middle;
+		}
+
+		#priceByTitle {
+			margin-left: 10px;
+		}
+
+		#priceByToggle {
+			width: 63px;
+			border-width: 1px;
+			border-style: solid;
+			border-radius: 5px;
+			padding: 3px;
+			cursor: pointer;
+			display: inline-block;
+			line-height: 18px;
+
+			&:active {
+				box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.4);
+			}
+
+			span {
+				display: inline-block;
+				width: 43px;
+				text-align: center;
+			}
+
+			i {
+				float: right;
+				margin-top: 3px;
+			}
+		}
+		/*#endregion Price by */
+	}
+
+	.pull-left {
+		float: left;
+	}
+
+	.pull-right {
+		float: right;
+	}
+
+	.editor-control-btn {
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+}
+
+#combinationEditor #editorControl {
+	right: 10px;
+	bottom: 0;
+	left: 10px;
+}
+
+#incomeCombinationEditor #editorControl {
+	right: 15px;
+	bottom: 26px;
+	left: 125px;
+}
+
+#combinationEditor,
+#incomeCombinationEditor {
+	height: 100%;
+
+	#alterLeg {
+		padding-top: 2px;
+	}
+
+	& > div {
+		height: 100%;
+
+		& > div.combination-editor-wrapper {
+			height: (@strategies-carousel-height - @strategies-toolbox-title-height - 36px);
+		}
+	}
+
+	.btn.btn-tool {
+		border: none;
+		padding: 0 4px;
+		color: white;
+
+		i {
+			color: white;
+		}
+	}
+
+	#editorControl {
+		position: absolute;
+
+		> .btn {
+			margin-left: 10px;
+		}
+
+		.editor-control-btn .btn {
+			width: 100px;
+		}
+
+		.top-left {
+			position: absolute !important;
+			left: 0;
+			top: -25px;
+		}
+
+		.btn-group-integrated {
+			position: relative;
+			width: 120px;
+			font-size: 12px;
+			border-radius: 0;
+
+			a {
+				color: inherit;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+
+		.btn-left,
+		.btn-right {
+			position: absolute;
+			top: 0;
+			width: 40%;
+			cursor: pointer;
+			font-size: 16px;
+			padding: 1px 5px;
+			line-height: 20px;
+		}
+
+		.btn-left {
+			left: 0;
+			text-align: left;
+		}
+
+		.btn-right {
+			right: 0;
+			text-align: right;
+		}
+	}
+}
+
+#incomeCombinationEditor {
+	.income-hide {
+		display: none;
+	}
+
+	.income-show {
+		display: block;
+	}
+
+	input[type="checkbox"] {
+		cursor: default;
+	}
+}
+
+.combination-editor {
+	overflow: hidden;
+	position: relative;
+	height: 100%;
+	font-size: 12px;
+
+	table {
+		border-collapse: collapse;
+		font-weight: bold;
+
+		select {
+			background: transparent;
+			border: none;
+			-webkit-appearance: none;
+		}
+
+		.ui-spinner-button {
+			height: 1em;
+			font-size: 1em;
+		}
+
+		.ui-strategies-spinner-up {
+			left: 0;
+			bottom: 20%;
+		}
+
+		.ui-strategies-spinner-down {
+			right: 0;
+			bottom: 20%;
+		}
+
+		a,
+		a:hover,
+		a:visited {
+			text-decoration: none;
+            cursor:pointer;
+		}
+
+		i {
+			font-size: 18px;
+			color: @background-dark-color;
+            cursor:pointer;
+		}
+
+		.input-mini {
+			display: inline-block;
+			width: 40px;
+		}
+
+		.green {
+			color: green;
+		}
+
+		.red {
+			color: red;
+		}
+
+		th {
+			padding: 0;
+			background-color: @background-dark-color;
+			vertical-align: middle;
+			border-color: transparent;
+			color: white;
+
+			.btn {
+				padding: 0 2px;
+				background-color: transparent !important;
+				border-color: transparent !important;
+				color: @black;
+			}
+
+			.bold {
+				font-weight: 600;
+			}
+		}
+
+		.ui-merge-column {
+			border-left: 0 !important;
+		}
+
+		td {
+			border-collapse: collapse;
+			vertical-align: middle;
+			border-spacing: initial;
+			text-transform: capitalize;
+
+			.caret-up {
+				width: 12px;
+				margin: 0 3px;
+			}
+
+			.caret-down {
+				width: 12px;
+				margin: 0 3px;
+			}
+
+			.div-position {
+				position: relative;
+
+				.text-width-exp {
+					display: inline-block;
+				}
+
+				.text-width-stk {
+					width: 40px;
+					display: inline-block;
+				}
+                select{
+                     cursor:pointer;
+                }
+				.select-strike, .select-exp {
+                   
+					opacity: 0;
+					//position: relative;
+					
+				}
+				.select-strike{
+					width:60px;
+					margin-left:-60px;
+				}
+				.select-exp{
+					width:120px;
+					margin-left:-120px;
+				}
+
+
+				.select-strike .strike-of-sd {
+					background-color: #bcbcbc;
+				}
+
+				.select-strike.PUT .strike-over-last {
+					background-color: #e8e8e8;
+				}
+
+				.select-strike.CALL .strike-below-last {
+					background-color: #e8e8e8;
+				}
+			}
+		}
+	}
+
+	.btn > .fa {
+		margin-right: 0;
+	}
+
+	.btn {
+		box-shadow: none;
+	}
+
+	.editor-header.table-condensed td {
+		padding: 2px;
+	}
+
+	label {
+		display: inline-block;
+		margin-bottom: 0;
+	}
+
+	input[type=checkbox], input[type=radio] {
+		opacity: 0;
+	}
+
+	input[type=checkbox].ace-switch {
+		width: 15px;
+	}
+
+	input[type=checkbox].ace-switch + .lbl {
+		min-height: initial;
+	}
+
+	input[type=checkbox].ace-switch-bs + .lbl::before {
+		content: "BUY\a0\a0\a0\a0\a0SELL";
+		background-color: rgb(212, 63, 58);
+		border-color: rgb(212, 63, 58);
+		width: 45px;
+		height: 20px;
+		line-height: 19px;
+		text-indent: -30px;
+		font-size: 12px;
+	}
+
+	input[type=checkbox].ace-switch-bs:checked + .lbl::before {
+		text-indent: 10px;
+		background-color: rgb(135, 184, 127);
+		border-color: rgb(135, 184, 127);
+	}
+
+	input[type=checkbox].ace-switch-bs + .lbl::after {
+		width: 0;
+		display: none;
+	}
+
+	input[type=checkbox].ace-switch-cp + .lbl::before {
+		content: "CALL\a0\a0\a0\a0\a0\a0PUT";
+		width: 45px;
+		height: 20px;
+		line-height: 19px;
+		text-indent: -35px;
+		font-size: 12px;
+	}
+
+	input[type=checkbox].ace-switch-cp:checked + .lbl::before {
+		text-indent: 8px;
+		background-color: #87B87F;
+		border-color: #87B87F;
+	}
+
+	input[type=checkbox].ace-switch-cp + .lbl::after {
+		width: 0;
+		display: none;
+	}
+
+	.radio-strategies {
+		padding-left: 0;
+		margin: 0;
+	}
+
+	input.spinner-qty {
+		width: 2em;
+		text-align: right;
+		margin-left: -2px;
+		margin-right: 14px;
+		padding: 0;
+		border: 0;
+	}
+
+	input.spinner-qty-new {
+		width: 32px;
+		text-align: center;
+		padding: 0;
+		border: 0;
+		font-size: 12px;
+
+		&.wider {
+			width: 40px;
+		}
+	}
+
+	.select-exp {
+		width: 10em;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		height: 20px;
+		background: transparent;
+	}
+
+	.select-strike {
+		margin: 0;
+		border: 0;
+		padding: 0;
+		height: 20px;
+		background: transparent;
+		width: 60px;
+	}
+
+	.typeSpinner {
+		width: 40px;
+		margin-right: 20px;
+		text-align: right;
+		display: inline-block;
+	}
+
+	.premium {
+		font-weight: 600;
+		overflow: visible;
+		font-size: 12px;
+	}
+
+	.expiry-list button.btn-small {
+		line-height: 16px;
+	}
+
+	.income-show {
+		display: none;
+	}
+
+	table.text-center td,
+	table.text-center th {
+		text-align: center;
+		padding: 4px 1px;
+	}
+
+	.dropdown-menu {
+		right: 0;
+		left: auto;
+		padding-bottom: 3px;
+	}
+}

@@ -1,0 +1,3 @@
+﻿(function () {
+	delete window.alert;
+})();

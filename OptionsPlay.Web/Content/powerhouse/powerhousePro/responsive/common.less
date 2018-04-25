@@ -1,0 +1,101 @@
+﻿@import '../common-variables.less';
+
+.tablet-disabled() {
+	.tablet-only {
+		display: none;
+	}
+
+	td.tablet-only {
+		display: none;
+	}
+
+	td.desktop-only {
+		display: table-cell;
+	}
+
+	.desktop-only {
+		display: inherit;
+	}
+}
+
+.tablet-enabled() {
+	.tablet-only {
+		display: inherit;
+	}
+
+	td.tablet-only {
+		display: table-cell;
+	}
+
+	td.desktop-only {
+		display: none;
+	}
+
+	.desktop-only {
+		display: none;
+	}
+}
+
+#powerhousePro {
+	.tablet-disabled;
+}
+
+@media screen {
+	@media (max-width: @tablet-width) {
+		#powerhousePro {
+			.trade-panel-visible {
+				.tablet-enabled;
+			}
+
+			.trade-panel-invisible {
+				.tablet-disabled;
+			}
+		}
+	}
+}
+
+/* #region header */
+
+.header(@header-height) {
+	/*#headerBackground {
+		height: @header-height;
+	}
+
+	#header > div {
+		line-height: @header-height - 4px;
+	}
+
+	#powerhouseProScrollbar {
+		top: @header-height;
+	}*/
+}
+
+.small-header() {
+	.header(30px);
+
+	img {
+		&.small-logo {
+			display: inline;
+		}
+
+		&.big-logo {
+			display: none;
+		}
+	}
+}
+
+.big-header() {
+	.header(30px);
+
+	img {
+		&.small-logo {
+			display: none;
+		}
+
+		&.big-logo {
+			display: inline;
+		}
+	}
+}
+
+/* #endregion header */

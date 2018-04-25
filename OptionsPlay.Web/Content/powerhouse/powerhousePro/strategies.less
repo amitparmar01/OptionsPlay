@@ -1,0 +1,933 @@
+﻿@import 'strategies/combination-editors.less';
+@import 'strategies/single-trade-view.less';
+@import 'strategies/slider.less';
+@import 'strategies/toolbox.less';
+@import 'strategies/expanded-chart-container.less';
+@import '../mixins.less';
+
+// todo: Divide this file to logical blocks and move them to separate less files.
+#powerhousePro {
+	#strategiesSection {
+		border-radius: @border-radius @border-radius 0 0;
+		position: absolute;
+		right: 0;
+		height: 100%;
+		width: 49.5%;
+		z-index: 0;
+		overflow: hidden;
+
+		.btn.bullish {
+			color: @bullish;
+		}
+
+		.btn.bearish {
+			color: @bearish;
+		}
+
+		.font-14 {
+			font-size: 14px;
+		}
+
+		.font-12 {
+			font-size: 12px;
+		}
+
+		.btn {
+			padding: 2px 8px;
+		}
+
+		input {
+			font-size: 12px;
+			color: @black;
+
+			&[type=text] {
+				border: 1px solid @black;
+			}
+
+			&.no-border {
+				border: none;
+			}
+		}
+
+		#howContainer {
+			height: @total-height;
+			z-index: 0;
+		}
+
+		#howNavBar {
+			height: @strategies-navbar-height;
+			position: relative;
+
+			#miniButtonContainer {
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 33%;
+				text-align: center;
+				vertical-align: middle;
+				height: 100%;
+				padding: 5px;
+			}
+		}
+
+		#howMainContainer {
+			padding: 0;
+			position: relative;
+			height: @strategies-main-height;
+		}
+
+		#investmentAmountInput {
+			font-size: 12px;
+		}
+
+		.tab-pane {
+			width: 100%;
+		}
+
+		#tradingStrategies {
+			position: relative;
+			float: left;
+			width: 100%;
+
+			.key {
+				width: 77px;
+			}
+
+			.val {
+				left: 77px;
+			}
+
+			.abbr {
+				.key {
+					width: 40px;
+				}
+
+				.val {
+					left: 40px;
+				}
+			}
+
+			.zero-opacity {
+				opacity: 0;
+			}
+		}
+
+		.trade-modify-panel .btn {
+			width: 72px;
+			height: 25px;
+			font-size: 14px;
+
+			&.trade-btn {
+				color: white;
+				border-right-width: 2px;
+			}
+
+			&.modify-btn {
+				border-left-width: 2px;
+			}
+		}
+
+		#zeroPremiumNotification {
+			border-radius: 4px;
+			border: 1px;
+			background-color: white;
+			color: black;
+			font-size: 14px;
+			z-index: 100;
+			position: absolute;
+			top: 27.8%;
+			right: 0;
+			text-align: left;
+			.lh-transition(all 0.3s ease);
+
+			#noticeText {
+				margin: 17px 8px 4px 8px;
+			}
+
+			#continueLink {
+				margin-bottom: 5px;
+				margin-right: 20px;
+				font-size: 12px;
+				float: right;
+			}
+		}
+
+		#chartContainer, #incomeChartContainer, .sentence-container, #whatifDetailsPane, #incomeSentenceContainer {
+			.float-inline();
+			text-align: center;
+		}
+
+		#chartContainer {
+			position: absolute;
+			top: 0;
+			bottom: @strategies-toolbox-height;
+			margin: auto;
+			margin-bottom: 0;
+			width: 100%;
+			vertical-align: middle;
+
+			.pl-chart-container {
+				width: 99%;
+				height: 100%;
+				margin: auto;
+				width: 100%;
+			}
+
+			.pl-chart {
+				background-color: white;
+
+				> div {
+					position: relative;
+				}
+
+				.pl-chart-wrapper {
+					position: absolute;
+					top: 50px;
+					bottom: 170px;
+					width: 100%;
+					& > .stretched, .overlay {
+						height: 100%;
+						width: 100%;
+					}
+				}
+
+				.padding-12 {
+					padding-left: 10px;
+				}
+				.chart-toolbox {
+					position: absolute;
+					bottom: 0;
+					width: 100%;
+				}
+				.height-fixed {
+					margin-top: 30px;
+					height: 120px;
+				}
+
+				.trade-modify-panel {
+					margin-top: 7px;
+				}
+
+				.combination-heading {
+					cursor: pointer;
+				}
+			}
+
+			.trade-box {
+				height: 100%;
+                min-height: 292px;
+                min-width: 150px;
+				position: relative;
+				padding: 4px;
+			}
+            .trade-boxs {
+				height: 100%;
+                min-height: 50px;
+                min-width:100%;
+				position: relative;
+				padding: 4px;
+			}
+
+			.comb-detail-table {
+				width: 99%;
+				max-width: 99%;
+				margin-left: auto;
+			}
+		}
+
+		.share-icon-custom {
+			background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG4AAABWCAMAAAAZrFMJAAAAQlBMVEUAAAAAbb0Abb0Abb0Abb0Abb0Abb0Abb0Abb0Abb0Abb0Abb0Abb0Abb0Abb0Abb0Abb0Abb0Abb0Abb0Abb0Abb2yJBhhAAAAFXRSTlMAiJn30gvuLRKlX99QQR7DBbB7a4+BP+WmAAAB9ElEQVR4Xu3Y246bMACEYRufDeY87/+qrdoLFrl444FaasV/j77dwUoI4t+sM005aNeUg4pNOSCYphy0a8pBxYYcPSjPQbumHFRsx/GD8hy0a8rBxnYcPyjPQY9/DzMeWXZ4nBmHNUy9wp/bZ3Fd1BZZhdPmY+hRbroeNKCYnM/rxQlZFYNuKGXTeUOZDVH8M/M0TpVOmZcKp4hBVekKI740WByxg+K65avmF1Qn5wouzOIo9SCaxo+5pXCg+EE/um8ryNR6xWl5anxC69PlmJ24agPZ4kU9N9wYsp5zihzSCYIzGlTBCIbbwaSiEAyX2CEpbtbIQ7/s25Dc6H92cSI5bstWmtZkyh8TahOC47zFqSWa/Pp8SJaTOILdR/7BL+fK/5xayyf7OJEEl925yVU8tHPcfHzHrXPFTxKSG/IHpLxsSJoLn5y1bEiW8wq/0l4Uyp6cWS4eWsWrAJpbfi85Ei86CG62AGDdB9d3RtzmEgCoJL4pe9oiOQkAK/EKjuMmAAvxgpHjZgX0XlQ3bhTnAKR6LdmO4gZA1msS4LgVvanFTADLhfopRw2am7r62wae075Siwo3uKFS2wGCo8P/wr3cy73cy72clreq4u7Xnns5hYfbi5zGw21FbsOzWS+KBTyZGsQ3Ra3wUHZx4lZvbz8A8/fvcCzG+IwAAAAASUVORK5CYII=') /*../../../Content/images/icon-share-custom.png*/;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 100%;
+		}
+
+		.pl-chart-click-modal {
+			width: 27px;
+			height: 21px;
+			display: block;
+			position: absolute;
+			z-index: 10;
+			bottom: 6px;
+			right: 2px;
+			color: #bbb;
+			font-size: 1.5em;
+
+			&:hover {
+				cursor: pointer;
+			}
+
+			&.top-left {
+				top: 2px;
+				left: 2px;
+			}
+
+			&.top-right {
+				top: 2px;
+			}
+
+			&.bottom-left {
+				left: 2px;
+			}
+		}
+
+		#investmentAmount {
+			font-size: 14px;
+			font-weight: normal;
+			padding: 2px;
+			vertical-align: middle;
+			color: @new-theme-blue;
+
+			#radioWrapper {
+				height: @strategies-investment-height;
+			}
+
+			#investmentAmountInputWrapper {
+				display: inline-block;
+				height: @strategies-investment-height;
+				line-height: @strategies-investment-height;
+				vertical-align: top;
+
+				input {
+					width: 120px;
+					height: 25px;
+					padding-right: 10px;
+					line-height: 1.5;
+					text-align: right;
+				}
+			}
+
+			#calculateButtonWrapper {
+				display: inline-block;
+				height: @strategies-investment-height;
+				line-height: @strategies-investment-height;
+				vertical-align: top;
+
+				.btn {
+					width: 120px;
+					height: 30px;
+					font-size: 14px;
+					font-weight: bold;
+				}
+			}
+
+			> div {
+				margin: auto;
+			}
+
+			.radio-container {
+				width: 170px;
+				display: inline-block;
+			}
+
+			.instruction-container {
+				width: 90%;
+				font-size: 12.99px;
+			}
+		}
+
+		.pl-chart {
+			height: 100%;
+			margin: 4px;
+
+			.overlay {
+				position: absolute;
+				cursor: pointer;
+				z-index: 50;
+			}
+		}
+
+		.trade-box {
+			width: 33.33%;
+			margin: 0;
+			padding: 0;
+			vertical-align: top;
+			text-align: initial;
+
+			.pl-chart {
+				height: 100%;
+				margin: 0;
+				width: 100%;
+				position: relative;
+
+				&.bt-container {
+					height: 49px;
+				}
+
+				&.text-container {
+					margin-top: 30px;
+					height: (@strategies-chart-container-height - 88px);
+				}
+			}
+		}
+
+		#incomeChartContainer {
+			position: relative;
+			z-index: 10;
+			.lh-transform(translate3d(0, 0, 0));
+
+			.income-combination-english {
+				position: relative;
+				background: white;
+				margin: 0 4px 4px 4px;
+				padding: 5px;
+				width: 100%;
+			}
+
+			text-align: center;
+			height: @strategies-income-chart-container-height;
+
+			h5 {
+				text-align: left;
+				line-height: 1.3em;
+			}
+
+			.pl-chart {
+				background-color: white;
+				width: 100%;
+				display: inline-block;
+				height: 360px;
+			}
+
+			.pl-chart-container {
+				width: 98%;
+				height: 100%;
+				margin: auto;
+			}
+		}
+
+		#incomeStrategies {
+			text-align: center;
+
+			.select-exp {
+				width: 10em;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				height: 20px;
+				background: transparent;
+			}
+
+			.key {
+				width: 105px;
+			}
+
+			.val {
+				left: 105px;
+				overflow: visible;
+			}
+		}
+
+		#incomeControl {
+			padding: 10px 3px;
+			height: @strategies-sdSlider-height;
+			text-align: left;
+
+			.btn {
+				font-size: 11px;
+			}
+
+			> span * {
+				vertical-align: middle;
+			}
+
+			input {
+				padding: 2px 4px;
+
+				&.input-mini {
+					width: 5em;
+				}
+			}
+		}
+
+		.income-box {
+			width: 49%;
+			height: 100%;
+			.lh-transition(all 0.6s ease);
+
+			h5.padding-10 {
+				padding: 0 10px;
+			}
+
+			.transform-income(@scale, @yAndgle, @translate3Dx) {
+				.lh-transform(scale(@scale,@scale), rotateY(0), translate3d(@translate3Dx,0,0), perspective(1000px), rotate3d(0, 1, 0, @yAndgle));
+			}
+
+			@rotate-angle: 15deg;
+			@scale-inactive: 0.6;
+			@scale-active: 1;
+			@translate-active: 80px;
+			@translate-inactive: 60px;
+			@opacity-inactive: 0.5;
+
+			&.inactive-strategy {
+				opacity: @opacity-inactive;
+
+				.income-combination-english {
+					display: none;
+				}
+			}
+
+			&:first-of-type {
+				position: relative;
+				z-index: 1;
+
+				&.inactive-strategy {
+					.transform-income(@scale-inactive, @rotate-angle, -@translate-inactive);
+				}
+
+				&.active-strategy {
+					.transform-income(@scale-active, 0, @translate-active);
+				}
+			}
+
+			&:last-of-type {
+				&.inactive-strategy {
+					.transform-income(@scale-inactive, -@rotate-angle, @translate-inactive);
+				}
+
+				&.active-strategy {
+					.transform-income(@scale-active, 0, -@translate-active);
+				}
+			}
+
+			&.default {
+				.transform-income(0.95, 0, 0);
+			}
+
+			.pl-chart .trade-modify-panel {
+				margin-top: 4px;
+			}
+		}
+
+		#incomeToolboxContainer {
+			width: 100%;
+			height: @strategies-income-toolbox-height;
+			overflow-y: auto;
+		}
+
+		#incomeMessageContainer {
+			width: 90%;
+			height: 200px;
+			margin-left: 5%;
+			background: white;
+			font-size: 17px;
+			font-weight: bold;
+			color: #0f5eaf;
+			border-radius: 8px;
+			margin-top: 30%;
+			border: 2px solid black;
+			padding: 5px;
+			position: absolute;
+
+			& > div {
+				margin-top: 70px;
+			}
+		}
+
+		input#whatifVolatility, input#whatifSPercentage {
+			width: 4em;
+		}
+
+		#whatifSPrice .ui-slider-range {
+			border-radius: 0;
+			position: absolute;
+			height: 100%;
+		}
+
+		#whatifDate,
+		#whatifSPrice {
+			width: 55%;
+			display: inline-block;
+			margin: 10px 5px 10px 5px;
+			vertical-align: middle;
+
+			&.ui-slider > .ui-hint {
+				position: absolute;
+				top: -25px;
+				display: block;
+				width: 110px;
+				max-width: 110px;
+				left: -50px;
+				margin-left: 50%;
+				text-align: center;
+				background-color: @background-dark-color;
+				color: @controls-text-color;
+				border: 1px solid @controls-color;
+
+				input {
+					background-color: transparent;
+					color: @controls-text-color;
+					padding: 0;
+					border: none;
+					width: 100%;
+					text-align: center;
+				}
+
+				input:focus {
+					background-color: @controls-text-color;
+					color: @black;
+				}
+			}
+		}
+
+		#whatifDateInput {
+			text-align: center;
+			width: 80px;
+		}
+
+		.heading-border-bottom {
+			border-bottom: 2px solid @background-light-color;
+		}
+
+		.combination-heading {
+			height: 45px;
+			display: table;
+			width: 100%;
+			font-size: 14px;
+
+			> div {
+				display: table-cell;
+				vertical-align: middle;
+
+				> div {
+					padding: 0;
+				}
+			}
+
+			.font-small {
+				font-size: 12px;
+			}
+
+			.font-x-small {
+				font-size: 11px;
+			}
+		}
+
+		.pl-chart-heading {
+			height: 40px;
+			width: 96%;
+			margin: 5px auto;
+			padding: 0;
+			position: relative;
+			border-color: @new-theme-blue;
+
+			> * {
+				height: 100%;
+				display: inline-block;
+				position: absolute;
+				padding: 0;
+				margin: 0;
+				white-space: normal;
+				line-height: 37px;
+				border: none;
+				border-radius: @border-radius;
+				vertical-align: middle;
+
+				> span {
+					vertical-align: middle;
+					line-height: 1.4;
+					display: inline-block;
+					max-width: 100%;
+				}
+			}
+
+			.pl-chart-heading-empty {
+				width: 98%;
+				background-color: white;
+				color: @black;
+				top: 0;
+				right: 0;
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+				font-size: 13px;
+			}
+		}
+
+		.text-center .no-optimal {
+			background-color: white;
+			color: @black;
+			height: 45px;
+			width: 100%;
+			border: none;
+			bottom: 2px;
+			box-shadow: none;
+			font-size: 12px;
+			outline: 0;
+			cursor: default;
+		}
+
+		.comb-detail-table {
+			margin-top: 5px;
+			margin-bottom: 0;
+			border-spacing: 0;
+			border-collapse: collapse;
+			background-color: white;
+			line-height: 1.3;
+			font-size: 12px;
+
+			.row {
+				width: 100%;
+				margin: 0;
+				padding: 0;
+				position: relative;
+				border-top: @light-border;
+
+				> div {
+					padding: 1px 2px;
+					vertical-align: middle;
+				}
+
+				&:last-child {
+					border-bottom: @light-border;
+				}
+
+				&.two-line {
+					> div {
+						height: 32px;
+
+						&.key {
+							line-height: 32px;
+						}
+					}
+
+					&.one-break {
+						> div {
+							line-height: 32px;
+						}
+					}
+				}
+			}
+
+			.key {
+				padding: 1px 0;
+				text-align: right;
+				float: left;
+			}
+
+			.val {
+				color: black;
+				white-space: nowrap;
+				text-align: right;
+				position: absolute;
+				top: 0;
+				right: 0;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				border-left-width: 0;
+
+				&.text-wrap {
+					white-space: normal;
+				}
+
+				& > input {
+					height: 16px;
+				}
+			}
+
+			td {
+				padding: 1px 2px;
+				vertical-align: middle;
+				border: @light-border;
+				border-collapse: collapse;
+				border-spacing: 0;
+
+				&.key {
+					padding: 1px 0;
+					text-align: right;
+				}
+
+				&.val {
+					color: black;
+					text-align: right;
+					white-space: nowrap;
+					max-width: 75px;
+				}
+
+				&.val.onw-line {
+					height: 20px;
+				}
+
+				&.val.two-line {
+					height: 35px;
+				}
+
+				.val > input {
+					height: 16px;
+				}
+			}
+		}
+	}
+
+	.pl-chart,
+	.income-combination-english {
+		border: 2px solid @background-light-color;
+	}
+
+	.comb-detail-pane {
+		margin-top: 8px;
+		position: relative;
+		height: 130px;
+
+		> div.flipper {
+			top: 0;
+			left: 0;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+
+			.sentiment-name {
+				font-size: 13px;
+				text-transform: capitalize;
+			}
+
+			.trade-cost {
+				font-size: 16px;
+			}
+
+			img {
+				&.options-play-logo {
+					height: 22px;
+					margin-right: 3px;
+				}
+
+				&.check-mark {
+					height: 28px;
+					margin-top: 4px;
+				}
+			}
+		}
+	}
+
+	.optionsplay-score-round {
+		@red: rgb(237, 0, 79); // #ED004F;
+		@green: rgb(0, 169, 79); // #00A94F;
+		width: 56px;
+		height: 56px;
+		.inline-block;
+		border: 6px solid transparent;
+		border-radius: 50%;
+		vertical-align: middle;
+		text-align: center;
+		font-size: 1.8em;
+		line-height: 46px;
+		font-weight: 600;
+
+		&.good {
+			border-color: @red;
+		}
+
+		&.not-bad {
+			border-color: @yellow;
+		}
+
+		&.poor {
+			border-color: @green;
+		}
+	}
+
+	.optionsplay-score-explanation {
+        font-weight: bold;
+		@red: rgb(237, 0, 79); // #ED004F;
+		@green: rgb(0, 169, 79); // #00A94F;
+		&.poor {
+			color: @red;
+		}
+
+		&.not-bad {
+			color: @yellow;
+		}
+
+		&.good {
+			color: @green;
+		}
+	}
+
+	.cursor-pointer {
+		cursor: pointer;
+	}
+
+	.inline-block {
+		display: inline-block;
+	}
+
+	.invisibile {
+		visibility: hidden;
+	}
+
+	.ui-slider-custom {
+		font-size: 10px;
+
+		.ui-slider {
+			background: @background-light-color;
+			border: 1px solid white;
+		}
+
+		@slider-handle-size: 18px;
+
+		.ui-slider-handle {
+			width: @slider-handle-size;
+			height: @slider-handle-size;
+			margin-left: (@slider-handle-size * -0.5);
+			margin-top: (@slider-handle-size * -0.5);
+			top: 50%;
+			border-radius: (@slider-handle-size * 0.5);
+			border-width: 3px;
+			border-color: @background-normal-color;
+			z-index: 9;
+		}
+
+		.ui-slider-range {
+			background: rgb(15, 94, 175);
+		}
+
+		.ui-slider-tick {
+			background: @controls-text-color;
+			width: 2px;
+			height: 100%;
+			position: absolute;
+			z-index: 8;
+			margin: 0;
+			top: 0;
+			display: block;
+		}
+
+		.ui-slider-tick::before,
+		.ui-slider-tick::after {
+			width: 2px;
+			opacity: 0;
+			display: block;
+		}
+
+		.ui-slider-anchor {
+			position: absolute;
+			margin-left: -5px;
+			top: 7px;
+			cursor: pointer;
+			text-decoration: none;
+			font-size: 14px;
+			opacity: 0.6;
+			z-index: 9;
+		}
+
+		.ui-slider-anchor.support-anchor {
+			color: rgb(159, 208, 114);
+		}
+
+		.ui-slider-anchor.support-anchor:hover {
+			color: rgb(122, 193, 67);
+		}
+
+		.ui-slider-anchor.resist-anchor {
+			color: rgb(215, 108, 126);
+		}
+
+		.ui-slider-anchor.resist-anchor:hover {
+			color: rgb(198, 6, 81);
+		}
+	}
+
+	input {
+		border-radius: @border-radius;
+	}
+}

@@ -1,0 +1,236 @@
+﻿@import 'common-variables.less';
+@import '../mixins.less';
+
+@header-footer-background: rgb(20, 21, 24); // #141518
+@header-footer-width: 1280px;
+
+#headerBackground {
+	position: relative;
+	z-index: 2;
+}
+
+#headerBackground, #footerBackground {
+	width: 100%;
+	background-color: @header-footer-background;
+}
+
+#footerBackground {
+	height: @footer-height;
+	position: fixed;
+	bottom: 0;
+	z-index: 10;
+}
+
+.header-block {
+	margin-left: 10px;
+	line-height: normal;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+#header, #footer {
+	margin: 0 auto;
+	position: relative;
+	color: @controls-text-color;
+	width: @header-footer-width;
+	// profile content width without margins and paddings
+	min-width: 830px;
+
+	> div > div {
+		display: inline-block;
+	}
+
+	> div > a {
+		.header-block();
+		color: @controls-text-color;
+		cursor: pointer;
+	}
+
+	.line-height-compact {
+		line-height: 1.2em;
+	}
+}
+
+#header {
+	z-index: 2;
+	// OptionsPlay logo
+	img {
+		&.small-logo {
+			height: 32px;
+		}
+
+		&.big-logo {
+			height: 56px;
+		}
+	}
+
+	#marketDataStatus {
+		font-weight: bold;
+
+		&.real-time {
+			color: #0169B3;
+		}
+
+		&.delayed {
+			color: #E6740E;
+		}
+	}
+}
+
+.trade-panel-visible #header #marketDataStatus {
+	max-width: none;
+	width: auto;
+}
+
+.trade-panel-invisible #header #marketDataStatus {
+	max-width: 250px;
+}
+
+#footer > div {
+	line-height: @footer-height;
+
+	> a:first-child {
+		margin-left: 0;
+	}
+}
+
+/*#region footer toggler */
+
+.footer-toggler-wrapper {
+	min-width: @header-footer-width;
+	width: 100%;
+	display: none;
+
+	&#footerExpander {
+		position: fixed;
+		bottom: 0;
+
+		i {
+			border-top-left-radius: @border-radius;
+			border-top-right-radius: @border-radius;
+		}
+	}
+
+	&#footerCollapser {
+		position: absolute;
+	}
+}
+
+.footer-toggler {
+	font-size: 20px;
+	margin: 0 auto;
+	display: table;
+	padding: 0 5px;
+	cursor: pointer;
+}
+
+/*#endregion footer toggler */
+
+.social-icons {
+	@icon-width: 24px;
+
+	.fa {
+		color: @controls-text-color;
+		border-radius: @icon-width / 4;
+		width: auto;
+		display: inline-block;
+		font-size: 16px;
+		min-width: @icon-width;
+		line-height: @icon-width;
+		text-align: center;
+		text-shadow: 1px 1px 1px rgba(128, 128, 128, 0.5);
+	}
+
+	a {
+		margin-right: 2px;
+		margin-left: 2px;
+		cursor: pointer;
+
+		span {
+			margin-left: 5px;
+		}
+
+		&:hover {
+			text-decoration: none;
+
+			span {
+				text-decoration: underline;
+				color: @black; /* Match icon highlight color */
+			}
+
+			.icon {
+				background: @black;
+			}
+		}
+
+		.icon {
+			.lh-transition(background 0.5s);
+		}
+	}
+}
+
+#headerMenu {
+	@padding-right: 7px;
+
+	position: relative;
+	padding-top: 5px;
+	padding-right: @padding-right;
+
+	.display-name {
+		cursor: pointer;
+		height: 21px;
+
+		.fa.fa-angle-down {
+			margin-left: 4px;
+			margin-right: 0;
+		}
+
+		span {
+			text-align: right;
+			min-width: 60px;
+		}
+	}
+
+	.dropdown-list {
+		@border-width: 8px;
+		@top-before: -7px;
+
+		display: none;
+		width: 100%;
+		position: absolute;
+		background-color: @header-footer-background;
+		z-index: 100;
+
+		&:before, &:after {
+			border-left: @border-width solid transparent;
+			border-right: @border-width solid transparent;
+			display: inline-block;
+			position: absolute;
+			content: "";
+			right: @padding-right - 3px;
+			left: auto;
+		}
+
+		&:before {
+			border-bottom: @border-width solid @controls-text-color;
+			top: @top-before;
+		}
+
+		&:after {
+			border-bottom: @border-width solid @header-footer-background;
+			top: @top-before + 2px;
+		}
+
+		a {
+			padding: 3px 5px;
+			border: 1px solid @controls-text-color;
+			display: block;
+			color: @controls-text-color;
+			cursor: pointer;
+
+			&:not(:last-of-type) {
+				border-bottom: none;
+			}
+		}
+	}
+}

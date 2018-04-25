@@ -1,0 +1,217 @@
+﻿<!-- DO NOT remove any of inline styles in this file. They're necessary for ChartIQ package -->
+<div data-bind="css: { fullscreen: fullChart }" id="powerhouseProHistoricalsChart" class="height-full">
+	<!-- ko ifnot: hasHistoricalData -->
+	<div class="backdrop-container">
+		<div class="backdrop relative"></div>
+		<div class="backdrop-note-container">
+			<div class="backdrop-note" data-bind="text: noHistoricalDataNote"></div>
+		</div>
+	</div>
+	<!-- /ko -->
+
+	<div class="chart-container height-full">
+		<div data-bind="css: sentimentCssClass" id="historicalChartWrapper" class="chart height-full position-relative">
+			<div id="powerhouseProHistoricalChart-contentWrapper" class="height-full">
+				<div id="powerhouseProHistoricalChart-studyDialogContainer" class="studyDialogContainer">
+					<div id="studyDialog" class="stx-dialog" style="display: none;">
+						<div class="title">Study Title</div>
+
+						<div id="dismissDialog" class="btn close">
+							<span class="close">Close</span>
+						</div>
+
+						<div id="inputs">
+							<div class="inputTemplate" style="display: none;">
+								<div class="stx-heading">Heading</div>
+
+								<div class="stx-data"></div>
+							</div>
+						</div>
+
+						<div id="outputs">
+							<hr />
+							<div class="outputTemplate" style="display:none;">
+								<div class="stx-heading">Heading</div>
+								<div class="stx-color"><span></span></div>
+							</div>
+						</div>
+
+						<div id="createStudy" class="btn go">Create</div>
+					</div>
+				</div>
+
+				<div id="topBar" class="topBar row-fluid">
+					<div id="techRankZone" class="span6">
+						<span id="techScore">
+							技术评级:
+							<span data-bind="text: technicalRank"></span>
+							<span id="powerhouseProHistoricalChart-techRankHelp"></span>
+						</span>
+
+						<div data-bind="visible: showStudyMenu" id="studies" class="menuSelect">
+							<div class="studyMenuHeader">
+								<span id="popular-header"><b>流行指标</b></span>
+								<span id="technical-header"><b>技术指标</b></span>
+							</div>
+
+							<!-- ko foreach: popularStudyCols -->
+							<div data-bind="foreach: studyItems" class="col">
+								<div data-bind="text: studyText, click: $root.openStudyDialog.bind($data,$element,name), activityTracker: { events: 'click', name: 'popularIndicatorItemOnChart', value: name }" class="studyItem"></div>
+							</div>
+							<!-- /ko -->
+
+							<div class="menu-divider"></div>
+
+							<!-- ko foreach: techStudyCols -->
+							<div data-bind="foreach: studyItems" class="col">
+								<div data-bind="text: studyText, click: $root.openStudyDialog.bind($data, $element, name), activityTracker: { events: 'click', name: 'technicalIndicatorItemOnChart', value: name }" class="studyItem"></div>
+							</div>
+							<!-- /ko -->
+						</div>
+
+						<div data-bind="visible: showTypeMenu, foreach: typeItems" id="types" class="menuSelect">
+							<div data-bind="text: typeText, click: $parent.setChartStyle.bind($data, typeName),  activityTracker: { events: 'click', name: 'typeItemOnChart', value: typeName }"></div>
+						</div>
+
+						<a data-bind="toggle: fullChart, activityTracker: { events: 'click', name: 'fullButtonOnChart', value: '' }" id="fullScreenLink">
+							<i data-bind="css: { 'fa-expand': !fullChart(), 'fa-compress': fullChart }" class="fa pull-right"></i>
+						</a>
+
+						<div class="pull-right chartSize">
+							<span data-bind="click: zoomOut, activityTracker: { events: 'click', name: 'zoomButtonOnChart', value: 'out' }" id="zoomOut">
+								<i class="fa fa-minus icon-minus"></i>
+							</span>
+
+							<span data-bind="click: zoomIn, activityTracker: { events: 'click', name: 'zoomButtonOnChart', value: 'in' }" id="zoomIn">
+								<i class="fa fa-plus icon-plus"></i>
+							</span>
+						</div>
+
+						<div id="monthControl" class="btn-group pull-right">
+							<input type="button" data-bind="click: click1m, css: { 'btn-active': activeMonthButton() == 1 }, activityTracker: { events: 'click', name: 'monthButtonOnChart', value: '1m' }" id="powerhouseProHistoricalChart-1m" class="btn filter-button" value="1m" />
+							<input type="button" data-bind="click: click3m, css: { 'btn-active': activeMonthButton() == 3 }, activityTracker: { events: 'click', name: 'monthButtonOnChart', value: '3m' }" id="powerhouseProHistoricalChart-3m" class="btn filter-button" value="3m" />
+							<input type="button" data-bind="click: click6m, css: { 'btn-active': activeMonthButton() == 6 }, activityTracker: { events: 'click', name: 'monthButtonOnChart', value: '6m' }" id="powerhouseProHistoricalChart-6m" class="btn filter-button" value="6m" />
+						</div>
+
+						<div id="powerhouseProHistoricalChart-monthControlHelp" class="pull-right">
+						</div>
+
+						<div data-bind="toggle: showStudyMenu, visible: fullChart, activityTracker: { events: 'click', name: 'popularIndicatorMenuOnChart', value: '' }" id="studyMenu" class="btn btn-mini menu toggleMenu pull-right">
+							<div class="pull-left">技术指标</div>
+							<i class="fa fa-angle-down icon-angle-down clearfix"></i>
+						</div>
+
+						<div data-bind="toggle: showTypeMenu, activityTracker: { events: 'click', name: 'typeMenuOnChart', value: '' }" id="typeMenu" class="btn btn-mini menu toggleMenu pull-right">
+							<div class="pull-left">类型</div>
+							<i class="fa fa-angle-down icon-angle-down clearfix"></i>
+						</div>
+					</div>
+
+					<div id="search" class="search">
+						<input id="powerhouseProHistoricalChart-symbol" name="symbol" class="symbol" autocapitalize="off" autocorrect="off"
+							   spellcheck="off" placeholder="Symbol" hidden="hidden" type="hidden">
+					</div>
+
+					<div id="menus" class="menus hide">
+						<div class="btn btn-mini option menu" id="powerhouseProHistoricalChart-toggleCrosshairs">+</div>
+						<div class="btn btn-mini menu toggleMenu" id="powerhouseProHistoricalChart-toggle_studies">Studies <em>&#9660;</em></div>
+					</div>
+
+					<div id="powerhouseProHistoricalChart-studies" class="menuSelect studies hidden" style="display: none;">
+						<div class="col">
+							<div class="study-item hidden"><span class="hidden">Syrah Sentiments</span>Syrah Sentiments</div>
+							<div id="powerhouseProHistoricalChart-createVolumePanel">Volume</div>
+							<div id="powerhouseProHistoricalChart-toggleVolumeUnderlay">Vol Underlay</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="powerhouseProHistoricalChart-chartWrapper" class="chartWrapper">
+					<div id="powerhouseProHistoricalChart-chartContainer" class="chart-iq-small-container chart-iq-pro-container">
+						<div id="chartControls" class="chartControls hidden">
+							<div id="powerhouseProHistoricalChart-chartSize" class="chartSize">
+								<a id="zoomOut" class="minus">-</a>
+								<a id="zoomIn" class="plus">-</a>
+							</div>
+							<div id="home" class="home hidden"><span>Today</span></div>
+						</div>
+
+						<div id="iconsTemplate" class="icons hidden">
+							<div id="iconsTitle">Title</div>
+							<div class="btn"><span class="up">&nbsp;</span></div>
+							<div class="btn"><span class="focus">&nbsp;</span></div>
+							<div class="btn"><span class="down">&nbsp;</span></div>
+						</div>
+						<div id="closeXTemplate" class="closeX">
+							<div><i class="icon-remove fa fa-times"></i></div>
+						</div>
+
+						<div id="handleTemplate" class="handle hidden"><span>Drag</span></div>
+						<div id="floatDate" class="hd float-opacity"></div>
+						<div id="floatVolume" class="hd hidden"></div>
+						<div id="floatHR" class="vd float-opacity"></div>
+						<div id="currentHR" class="vd hidden"></div>
+						<div id="showMeasure" class="showMeasure"><span id="sMeasure" class="measureUnlit">measure</span> <span id="vectorTrashCan" class="btn hidden"><span class="trash hidden">&nbsp;</span></span> </div>
+						<div id="mSticky"><span id="mStickyInterior"></span><span id="overlayTrashCan" class="btn hidden"><span class="trash">&nbsp;</span></span> </div>
+						<span id="annotationSave" class="click hidden">save</span><span id="annotationCancel" class="click hidden">cancel</span>
+						<div id="crossY" class="stx_crosshair" style="position: absolute; left: 0; height: 1px; display: none; width: 98%;"></div>
+						<div id="crossX" class="stx_crosshair" style="position: absolute; top: 0; width: 1px; display: none; height: 100%;"></div>
+
+						<!-- ko if: selectedTradeIdea -->
+						<div style="position: absolute; bottom: 40px;">
+							<div id="powerhouseProHistoricalChart-technicalIndicator"></div>
+						</div>
+						<div style="position: absolute; bottom: 80px;">
+							<div id="powerhouseProHistoricalChart-sentimentHelp"></div>
+						</div>
+						<!-- /ko -->
+						<!-- ko ifnot: selectedTradeIdea -->
+						<div style="position: absolute; bottom: 40px;">
+							<div id="powerhouseProHistoricalChart-sentimentHelp"></div>
+						</div>
+						<!-- /ko -->
+					</div>
+				</div>
+			</div>
+
+			<div id="supportAndResistance" data-bind="css: { 'tablet-smaller': false/*quote().lastPrice() > 999*/ }, with: supportAndResistance">
+				<div class="sr-zone middle-alligned-blocks support">
+					<div class="sr-label">
+						<div class="uppercase">支撑线</div>
+					</div>
+
+					<div>
+						<table class="sr-table">
+							<tr></tr>
+							<!-- ko foreach: support -->
+							<tr data-bind="event: { mouseover: $parent.highlightS, mouseout: $parent.disableLevel}">
+								<td data-bind="text: formattedValue"></td>
+								<td data-bind="textFormatted: percentageChange, format: { type: 'percentage', signed: true }"></td>
+							</tr>
+							<!-- /ko -->
+						</table>
+					</div>
+				</div>
+				<div class="sr-zone middle-alligned-blocks resistance">
+					<div>
+						<table class="sr-table">
+							<tr></tr>
+							<!-- ko foreach: resistance -->
+							<tr data-bind="event: { mouseover: $parent.highlightR, mouseout: $parent.disableLevel}">
+								<td data-bind="text: formattedValue"></td>
+								<td data-bind="textFormatted: percentageChange, format: { type: 'percentage', signed: true }"></td>
+							</tr>
+							<!-- /ko -->
+						</table>
+					</div>
+
+					<div class="sr-label">
+						<div class="uppercase">压力线</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div data-bind="fadeBackdropVisible: fullChart" class="backdrop fixed"></div>
+</div>

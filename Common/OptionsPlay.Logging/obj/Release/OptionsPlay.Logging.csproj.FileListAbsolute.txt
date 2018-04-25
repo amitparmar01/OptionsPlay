@@ -1,0 +1,7 @@
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\bin\Release\OptionsPlay.Logging.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\bin\Release\OptionsPlay.Logging.pdb
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\bin\Release\log4net.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\bin\Release\log4net.xml
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\obj\Release\OptionsPlay.Logging.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\obj\Release\OptionsPlay.Logging.pdb
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\obj\Release\OptionsPlay.Logging.csprojResolveAssemblyReference.cache

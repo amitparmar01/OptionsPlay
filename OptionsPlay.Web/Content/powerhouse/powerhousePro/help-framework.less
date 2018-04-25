@@ -1,0 +1,245 @@
+﻿@import 'common-variables.less';
+@import '../mixins.less';
+
+#powerhousePro {
+	&:not(.help-active) {
+		.help-marker {
+			display: none !important;
+		}
+	}
+
+	&.help-active {
+		.help-marker {
+			display: block !important;
+		}
+	}
+
+	.help-marker {
+		position: absolute !important;
+		top: 0;
+		z-index: 11;
+		cursor: pointer !important;
+		.lh-animation(bounce 0.5s ease 0 1 normal both);
+
+		img {
+			box-shadow: none !important;
+			margin-left: -14px !important;
+			height: auto !important;
+			width: auto !important;
+		}
+	}
+
+	.flip-container.flipped {
+		.front .help-marker {
+			.lh-animation(none) !important;
+		}
+
+		.back .help-marker {
+			.lh-animation-delay(160ms) !important;
+		}
+	}
+
+	.flip-container:not(.flipped) {
+		.back .help-marker {
+			.lh-animation(none) !important;
+		}
+
+		.front .help-marker {
+			.lh-animation-delay(160ms) !important;
+		}
+	}
+
+	// customize positions for some help pins
+	#termAnalysis {
+		.help-marker {
+			left: -15px;
+		}
+	}
+
+	#powerhouseProHistoricalChart-techRankHelp,
+	#powerhouseProHistoricalChart-monthControlHelp,
+	#companyName,
+	#technicalRank,
+	#sentiment,
+	#sentimentBtnGroupHelp {
+		.help-marker {
+			top: -10px;
+		}
+	}
+
+	#symbolWidget {
+		> .help-marker {
+			left: 3px;
+		}
+	}
+
+	#powerhouseProHistoricalChart-chartWrapper {
+		.help-marker {
+			top: 205px;
+		}
+	}
+
+	#monthControl {
+		.help-marker {
+			top: -20px;
+			left: -5px;
+		}
+	}
+
+	#sentimentBtnGroup {
+		.help-marker {
+			top: -10px;
+			left: -10px;
+		}
+	}
+
+	#investmentAmount {
+		.help-marker {
+			left: -5px;
+			top: -15px;
+		}
+	}
+
+	#addLegText {
+		.help-marker {
+			left: -10px;
+			top: -15px;
+		}
+	}
+
+	#editorControl .editor-control-btn:nth-of-type(2) {
+		.help-marker {
+			left: -8px;
+			top: -10px;
+		}
+	}
+
+	#editorControl .editor-control-btn:nth-of-type(3) {
+		.help-marker {
+			right: -22px;
+			top: -18px;
+		}
+	}
+
+	#sdRangeSlider {
+		.help-marker {
+			left: -10px;
+			top: -20px;
+		}
+
+		> .help-marker {
+			left: 0;
+			right: 0;
+			top: 0;
+		}
+	}
+
+	.trade-box:nth-of-type(1),
+	.income-box:nth-of-type(1),
+	.income-box:nth-of-type(2) {
+		.pl-chart-container {
+			.help-marker {
+				left: 40px;
+				z-index: 10000;
+			}
+		}
+
+		.optionsplay-score-round {
+			.help-marker {
+				left: -15px;
+				top: -15px;
+			}
+		}
+
+		.trade-modify-panel {
+			.trade-btn-help {
+				float: left;
+
+				.help-marker {
+					left: 0;
+					top: -35px;
+				}
+			}
+
+			.modify-btn-help {
+				float: left;
+
+				.help-marker {
+					right: 0;
+					top: -35px;
+				}
+			}
+		}
+	}
+
+	#sdSliderText .expiry-select {
+		.help-marker {
+			left: -20px;
+		}
+	}
+
+	#whatifTool .control-slider:nth-of-type(2) {
+		.help-marker {
+			left: 5px;
+			top: -30px;
+		}
+	}
+
+	#whatifTool .control-slider:nth-of-type(3) {
+		.help-marker {
+			left: 5px;
+			top: -15px;
+		}
+	}
+
+	#shareTradeBtnHelpPlaceholder {
+		.help-marker {
+			right: 50px;
+			top: -33px;
+		}
+	}
+
+	#strategyAnalysis {
+		.help-marker {
+			right: 5px;
+			top: -7px;
+		}
+	}
+
+	#greeksExplanation {
+		.help-marker {
+			right: 22px;
+			top: -7px;
+		}
+	}
+
+	.toggle-buttons-container {
+		.help-marker {
+			left: 135px;
+			top: -15px;
+		}
+	}
+}
+
+& {
+	.keyframes(bounce);.-frames(@-...) {
+		0% {
+			opacity: 0;
+			@{-}transform: translateY(-200px);
+		}
+
+		60% {
+			opacity: 1;
+			@{-}transform: translateY(2px);
+		}
+
+		80% {
+			@{-}transform: translateY(-5px);
+		}
+
+		100% {
+			opacity: 1;
+			@{-}transform: translateY(0);
+		}
+	}
+}

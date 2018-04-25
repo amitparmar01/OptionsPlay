@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB02289D-7587-4CB5-8F11-1FCD21D02C5C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OptionsPlay.BusinessLogic.MarketDataProcessing</RootNamespace>
+    <AssemblyName>OptionsPlay.BusinessLogic.MarketDataProcessing</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MathNet.Numerics">
+      <HintPath>..\packages\MathNet.Numerics.3.3.0\lib\net40\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\HistoricalDataHelpers.cs" />
+    <Compile Include="Helpers\SupportAndResistanceHelpers.cs" />
+    <Compile Include="MathAndAnalysis\SupportAndResistanceMath.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\OptionsPlay.BusinessLogic.MarketData\OptionsPlay.BusinessLogic.MarketData.csproj">
+      <Project>{6b386e25-5a7f-4792-8978-b4e9066117f2}</Project>
+      <Name>OptionsPlay.BusinessLogic.MarketData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\OptionsPlay.Common\OptionsPlay.Common.csproj">
+      <Project>{85025e83-4476-400a-b282-363256f61efa}</Project>
+      <Name>OptionsPlay.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Common\OptionsPlay.DAL.Core\OptionsPlay.DAL.Core.csproj">
+      <Project>{e9ca7d35-96d1-4328-b8f0-be0cad2dac4a}</Project>
+      <Name>OptionsPlay.DAL.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Common\OptionsPlay.Model\OptionsPlay.Model.csproj">
+      <Project>{187287e1-ce16-4b99-b56d-ae6308e06dc8}</Project>
+      <Name>OptionsPlay.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\EntityFramework\OptionsPlay.DAL.EF.Core\OptionsPlay.DAL.EF.Core.csproj">
+      <Project>{ba944bff-020e-406a-a1d2-5706e69d0ff4}</Project>
+      <Name>OptionsPlay.DAL.EF.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\MongoDB\OptionsPlay.DAL.MongoDB.Repositories\OptionsPlay.DAL.MongoDB.Repositories.csproj">
+      <Project>{91e85c5d-28c3-4fc7-b000-df50d5472a39}</Project>
+      <Name>OptionsPlay.DAL.MongoDB.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OptionsPlay.MarketData.Indicators\OptionsPlay.MarketData.Indicators.csproj">
+      <Project>{6c995254-8d66-4aaf-989c-75fb702d30a4}</Project>
+      <Name>OptionsPlay.MarketData.Indicators</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OptionsPlay.MarketData\OptionsPlay.MarketData.csproj">
+      <Project>{abab6c17-967a-4efe-ac63-4e9bcf25025b}</Project>
+      <Name>OptionsPlay.MarketData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tests\OptionsPlay.BusinessLogic.Tests\OptionsPlay.BusinessLogic.Tests.csproj">
+      <Project>{6d7fbd0a-d096-48f7-a1fa-3c43a5bdec4b}</Project>
+      <Name>OptionsPlay.BusinessLogic.Tests</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

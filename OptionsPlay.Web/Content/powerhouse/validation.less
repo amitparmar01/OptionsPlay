@@ -1,0 +1,146 @@
+﻿@error-message-color: red;
+@error-control-bg-color: #f2dede;
+@error-control-border-color: #a94442;
+@text-popover-color: #333;
+@tooltip-border-color: #999;
+@tooltip-border-color-alt: rgba(111, 111, 111, .25);
+
+.validation-summary-errors {
+	border-radius: 6px;
+	color: @error-message-color;
+	margin-top: 5px;
+}
+
+.has-error {
+	background-color: @error-control-bg-color !important;
+	border-color: @error-control-border-color !important;
+}
+
+.validation-message {
+	font-size: 14px;
+}
+
+.validation-tooltip {
+	position: relative;
+	display: none;
+	float: left;
+
+	.wrapper {
+		color: @text-popover-color;
+		border-radius: 4px;
+		max-width: none;
+		position: absolute;
+		z-index: 1010;
+		padding: 1px;
+		text-align: left;
+		white-space: normal;
+		background-color: #fff;
+		-moz-background-clip: padding-box;
+		-webkit-background-clip: padding-box;
+		background-clip: padding-box;
+		border: 1px solid rgba(0, 0, 0, .2);
+		-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+		box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+
+		.arrow,
+		.arrow:after {
+			position: absolute;
+			display: block;
+			width: 0;
+			height: 0;
+			border-color: transparent;
+			border-style: solid;
+			content: " ";
+		}
+
+		.arrow {
+			border-width: 11px;
+		}
+
+		.arrow:after {
+			content: "";
+			border-width: 10px;
+		}
+	}
+
+	.validation-content {
+		white-space: nowrap;
+		padding: 5px 14px;
+	}
+}
+
+.form-control:not(.validation-tooltip-bottom) + * > .validation-tooltip {
+	.wrapper {
+		top: 0;
+		left: 0;
+		margin-left: 10px;
+	}
+
+	.arrow,
+	.arrow:after {
+		bottom: -10px;
+		left: 1px;
+		border-left-width: 0;
+		border-right-color: #fff;
+	}
+
+	.arrow {
+		top: 50%;
+		left: -11px;
+		margin-top: -11px;
+		border-right-color: @tooltip-border-color;
+		border-right-color: @tooltip-border-color-alt;
+		border-left-width: 0;
+	}
+}
+
+.form-control.validation-tooltip-bottom + * > .validation-tooltip {
+	.wrapper {
+		right: -30px;
+		top: 34px;
+		margin-top: 10px;
+	}
+
+	.arrow,
+	.arrow:after {
+		top: 1px;
+		right: -10px;
+		border-top-width: 0;
+		border-bottom-color: #fff;
+	}
+
+	.arrow {
+		top: -11px;
+		left: 50%;
+		margin-left: -11px;
+		border-bottom-color: @tooltip-border-color;
+		border-bottom-color: @tooltip-border-color-alt;
+		border-top-width: 0;
+	}
+}
+
+.validation-inline {
+	color: @error-message-color;
+
+	.validation-content {
+		padding: 5px 0 0 10px;
+	}
+
+	.validation-message:before {
+		content: "*";
+	}
+}
+
+@media (min-width: 730px ) {
+	.validation-inline {
+		display: none;
+	}
+
+	.validation-tooltip {
+		display: block;
+	}
+
+	.has-error {
+		float: left !important;
+	}
+}

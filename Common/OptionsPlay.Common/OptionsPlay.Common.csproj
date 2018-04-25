@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{85025E83-4476-400A-B282-363256F61EFA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OptionsPlay.Common</RootNamespace>
+    <AssemblyName>OptionsPlay.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dev|AnyCPU'">
+    <OutputPath>bin\Dev\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MathNet.Numerics, Version=2.6.1.30, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\MathNet.Numerics.3.3.0\lib\net40\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\..\packages\mongocsharpdriver.1.9.1\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\..\packages\mongocsharpdriver.1.9.1\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConfigurationConstants\CalendarConfigurationConstants.cs" />
+    <Compile Include="ConfigurationConstants\MarketDataConfiguration.cs" />
+    <Compile Include="Email\EmailSender.cs" />
+    <Compile Include="Exceptions\AuthorizeException.cs" />
+    <Compile Include="Exceptions\InternalException.cs" />
+    <Compile Include="Exceptions\ObjectCopier.cs" />
+    <Compile Include="Helpers\ApiTimeFrameHelper.cs" />
+    <Compile Include="Options\AppConfigManagerHealthChecker.cs" />
+    <Compile Include="Scheduler\IScheduledTask.cs" />
+    <Compile Include="Scheduler\IScheduler.cs" />
+    <Compile Include="Scheduler\TimerBasedScheduler.cs" />
+    <Compile Include="Serializers\CustomBsonSerializer.cs" />
+    <Compile Include="Tracing\ITraceManager.cs" />
+    <Compile Include="ObjectJsonSerialization\ISerealizedValueTypeProvider.cs" />
+    <Compile Include="ObjectJsonSerialization\ObjectJsonSerializationHelper.cs" />
+    <Compile Include="Options\AppConfigManager.cs" />
+    <Compile Include="ServiceResponses\ErrorCode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceResponses\BaseResponse.cs" />
+    <Compile Include="ServiceResponses\EntityResponse.cs" />
+    <Compile Include="ServiceResponses\Interfaces\IEntityResponse.cs" />
+    <Compile Include="ServiceResponses\Interfaces\IResponse.cs" />
+    <Compile Include="Tracing\TraceInfo.cs" />
+    <Compile Include="Utilities\BaseTypeSafeEnum.cs" />
+    <Compile Include="Utilities\CollectionExtensions.cs" />
+    <Compile Include="Utilities\EnumerableExtensions.cs" />
+    <Compile Include="Utilities\FormattingExtensions.cs" />
+    <Compile Include="Helpers\MarketDatesHelper.cs" />
+    <Compile Include="Utilities\ObjectPool.cs" />
+    <Compile Include="Utilities\ReflectionExtensions.cs" />
+    <Compile Include="Utilities\Retry.cs" />
+    <Compile Include="Utilities\StringExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OptionsPlay.Logging\OptionsPlay.Logging.csproj">
+      <Project>{69f28c8c-7550-4a78-996a-be2c015d4e52}</Project>
+      <Name>OptionsPlay.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OptionsPlay.Resources\OptionsPlay.Resources.csproj">
+      <Project>{96de53e2-f6ab-4e61-808e-383c7416ad7c}</Project>
+      <Name>OptionsPlay.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

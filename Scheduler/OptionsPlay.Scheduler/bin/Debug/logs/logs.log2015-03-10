@@ -1,0 +1,5 @@
+10.03.2015 16:53:44  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+10.03.2015 16:53:45  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+10.03.2015 16:53:45  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  File mktdt03.txt Copied in 0ms
+10.03.2015 16:53:45  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Saving OptionQuotesInfo
+10.03.2015 16:53:45  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Saving StockQuotesInfo

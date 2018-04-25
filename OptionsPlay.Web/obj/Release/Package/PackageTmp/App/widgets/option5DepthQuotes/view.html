@@ -1,0 +1,25 @@
+﻿<table class="option-quote-table">
+	<thead>
+        <tr class="color:#343436 bottom-bordered">
+            <td data-bind="t: 'trade.depth'" class="text-center"></td>
+            <td data-bind="t: 'trade.price'" class="text-center"></td>
+            <td data-bind="t: 'trade.volume'" class="text-center"></td>
+        </tr>
+	</thead>
+	<tbody>
+		<!-- ko foreach: asks -->
+		<tr data-bind="click: $parent.selectPrice, css: {'selected-price': $parent.selectedPrice() == price()}">
+			<td data-bind="t: 'trade.askDepthNo', i18nOptions: {depth: depth}" class="color: #343436"></td>
+			<td data-bind="textFormatted: price, format: '#.0000'" class="bullish-red text-right"></td>
+            <td data-bind="text: volume" class="color: #2E2F31 text-center"></td>
+		</tr>
+		<!-- /ko -->
+		<!-- ko foreach: bids -->
+		<tr data-bind="click: $parent.selectPrice, css: {'selected-price': $parent.selectedPrice() == price(), 'top-bordered': $index() == 0}">
+            <td data-bind="t: 'trade.bidDepthNo', i18nOptions: {depth: depth}" class="color: #343436"></td>
+			<td data-bind="textFormatted: price, format: '#.0000'" class="bearish-green text-right"></td>
+            <td data-bind="text: volume" class="color: #2E2F31 text-center"></td>
+		</tr>
+		<!-- /ko -->
+	</tbody>
+</table>

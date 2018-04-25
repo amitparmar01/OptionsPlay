@@ -1,0 +1,116 @@
+﻿<div id="intradayOrderGridContainer" class="height-100">
+	<div class="order-grid base-grid">
+		<!--<div class="left-title">
+			<span data-bind="t: 'trade.intradayOrders'"></span>
+		</div>
+           -->
+		<!-- ko if: gridReady -->
+		<table data-bind="kendoGrid: kendoGrid" id="intradayOrderGrid"
+				class="table table-condensed table-bordered table-fixed-width right-justified-table">
+			<colgroup>
+				<col class="width-20">
+				<col class="width-70">
+				<col class="width-70">
+				<col class="width-60">
+				<col class="width-130">
+				<col class="width-50">
+				<col class="width-55">
+				<col class="width-60">
+				<col class="width-55">
+				<col class="width-60">
+				<col class="width-60">
+				<col class="width-60">
+				<col class="width-60">
+				<col class="width-60">
+				<col class="width-90">
+			</colgroup>
+			<thead>
+				<tr>
+                    <th class=""></th>
+					<th data-field="orderTime" data-bind="t: 'trade.orderTime'"></th>
+					<th data-field="orderId" data-bind="t: 'trade.orderId'"></th>
+					<th data-field="optionNumber" data-bind="t: 'trade.optionNumber'"></th>
+					<th data-field="optionName" data-bind="t: 'trade.optionName'"></th>
+					<th data-field="buyOrSell" data-bind="t: 'trade.buyOrSell'"></th>
+					<th data-field="openOrClose" data-bind="t: 'trade.openOrClose'"></th>
+					<th data-field="orderPrice" data-bind="t: 'trade.orderPrice'"></th>
+					<th data-field="orderQuantity" data-bind="t: 'trade.orderQuantity'"></th>
+					<th data-field="matchedQuantity" data-bind="t: 'trade.matchedQuantity'"></th>
+					<th data-field="status" data-bind="t: 'trade.status'"></th>
+					<th data-field="optionType" data-bind="t: 'trade.optionType'"></th>
+					<th data-field="isCovered" data-bind="t: 'trade.isCovered'"></th>
+					<th data-field="orderType" data-bind="t: 'trade.orderType'"></th>
+					<th data-field="orderDate" data-bind="t: 'trade.orderDate'"></th>
+				</tr>
+			</thead>
+		</table>
+		<!-- /ko -->
+	</div>
+</div>
+
+<ul id="intradayOrderGridRowContextMenu" data-bind="kendoExtContextMenu: kendoContextMenu">
+	<li>
+		<span class="k-icon k-i-custom"></span><span data-bind="t: 'trade.withdrawSelected'"></span>
+	</li>
+</ul>
+<script id="orderRowTemplate" type="text/html">
+	<tr data-bind="event: {mousedown: $parent.selectOrder}, css: {'row-selected': $data == $parent.selectedOrder()}">
+		<td>
+            <!-- ko ifnot: isWithdraw && $parent.withdrawableOnly -->
+            <a href="#" data-bind="click: $parent.showWithdrawConfirm" class="btn btn-default btn-xs" >
+               撤单
+            </a>
+            <!-- /ko -->
+        </td>
+		<td data-bind="textFormatted: orderTime, format: 'HH:mm:ss'" class="text-center"></td>
+		<td data-bind="text: orderId" class="text-center"></td>
+		<td data-bind="text: optionNumber" class="text-center blue"></td>
+		<td data-bind="text: optionName" class="text-center blue text-no-wrap"></td>
+		<td data-bind="t: buyOrSell, css: optionSide" class="text-center"></td>
+		<td data-bind="t: openOrClose" class="text-center"></td>
+		<td data-bind="textFormatted: orderPrice, format: '#.000'" class="text-right"></td>
+		<td data-bind="text: orderQuantity" class="text-center"></td>
+		<td data-bind="text: matchedQuantity" class="text-center"></td>
+		<td data-bind="t: orderStatus" class="text-center"></td>
+		<td data-bind="t: optionType, css: {red: optionSide == 'L', green: optionSide == 'S'}" class="text-center"></td>
+		<td class="text-center"><input type="checkbox" disabled data-bind="checked: isCovered" class="text-center"/></td>
+		<td data-bind="t: 'trade.' + orderType()" class="grid-70"></td>
+		<td class="text-center" data-bind="textFormatted: orderDate, format: 'yyyy-MM-dd'"></td>
+	</tr>
+</script>
+
+
+<div id="withdrawConfirmWindow" data-bind="kendoWindow: kendoWithdrawConfirmWindow">
+	<div class="order-withdraw-confirmation">
+		<ul data-bind="with: selectedOrder()">
+			<li>
+				<label data-bind="t: 'trade.orderId'"></label>
+				<span data-bind="text: orderId"></span>
+			</li>
+			<li>
+				<label data-bind="t: 'trade.optionNumber'"></label>
+				<span data-bind="text: optionNumber"></span>
+			</li>
+			<li>
+				<label data-bind="t: 'trade.optionName'"></label>
+				<span data-bind="text: optionName"></span>
+			</li>
+			<li>
+				<label data-bind="t: 'trade.stockBiz'"></label>
+				<span><!-- ko t: buyOrSell --><!-- /ko --><!-- ko t: openOrClose --><!-- /ko --></span>
+			</li>
+			<li>
+				<label data-bind="t: 'trade.orderPrice'"></label>
+				<span data-bind="textFormatted: orderPrice, format: '#.0000'"></span>
+			</li>
+			<li>
+				<label data-bind="t: 'trade.orderQuantity'"></label>
+				<span data-bind="text: orderQuantity"></span>
+			</li>
+		</ul>
+		<div class="text-right">
+			<button data-bind="t: 'trade.confirmWithdraw', click: withdrawSelected, disable: withdrawingSelected"></button>
+			<button data-bind="t: 'trade.cancel', click: closeWithdrawConfirm"></button>
+		</div>
+	</div>
+</div>

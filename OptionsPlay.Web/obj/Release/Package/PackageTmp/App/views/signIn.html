@@ -1,0 +1,85 @@
+﻿<!-- wrapper div is essential -->
+<div data-bind="ifnot: isAuthenticated" id="loginsigin" class="auth-body">
+    <form data-bind="submit: signIn" id="signInForm" class="form">
+        <div class="form-group"><img src="Content/images/logo.png" class="signInForm-logo-img" height="45px"></div>
+        <!-- <div class="form-group"><span style="font-size:22px;font-family:'微软雅黑'">请登录您的账号</span></div> -->
+
+        <!--<div data-bind="t: 'pages.signIn'" >-->
+        <!-- todo: localize placeholders -->
+        <div id="accountType" class="form-group">
+            <label>账户类型：</label>
+            <select id="logginClass" data-bind="options: loginWays, value: selectedLoginValue"></select>
+        </div>
+        <div style="clear:both"></div>
+        <div class="form-group">
+            <input type="text" data-bind="value: login, valueUpdate: 'afterkeydown'" name="username" class="form-control input-lg" placeholder="账户名" autofocus="autofocus" formnovalidate />
+        </div>
+        <div class="form-group">
+            <input type="password" data-bind="value: password, valueUpdate: 'afterkeydown'" name="password" id="password" class="form-control input-lg" placeholder="密码" formnovalidate />
+        </div>
+        <div class="form-group">
+            <div id="remeberMeDiv">
+            <input type="checkbox" name="rememberMe" data-bind="checked: rememberMe" class="k-checkbox "/>
+            <span data-bind="t: 'signInPage.rememberMe'"></span>
+            </div>
+            <div id="signInDiv">
+                    <button type="submit" class="btn btn-success btn-lg" data-bind="t: 'pages.signIn'"></button>
+            </div>     
+        </div>       
+    </form>
+
+    <div id="browserCompatibilityWarning" data-bind="visible: browserCompatibilityWarningVisible">
+        <div data-bind="t: 'signInPage.compatibility.header'" class="header"></div>
+        <br />
+        <div data-bind="t: 'signInPage.compatibility.title'" class="title"></div>
+        <br />
+        <div data-bind="t: 'signInPage.compatibility.description'" class="description"></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div data-bind="ifnot: isAuthenticated">
+    <form data-bind="submit: signIn" id="signInForm" class="form">
+        <div data-bind="t: 'pages.signIn'" class="title">
+            Sign In
+        </div>
+
+
+        <div class="row">
+            <input type="text" data-bind="value: login, valueUpdate: 'afterkeydown'" name="username" class="k-textbox" placeholder="Login" autofocus="autofocus" formnovalidate />
+        </div>
+        <div class="row">
+            <input type="password" data-bind="value: password, valueUpdate: 'afterkeydown'" name="password" id="password" class="k-textbox" placeholder="Password" formnovalidate />
+        </div>
+        <label class="row inline-block">
+            <input type="checkbox" name="rememberMe" data-bind="checked: rememberMe" class="k-checkbox" />
+            <span data-bind="t: 'signInPage.rememberMe'"></span>
+        </label>
+
+
+        <button type="submit" data-bind="kendoButton: { clicked: null, enabled: isValid }, t: 'pages.signIn'"></button>
+    </form>
+
+    <div id="browserCompatibilityWarning" data-bind="visible: browserCompatibilityWarningVisible">
+        <div data-bind="t: 'signInPage.compatibility.header'" class="header"></div>
+        <br />
+        <div data-bind="t: 'signInPage.compatibility.title'" class="title"></div>
+        <br />
+        <div data-bind="t: 'signInPage.compatibility.description'" class="description"></div>
+    </div>
+</div>-->

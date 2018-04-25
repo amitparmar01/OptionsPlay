@@ -1,0 +1,243 @@
+﻿<div id="singleTradeView" data-bind="css: editCombination" data-in-animation="zoomIn" data-out-animation="zoomOut">
+    <section>
+        <!--<div class="sentiment-gradient" data-bind="css: syrahSentiments() && syrahSentiments().combinedCssClass()"></div>-->
+        <div class="section-content">
+            <div>
+                <table>
+                    <tr>
+                        <td data-bind="with: quote">
+                            <div class="quote clearfix">
+                                <div class="companyName pull-left" data-bind="text: name"></div>
+                                <div class="lastPrice">
+                                    <span data-bind="textFormatted: lastPrice, format: '#.000'" class="last-price"></span>
+                                </div>
+                                <div class="lastChange">
+                                    <span data-bind="redGreen: change" class="change">
+                                        <span data-bind="textFormatted: change, format: '#.000'"></span>
+                                        (<span data-bind="textFormatted: changePercentage, format: {type: 'percentage100', signed: true}"></span>)
+                                    </span>
+                                </div>
+                                <div class="companySymbol bold" data-bind="text: symbol"></div>
+                            </div>
+                        </td>
+                        <!--<td data-bind="with: syrahSentiments">
+                            <table class="sentiments center">
+                                <tbody>
+                                    <tr data-bind="template: { name: 'sentiment-row-template', data: syrahSentimentShortTerm }"></tr>
+                                    <tr data-bind="template: { name: 'sentiment-row-template', data: syrahSentimentLongTerm }"></tr>
+                                </tbody>
+                            </table>
+                        </td>-->
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td class="combination-info">
+                            <div class="combination-title" data-bind="text: combinationTitle"></div>
+                        </td>
+                        <td class="combination-info" data-bind="with: combination">
+                            <div class="optionsplay-score-title">策略评级</div>
+                            <div class="optionsplay-score-round" data-bind="text: opScoreFormatted, css: opScoreCssClass"></div>
+                            <div class="optionsplay-score-explanation" data-bind="t: 'strategies.' + opScoreExplanation(), css: opScoreCssClass">OptionsPlay Score</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="trade-modify-panel btn-group">
+                                <button class="btn trade-btn" data-bind="click: tradeCombination, activityTracker: { events: 'click', name: 'tradeButtonInSingleTradeView', value: loggedTradeTicket }">下单</button>
+                                <button class="btn" data-bind="click: editCombination, activityTracker: { events: 'click', name: 'modifyButtonInSingleTradeView', value: loggedTradeTicket }">修改</button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <button class="close" data-bind="click: close">&times;</button>
+    </section>
+    
+    <section>
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="header-bigger">损益图</div>
+                <div class="pl-chart" data-bind="css: sentiment">
+                    <div class="pl-chart-container" data-bind="plChart: chart"></div>
+                </div>
+                <!-- ko if: combination.deltaDetails-->
+                <div class="pl-chart-caption" data-bind="with: combination.deltaDetails">
+                    <span data-bind="t: 'strategies.' + sentiment"></span> / <span data-bind="text: riskProfile"></span>
+                </div>
+                <!-- /ko -->
+            </div>
+            <div class="col-xs-6">
+                <div class="header-bigger">损益模拟</div>
+                <!-- ko template: 'pl-target'-->
+                <!-- /ko -->
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="row">
+            <div class="col-xs-12 flip-container" data-bind="css: {flipped: flipped}">
+                <div class="flipper">
+                    <div class="front">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="header-bigger">风险分析</div>
+                                <!-- ko template: { name: 'risk-analysis', data: combination }-->
+                                <!-- /ko -->
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="header-bigger">策略检查</div>
+                                <!-- ko template: { name: 'strategy-checklist', data: strategyCheckList, as: 'items'}-->
+                                <!-- /ko -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="header-bigger">说明策略</div>
+                                <!-- ko template: { name: 'strategy-explanation', data: combination }-->
+                                <!-- /ko -->
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="header-bigger" id="greeksExplanation">Greeks详情</div>
+                                <!-- ko template: { name: 'greeks-explanation', data: combination} -->
+                                <!-- /ko -->
+                                <br />
+                                <!-- ko template: { name: 'greeks-values', data: combination.defaultGreeks } -->
+                                <!-- /ko -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="toggle-buttons-container">
+        <button class="btn" data-bind="toggle: flipped, visible: !flipped()">说明策略 & Greeks详情</button>
+        <button class="btn" data-bind="toggle: flipped, visible: flipped">风险分析 & 策略检查</button>
+    </div>
+</div>
+
+<script id="pl-target" type="text/html">
+    <table class="pl-target-table center">
+        <tbody>
+            <tr data-bind="with: tradingStrategies">
+                <td class="key">目标价:</td>
+                <td class="val">
+                    <input class="input-mini text-right" data-bind="currency: whatifSPrice, activityTracker: { events: 'blur', name: 'whatIfSPrice', value: whatifSPrice}" type="text" />
+                </td>
+            </tr>
+            <tr data-bind="with: tradingStrategies">
+                <td class="key">目标日期:</td>
+                <td class="val">
+                    <input class="input-mini text-right" data-bind="datepicker: whatifDate, datepickerOptions: { defaultOffset: dateSliderMaxDays, startDate: new Date(), displayFormat: 'm/dd/yyyy'}, activityTracker: { events: 'blur', name: 'whatIfDateInput', value: whatifDays }" type="text" />
+                </td>
+            </tr>
+            <tr data-bind="with: combination.whatifTheoretical">
+                <td class="key">期望盈利:</td>
+                <td class="val">
+                    <span data-bind="text: payoff, redGreen: payoffValue"></span>
+                </td>
+            </tr>
+            <tr data-bind="with: combination.whatifTheoretical">
+                <td class="key">期望回报:</td>
+                <td class="val">
+                    <span data-bind="text: returnPercentage, redGreen: payoffValue"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table> 
+</script>
+
+<script id="risk-analysis" type="text/html">
+    <table class="risk-analysis-table center">
+        <tbody>
+            <tr>
+                <td class="key">成本:</td>
+                <td class="val" data-bind="textFormatted: costWithoutOwned, format: { type: 'currency', fractionLimited: true}"></td>
+            </tr>
+            <tr>
+                <td class="key">最大收益:</td>
+                <td class="val" data-bind="text: maxRewardDisplayed"></td>
+            </tr>
+            <tr>
+                <td class="key">最大损失:</td>
+                <td class="val" data-bind="text: maxRiskDisplayed"></td>
+            </tr>
+            <tr>
+                <td class="key">盈利概率:</td>
+                <td class="val" data-bind="text: profitProb"></td>
+            </tr>
+            <tr>
+                <td class="key">盈亏平衡点:</td>
+                <td class="val" data-bind="html: breakevenDisplayed"></td>
+            </tr>
+            <tr>
+                <td class="key">到期剩余天数:</td>
+                <td class="val" data-bind="text: daysToExpire"></td>
+            </tr>
+        </tbody>
+    </table>
+</script>
+
+<script id="strategy-checklist" type="text/html">
+    <table class="strategy-checklist-table center">
+        <tbody data-bind="foreach: items">
+            <tr>
+                <td class="mark"><i data-bind="css: className"></i></td>
+                <td class="val" data-bind="text: title"></td>
+            </tr>
+        </tbody>
+    </table>
+</script>
+
+<script id="strategy-explanation" type="text/html">
+    <div class="plain-english center text-left" data-bind="ifnot: $data.originalName">
+        <!-- ko if: sentiments().length -->
+        <p>这个策略适合<b data-bind="text:sentimentProfile"></b> 趋势， <b data-bind="text: riskDesc"></b> ， <b data-bind="text: rewardDesc"></b>。</p>
+        <p>当股票价格<span data-bind="if: expiry">在<b data-bind="textFormatted: expiry, format: { type: 'date', dateFormat: $root.DATE_FORMAT}"></b></span><b data-bind="text: breakevenDesc()"></b>，策略可以盈利。</p>
+        <!-- ko if: quote.hasOption -->
+        <p>该策略盈利概率为<b data-bind="text: profitProb()"></b>。</p>
+        <!-- /ko -->
+        <!-- /ko -->
+    </div>
+</script>
+
+<script id="greeks-explanation" type="text/html">
+    <div class="plain-english center text-left">
+        <!-- ko template: { name: 'greeks-explanation-message'} -->
+        <!-- /ko -->
+    </div>
+</script>
+
+<script id="greeks-values" type="text/html">
+    <table class="greeks-table center text-left">
+        <tr>
+            <td>
+                Delta: <span data-bind="textFormatted: delta, format:{ type: 'fraction'}"></span>
+            </td>
+            <td>
+                Theta: <span data-bind="textFormatted: theta, format:{ type: 'fraction'}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Gamma: <span data-bind="textFormatted: gamma, format:{ type: 'fraction'}"></span>
+            </td>
+            <td>
+                Vega: <span data-bind="textFormatted: vega, format:{ type: 'fraction'}"></span>
+            </td>
+        </tr>
+    </table> 
+</script>

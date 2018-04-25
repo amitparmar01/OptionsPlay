@@ -1,0 +1,126 @@
+﻿@import 'common.less';
+
+@media screen and (min-width: 1205px) {
+	@media (max-width: 1390px) {
+		#powerhousePro .trade-panel-visible {
+			#whyAndHowContainer  {
+				margin-left: @tradeIdeas-section-width + 2px;
+				//margin-right: @strategies-section-width + 2px;
+			}
+
+			.powerhouse-section {
+				box-shadow: none;
+			}
+		}
+	}
+
+	@media (max-width: 1355px ) {
+		@new-trade-ideas-section-width: @tradeIdeas-section-width - @outlook-column-width;
+
+		#powerhousePro .trade-panel-visible {
+			#tradeIdeas {
+				width: @new-trade-ideas-section-width;
+
+				.sentiment-cell {
+					display: none;
+				}
+			}
+
+			#whyAndHowContainer  {
+				margin-left: @new-trade-ideas-section-width + 2px;
+			}
+		}
+	}
+
+	@media (max-width: 1315px ) {
+		@new-trade-ideas-section-width: @tradeIdeas-section-width - @outlook-column-width - @score-column-width;
+
+		#powerhousePro .trade-panel-visible {
+			#tradeIdeas {
+				width: @new-trade-ideas-section-width;
+
+				.technical-rank-cell {
+					display: none;
+				}
+
+				#marketCapFilterButtons {
+					.filter-button {
+						font-size: 9px;
+					}
+				}
+			}
+
+			#whyAndHowContainer  {
+				margin-left: @new-trade-ideas-section-width + 2px;
+			}
+		}
+	}
+
+	/*@media (max-width: 1275px ) {
+		@new-trade-ideas-section-width: @tradeIdeas-section-width - @outlook-column-width - @score-column-width - 70px;
+
+		#powerhousePro .trade-panel-visible {
+			#tradeIdeas #dropDownFilters {
+				@margin: 4px;
+
+				.button-label {
+					margin-left: @margin;
+				}h
+
+				.fa.fa-angle-down {
+					margin-right: @margin;
+					margin-top: -2px;
+				}
+			}
+
+			#whyAndHowContainer  {
+				width: @new-trade-ideas-section-width;
+
+				.last-price-cell {
+					display: none;
+				}
+
+
+				#tradeIdeasFilter {
+					font-size: 10px;
+				}
+
+				#marketCapFilterButtons {
+					> div {
+						width: 98%;
+						margin: auto;
+					}
+
+					.filter-button {
+						white-space: initial;
+					}
+				}
+
+				#tradeIdeasGridWrapper table .company-name-cell > div {
+					width: 180px;
+				}
+			}
+
+			#symbolSection {
+				margin-left: @new-trade-ideas-section-width + 2px;
+			}
+		}
+	}*/
+
+	@media (min-width: 1400px ) {
+		#powerhousePro #chartsAndEnglish #powerhouseProHistoricalsChart.fullscreen #powerhouseProHistoricalChart-contentWrapper {
+			left: (@total-width*0.4*-1);
+			margin-left: 50%;
+		}
+	}
+
+	@media (min-width: @tablet-width) {
+		@media (max-height: @tablet-height) {
+			.small-header;
+		}
+
+		@media (min-height: @tablet-height) {
+			.big-header;
+		}
+	}
+}

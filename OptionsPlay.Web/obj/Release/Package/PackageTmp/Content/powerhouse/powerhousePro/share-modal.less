@@ -1,0 +1,154 @@
+﻿@import '../powerhousePro/common-variables.less';
+@import '../mixins.less';
+
+@twitter-color: rgb(51, 204, 255); //#3cf
+@stocktwits-color: rgb(0, 104, 179); //#3cf
+
+#shareModal {
+	width: 450px;
+
+	.modal-body {
+		padding: 4px 20px;
+	}
+
+	.modal-footer {
+		margin-top: 0;
+	}
+
+	.modal-title {
+		text-align: center;
+	}
+
+	.share-image {
+		text-align: center;
+		margin-bottom: 5px;
+
+		img {
+			cursor: zoom-in;
+			.lh-transition(height ease-in-out .3s);
+			height: 200px;
+
+			&.expanded {
+				height: 450px;
+				cursor: zoom-out;
+			}
+		}
+	}
+
+	.message {
+		font-size: 16px;
+	}
+
+	.social-icons {
+		@icon-width: 35px;
+
+		.fa {
+			border-radius: 5px;
+			min-width: @icon-width;
+			line-height: @icon-width;
+		}
+
+		a {
+			display: inline-block;
+			outline: none;
+
+			&:hover {
+				.fa.fa-link {
+					color: #f2f2f2;
+				}
+
+				.fa.fa-twitter {
+					color: white;
+					background: @twitter-color;
+				}
+
+				.fa.fa-stocktwits {
+					color: white;
+					background: @stocktwits-color;
+				}
+
+				.fa.fa-paper-plane-o {
+					color: #f2f2f2;
+				}
+
+				.fa.fa-envelope-o {
+					color: #f2f2f2;
+				}
+			}
+
+			.fa {
+				.lh-transition(background 0.5s, color 0.5s);
+			}
+
+			.fa.fa-link {
+				color: #333333;
+			}
+
+			.fa.fa-twitter {
+				color: @twitter-color;
+			}
+
+			.fa.fa-stocktwits {
+				color: @stocktwits-color;
+			}
+
+			.fa.fa-paper-plane-o {
+				color: #333333;
+			}
+
+			.fa.fa-envelope-o {
+				color: #333333;
+			}
+		}
+	}
+}
+
+#shareAuthenticateModal {
+	width: 450px;
+	position: absolute;
+	right: 50%;
+	top: 20%;
+
+	.modal-body {
+		padding: 35px 55px 25px 55px;
+	}
+
+	.modal-title {
+		margin-top: 0;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+
+	.paragraph{
+		font-size: 20px;
+		text-align: center;
+		margin-bottom: 20px;
+
+		&.first{
+			margin-bottom: 30px;
+		}
+	}
+
+	.btn-group-vertical {
+		.btn + .btn {
+			margin-top: 10px;
+		}
+	}
+
+	.btn {
+		.lh-border-radius(4px);
+		outline: none;
+		text-shadow: none !important;
+	}
+
+	.btn-lg {
+		min-height: 62px;
+		font-size: 26px;
+	}
+
+	.btn-default {
+		background-color: @green !important;
+		border: 1px solid @green !important;
+		color: white;
+	}
+}

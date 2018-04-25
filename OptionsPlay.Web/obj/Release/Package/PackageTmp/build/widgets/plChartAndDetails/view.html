@@ -1,0 +1,40 @@
+﻿
+<div>
+	<h4 class="text-center strategy-title strategy-padding">
+		<a data-bind="with: combination">
+			<span data-bind="t: 'strategies.' + buyOrSell()"></span>
+			<span data-bind="t: 'strategies.unit', i18nOptions: {count: absQuantity()}"></span>
+			<span data-bind="text: expiries().join('/')"></span>
+			<span data-bind="text: strikes().join('/')"></span>
+			<span data-bind="t: 'strategies.' + strategyName()" style="display:inline-block"></span>
+		</a>
+	</h4>
+	<!-- ko if: chartModel -->
+	<div data-bind="plChart: chartModel, updating: chartPriceRange || combination.chartPriceRangeReady" class="pl-chart-compare">
+	</div>
+	<!-- /ko -->
+	<div data-bind="with: combination">
+		<ul class="comb-details">
+			<li class="comb-details-item bigger">
+				<span data-bind="t: 'strategies.' + debitOrCredit()"></span>
+				<span data-bind="textFormatted: Math.abs(cost()), format: '#'" class="pull-right"></span>
+			</li>
+			<li class="comb-details-item smaller">
+				<span data-bind="t: 'strategies.rewardRisk'"></span>
+				<span data-bind="text: rr()" class="pull-right"></span>
+			</li>
+			<li class="comb-details-item smaller">
+				<span data-bind="t: 'strategies.breakeven'"></span>
+				<span data-bind="text: breakeven().join(', ')" class="pull-right"></span>
+			</li>
+			<li class="comb-details-item smaller">
+				<span data-bind="t: 'strategies.maxReward'"></span>
+				<span data-bind="textFormatted: maxReward, format: '#.00'" class="pull-right"></span>
+			</li>
+			<li class="comb-details-item smaller">
+				<span data-bind="t: 'strategies.maxRisk'"></span>
+				<span data-bind="textFormatted: maxRisk, format: '#.00'" class="pull-right"></span>
+			</li>
+		</ul>
+	</div>
+</div>

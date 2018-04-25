@@ -1,0 +1,10 @@
+09.03.2015 14:03:55  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+09.03.2015 14:03:55  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+09.03.2015 14:04:04  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Connected to FTP URL: D:\FirstCapital\HQ\
+09.03.2015 14:04:04  ERROR  OptionsPlay.Logging.Logger.Error(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:53)  Key 'OleDbConn' has not been found in Web.config'
+09.03.2015 14:05:11  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+09.03.2015 14:05:11  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+09.03.2015 14:05:11  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Connected to FTP URL: D:\FirstCapital\HQ\
+09.03.2015 14:05:11  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  File mktdt03.txt downloaded in 22ms
+09.03.2015 14:05:11  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Saving OptionQuotesInfo
+09.03.2015 14:05:20  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Saving StockQuotesInfo

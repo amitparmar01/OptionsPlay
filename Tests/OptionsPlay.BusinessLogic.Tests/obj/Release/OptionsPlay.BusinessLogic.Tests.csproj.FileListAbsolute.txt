@@ -1,0 +1,6 @@
+D:\OptionsPlay\Mainline\Tests\OptionsPlay.BusinessLogic.Tests\bin\Release\OptionsPlay.BusinessLogic.Tests.dll
+D:\OptionsPlay\Mainline\Tests\OptionsPlay.BusinessLogic.Tests\bin\Release\OptionsPlay.BusinessLogic.Tests.pdb
+D:\OptionsPlay\Mainline\Tests\OptionsPlay.BusinessLogic.Tests\bin\Release\TA-Lib-Core.dll
+D:\OptionsPlay\Mainline\Tests\OptionsPlay.BusinessLogic.Tests\obj\Release\OptionsPlay.BusinessLogic.Tests.dll
+D:\OptionsPlay\Mainline\Tests\OptionsPlay.BusinessLogic.Tests\obj\Release\OptionsPlay.BusinessLogic.Tests.pdb
+D:\OptionsPlay\Mainline\Tests\OptionsPlay.BusinessLogic.Tests\obj\Release\OptionsPlay.BusinessLogic.Tests.csprojResolveAssemblyReference.cache

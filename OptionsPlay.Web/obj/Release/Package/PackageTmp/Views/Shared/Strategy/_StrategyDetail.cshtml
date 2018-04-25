@@ -1,0 +1,48 @@
+﻿@model OptionsPlay.Web.ViewModels.StrategyDetailViewModel
+<div class="strategy-detail">
+	<div>
+		@Html.HiddenFor(m => m.Id, new { data_bind = "value: id" })
+	</div>
+	<div>
+		@Html.LabelFor(m => m.Risk)
+		@Html.DropDownListFor(m => m.Risk, Model.RiskOptions, "Select Risk", new { data_bind = "value: risk" })
+		@Html.ValidationMessageFor(m => m.Risk)
+	</div>
+	<div>
+		<label>
+			Sentiments
+		</label>
+		<div>
+			@Html.DropDownListFor(m => m.FirstSentiment, Model.SentimentOptions, "Select Sentiment", new { data_bind = "value: firstSentiment" })
+			@Html.ValidationMessageFor(m => m.FirstSentiment)
+		</div>
+		<div>
+			@Html.DropDownListFor(m => m.SecondSentiment, Model.SentimentOptions, "Select Sentiment", new { data_bind = "value: secondSentiment" })
+		</div>
+		<div>
+			@Html.DropDownListFor(m => m.ThirdSentiment, Model.SentimentOptions, "Select Sentiment", new { data_bind = "value: thirdSentiment" })
+		</div>
+	</div>
+	<div>
+	</div>
+	<div>
+		@Html.LabelFor(m => m.OccLevel)
+		@Html.TextBoxFor(m => m.OccLevel, new { data_bind = "value: occLevel", @class = "k-textbox" })
+		@Html.ValidationMessageFor(m => m.OccLevel)
+	</div>
+	<div>
+		@Html.LabelFor(m => m.Reward)
+		@Html.DropDownListFor(m => m.Reward, Model.RiskOptions, "Select Reward", new { data_bind = "value: reward" })
+		@Html.ValidationMessageFor(m => m.Reward)
+	</div>
+	<div>
+		@Html.LabelFor(m => m.DisplayOrder)
+		@Html.TextBoxFor(m => m.DisplayOrder, new { data_bind = "value: displayOrder", @class = "k-textbox" })
+		@Html.ValidationMessageFor(m => m.DisplayOrder)
+	</div>
+	<div class="checkbox">
+		@Html.CheckBoxFor(m => m.Display, new { data_bind = "checked: display" })
+		@Html.LabelFor(m => m.Display)
+	</div>
+</div>
+

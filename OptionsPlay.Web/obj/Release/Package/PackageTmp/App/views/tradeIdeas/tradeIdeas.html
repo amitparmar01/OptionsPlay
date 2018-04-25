@@ -1,0 +1,105 @@
+﻿<div data-bind="fadeBackdropVisible: backdrop" class="backdrop"></div>
+<div data-bind="template: { afterRender: initializeUI }" class="height-full">
+	<section id="tradeIdeasFilter" class="powerhouse-section uppercase">
+		<div id="sentimentFilterButtons" class="desktop-only btn-group">
+			<div data-bind="foreach: sentiments">
+				<button data-bind="css: { 'active': checked, 'btn-bearish': name == 'Bearish', 'btn-bullish': name == 'Bullish' }, click: $parent.selectSentiment, activityTracker: { events: 'click', name: 'sentimentFilter', value: name}" class="btn filter-button" type="button">
+					<span data-bind="text: text" class="button-label"></span>
+				</button>
+			</div>
+		</div>
+
+		<div id="marketCapFilterButtons" class="desktop-only btn-group hide">
+			<div data-bind="foreach: marketCapFilters">
+				<button data-bind="css: { 'btn-active': checked }, click: $parent.selectMarketCap, activityTracker: { events: 'click', name: 'marketCapFilter', value: name }" class="btn filter-button" type="button">
+					<span data-bind="text: name" class="button-label"></span>
+				</button>
+			</div>
+		</div>
+
+		<div id="dropDownFilters" class="clearfix desktop-only hide">
+            <div class="pull-left" id="sectorsDropdown">
+                <button type="button" data-bind="css: { 'btn-active': isFilterActive(sector()) }" data-toggle="dropdown" class="btn dropdown-toggle filter-button">
+                    <span data-bind="text: sector" class="button-label"></span>
+                    <i class="fa fa-angle-down"></i>
+                </button>
+
+                <ul data-bind="foreach: sectors" class="dropdown-menu">
+                    <li>
+                        <a data-bind="text: $data, click: $parent.sector, activityTracker: { events: 'click', name: 'sectorFilter', value: $data }" href="#">Action</a>
+                    </li>
+                </ul>
+            </div>
+		</div>
+	</section>
+
+	<section data-bind="with: tradeIdeasGrid" id="tradeIdeasGridWrapper">
+		<div class="table-wrapper">
+			<div class="table-header desktop-only">
+				<table>
+					<thead>
+						<tr data-bind="foreach: headers">
+							<th data-bind="click: $parent.sort, css: cssClass">
+								<span data-bind="text: title, attr: { id: sortPropertyName }"></span>
+							</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="table-body" data-bind="perfectScrollbar: { wheelSpeed: 50, suppressScrollX: true }, scrollTop: scrollTop">
+				<!-- ko if: !filteredItems() || !filteredItems().length -->
+				<div class="table-row">
+					<div class="text-center">没有找到符合条件的股票</div>
+				</div>
+				<!-- /ko -->
+
+				<div data-bind="virtualScroll: { rows: filteredItems, rowHeight: rowHeight, visibleItemIndexes: visibleItemIndexes, updateHeightTrigger: isTradePanelVisible }, foreach: filteredItems">
+					<div data-bind="css: { selected: $data === $parent.selectedItem() }, click: $parent.selectTradeIdea,  activityTracker: { events: 'click', name: 'selectedTradeIdeaSymbol', value: symbol}" class="table-row">
+						<div data-bind="attr: { title: securityName }" class="cell company-name-cell">
+                            <!-- ko if: sentiment != null -->
+							<div data-bind="css: sentimentGradientCssClass.toLowerCase()" class="sentiment-gradient"></div>
+                            <!-- /ko -->
+							<div class="middle-alligned-block company-name-cell-content">
+								<div class="clearfix">
+									<div data-bind="text: securityCode" class="symbol pull-left"></div>
+									<div data-bind="if: rules.length > 1" class="pull-left">
+										<i class="fa fa"></i>
+									</div>
+								</div>
+								<div data-bind="textFormatted: lastPrice, format: '#.000', redGreen: change" class="last-price tablet-only allign-left"></div>
+								<div data-bind="text: securityName" class="company-name desktop-only allign-left"></div>
+							</div>
+						</div>
+						<div data-bind="" class="cell last-price-cell desktop-only">
+							<div class="middle-alligned-block">
+								<div data-bind="textFormatted: lastPrice, format: '#.000'" class="last-price"></div>
+								<div data-bind="redGreen: change">
+									<span data-bind="textFormatted: change, format: '#.000'"></span>
+									(<span data-bind="textFormatted: changePercentage, format: {type: 'percentage100', signed: true}"></span>)
+								</div>
+							</div>
+						</div>
+						<div class="cell technical-rank-cell desktop-only">
+							<div data-bind="text: technicalRank" class="middle-alligned-block"></div>
+						</div>
+						<div class="cell sentiment-cell desktop-only">
+							<div class="middle-alligned-block">
+                                <!-- ko if: sentiment != null -->
+								<i data-bind="css: sentiment.toLowerCase()" class="fa fa-arrow-right"></i>
+                                <!-- /ko -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="tabletFilter" class="tablet-only">
+		<div data-bind="foreach: sentiments">
+			<button data-bind="css: { 'active': checked, 'btn-bearish': name == 'Bearish', 'btn-bullish': name == 'Bullish'}, click: $parent.selectSentiment" class="btn btn-sm filter-button" type="button">
+				<span data-bind="text: name" class="button-label"></span>
+			</button>
+		</div>
+	</section>
+</div>

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6C995254-8D66-4AAF-989C-75FB702D30A4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OptionsPlay.MarketData.Indicators</RootNamespace>
+    <AssemblyName>OptionsPlay.MarketData.Indicators</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TA-Lib-Core">
+      <HintPath>..\packages\TA-Lib.0.5.0.3\lib\TA-Lib-Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\CalculatedIndicator.cs" />
+    <Compile Include="Abstract\ICalculatableIndicator.cs" />
+    <Compile Include="Abstract\Indicator.cs" />
+    <Compile Include="CalculatedIndicators\Risk.cs" />
+    <Compile Include="CalculatedIndicators\SyrahSentiment.cs" />
+    <Compile Include="CalculatedIndicators\TechnicalRank.cs" />
+    <Compile Include="CalculatedIndicators\TechnicalRankScore.cs" />
+    <Compile Include="Common\Entities\DependencyScope.cs" />
+    <Compile Include="Common\Entities\HistoricalData.cs" />
+    <Compile Include="Common\Entities\IIndicator.cs" />
+    <Compile Include="Common\Entities\SecondaryTagValue.cs" />
+    <Compile Include="Common\Entities\SignalInterpretation.cs" />
+    <Compile Include="Common\Entities\SignalInterpretationValue.cs" />
+    <Compile Include="Common\Entities\SupportAndResistance.cs" />
+    <Compile Include="Common\Entities\SupportAndResistanceValue.cs" />
+    <Compile Include="Common\IIndicatorsBuilder.cs" />
+    <Compile Include="Common\ISignalsCalculator.cs" />
+    <Compile Include="Common\ISignalsProxyService.cs" />
+    <Compile Include="Factories\BaseIndicatorFactory.cs" />
+    <Compile Include="Factories\IndicatorsConfiguration.cs" />
+    <Compile Include="Factories\PeriodIndicatorFactory.cs" />
+    <Compile Include="Helpers\DependenciesHelper.cs" />
+    <Compile Include="Helpers\IndicatorHelper.cs" />
+    <Compile Include="Helpers\SinalsExtension.cs" />
+    <Compile Include="IndicatorsBuilder.cs" />
+    <Compile Include="Macd.cs" />
+    <Compile Include="PeriodIndicators\Adx.cs" />
+    <Compile Include="Abstract\PeriodIndicator.cs" />
+    <Compile Include="PeriodIndicators\Atr.cs" />
+    <Compile Include="PeriodIndicators\BBandsFactory.cs" />
+    <Compile Include="PeriodIndicators\Cci.cs" />
+    <Compile Include="PeriodIndicators\Ema.cs" />
+    <Compile Include="PeriodIndicators\LinearRegSlope.cs" />
+    <Compile Include="PeriodIndicators\Max.cs" />
+    <Compile Include="PeriodIndicators\Mfi.cs" />
+    <Compile Include="PeriodIndicators\Min.cs" />
+    <Compile Include="PeriodIndicators\MinusDi.cs" />
+    <Compile Include="PeriodIndicators\PlusDi.cs" />
+    <Compile Include="PeriodIndicators\RiskScore.cs" />
+    <Compile Include="PeriodIndicators\Roc.cs" />
+    <Compile Include="PeriodIndicators\Rsi.cs" />
+    <Compile Include="PeriodIndicators\Sma.cs" />
+    <Compile Include="PeriodIndicators\SmaVol.cs" />
+    <Compile Include="PeriodIndicators\VolOfVol.cs" />
+    <Compile Include="PeriodIndicators\WillR.cs" />
+    <Compile Include="PeriodIndicators\Wma.cs" />
+    <Compile Include="Ppo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stoch.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\OptionsPlay.Common\OptionsPlay.Common.csproj">
+      <Project>{85025e83-4476-400a-b282-363256f61efa}</Project>
+      <Name>OptionsPlay.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\OptionsPlay.Logging\OptionsPlay.Logging.csproj">
+      <Project>{69f28c8c-7550-4a78-996a-be2c015d4e52}</Project>
+      <Name>OptionsPlay.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\OptionsPlay.Resources\OptionsPlay.Resources.csproj">
+      <Project>{96de53e2-f6ab-4e61-808e-383c7416ad7c}</Project>
+      <Name>OptionsPlay.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Common\OptionsPlay.Model\OptionsPlay.Model.csproj">
+      <Project>{187287e1-ce16-4b99-b56d-ae6308e06dc8}</Project>
+      <Name>OptionsPlay.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

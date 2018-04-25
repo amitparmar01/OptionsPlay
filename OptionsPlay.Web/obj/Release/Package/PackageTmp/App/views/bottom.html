@@ -1,0 +1,188 @@
+﻿<div data-bind="css: {expanded: isExpanded()}" id="bottom">
+    <!-- ko if: inDebugMode -->
+    <div data-bind="compose: 'viewmodels/trace', visible: traceVisible"></div>
+    <!-- /ko -->
+    <div class="bottom-title appearWhenDown">
+   
+        <div class=" fund-number-container">
+            <a class="fund-number">
+                <span data-bind="text: '上证指数'"></span>
+                <span data-bind="textFormatted: indexes.shIndex, format: '#.00'" class="pull-right"></span>
+            </a>
+            <a class="fund-number">
+                <span data-bind="t: '深证指数'"></span>
+                <span data-bind="textFormatted: indexes.szIndex, format: '#.00'" class="pull-right"></span>
+            </a>
+            <a class="fund-number">
+                <span data-bind="t: '沪深指数'"></span>
+                <span data-bind="textFormatted: indexes.hsIndex, format: '#.00'" class="pull-right"></span>
+            </a>
+            
+        </div>
+
+
+
+        <div class="bottom-toolbar">
+            <a data-bind="css: { active: isExpanded }, click: isExpanded.bind($data, !isExpanded())" class="k-link pull-right expand-btn">
+                <span data-bind="t: title"></span>
+                <img data-bind="css: {'expanded': isExpanded()}" src="Content/images/icons/arrow-up.png" class="icon-expand" />
+            </a>
+            <a data-bind="click: refreshOrders" class="pull-right" src="Content/images/icons/refresh.png" >
+                <!--<img class="icon-refresh" src="Content/images/icons/refresh.png" />-->
+                <i class="fa fa-repeat" style="color:#428bca"  >刷新</i>
+            </a>
+            <a data-bind="textFormatted: lastRefresh, format: {type: 'date', dateFormat: 'HH:mm:ss'}" class="pull-right">
+            </a>
+        </div>
+    </div>
+
+    <div class="bottom-title appearWhenUp" >
+
+
+        <div class="fund-number-container">
+            <a class="fund-number">
+                <span data-bind="t: 'bottom.totalAssetsValue'"></span>
+                <span data-bind="textFormatted: fund.totalAssetsValue, format: '#.00'" class="pull-right"></span>
+            </a>
+            <a class="fund-number">
+                <span data-bind="t: 'bottom.availableFund'"></span>
+                <span data-bind="textFormatted: fund.availableFund, format: '#.00'" class="pull-right"></span>
+            </a>
+            <a class="fund-number">
+                <span data-bind="t: 'bottom.floatingPL'"></span>
+                <span data-bind="textFormatted: fund.floatingPL, format: '#.00'" class="pull-right"></span>
+            </a>
+            <a class="fund-number">
+                <span data-bind="t: 'bottom.marginRate'"></span>
+                <span data-bind="textFormatted: fund.marginRate, format: '#.000'" class="pull-right"></span>
+            </a>
+        </div>
+
+
+        <div class="bottom-toolbar">
+            <a data-bind="css: { active: isExpanded }, click: isExpanded.bind($data, !isExpanded())" class="k-link pull-right expand-btn">
+                <span data-bind="t: title"></span>
+                <img data-bind="css: {'expanded': isExpanded()}" src="Content/images/icons/arrow-up.png" class="icon-expand" />
+            </a>
+            <a data-bind="click: refreshOrders" class="pull-right" src="Content/images/icons/refresh.png">
+                <!--<img class="icon-refresh" src="Content/images/icons/refresh.png" />-->
+                <i class="fa fa-repeat" style="color:#428bca">刷新</i>
+            </a>
+            <a data-bind="textFormatted: lastRefresh, format: {type: 'date', dateFormat: 'HH:mm:ss'}" class="pull-right">
+            </a>
+        </div>
+    </div>
+
+
+
+
+    <div id="tradeDock" data-bind="slideVisible: isExpanded">
+
+        <div id="bottomMainContainer" class="height-full ">
+            <div id="" class="tab-nav ">
+                <ul class="nav nav-tabs nav-tabs-justified ">
+                    <li>
+                        <a data-bind="tab: {  }" href="#Ordersnew" id="OrdersnewTab" class="tabOptions">
+                           交易
+                        </a>
+
+                    </li>
+                    <li>
+                        <a data-bind="tab: {  }" href="#xingquan" id="xingquanTab" class="tabOptions">
+                          行权
+                        </a>
+
+                    </li>
+                    <li>
+                        <a data-bind="tab: {  }" href="#query" id="queryTab" class="tabOptions">
+                           查询
+                        </a>
+
+                    </li>
+                    <li>
+                        <a data-bind="tab: {  }" href="#shezhi" id="shezhiTab" class="tabOptions">
+                          设置
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="" class="tab-content">
+                <div id="Ordersnew" class="tab-pane active fade in">
+                    <div class="trade-container">
+                        <div data-bind="compose: 'viewmodels/trade/orderEntry'" class="order-entry">
+                        </div>
+                        <div class="order-query height-full">
+                            <div id="ordersContainer" class="height-full">
+                                <div id="" class="tab-nav">
+                                    <ul class="nav nav-tabs nav-tabs-justified">
+                                  <!--     <li>
+                                            <a data-bind="tab: {  }" href="#portfolioList" id="portfolioListTab">
+                                                持仓
+                                            </a>
+                                        </li>
+                                      -->
+                                        <li class="active">
+                                            <a data-bind="tab: {  }" href="#intradayOrders" id="intradayOrderTab">
+                                                当日委托
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a data-bind="tab: {  }" href="#intradayTrades" id="intradayTradeTab">
+                                                当日成交
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="" class="tab-content">
+                                     <!--
+                                    <div id="portfolioList" class="tab-pane fade">
+                                        <div data-bind="compose: 'viewmodels/trade/portfolioList'">
+                                        </div>
+                                    </div>
+                                           -->
+                                    <div id="intradayOrders" class="tab-pane fade active in">
+                                        <div data-bind="compose: 'viewmodels/trade/intradayOrders'" class="intraday-order">
+                                        </div>
+                                    </div>
+                                    <div id="intradayTrades" class="tab-pane fade">
+                                        <div data-bind="compose: 'viewmodels/trade/intradayTrades'" class="intraday-trade">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="xingquan" class="tab-pane fade">
+                    <div class="trade-container">
+                        <div data-bind="compose: 'viewmodels/trade/exercise'" class="query-option">
+                        </div>
+						<div data-bind="compose: 'viewmodels/trade/portfolioList'" class="order-query height-full">
+						</div>
+                    </div>
+                </div>
+                <div id="query" class="tab-pane fade">
+
+                    <div class="trade-container">
+                        <div data-bind="compose: 'viewmodels/trade/queryOption'" class="query-option">
+                        </div>
+                        <div data-bind="compose: 'viewmodels/trade/queryGrid'">
+                        </div>
+                    </div>
+                </div>
+                <div id="shezhi" class="tab-pane fade">
+                
+                    <div data-bind="compose: 'viewmodels/trade/paramSet'" class="intraday-trade">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,11 @@
+D:\OptionsPlay\Mainline\Tests\OptionsPlay.BusinessLogic.Tests\bin\Debug\OptionsPlay.BusinessLogic.Tests.dll
+D:\OptionsPlay\Mainline\Tests\OptionsPlay.BusinessLogic.Tests\bin\Debug\OptionsPlay.BusinessLogic.Tests.pdb
+D:\OptionsPlay\Mainline\Tests\OptionsPlay.BusinessLogic.Tests\bin\Debug\TA-Lib-Core.dll
+D:\OptionsPlay\Mainline\Tests\OptionsPlay.BusinessLogic.Tests\obj\Debug\OptionsPlay.BusinessLogic.Tests.dll
+D:\OptionsPlay\Mainline\Tests\OptionsPlay.BusinessLogic.Tests\obj\Debug\OptionsPlay.BusinessLogic.Tests.pdb
+D:\tfs200\OptionsPlay\FC\Mainline_John\Tests\OptionsPlay.BusinessLogic.Tests\bin\Debug\OptionsPlay.BusinessLogic.Tests.dll
+D:\tfs200\OptionsPlay\FC\Mainline_John\Tests\OptionsPlay.BusinessLogic.Tests\bin\Debug\OptionsPlay.BusinessLogic.Tests.pdb
+D:\tfs200\OptionsPlay\FC\Mainline_John\Tests\OptionsPlay.BusinessLogic.Tests\bin\Debug\TA-Lib-Core.dll
+D:\tfs200\OptionsPlay\FC\Mainline_John\Tests\OptionsPlay.BusinessLogic.Tests\obj\Debug\OptionsPlay.BusinessLogic.Tests.dll
+D:\tfs200\OptionsPlay\FC\Mainline_John\Tests\OptionsPlay.BusinessLogic.Tests\obj\Debug\OptionsPlay.BusinessLogic.Tests.pdb
+D:\tfs200\OptionsPlay\FC\Mainline_John\Tests\OptionsPlay.BusinessLogic.Tests\obj\Debug\OptionsPlay.BusinessLogic.Tests.csprojResolveAssemblyReference.cache

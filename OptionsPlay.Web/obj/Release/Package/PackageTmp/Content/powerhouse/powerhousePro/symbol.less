@@ -1,0 +1,527 @@
+﻿@import 'common-variables.less';
+@import '../mixins.less';
+
+#powerhousePro {
+	#symbolSection {
+		position: absolute;
+		width: 49.5%;
+		height: 100%;
+		#whyContainer {
+			& > .durandal-wrapper {
+				height: 102px;
+			}
+		}
+
+	}
+
+	.trade-panel-invisible #symbolSection {
+		//max-width: @symbol-section-width;
+	}
+
+	.toggle-trade-panel-wrapper {
+		position: relative;
+
+		.toggle-trade-panel {
+			@size: 20px;
+
+			position: absolute;
+			top: 0;
+			right: 8px;
+			cursor: pointer;
+			padding-top: 5px;
+
+			span {
+				line-height: @size;
+
+				&:first-child {
+					float: left;
+				}
+
+				&:last-child {
+					float: right;
+				}
+			}
+
+			.fa {
+				@margin: 3px;
+
+				font-size: @size;
+
+				&.fa-angle-left {
+					float: left;
+					margin-right: @margin;
+				}
+
+				&.fa-angle-right {
+					float: right;
+					margin-left: @margin;
+				}
+			}
+		}
+	}
+
+	#chartsAndEnglish {
+		border-radius: @border-radius @border-radius 0 0;
+		position: absolute;
+		width: 100%;
+		top: 102px;
+		bottom: 0;
+
+		#techInfoSign {
+			vertical-align: text-top;
+			font-size: 13px;
+			color: rgb(0, 165, 227);
+			cursor: pointer;
+		}
+
+		#monthControl label {
+			font-size: 11px;
+		}
+
+		.topBar {
+			margin-bottom: 10px;
+
+			.menu {
+				height: 20px;
+				padding: 0 0 0 6px;
+				text-align: left;
+
+				&#typeMenu {
+					width: 55px;
+				}
+
+				&#studyMenu {
+					width: 65px;
+				}
+
+				.fa.fa-angle-down {
+					float: right;
+					margin-right: 4px;
+				}
+			}
+
+			.filter-button {
+				padding: 0 4px;
+
+				&:not(:first-child) {
+					border-left: none;
+				}
+			}
+		}
+
+		.chartSize {
+			background-image: none;
+
+			#zoomIn, #zoomOut {
+				font-size: 18px;
+				padding: 0 4px;
+				cursor: pointer;
+			}
+		}
+
+		#studyMenu, #typeMenu, #monthControl {
+			margin-top: 3px;
+		}
+
+		#studyMenu, #typeMenu {
+			font-size: 11px;
+		}
+
+		#studyMenu {
+			margin-left: 6px;
+		}
+
+		#monthControl {
+			margin-right: 5px;
+			margin-left: 8px;
+		}
+
+		#techRankZone {
+			padding: 2px;
+			font-size: 15px;
+			color: @black;
+			text-align: left;
+
+			#techScore {
+				margin-left: 6px;
+			}
+		}
+
+		#floatDate {
+			width: 85px;
+			height: 20px;
+		}
+
+		.float-opacity {
+			opacity: 0.5;
+		}
+
+		#resetButton {
+			margin: 3px 5px 5px 5px;
+		}
+
+		.border-top {
+			border-top: @main-border;
+		}
+
+		.carousel-control {
+			color: inherit;
+			font-size: 250%;
+
+			&.left {
+				text-align: left;
+			}
+
+			&.right {
+				text-align: right;
+			}
+		}
+
+		#sentimentBtnGroup {
+			text-align: center;
+			height: 22px;
+			float: right;
+			margin-right: 7px;
+
+			.sentiment-btn {
+				width: 90px;
+				height: 22px;
+				font-size: 12px;
+				padding: 0;
+				float: left;
+
+				&:first-child {
+					border-top-right-radius: 0;
+					border-bottom-right-radius: 0;
+				}
+
+				&:last-child {
+					border-top-left-radius: 0;
+					border-bottom-left-radius: 0;
+					border-left: none;
+				}
+			}
+		}
+
+		#earnings {
+			margin-left: 10px;
+
+			span {
+				font-size: 11px;
+			}
+		}
+
+		.caption, #priceAction .title, .carousel-inner .title {
+			font-weight: bold;
+		}
+
+		#powerhouseProHistoricalsChart, #powerhouseProNews {
+			padding: 8px 8px 0 8px;
+		}
+		#powerhouseProNews > div { 
+			width: 100%;
+			height: 100%;
+		}
+		#powerhouseProNews #newsContainer {
+			background-color: white;
+			height: 334px;
+			overflow: hidden;
+			position: relative;
+
+			a {
+				font-size: 13px;
+			}
+
+			p {
+				color: #333333;
+				margin: 5px 0 0 0;
+			}
+
+			table tr:hover td {
+				background-color: fade(@background-lighter-color, 80%);
+			}
+		}
+
+		#rulesCarousel, #priceAction {
+			padding: 0 10px;
+		}
+
+		#rulesCarousel .title {
+			text-transform: uppercase;
+		}
+
+		#noIdeaNotice {
+			padding: 12px 10px;
+			text-transform: uppercase;
+		}
+		
+		#ChartsContainer {
+			position: absolute;
+			top: 0;
+			bottom: 169px;
+			width: 100%;
+			#ChartsMainContent {
+				position: absolute;
+				top: 25px;
+				bottom: 0;
+				width: 100%;
+				& > .tab-pane {
+					position: relative;
+					height: 100%;
+					width: 100%;
+				}
+				
+				#powerhouseProHistoricalChart-chartWrapper {
+					position: absolute;
+					top: 33px;
+					bottom: 40px;
+					width: 100%;
+				}
+			}
+		}
+
+		#englishSection {
+			position:absolute;
+			height: 169px;
+			bottom: 0;
+			width: 100%;
+			text-align: left;
+
+			&.moveDown {
+				margin-top: 290px;
+			}
+
+			&.higher {
+				height: 154px;
+			}
+
+			> div {
+				margin-top: 6px;
+			}
+
+			#tradeIdeaRule {
+				padding: 0;
+			}
+		}
+
+		#chartsNavBar {
+			height: 23px;
+		}
+
+		#powerhouseProHistoricalsChart {
+			height: 100%;
+
+			#studyDialog {
+				.title {
+					color: @black;
+				}
+
+				.stx-color {
+					background-color: black;
+				}
+			}
+
+			.chart-container {
+				background: white;
+
+				.chart {
+					border-width: 2px;
+					border-style: solid;
+				}
+			}
+
+			.chart-iq-small-container {
+				position: absolute;
+				height: 100%;
+			}
+
+			#fullScreenLink {
+				cursor: pointer;
+				text-decoration: none;
+				color: @black;
+
+				i {
+					margin: 5px 6px 0 8px;
+				}
+			}
+
+			.closeX .fa.fa-times {
+				font-size: 11px;
+				color: @black;
+
+				&:hover {
+					cursor: pointer;
+				}
+			}
+
+			#types {
+				top: 27px;
+				right: 104px;
+				padding: 3px 0;
+
+				div {
+					border: none;
+					padding: 3px 20px;
+					color: @black;
+
+					&:hover {
+						background-color: @background-light-color;
+					}
+				}
+			}
+		}
+
+		#powerhouseProHistoricalsChart:not(.fullscreen) #powerhouseProHistoricalChart-contentWrapper {
+			border: none;
+		}
+
+		#powerhouseProHistoricalsChart.fullscreen {
+			#topBar {
+				height: 5%;
+
+				#studies {
+					font-size: 10px;
+					width: 860px;
+
+					.col {
+						width: 115px;
+						margin-right: 14px;
+					}
+
+					.menu-divider {
+						float: left;
+						border: none;
+						width: 50px;
+					}
+
+					#popular-header {
+						position: relative;
+						left: 70px;
+						font-size: 13px;
+					}
+
+					#technical-header {
+						position: relative;
+						left: 380px;
+						font-size: 13px;
+					}
+
+					.studyMenuHeader {
+						cursor: default;
+					}
+				}
+			}
+
+			.chart-container {
+				background: white;
+			}
+
+			.chart-iq-small-container {
+				height: 255px;
+			}
+
+			#types {
+				right: 175px;
+			}
+
+			#powerhouseProHistoricalChart-contentWrapper {
+				position: fixed;
+				top: 155px;
+				left: 10%;
+				height: 450px;
+				width: 80%;
+				z-index: 100;
+				background: white;
+				max-width: (@total-width*0.8);
+				max-height: (@total-height*0.9);
+
+				#powerhouseProHistoricalChart-chartWrapper {
+					position: absolute;
+					top: 35px;
+					bottom: 0px;
+				}
+
+				#powerhouseProHistoricalChart-chartContainer {
+					height: 100%;
+				}
+			}
+		}
+
+		.tab-content {
+			position: relative;
+		}
+
+		.backdrop-container {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			padding: 8px 8px 0 8px;
+			top: 0;
+			left: 0;
+
+			.backdrop-note-container {
+				top: 45%;
+				position: absolute;
+				z-index: 99;
+				width: 100%;
+
+				.backdrop-note {
+					width: 320px;
+					margin: 0 auto;
+					text-align: center;
+					border-radius: 4px;
+					border: 1px;
+					background-color: white;
+					color: black;
+					font-size: 14px;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+
+	#supportAndResistance {
+
+		position: absolute;
+		height: 45px;
+		bottom: 0;
+		width: 100%;
+
+		tr:hover {
+			cursor: pointer;
+			font-weight: bold;
+		}
+
+		.sr-label {
+			font-size: 1.1em;
+			font-weight: bold;
+			padding-left: 4px;
+			text-align: center;
+		}
+
+		.sr-table {
+			margin: auto;
+			font-size: 1.2em;
+
+			td, th {
+				padding: 1px 8px;
+				text-align: center;
+			}
+		}
+
+		.sr-zone {
+			width: 49%;
+			height: 40px;
+
+			.btn {
+				width: 80px;
+				font-size: 0.7em;
+				margin-bottom: 3px;
+
+				&.active, &:active {
+					padding: initial;
+				}
+			}
+		}
+	}
+}

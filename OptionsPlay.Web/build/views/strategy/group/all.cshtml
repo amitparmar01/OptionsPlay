@@ -1,0 +1,54 @@
+﻿<div data-bind="widget: { kind: '_buttons/new', href: '#/strategy/group/new', name: 'Strategy Group' }">
+</div>
+
+<div id="gridContainer">
+	<table data-bind="kendoGrid: kendoGridOptions" id="strategyGroupsGrid">
+		<thead>
+			<tr>
+				<th>Width</th>
+				<th>Wingspan</th>
+				<th>Expiry</th>
+			</tr>
+			<tr>
+				<th rowspan="2" class="k-header strategy-name">Name</th>
+				<th rowspan="2" class="k-header">Image</th>
+				<th colspan="3" class="k-header text-center">Can Customize</th>
+				<th rowspan="2" class="k-header">Display</th>
+				<th rowspan="2" class="k-header strategy-name">Call Strategy</th>
+				<th rowspan="2" class="k-header strategy-name">Put Strategy</th>
+				<th rowspan="2" class="k-header">Display Order</th>
+				<th rowspan="2" class="k-header"></th>
+			</tr>
+		</thead>
+	</table>
+</div>
+
+<script id="rowTemplate" type="text/html">
+	<tr>
+		<td data-bind="text: name"></td>
+		<td>
+			<!-- ko if: thumbnailImage -->
+			<img data-bind="attr: { src: thumbnailImage }" alt="strategy group image" />
+			<!-- /ko -->
+		</td>
+		<td class="text-center">
+			<input type="checkbox" data-bind="checked: canCustomizeWidth" disabled="disabled" />
+		</td>
+		<td class="text-center">
+			<input type="checkbox" data-bind="checked: canCustomizeWingspan" disabled="disabled" />
+		</td>
+		<td class="text-center">
+			<input type="checkbox" data-bind="checked: canCustomizeExpiry" disabled="disabled" />
+		</td>
+		<td class="text-center">
+			<input type="checkbox" data-bind="checked: display" disabled="disabled" />
+		</td>
+		<td data-bind="text: callStrategyName"></td>
+		<td data-bind="text: putStrategyName"></td>
+		<td data-bind="text: displayOrder" class="text-center"></td>
+		<td>
+			<a data-bind="attr: { href: '#/strategy/group/edit/' + id }" class="k-button">Edit</a>
+			<span data-bind="click: $root.deleteStrategyGroup" class="k-button">Delete</span>
+		</td>
+	</tr>
+</script>

@@ -1,0 +1,6 @@
+14.04.2015 11:38:34  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:30)  Getting StockQuotesInfo
+14.04.2015 11:38:34  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:30)  Getting OptionQuotesInfo
+14.04.2015 11:38:36  ERROR  OptionsPlay.Logging.Logger.Error(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:60)  FromLocalDrive GetData Error
+System.EntryPointNotFoundException: 无法在 DLL“OptionsPlay.SharedFile.dll”中找到名为“ReadSharedFolder”的入口点。
+   在 OptionsPlay.MarketData.Sources.FromLocalDrive.ReadSharedFolder(IntPtr p, String targetFile)
+   在 OptionsPlay.MarketData.Sources.FromLocalDrive.GetData(String folder, String fileName, Int32 filetypeFlag) 位置 d:\OptionsPlay\Mainline\OptionsPlay.MarketData\Sources\FromLocalDrive.cs:行号 26

@@ -1,0 +1,126 @@
+﻿<div id="quoteMainContainer" class="container-fluid">
+	<div id="stockAndCandle" class="row">
+		<div id="underlyingPanel" class="col-md-6">
+			<div class="quote-table table-header-frozen">
+				<div class="table-header">
+					<table class="table table-condensed">
+						<!-- ko template: 'quoteColGroupTemplate'-->
+						<!-- /ko -->
+						<tr class="header">
+							<td class="column-code">代码</td>
+							<td class="column-name">名称</td>
+							<td class="column-change-percentage">涨幅%</td>
+							<td class="column-last">现价</td>
+							<td class="column-change">涨跌</td>
+							<td class="column-bid">买价</td>
+							<td class="column-ask">卖价</td>
+							<td class="column-volume">总量</td>
+							<td class="column-open">今开</td>
+							<td class="column-high">最高</td>
+							<td class="column-low">最低</td>
+							<td class="column-previous-close">昨收</td>
+							<td class="column-turnover">成交额</td>
+							<td class="column-amplitude">振幅</td>
+							<td class="column-buy-volume">买量</td>
+							<td class="column-sell-volume">卖量</td>
+							<td class="column-fundamental">基本面</td>
+						</tr>
+					</table>
+				</div>
+				<div class="table-body">
+					<table data-bind="" class="table table-striped table-hover table-condensed">
+						<!-- ko template: 'quoteColGroupTemplate'-->
+						<!-- /ko -->
+						<tbody data-bind="foreach: optionables">
+							<tr data-bind="css: {'selected': securityCode == $parent.securityCode()}, event: {click: $parent.updateChart}" class="quotation-entry">
+								<td data-bind="text: securityCode" class="column-code"></td>
+								<td data-bind="text: securityName" class="column-name"></td>
+								<td data-bind="textFormatted: changePercentage,format: '#.00%', redGreen: change, changeFlash: changePercentage" class="column-change-percentage"></td>
+								<td data-bind="textFormatted: lastPrice,format: '#.000', redGreen: change, changeFlash: lastPrice" class="column-last"></td>
+								<td data-bind="textFormatted: change,format: '#.000', redGreen: change, changeFlash: change" class="column-change"></td>
+								<td data-bind="textFormatted: currentBidPrice,format: '#.000', redGreen: (currentBidPrice() - previousClose()), changeFlash: currentBidPrice" class="column-bid"></td>
+								<td data-bind="textFormatted: currentAskPrice,format: '#.000', redGreen: (currentAskPrice() - previousClose()), changeFlash: currentAskPrice" class="column-ask"></td>
+								<td data-bind="textFormatted: volume,format: 'volume'" class="column-volume"></td>
+								<td data-bind="textFormatted: openPrice,format: '#.000', redGreen: (openPrice() - previousClose())" class="column-open"></td>
+								<td data-bind="textFormatted: highPrice,format: '#.000', redGreen: (highPrice() - previousClose()), changeFlash: highPrice" class="column-high"></td>
+								<td data-bind="textFormatted: lowPrice,format: '#.000', redGreen: (lowPrice() - previousClose()), changeFlash: lowPrice" class="column-low"></td>
+								<td data-bind="textFormatted: previousClose,format: '#.000'" class="column-previous-close"></td>
+								<td data-bind="textFormatted: turnover,format: 'volume'" class="column-turnover"></td>
+								<td data-bind="textFormatted: Math.abs(highPrice() - lowPrice()) / previousClose() * 100, format: '#.000'" class="column-amplitude"></td>
+								<td data-bind="textFormatted: buyVolume1" class="column-buy-volume"></td>
+								<td data-bind="textFormatted: sellVolume1" class="column-sell-volume"></td>
+								<td class="column-fundamental">
+									<a data-bind="t: 'quotes.fundamental', attr: {'href': 'http://www.firstcapital.com.cn/cgi-bin/stock/Stock?function=forwardStockIndex&catalogNo=ggqjt&stockCode=' + securityCode}" target="_blank"></a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div id="quoteChartsContainer" class="col-md-6">
+			<div id="quoteChartsNavBar">
+				<ul class="nav nav-tabs nav-tabs-justified">
+					<li class="active">
+						<a data-bind="tab: { onShow: showHistChartTab }" href="#historicalChart" id="historicalChartTab">
+							<span>日线图</span>
+						</a>
+					</li>
+
+					<li>
+						<a data-bind="tab: { onShown: showIntradayChartTab }" href="#intradayChart" id="intradayChartTab">
+							<span>分时图</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div id="chartsMainContent" class="tab-content">
+				<div data-bind="css: { fullscreen: fullChart }" id="historicalChart" class="tab-pane active fade in">
+					<div class="backdrop-container invisible" data-bind="visible: false">
+						<div class="backdrop relative"></div>
+						<div class="backdrop-note-container">
+							<div class="backdrop-note" data-bind="text: '没有历史行情数据'"></div>
+						</div>
+					</div>
+					<div data-bind="widget: { kind: 'chartIQ' }" class="height-full"></div>
+				</div>
+				<div data-bind="widget: { kind: 'intradayChart', stockCode: securityCode }" id="intradayChart" class="tab-pane fade">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="optionsAndDetails" class="row">
+		<div id="optionTChainAndList" class="col-md-10 height-full">
+			<!-- ko compose: 'viewmodels/chains' -->
+			<!-- /ko -->
+		</div>
+		<div id="marketDataDetails" class="col-md-2 height-full">
+			<!-- ko if: marketDataDetail -->
+			<div data-bind="widget: {kind: 'marketDataDetail', quote: marketDataDetail()}">
+			</div>
+			<!-- /ko -->
+		</div>
+	</div>
+</div>
+
+<script id="quoteColGroupTemplate" type="text/template">
+	<colgroup>
+		<col class="column-code" />
+		<col class="column-name" />
+		<col class="column-change-percentage" />
+		<col class="column-last" />
+		<col class="column-change" />
+		<col class="column-bid" />
+		<col class="column-ask" />
+		<col class="column-volume" />
+		<col class="column-open" />
+		<col class="column-high" />
+		<col class="column-low" />
+		<col class="column-previous-close" />
+		<col class="column-turnover" />
+		<col class="column-amplitude" />
+		<col class="column-buy-volume" />
+		<col class="column-sell-volume" />
+		<col class="column-fundamental" />
+	</colgroup>
+</script>

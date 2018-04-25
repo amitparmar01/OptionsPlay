@@ -1,0 +1,91 @@
+﻿<div data-bind="kendoSpinner: marketDataReady, css: {'bottomExpanded': bottomExpanded()}" class="relative-container overflow-hidden width-full height-full">
+	<div id="funnelToolboxContainer" class="css: {hidden: }"> 
+		<div class="funnel-toolbox" data-bind="css: {hidden: showComparison()}">
+			<div class="toolbox-title">
+				<h4 data-bind="t: 'strategies.sentimentView'"></h4>
+			</div>
+			<div class="toolbox-body">
+				<div data-bind="foreach: sentimentOptions" class="sentiment-list">
+					<a data-bind="click: isSelected.bind(this, !isSelected())">
+						<input type="checkbox" data-bind="checked: isSelected,attr: {name: selector}, click: function(){return true;}, clickBubble: false" />
+						<label data-bind="t: label, css: css" class="sentiment-label"></label>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="funnel-toolbox">
+			<div class="toolbox-title">
+				<h4 data-bind="t: 'strategies.priceRange'"></h4>
+			</div>
+			<div class="toolbox-body slider-container" data-bind="ifnot: priceChanging">
+				<div class="last-price-tag">
+					<div data-bind="highBound: stockPriceHigherBound, lowBound: stockPriceLowerBound, lastPriceVal:ulQuotation().lastPrice(), arrowMove: ulQuotation().lastPrice(), attr: {title: ulQuotation().securityName + ': ' + ulQuotation().lastPrice()}" class="last-price-caret">
+						<a class="fa fa-chevron-up"></a>
+					</div>
+					<h4>
+						<span data-bind="text: ulQuotation().securityName"></span>
+						: 
+						<span data-bind="textFormatted: ulQuotation().lastPrice, format: '#.00'"></span>
+					</h4>
+				</div>
+				<div>
+					<div class="slider-bound">
+						<a data-bind="textFormatted: stockPriceLowerBound, format: '#.00'"></a>
+					</div>
+					<div data-bind="kendoRangeSlider: stockPriceKendoRange">
+						<input />
+						<input />
+					</div>
+					<div class="slider-bound">
+						<a data-bind="textFormatted: stockPriceHigherBound, format: '#.00'"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="funnel-toolbox" data-bind="css: {hidden: showComparison()}">
+			<div class="toolbox-title">
+				<h4 data-bind="t: 'strategies.expiryDate'"></h4>
+			</div>
+			<div class="toolbox-body horizontal-scroll">
+				<ul data-bind="foreach: expiryList, style: {width: (75 * expiryList().length) + 'px'}, css: {'width-overflow': expiryList().length > 4}" class="expiry-list">
+					<li>
+						<button data-bind="click: $parent.selectedExpiry.bind(this, $data), css:{'active': $parent.selectedExpiry() == $data}" class="expiry-btn">
+							<span data-bind="textFormatted: date, format: {type: 'date', dateFormat: 'yyyy年MM月'}"></span>
+							<span>(<!-- ko text: noOfDaysToExpiry --><!-- /ko -->)</span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-bind="css: {comparison: showComparison()}" id="combinedContainer" class="relative-container">
+		<div id="strategiesContainer">
+			<div data-bind="foreach: defaultCombinations, isotope: strategyIsotope">
+				<div data-bind="css: sentiments().join(' '), attr: {'data-price': currentPrice, 'data-risk': maxRisk, 'data-reward': maxReward}"
+					 class="sentiment-border strategy-container strategy-height">
+					<h4 class="text-center strategy-title">
+						<a data-bind="click: $parent.goToBottom">
+							<span data-bind="t: 'strategies.' + buyOrSell()" style="display: inline-block"></span>
+							<span data-bind="t: 'strategies.unit', i18nOptions: {count: absQuantity()}" style="display: inline-block"></span>
+							<span data-bind="text: expiries().join('/')" style="display: inline-block"></span>
+							<span data-bind="text: strikes().join('/')" style="display: inline-block"></span>
+							<span data-bind="t: 'strategies.' + strategyName()" style="display: inline-block"></span>
+						</a>
+						<a data-bind="click: $parent.strategyComparison.addToComparison" class="pull-right k-button add-to-compare">
+							<span class="fa fa-plus"></span>
+						</a>
+					</h4>
+					<div data-bind="plChart: chart, updating: $parent.chartPriceRange" class="pl-chart">
+					</div>
+					<div class="strategy-debitCredit">
+						<span data-bind="t: 'strategies.' + debitOrCredit()"></span>
+						:
+						<span data-bind="textFormatted: Math.abs(currentPrice()), format: '#'"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div data-bind="compose: strategyComparison" id="strategyComparisonContainer"></div>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\bin\Debug\OptionsPlay.Logging.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\bin\Debug\OptionsPlay.Logging.pdb
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\bin\Debug\log4net.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\bin\Debug\log4net.xml
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\obj\Debug\OptionsPlay.Logging.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\obj\Debug\OptionsPlay.Logging.pdb
+D:\tfs200\OptionsPlay\FC\Mainline_John\Common\OptionsPlay.Logging\bin\Debug\OptionsPlay.Logging.dll
+D:\tfs200\OptionsPlay\FC\Mainline_John\Common\OptionsPlay.Logging\bin\Debug\OptionsPlay.Logging.pdb
+D:\tfs200\OptionsPlay\FC\Mainline_John\Common\OptionsPlay.Logging\bin\Debug\log4net.dll
+D:\tfs200\OptionsPlay\FC\Mainline_John\Common\OptionsPlay.Logging\bin\Debug\log4net.xml
+D:\tfs200\OptionsPlay\FC\Mainline_John\Common\OptionsPlay.Logging\obj\Debug\OptionsPlay.Logging.dll
+D:\tfs200\OptionsPlay\FC\Mainline_John\Common\OptionsPlay.Logging\obj\Debug\OptionsPlay.Logging.pdb
+D:\tfs200\OptionsPlay\FC\Mainline_John\Common\OptionsPlay.Logging\obj\Debug\OptionsPlay.Logging.csprojResolveAssemblyReference.cache

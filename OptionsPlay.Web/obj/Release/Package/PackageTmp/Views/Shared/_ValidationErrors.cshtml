@@ -1,0 +1,5 @@
+﻿<div data-bind="with: errorMessages">
+	<div data-bind="visible: length, foreach: $data" id="validationErrorMessages">
+		<div data-bind="text: $data"></div>
+	</div>
+</div>

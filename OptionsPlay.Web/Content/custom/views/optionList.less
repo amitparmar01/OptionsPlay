@@ -1,0 +1,160 @@
+﻿@import '../globalMixins';
+@import '../globalVariables';
+
+
+.optionList-block{
+	background:white;
+	font-weight:bold;
+	padding-bottom:3px;
+	color:#274575;
+	padding-left:3px;
+	//width:120px;
+	width:100%;
+	height:20px;
+	cursor:pointer;
+	background-color: rgb(235, 235, 228);
+	&.enabled {
+		background-color: white;
+	}
+}
+
+.margin-top-3{
+	margin-top:3px;
+}
+
+.margin-top-10{
+	margin-top:10px;
+}
+
+.margin-left-5{
+	margin-left:5px;
+}
+
+.filterImg{
+	float:right;
+	margin-top:3px;
+	margin-right:5px;
+}
+
+.width-25{
+	width:25%;
+}
+
+.width-30{
+	width:30%;
+}
+
+.optionList-ul{
+	background:white;
+	margin-top:0px;
+	list-style:none;
+	font-weight:bold;
+	color:#274575;
+	border:1px solid #274575;
+	cursor:pointer;
+	position:absolute;
+	display: none;
+	width:109px;
+	z-index: 9;
+	padding: 0;
+}
+
+.optionList-ul li{
+	margin-left:0;
+}
+
+.optionList-ul li:hover{
+	background:#274575;
+	color:white;
+}
+
+input.optionList-text{
+	width:100%;
+	position:relative;
+	border:0px;
+	height:20px;
+	font-weight:bold;
+	padding-bottom:2px;
+}
+
+.optionList-top{
+	background:#f79f1b;
+	height:56px;
+}
+
+.optinList-hr{
+	height:60px;
+	border-left:3px solid #274575;
+	width:0px;
+	float:left;
+	margin-top:-18px;
+	margin-left:15px;
+}
+
+.optinList-option{
+	width:33.3%;
+	float:left;
+	margin-top:8px;
+}
+
+.optionList-table{
+	width:100%;
+	margin:0px;
+	border-collapse:separate;
+	border-spacing:0px;
+	empty-cells:show;
+	border-width:0px;
+	outline:0px;
+	white-space:nowrap;
+
+	tr.selected {
+		background-color: darkgrey;
+	}
+}
+
+.optionList-table th{
+	background-color:#284678;
+	color:#f79f1b;
+	height:22px;
+	cursor:pointer;
+}
+
+.optionList-variety{
+	color:#284678;
+}
+
+.optionList-variety2{
+	color:#f79f1b;
+}
+
+.up {
+		color: green;
+	}
+
+.down{
+		color:red;
+	}
+
+.buytoOpen span{
+	color:red;
+}
+
+.selltoOpen span{
+	color:red;
+}
+
+.selltoCoveredCall span{
+	color:red;
+}
+
+.selltoClose span{
+	color:green;
+}
+
+.buytoClose span{
+	color:green;
+}
+
+.buytoCoverdCall span{
+	color:green;
+}

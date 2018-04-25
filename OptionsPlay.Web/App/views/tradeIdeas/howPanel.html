@@ -1,0 +1,250 @@
+﻿<div data-bind="fadeBackdropVisible: isLoading" class="backdrop"></div>
+
+<section class="powerhouse-section">
+    <!--<div data-bind="fadeBackdropVisible: isLoading" class="backdrop"></div>-->
+
+    <!-- ko compose: { model: currentView, transition: 'animateCss', cacheViews: true, alwaysTriggerAttach: false,
+        transitionOptions: { isSimultaneous: true } } -->
+    <!--/ko-->
+
+    <script id="greeks-explanation-message" type="text/html">
+        <div data-bind="if: deltaDetails">
+            <p data-bind="with: deltaDetails">
+                <!-- ko if: sentiment == 'Bullish' || sentiment == 'Bearish' -->
+                <b data-bind="text: symbol"></b>每<b data-bind="text: stockDirection"></b>一元, 会产生一笔
+                <b data-bind="text: formattedDelta"></b> 的利润<!-- ko text: dotOrComma ? '。' : '，' --><!-- /ko -->
+                <!-- ko ifnot: dotOrComma -->
+                <span data-bind="text: andOrBut"></span>随着时间的推移，当接近到期日时每天会<b data-bind="text: lossOrGain"></b> <b data-bind="text: formattedTheta"></b>
+                。
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko if: sentiment == 'Neutral' || sentiment == 'Sharp-move' -->
+                如果<b data-bind="text: symbol"></b>在有效期内以<b data-bind="text: breakeventDesc"></b>进行交易，会盈利。
+                <span data-bind="text: andOrBut"></span>随着时间的推移，当接近到期日时每天会<b data-bind="text: lossOrGain"></b> <b data-bind="text: formattedTheta"></b>
+                。
+                <!-- /ko -->
+            </p>
+        </div>
+    </script>
+
+    <script id="comb-detail-table" type="text/html">
+        <div class="table table-condensed table-hover comb-detail-table">
+            <div class="row">
+                <div class="key">
+                    成本：
+                </div>
+                <div data-bind="textFormatted: costWithoutOwned, format: { type: 'currency', fractionLimited: true }" class="val"></div>
+            </div>
+            <div class="row">
+                <div class="key">最大收益：</div>
+                <div data-bind="text: maxRewardDisplayed" class="val"></div>
+            </div>
+            <div class="row">
+                <div class="key">最大损失：</div>
+                <div data-bind="text: maxRiskDisplayed" class="val"></div>
+            </div>
+            <div data-bind="visible: $data.incomeStrategy" class="row">
+                <div class="key">回报率：</div>
+                <div data-bind="textFormatted: rawReturn, format: 'percentage'" class="val"></div>
+            </div>
+            <div data-bind="visible: $data.incomeStrategy" class="row">
+                <div class="key">年化回报率：</div>
+                <div class="val">
+                    <span data-bind="textFormatted: annualizedReturn, format: 'percentage'"></span>
+                    <div data-bind="visible: daysToExpire() < 60, tooltip: '该年化回报率是根据' + daysToExpire() + '日内的回报计算', tooltipOptions: {html: true}" class="inline-block">*</div>
+                </div>
+            </div>
+            <div data-bind="visible: !$data.incomeStrategy" class="row">
+                <div class="key" title="赢利概率">赢利概率：</div>
+                <div data-bind="text: profitProb" class="val"></div>
+            </div>
+            <div data-bind="visible: $data.incomeStrategy" class="row">
+                <div class="key" title="期权无价值过期概率">零价值过期概率: </div>
+                <div data-bind="textFormatted: worthlessProb() * 100, format: 'percentage'" class="val"></div>
+            </div>
+            <div data-bind="visible: !$data.incomeStrategy, css: {'one-break': breakeven().length <= 1, 'two-line': $parent.noOfBreakeven && $parent.noOfBreakeven() > 1, 'abbr': $parent.noOfBreakeven && $parent.noOfBreakeven() >= 3}" class="row">
+                <div data-bind="text: breakevenLabel" class="key"></div>
+                <div data-bind="html: breakeven().length <=2 ? breakevenDisplayed().replace(', ', '\<br \/\>') : breakevenDisplayed()" class="val text-wrap"></div>
+            </div>
+            <div data-bind="visible: $data.incomeStrategy" class="row">
+                <div class="key">盈亏平衡点：</div>
+                <div data-bind="html: breakevenDisplayed" class="val text-wrap"></div>
+            </div>
+            <div class="row">
+                <div class="key nowrap">距离到期日：</div>
+                <div data-bind="text: daysToExpire" class="val"></div>
+            </div>
+        </div>
+    </script>
+
+    <script id="combination-editor" type="text/html">
+        <div class="combination-editor">
+            <table data-bind="if: bindReady" class="table table-condensed table-bordered no-margin text-center">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="combination-editor-actions">
+                                <span class="bold">买卖</span>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="combination-editor-quantity">
+                                <a data-bind="click: quantityChange.bind($data, false), activityTracker: { events: 'click', name: 'editorQuantityHeaderChange', value: 'left' }" class="btn btn-xs btn-tool"><i class="fa fa-caret-left fa-bigger"></i></a>
+                                <span class="bold">数量</span>
+                                <a data-bind="click: quantityChange.bind($data, true), activityTracker: { events: 'click', name: 'editorQuantityHeaderChange', value: 'right' }" class="btn btn-xs btn-tool"><i class="fa fa-caret-right fa-bigger"></i></a>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="combination-editor-expiry">
+                                <a data-bind="click: expiryChange.bind($data, false), activityTracker: { events: 'click', name: 'editorExpiryHeaderChange', value: 'left' }" class="btn btn-xs btn-tool"><i class="fa fa-caret-left fa-bigger"></i></a>
+                                <span class="bold">到期日</span>
+                                <a data-bind="click: expiryChange.bind($data, true), activityTracker: { events: 'click', name: 'editorExpiryHeaderChange', value: 'right' }" class="btn btn-xs btn-tool"><i class="fa fa-caret-right fa-bigger"></i></a>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="combination-editor-strike">
+                                <a data-bind="click: strikeChange.bind($data, false), activityTracker: { events: 'click', name: 'editorStrikeHeaderChange', value: 'left' }" class="btn btn-xs btn-tool"><i class="fa fa-caret-left fa-bigger"></i></a>
+                                <span class="bold">行权价</span>
+                                <a data-bind="click: strikeChange.bind($data, true), activityTracker: { events: 'click', name: 'editorStrikeHeaderChange', value: 'right' }" class="btn btn-xs btn-tool"><i class="fa fa-caret-right fa-bigger"></i></a>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="combination-editor-type">
+                                <span class="bold">类型</span>
+                            </div>
+                        </th>
+                        <th colspan="2">
+                            <div class="combination-editor-premium">
+                                <span class="bold">权利金</span>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: combination.positions">
+                    <!-- ko ifnot: isOwned -->
+                    <tr>
+                        <td>
+                            <span class="income-hide">
+                                <span data-bind="click:$parent.buySellEvent,t: 'trade.' + buyOrSell().toLowerCase(), css: {'green': buySellFlag(), 'red': !buySellFlag() }, activityTracker: { events: 'click' , name: 'editorBuySellChange' , value: buyOrSell().toLowerCase() }"></span>
+                                <a data-bind="click:$parent.buySellEvent, activityTracker: { events: 'click' , name: 'editorBuySellChangeButton' , value: buyOrSell().toLowerCase() }">
+                                    <i class="fa fa-caret-down"></i>
+                                </a>
+                            </span>
+                            <span data-bind="t: 'trade.' + buyOrSell()" class="income-show"></span>
+                        </td>
+                        <td>
+                            <span class="">
+                                <a data-bind="click: $parent.qtySpinDown, activityTracker: { events: 'click' , name: 'editorQuantityChangeButton' , value: absQuantity() }">
+                                    <i class="fa fa-caret-down"></i>
+                                </a>
+                                <input type="text" data-bind="autoNumeric: absQuantity, settings: { vMin: 1, mDec: 0 }, css: {'wider': absQuantity() > 9999 }, activityTracker: { events: 'change' , name: 'editorQuantityChange' , value: absQuantity() }" class="spinner-qty-new no-border" autocomplete="off">
+                                <a data-bind="click: $parent.qtySpinUp, activityTracker: { events: 'click' , name: 'editorQuantityChangeButton' , value: absQuantity() }">
+                                    <i class="fa fa-caret-up"></i>
+                                </a>
+                            </span>
+                        </td>
+                        <td data-bind="if: type() !== 'SECURITY'">
+                            <div class="div-position">
+                                <span data-bind="text: $parent.expiryList[$parent.expiryList.findIndexByExpiryStr(expiryStr())].dateOnSelector" class="text-width-exp"></span>
+                                <!--<span data-bind="text: $parent.expiryList[$parent.expiryList.findIndex(expiry())].dateOnSelector" class="text-width-exp"></span>-->
+                                <i class="fa fa-caret-down"></i>
+                                <!--<select data-bind="options: $parent.expiryList, optionsText: 'dateOnSelector', optionsValue: 'date', value: expiry, activityTracker: { events: 'change' , name: 'editorExpiryChange', value: expiry}" class="select-exp"></select>-->
+                                <select data-bind="options: $parent.expiryList, optionsText: 'dateOnSelector', optionsValue: 'expiryStr', value: expiryStr" class="select-exp"></select>
+                            </div>
+                        </td>
+                        <td data-bind="if: type() !== 'SECURITY'">
+                            <div class="div-position">
+                                <span data-bind="text: strike" class="text-width-stk"></span>
+                                <i class="fa fa-caret-down"></i>
+                                <select data-bind="foreach:detailStrikeList, value: strike, css: type(), activityTracker: { events: 'change' , name: 'editorStrikeChange', value: strike }" class="select-strike">
+                                    <option data-bind="value: strike, html:strikeStr, css: strikeClass"></option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <!-- ko if: type() != 'SECURITY' -->
+                            <span class="income-hide">
+                                <span data-bind="click:$parent.callPutType, t: 'trade.' + type().toLowerCase(), css: {'green': type() =='CALL', 'red': type() =='PUT' }, activityTracker: { events: 'click' , name: 'editorCallPutChange', value: type().toLowerCase() }" class="spinner-qty-new"></span>
+                                <a data-bind="click:$parent.callPutType, activityTracker: { events: 'click' , name: 'editorCallPutChange', value: type().toLowerCase() }">
+                                    <i class="fa fa-caret-down"></i>
+                                </a>
+                            </span>
+                            <span data-bind="t: 'trade.' + type" class="income-show"></span>
+                            <!-- /ko -->
+                            <!-- ko if: type() == 'SECURITY' -->
+                            <span>股票</span>
+                            <!-- /ko -->
+                        </td>
+                        <td>
+                            <span data-bind="textFormatted: price, format: 'currency'" class="premium"></span>
+                        </td>
+                        <td data-bind="if: $parent.combination.positions().length > 1" class="remove-leg-icon income-hide ui-merge-column income-hide">
+                            <a data-bind="click: removePos, activityTracker: { events: 'click' , name: 'editorRemovePositionButton', value: '' }">
+                                <i class="fa fa-times-circle fa-bigger"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- /ko -->
+                </tbody>
+            </table>
+            <div id="alterLeg" class="income-hide">
+                <!-- ko if: combination.positions().length < 4 && combination.chain -->
+                <span id="addLegText">增加一边</span>
+                <button data-bind="click: addNewLeg.bind($data, 'CALL'), activityTracker: { events: 'click' , name: 'editorAddNewLegButton' , value: 'Call' } " class="btn btn-xs">认购</button>
+                <button data-bind="click: addNewLeg.bind($data, 'PUT'), activityTracker: { events: 'click' , name: 'editorAddNewLegButton' , value: 'Put' } " class="btn btn-xs">认沽</button>
+                <button data-bind="click: addNewLeg.bind($data, 'SECURITY'), css: { hide: combination.hasStock }, activityTracker: { events: 'click' , name: 'editorAddNewLegButton' , value: 'Security' } " class="btn btn-xs">股票</button>
+                <!-- /ko -->
+            </div>
+            <div id="editorControl" class="fluid-row">
+                <div class="pull-left editor-control-btn income-hide">
+                    <button data-bind="click: flipBS, activityTracker: { events: 'click' , name: 'editorFlipStrategyButton' , value: '' } " class="btn">反转策略</button>
+                </div>
+                <div data-bind="css: {'top-left': combination.canCustomizeWingspan() && combination.canCustomizeWidth()}" class="pull-left editor-control-btn">
+                    <button data-bind="click: reset, activityTracker: { events: 'click' , name: 'editorResetLegsButton' , value: '' }" class="btn">重置</button>
+                </div>
+                <div class="pull-left editor-control-btn">
+                    <div data-bind="visible: combination.canCustomizeWingspan" class="btn btn-group-integrated">
+                        <a data-bind="css: {'fade': !combination.canShrinkWingspan()}, click: shrinkWingspan, activityTracker: { events: 'click' , name: 'editorShrinkWingspanButton' , value: '' }" class="btn-left">
+                            <i class="fa fa-minus"></i>
+                        </a>
+                        翼幅
+                        <a data-bind="css: {'fade': !combination.canExpandWingspan()}, click: expandWingspan, activityTracker: { events: 'click' , name: 'editorExpandWingspanButton' , value: '' }" class="btn-right">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="pull-left editor-control-btn">
+                    <div data-bind="visible: combination.canCustomizeWidth" class="btn btn-group-integrated">
+                        <a data-bind="css: {'fade': !combination.canShrinkWidth()}, click: shrinkWidth" class="btn-left" href="#">
+                            <i class="fa fa-minus"></i>
+                        </a>
+                        宽度
+                        <a data-bind="css: {'fade': !combination.canExpandWidth()}, click: expandWidth" class="btn-right" href="#">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="pull-right editor-control-btn">
+                    <button data-bind="click: $root.tradeCombination.bind($parent, combination), activityTracker: { events: 'click', name: 'editorTradeCombinationButton', value: $root.tradeTicket.loggedData }" class="btn trade-btn">一键下单</button>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="combinationHeading">
+        <div data-bind="attr: { title: fullName }" class="combination-heading">
+            <div>
+                <div data-bind="css: { 'font-small': 18 <= longName().length <= 29, 'font-x-small': longName().length >= 30 }">
+                    <span data-bind="t: 'trade.' + buyOrSell()" class="uppercase"></span>
+                    <span>
+                        <span data-bind="text: absQuantity"></span>
+                        <!-- ko if: $data.expiriesStrikes -->
+                        <span data-bind="text: expiriesStrikes"></span>
+                        <!-- /ko -->
+                        <span data-bind="t: 'strategies.' + strategyName()"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </script>
+</section>

@@ -1,0 +1,39 @@
+﻿@import '../mixins.less';
+
+@bar-width: 100%;
+
+.running-bar-indicator {
+	display: none;
+	width: @bar-width;
+	position: absolute;
+	left: (100% - @bar-width)/2;
+	top: 0;
+
+	.loading-bar {
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		background-color: #0067B1;
+		z-index: 9999;
+		.lh-animation(loadingSpin 1s linear infinite);
+	}
+}
+
+& {
+	.keyframes(loadingSpin);.-frames(@-...) {
+		0% {
+			left: 0;
+			width: 0
+		}
+
+		50% {
+			left: 0;
+			width: 100%;
+		}
+
+		100% {
+			left: 100%;
+			width: 0
+		}
+	}
+}

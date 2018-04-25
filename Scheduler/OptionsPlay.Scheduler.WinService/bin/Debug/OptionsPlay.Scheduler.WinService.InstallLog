@@ -1,0 +1,13 @@
+﻿正在安装程序集“D:\OptionsPlay\Mainline\Scheduler\OptionsPlay.Scheduler.WinService\bin\Debug\OptionsPlay.Scheduler.WinService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = D:\OptionsPlay\Mainline\Scheduler\OptionsPlay.Scheduler.WinService\bin\Debug\OptionsPlay.Scheduler.WinService.InstallLog
+   assemblypath = D:\OptionsPlay\Mainline\Scheduler\OptionsPlay.Scheduler.WinService\bin\Debug\OptionsPlay.Scheduler.WinService.exe
+正在安装服务 OptionsPlay.SchedulerService...
+已成功安装服务 OptionsPlay.SchedulerService。
+正在日志 Application 中创建 EventLog 源 OptionsPlay.SchedulerService...
+正在提交程序集“D:\OptionsPlay\Mainline\Scheduler\OptionsPlay.Scheduler.WinService\bin\Debug\OptionsPlay.Scheduler.WinService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = D:\OptionsPlay\Mainline\Scheduler\OptionsPlay.Scheduler.WinService\bin\Debug\OptionsPlay.Scheduler.WinService.InstallLog
+   assemblypath = D:\OptionsPlay\Mainline\Scheduler\OptionsPlay.Scheduler.WinService\bin\Debug\OptionsPlay.Scheduler.WinService.exe

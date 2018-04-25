@@ -1,0 +1,117 @@
+﻿<div class="base-grid height-full">
+	<table data-bind="kendoGrid: gridOptions, kendoSpinner: gridReady, event: {wheel: onWheelScroll}" id="optionListTable" class="optionList-table">
+		<colgroup>
+			<col />
+			<col />
+			<col />
+			<col />
+			<col />
+			<col />
+			<col />
+			<col />
+			<col />
+			<col />
+			<col />
+			<col />
+			<col />
+			<col />
+			<col />
+			<col />
+			<col />
+			<col />
+			<col />
+		</colgroup>
+		<thead>
+			<tr>
+				<th data-field="optionNumber" data-bind="t: 'chains.optionNumber', click: sortResult"></th>
+				<th data-field="name" data-bind="t: 'chains.optionName', click: sortResult"></th>
+
+				<th data-field="changePercentage" data-bind="t: 'chains.changePercentage', click: sortResult"></th>
+				<th data-field="latestTradedPrice" data-bind="t: 'optionList.last', click: sortResult"></th>
+				<th data-field="bid" data-bind="t: 'optionList.bid', click: sortResult"></th>
+				<th data-field="ask" data-bind="t: 'optionList.ask', click: sortResult"></th>
+				<th data-field="change" data-bind="t: 'optionList.change', click: sortResult"></th>
+
+				<th data-field="volume" data-bind="t: 'optionList.volume', click: sortResult"></th>
+
+				<th data-field="uncoveredPositionQuantity" data-bind="t: 'optionList.openInterest', click: sortResult"></th>
+
+				<th data-field="greeks.sigma" data-bind="t: 'optionList.impliedVolatility', click: sortResult"></th>
+				<th data-field="greeks.delta" data-bind="t: 'optionList.delta', click: sortResult"></th>
+				<th data-field="greeks.theta" data-bind="t: 'optionList.theta', click: sortResult"></th>
+				<th data-field="greeks.gamma" data-bind="t: 'optionList.gamma', click: sortResult"></th>
+				<th data-field="greeks.vega" data-bind="t: 'optionList.vega', click: sortResult"></th>
+				<th data-field="greeks.rho" data-bind="t: 'optionList.rho', click: sortResult"></th>
+
+				<!--<th data-bind="t: 'chains.theoPrice'"></th>-->
+
+				<th data-field="expiryDate" data-bind="t: 'chains.expiry', click: sortResult"></th>
+				<th data-field="strikePrice" data-bind="t: 'chains.strikePrice', click: sortResult"></th>
+				<th data-field="securityCode" data-bind="t: 'chains.securityCode', click: sortResult"></th>
+				<th data-field="securityName" data-bind="t: 'chains.securityName', click: sortResult"></th>
+			</tr>
+
+		</thead>
+	</table>
+
+	<script id="optionListRowTemplate" type="text/html">
+		<tr data-bind="event: {click: $parent.onDoubleClick}, css: {'selected': $parent.selectedOption() == $data}">
+			<td data-bind="text: optionNumber" class="optionList-variety"></td>
+			<td data-bind="text: name" class="optionList-variety"></td>
+            <td data-bind="textFormatted: changePercentage, format: '+#.00%;-#.00%', css:{up: changePercentage() < 0, down: changePercentage() > 0}, changeFlash: changePercentage">    </td>
+            <td data-bind="textFormatted: latestTradedPrice, format: '#.0000', css:{up: changePercentage() < 0, down: changePercentage() > 0}, changeFlash: latestTradedPrice"></td>
+            <td data-bind="textFormatted: bid, format: '#.0000', css:{up: changePercentage() < 0, down: changePercentage() > 0}, changeFlash: bid"></td>
+            <td data-bind="textFormatted: ask, format: '#.0000', css:{up: changePercentage() < 0, down: changePercentage() > 0}, changeFlash: ask"></td>
+            <td data-bind="textFormatted: change, format: '+#.0000;-#.0000',  css:{up: changePercentage() < 0, down: changePercentage() > 0}, changeFlash: change"></td>
+			<td>
+				<span data-bind="textFormatted: volume, format: '#'" class="optionList-variety2"></span>
+			</td>
+			<td data-bind="textFormatted: uncoveredPositionQuantity, format: '#'" class="optionList-variety2"></td>
+			<td data-bind="if: greeks">
+				<span data-bind="textFormatted: greeks.sigma, format: '#.0000'"></span>
+			</td>
+			<td data-bind="if: greeks">
+				<span data-bind="textFormatted: greeks.delta, format: '#.000'"></span>
+			</td>
+			<td data-bind="if: greeks">
+				<span data-bind="textFormatted: greeks.theta, format: '#.000'"></span>
+			</td>
+			<td data-bind="if: greeks">
+				<span data-bind="textFormatted: greeks.gamma, format: '#.000'"></span>
+			</td>
+			<td data-bind="if: greeks">
+				<span data-bind="textFormatted: greeks.vega, format: '#.000'"></span>
+			</td>
+			<td data-bind="if: greeks">
+				<span data-bind="textFormatted: greeks.rho, format: '#.000'"></span>
+			</td>
+			<td data-bind="textFormatted: expiryDate, format: {type: 'date', dateFormat: 'yyyyMMdd'}" class="optionList-variety"></td>
+			<td data-bind="textFormatted: strikePrice" class="optionList-variety"></td>
+			<td data-bind="text: securityCode" class="optionList-variety"></td>
+			<td data-bind="text: securityName" class="optionList-variety"></td>
+		</tr>
+	</script>
+	
+	<ul id="optionChainsRowContextMenu" data-bind="kendoExtContextMenu: OptionListContextMenu">
+		<li class="buytoOpen">
+			<span class="k-icon k-i-custom"></span><span data-bind="t: 'trade.stockBizOptions.buyToOpen'"></span>
+		</li>
+		<li class="selltoClose">
+			<span class="k-icon k-i-custom"></span><span data-bind="t: 'trade.stockBizOptions.sellToClose'"></span>
+		</li>
+		<li class="selltoOpen">
+			<span class="k-icon k-i-custom"></span><span data-bind="t: 'trade.stockBizOptions.sellToOpen'"></span>
+		</li>
+		<li class="buytoClose">
+			<span class="k-icon k-i-custom"></span><span data-bind="t: 'trade.stockBizOptions.buyToClose'"></span>
+		</li>
+		<!-- ko ifnot: OptionListContextMenu.putFlag() -->
+		<li  class="selltoCoveredCall">
+			<span class="k-icon k-i-custom"></span><span data-bind="t: 'trade.stockBizOptions.openCoveredCall'"></span>
+		</li>
+		<li class="buytoCoverdCall">
+			<span class="k-icon k-i-custom"></span><span data-bind="t: 'trade.stockBizOptions.closeCoveredCall'"></span>
+		</li>
+		<!-- /ko -->
+	</ul>
+</div>

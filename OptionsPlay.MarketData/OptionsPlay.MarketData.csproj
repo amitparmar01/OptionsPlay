@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ABAB6C17-967A-4EFE-AC63-4E9BCF25025B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OptionsPlay.MarketData</RootNamespace>
+    <AssemblyName>OptionsPlay.MarketData</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NDbfReader, Version=1.0.2.0, Culture=neutral, PublicKeyToken=421d1ecd09787b1d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NDbfReader.1.0.2.0\lib\net40-Client\NDbfReader.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MarketDataConfiguration.cs" />
+    <Compile Include="Parser.cs" />
+    <Compile Include="MarketDataProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignalsCalculator.cs" />
+    <Compile Include="Sources\FromFtpServer.cs" />
+    <Compile Include="Sources\FromLocalDrive.cs" />
+    <Compile Include="Sources\FromShared Folders.cs" />
+    <Compile Include="Sources\FromSharedFoldersInDomain.cs" />
+    <Compile Include="Sources\FromWebPage.cs" />
+    <Compile Include="Sources\MarketDataSources.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\OptionsPlay.Common\OptionsPlay.Common.csproj">
+      <Project>{85025E83-4476-400A-B282-363256F61EFA}</Project>
+      <Name>OptionsPlay.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\OptionsPlay.Logging\OptionsPlay.Logging.csproj">
+      <Project>{69F28C8C-7550-4A78-996A-BE2C015D4E52}</Project>
+      <Name>OptionsPlay.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Common\OptionsPlay.Model\OptionsPlay.Model.csproj">
+      <Project>{187287E1-CE16-4B99-B56D-AE6308E06DC8}</Project>
+      <Name>OptionsPlay.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OptionsPlay.MarketData.Indicators\OptionsPlay.MarketData.Indicators.csproj">
+      <Project>{6c995254-8d66-4aaf-989c-75fb702d30a4}</Project>
+      <Name>OptionsPlay.MarketData.Indicators</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

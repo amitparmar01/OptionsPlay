@@ -1,0 +1,264 @@
+﻿@import '../../mixins.less';
+@import 'common.less';
+
+@media screen {
+	@tradeIdeas-minified-section-width: 75px;
+
+	@media (max-width: @tablet-width) {
+
+		#powerhousePro .powerhouse-section {
+			box-shadow: none;
+		}
+
+		#powerhousePro .trade-panel-visible {
+			.powerhouse-section {
+				overflow: hidden;
+			}
+
+			.tablet-smaller {
+				font-size: 0.8em;
+				line-height: 1.8;
+			}
+
+			#whyAndHowContainer  {
+				margin-left: @tradeIdeas-minified-section-width + 20px;
+				//margin-right: @strategies-section-width + 20px;
+
+				#chartsAndEnglish #supportAndResistance {
+					.sr-label {
+						font-size: 1em;
+						font-weight: normal;
+						padding-left: 2px;
+					}
+
+					.sr-table td, .sr-table th {
+						padding: 1px 3px;
+					}
+				}
+			}
+
+			#tradeIdeas {
+				width: @tradeIdeas-minified-section-width;
+
+				.btn {
+					border-radius: @border-radius;
+				}
+
+				.filter-button {
+					font-size: 10px;
+					height: 26px;
+				}
+
+				#tradeIdeasFilter {
+					font-size: 10px;
+					background-color: transparent;
+					border-radius: 0;
+					margin-bottom: 0;
+
+					#tradeIdeasFilterHeader {
+						padding: 0 0 7px;
+					}
+
+					#tradeIdeasCount, #symbolInput {
+						padding-left: 0;
+						padding-right: 0;
+						height: 30px;
+						width: 100%;
+						font-size: 8px;
+					}
+
+					#tradeIdeasCount {
+						margin: 5px 0;
+
+						> * {
+							float: none;
+						}
+
+						img {
+							display: none;
+						}
+
+						span {
+							display: block;
+						}
+
+						> span {
+							float: none;
+
+							> span {
+								text-align: center;
+							}
+						}
+					}
+
+					#symbolInput {
+						input {
+							width: 45px;
+							padding-left: 2px;
+
+							&::-webkit-input-placeholder {
+								padding-top: 0;
+							}
+						}
+					}
+				}
+
+				#tradeIdeasGridWrapper {
+					max-width: @tradeIdeas-minified-section-width;
+
+					.table-body {
+						background-color: white;
+						height: 532px;
+					}
+
+					.last-price {
+						font-weight: normal;
+					}
+
+					.generate-long-names(4);
+					.generate-long-names(@n, @i: 0) when (@i =< @n) {
+						.long-name-@{i} {
+							font-size: 1.1em - 0.05 * @i;
+						}
+						.generate-long-names(@n, (@i + 1));
+					}
+
+					.table-row {
+						.lh-transition(height 0.3s ease, padding-top 0.3s ease, margin-top 0.3s ease);
+					}
+
+					.table-row.selected {
+						font-size: 1.1em;
+						height: 46px !important;
+						margin-top: -5px;
+						z-index: 1;
+						border-top-width: 1px;
+						border-top-style: solid;
+					}
+
+					.company-name-cell {
+						// actual width minus margin for perfect scrollbar
+						width: @tradeIdeas-minified-section-width - 5px;
+
+						.company-name-cell-content {
+							padding-left: @sentiment-indicator-in-table-width + 2px;
+
+							img.multipleScans {
+								margin-right: 0;
+							}
+						}
+					}
+				}
+
+				#tabletFilter {
+					padding-top: 7px;
+
+					.btn {
+						margin-bottom: 2px;
+					}
+				}
+			}
+		}
+	}
+
+	@media (max-width: 1100px) {
+		#powerhousePro .trade-panel-visible {
+			@new-strategies-section-width: @strategies-section-width - 30px;
+
+			#whyAndHowContainer  {
+				margin-left: @tradeIdeas-minified-section-width + 2px;
+				//margin-right: @new-strategies-section-width + 2px;
+
+				#rulesCarousel, #priceAction {
+					font-size: 10px;
+				}
+			}
+
+			#strategiesSection {
+				max-width: @new-strategies-section-width;
+				width: @new-strategies-section-width;
+
+				#incomeControl input.input-mini {
+					width: 4em;
+				}
+			}
+		}
+
+		#powerhousePro .trade-panel-invisible {
+			#chartsAndEnglish #powerhouseProHistoricalsChart.fullscreen .chart-contanier #powerhouseProHistoricalChart-contentWrapper {
+				top: 10%;
+				height: 80%;
+				max-height: (@total-height*0.8);
+				margin-left: 0;
+			}
+		}
+	}
+
+	// fix modal issue on small devices
+	@media (max-device-width: 600px) {
+		#contactModal, #disclaimerModal {
+			.modal-dialog {
+				width: 90% !important;
+			}
+		}
+
+		#disclaimerModal {
+			h3 {
+				font-size: 18px !important;
+			}
+
+			#disclaimerModalContent {
+				height: 200px !important;
+			}
+		}
+
+		#contactModal {
+			#contactLogo {
+				height: 120px !important;
+				width: 200px !important;
+			}
+		}
+	}
+
+	@media (max-width: @tablet-width) {
+		.small-header;
+	}
+
+	@media (max-height: 753px) {
+		@header-footer-width: 46px;
+
+		#headerBackground {
+			.lh-transition(top 0.5s);
+			top: 0;
+
+			#header {
+				height: @header-footer-width;
+			}
+		}
+
+		#footerBackground {
+			.lh-transition(bottom 0.5s);
+			bottom: -@header-footer-width;
+
+			&.expanded {
+				bottom: 0;
+			}
+		}
+
+		.footer-toggler-wrapper {
+			display: block;
+		}
+
+		#powerhouseProScrollbar {
+			.lh-transition(top 0.5s, bottom 0.5s, padding-top 0.5s);
+			top: 0;
+			bottom: 0;
+			top: @header-footer-width;
+			padding-top: 0;
+
+			&.footer-expanded {
+				bottom: @header-footer-width;
+			}
+		}
+	}
+}

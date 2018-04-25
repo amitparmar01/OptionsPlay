@@ -1,0 +1,82 @@
+﻿<div id="disclaimerModal" class="modal-dialog" >
+	<div class="modal-content">
+		<div class="modal-body">
+			<!-- ko with: implementation -->
+			<!-- ko if: $data == 'Default' -->
+			<div data-bind="template: { name: 'dafaultDisclaimer' }"></div>
+			<!-- /ko -->
+			<!-- ko if: $data =='Regal' -->
+			<div data-bind="template: { name: 'regalDisclaimer' }"></div>
+			<!-- /ko -->
+			<!-- /ko -->
+		</div>
+
+		<div class="modal-footer text-center">
+			<button type="button" class="btn btn-default" data-bind="click: reject">I do not agree</button>
+			<button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: accept">I agree</button>
+		</div>
+	</div>
+</div>
+
+<script id="dafaultDisclaimer" type="text/html">
+	<div class="text-center">
+		<h3 class="bold">
+			<div>Online Options Trading</div>
+			<div>Legal Notice & Disclaimer</div>
+		</h3>
+	</div>
+	<br />
+	<div id="disclaimerModalContent">
+		<p>
+			There can be significant risk of losses in trading securities and options. Customers must consider all relevant risk elements including their individual financial circumstances prior to trading. Options involve risks and are not suitable for every investor. Prior to buying or selling an option, an investor must receive a copy of Characteristics and Risks of Standardized Options. Also, please note on December 17, 2009 the Securities and Exchange Commission ("SEC") approved a <span class="underline">Supplement to the Options Disclosure Document ("ODD")</span> providing information relating to options on indexes and the adjustment of stock option contracts. Any results posted are unique and are not indicative of any future results.
+		</p>
+		<p>
+			Copies may be obtained from your broker, one of the exchanges or the Options Clearing Corporation. Historical results do not indicate future performance. OptionsPlay does not guarantee in writing or verbally that material on this website or that taught in the videos or written material contained in the associated files that accompany the videos will result in a profit. Investors need a broker to trade options, and must meet suitability requirements.
+		</p>
+		<p>
+			For ease of simplicity, all examples used on this website and in the videos exclude commissions, interest and dividend and other transaction fees, tax considerations, or margin requirements, which are factors that may significantly affect the economic consequences of trades illustrated. Please contact a tax advisor for the tax implications involved with trading specific spread types and read the Options Disclosure Document (ODD) prior to investing in options. You can obtain a copy of the ODD at <a href="http://www.theocc.com/about/publications/character-risks.jsp" target="_blank">http://www.theocc.com/about/publications/character-risks.jsp</a>; or, from the Options Clearing Corporation (1888-options), One North Wacker Drive, Suite 500, Chicago IL 60606. Stock/Index/ETF and option symbols and price data shown are for illustrative purposes only.
+		</p>
+		<p>
+			The information and data contained in this website (www.OptionsPlay.com) was obtained from sources believed to be reliable, but accuracy is not guaranteed. Neither the information, nor any opinion expressed, constitutes a recommendation to purchase or sell a security, or to provide investment advice.
+		</p>
+		<p>
+			The information contained on this site is provided for general informational purposes, as a convenience to clients. The materials are not a substitute for obtaining professional advice from a qualified person, firm or corporation. Consult the appropriate professional advisor for more complete and current information. OptionsPlay is not engaged in rendering any legal or professional services by placing these general informational materials on this website.
+		</p>
+		<p>
+			OptionsPlay specifically disclaims any liability, whether based in contract, tort, strict liability or otherwise, for any direct, indirect, incidental, consequential, or special damages arising out of or in any way connected with access to or use of the site, even if OptionsPlay has been advised of the possibility of such damages, including liability in connection with mistakes or omissions in, or delays in transmission of, information to or from the user, interruptions in telecommunications connections to the site or viruses.
+		</p>
+		<p>
+			OptionsPlay makes no representations or warranties about the accuracy or completeness of the information contained on this website. Any links provided to other server sites are offered as a matter of convenience and in no way are meant to imply that OptionsPlay endorses, sponsors, promotes or is affiliated with the owners of or participants in those sites, or endorses any information contained on those sites, unless expressly stated.
+		</p>
+		<p>
+			OptionsPlay is the copyright owner of all text and graphics contained on this website, except as otherwise indicated. Other parties' trademarks and service marks that may be referred to herein are the property of their respective owners. You may print a copy of the information contained herein for your personal use only, but you may not reproduce or distribute the text or graphics to others or substantially copy the information on your own server, or link to this website, without prior written permission of OptionsPlay.
+		</p>
+		<p>
+			Permission to use and reproduce documents and related graphics available from this website is granted, provided that: 1. the below copyright notice appears in all copies and that both the copyright and this permission notice appear; 2. use and reproduction of documents and related graphics available from this website is limited to personal, non-commercial use; 3. no documents or related graphics, including logos, available from this website are modified in any way; and 4. no graphics, including logos, available from this website are used separate from accompanying text. Use or reproduction for any other purpose is expressly prohibited by law, and may result in civil and criminal penalties.
+		</p>
+	</div>
+</script>
+
+<script id="regalDisclaimer" type="text/html">
+	<div class="text-center">
+		<h3 class="bold">
+			<div>Online Options Trading</div>
+			<div>Legal Notice & Disclaimer</div>
+		</h3>
+	</div>
+	<br />
+	<div id="disclaimerModalContent">
+		<p>
+			OptionsPlay provides equity and option investing tools, daily trading ideas and strategies, and technical analysis for informational purposes only and eOption cannot attest to its reliability, performance, accuracy or completeness. eOption makes no representation or warranty that any data or information supplied to or by OptionsPlay is complete or free from errors, omissions, or defects. No information contained in OptionsPlay is intended to constitute a recommendation by eOption to buy, sell, or hold any stock, option, or a particular investment. eOption makes no investment recommendations and does not provide financial, tax, or legal advice.
+		</p>
+		<p>
+			With your use of OptionsPlay, you are solely responsible for your own investment and trading decisions, and any losses damages or costs resulting from your reliance on any data or information that is provided in connection with your use of OptionsPlay. eOption is not responsible for determining whether any transaction you may enter into is suitable, appropriate or advisable. The research and investment strategies contained in OptionsPlay may not be appropriate for you.
+		</p>
+		<p>
+			Options involve risk and are not suitable for all investors. Prior to trading options, you must be approved for options trading and read the
+			<a href="http://www.optionsclearing.com/about/publications/character-risks.jsp" target="_blank">Characteristics and Risks of Standardized Options</a>.
+			A copy may also be requested via email at
+			<a href="mailto:support@eoption.com">support@eoption.com</a> or via mail to eOption, 950 Milwaukee Ave., Ste. 102, Glenview, IL 60025. Online trading has inherent risks due to loss of online services or delays from system performance, risk parameters, market conditions, and erroneous or unavailable market data.
+		</p>
+	</div>
+</script>

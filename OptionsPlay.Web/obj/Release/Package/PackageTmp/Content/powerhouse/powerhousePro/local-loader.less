@@ -1,0 +1,51 @@
+﻿@import '../mixins.less';
+
+@indicator-color: #0067B1;
+@indicator-width: 128px;
+
+.has-progressbar {
+	position: relative;
+}
+
+.progressbar-container {
+	background: white;
+	display: none;
+	height: 35px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.progressbar {
+	background-color: @indicator-color;
+	border: 1px solid @indicator-color;
+	height: 10px;
+	margin: 0 auto;
+	overflow: hidden;
+	width: @indicator-width;
+	.lh-border-radius(5px);
+}
+
+.progressbar-inner {
+	background-color: white;
+	height: 10px;
+	margin-left: -@indicator-width;
+	margin-top: 0;
+	width: @indicator-width;
+	.lh-animation(progressbar 2.4s linear infinite);
+}
+
+& {
+	.keyframes(progressbar);
+
+	.-frames(@-...) {
+		0% {
+			margin-left: -@indicator-width;
+		}
+
+		100% {
+			margin-left: @indicator-width;
+		}
+	}
+}

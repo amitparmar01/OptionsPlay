@@ -1,0 +1,71 @@
+﻿@model OptionsPlay.Web.ViewModels.StrategyGroupViewModel
+
+<div>
+	<form data-bind="submit: submit, template: { afterRender: addToValidationContext }" id="strategyGroupForm">
+		<!-- ko widget: { kind: '_buttons/back', href: '#/strategy/group/all' } -->
+		<!-- /ko -->
+		<h3 data-bind="text: formCaption" id="formCaption"></h3>
+		<hr />
+		<div>
+			@Html.LabelFor(m => m.Name)
+			@Html.HiddenFor(m => m.Id, new { data_bind = "value: id" })
+			@Html.TextBoxFor(m => m.Name, new { data_bind = "value: name", @class = "k-textbox" })
+			@Html.ValidationMessageFor(m => m.Name)
+		</div>
+		<!-- ko if: currentImage -->
+		<div>
+			@Html.LabelFor(m => m.CurrentImage)
+			@Html.HiddenFor(m => m.CurrentImage, new { data_bind = "value: currentImage" })
+			<img data-bind="attr: { src: currentImage }" id="strategyGroupImage" alt="strategy group image" />
+		</div>
+		<!-- /ko -->
+		<div>
+			@Html.LabelFor(m => m.ImageFile)
+			@Html.TextBoxFor(m => m.ImageFile, new { type = "file" })
+			@Html.ValidationMessageFor(m => m.ImageFile)
+		</div>
+		<div>
+			<div class="checkbox">
+				@Html.CheckBoxFor(m => m.CanCustomizeWidth, new { data_bind = "checked: canCustomizeWidth" })
+				@Html.LabelFor(m => m.CanCustomizeWidth)
+			</div>
+		</div>
+		<div>
+			<div class="checkbox">
+				@Html.CheckBoxFor(m => m.CanCustomizeWingspan, new { data_bind = "checked: canCustomizeWingspan" })
+				@Html.LabelFor(m => m.CanCustomizeWingspan)
+			</div>
+		</div>
+		<div>
+			<div class="checkbox">
+				@Html.CheckBoxFor(m => m.CanCustomizeExpiry, new { data_bind = "checked: canCustomizeExpiry" })
+				@Html.LabelFor(m => m.CanCustomizeExpiry)
+			</div>
+		</div>
+		<div class="checkbox">
+			@Html.CheckBoxFor(m => m.Display, new { data_bind = "checked: display" })
+			@Html.LabelFor(m => m.Display)
+		</div>
+		<div>
+			@Html.LabelFor(m => m.CallStrategyId)
+			@Html.DropDownListFor(m => m.CallStrategyId, Model.StrategyOptions,
+				new { data_bind = "options: strategyOptions, optionsValue: 'value', optionsText: 'text', optionsCaption: 'Select Call Strategy', value: callStrategyId" })
+			@Html.ValidationMessageFor(m => m.CallStrategyId)
+		</div>
+		<div>
+			@Html.LabelFor(m => m.PutStrategyId)
+			@Html.DropDownListFor(m => m.PutStrategyId, Model.StrategyOptions,
+				new { data_bind = "options: strategyOptions, optionsValue: 'value', optionsText: 'text', optionsCaption: 'Select Put Strategy', value: putStrategyId" })
+			@Html.ValidationMessageFor(m => m.PutStrategyId)
+		</div>
+		<div>
+			@Html.LabelFor(m => m.DisplayOrder)
+			@Html.TextBoxFor(m => m.DisplayOrder, new { data_bind = "value: displayOrder", @class = "k-textbox" })
+			@Html.ValidationMessageFor(m => m.DisplayOrder)
+		</div>
+		<hr />
+		<!-- ko widget: { kind: '_buttons/submit', value: 'Save' } -->
+		<!-- /ko -->
+		@{ Html.RenderPartial("_ValidationErrors"); }
+	</form>
+</div>

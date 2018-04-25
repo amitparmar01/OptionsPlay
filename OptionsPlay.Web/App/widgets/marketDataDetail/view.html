@@ -1,0 +1,118 @@
+﻿
+<h4>
+	<!-- ko text: code -->
+	<!-- /ko -->
+	<!-- ko text: name -->
+	<!-- /ko -->
+</h4>
+<div class="container-fluid">
+	<div class="row">
+		<table class="five-level-ask" style="table-layout: fixed">
+			<tr>
+				<td class="text-left">深度</td>
+				<td class="text-left">价格</td>
+				<td class="text-right">挂单量</td>
+			</tr>
+		</table>
+	</div>
+	<div class="row">
+		<table class="five-level-ask" style="table-layout: fixed">
+				<tr>
+					<td class="text-left">卖5</td>
+					<td data-bind="textFormatted: sellPrice5 , format: '#.0000', redGreen: (sellPrice5()  - previousClose())" class="text-left"></td>
+					<td data-bind="text: sellVolume5 || askVolume5" class="bold text-right"></td>
+				</tr>
+				<tr>
+					<td class="text-left">卖4</td>
+					<td data-bind="textFormatted: sellPrice4 , format: '#.0000', redGreen: (sellPrice4() - previousClose())" class="text-left"></td>
+					<td data-bind="text: sellVolume4 || askVolume4" class="bold text-right"></td>
+				</tr>
+				<tr>
+					<td class="text-left">卖3</td>
+					<td data-bind="textFormatted: sellPrice3 , format: '#.0000', redGreen: (sellPrice3() - previousClose())" class="text-left"></td>
+					<td data-bind="text: sellVolume3 || askVolume3" class="bold text-right"></td>
+				</tr>
+				<tr>
+					<td class="text-left">卖2</td>
+					<td data-bind="textFormatted: sellPrice2 , format: '#.0000', redGreen: (sellPrice2() - previousClose())" class="text-left"></td>
+					<td data-bind="text: sellVolume2 || askVolume2" class="bold text-right"></td>
+				</tr>
+				<tr>
+					<td class="text-left">卖1</td>
+					<td data-bind="textFormatted: currentAskPrice , format: '#.0000', redGreen: (currentAskPrice() - previousClose())" class="text-left"></td>
+					<td data-bind="text: sellVolume1 || askVolume" class="bold text-right"></td>
+				</tr>
+		</table>
+	</div>
+	<div class="row">
+		<table class="five-level-bid" style="table-layout: fixed">
+			<tr>
+				<td class="text-left">买1</td>
+				<td data-bind="textFormatted: currentBidPrice , format: '#.0000', redGreen: (currentBidPrice() - previousClose())" class="text-left"></td>
+				<td data-bind="text: buyVolume1 || bidVolume" class="bold text-right"></td>
+			</tr>
+			<tr>
+				<td class="text-left">买2</td>
+				<td data-bind="textFormatted: buyPrice2 , format: '#.0000', redGreen: (buyPrice2() - previousClose())" class="text-left"></td>
+				<td data-bind="text: buyVolume2 || bidVolume2" class="bold text-right"></td>
+			</tr>
+			<tr>
+				<td class="text-left">买3</td>
+				<td data-bind="textFormatted: buyPrice3 , format: '#.0000', redGreen: (buyPrice3() - previousClose())" class="text-left"></td>
+				<td data-bind="text: buyVolume3 || bidVolume3" class="bold text-right"></td>
+			</tr>
+			<tr>
+				<td class="text-left">买4</td>
+				<td data-bind="textFormatted: buyPrice4 , format: '#.0000', redGreen: (buyPrice4() - previousClose())" class="text-left"></td>
+				<td data-bind="text: buyVolume4 || bidVolume4" class="bold text-right"></td>
+			</tr>
+			<tr>
+				<td class="text-left">买5</td>
+				<td data-bind="textFormatted: buyPrice5 , format: '#.0000', redGreen: (buyPrice5() - previousClose())" class="text-left"></td>
+				<td data-bind="text: buyVolume5 || bidVolume5" class="bold text-right"></td>
+			</tr>
+		</table>
+	</div>
+	<div class="row">
+		<table class="basic-info" style="table-layout: fixed">
+			<tr>
+				<td class="key text-left">最新</td>
+				<td data-bind="textFormatted: lastPrice, format: '#.0000', redGreen: (lastPrice() - previousClose())" class="text-left"></td>
+				<td class="key">开盘</td>
+				<td data-bind="textFormatted: openPrice, format: '#.0000', redGreen: (openPrice() - previousClose())" class="text-right"></td>
+			</tr>
+			<tr>
+				<td class="text-left">涨跌</td>
+				<td data-bind="textFormatted: change, format: '#.0000', redGreen: (change() - previousClose())" class="text-left"></td>
+				<td>最高</td>
+				<td data-bind="textFormatted: highPrice, format: '#.0000', redGreen: (highPrice() - previousClose())" class="text-right"></td>
+			</tr>
+			<tr>
+				<td class="text-left">幅度</td>
+				<td data-bind="textFormatted: changePercentage, format: '#.0000', redGreen: (changePercentage() - previousClose())" class="text-left"></td>
+				<td>最低</td>
+				<td data-bind="textFormatted: lowPrice, format: '#.0000', redGreen: (lowPrice() - previousClose())" class="text-right"></td>
+			</tr>
+			<tr>
+				<td class="text-left">总手</td>
+				<td data-bind="textFormatted: volume, format: 'volume'" class="text-left"></td>
+				<td>昨结</td>
+				<td data-bind="textFormatted: previousClose, format: '#.0000'" class="text-right"></td>
+			</tr>
+			<!-- ko if: quote.optionNumber -->
+			<tr>
+				<td class="text-left">持仓</td>
+				<td data-bind="textFormatted: uncoveredPositionQuantity" class="text-left"></td>
+				<td>仓差</td>
+				<td data-bind="textFormatted:  uncoveredPositionQuantity() - openInterest" class="text-right"></td>
+			</tr>
+			<!-- /ko -->
+			<tr>
+				<td class="text-left">涨停</td>
+				<td data-bind="textFormatted: limitUp, format: '#.0000', redGreen: (limitUp() - previousClose())" class="text-left"></td>
+				<td>跌停</td>
+				<td data-bind="textFormatted: limitDown, format: '#.0000', redGreen: (limitDown() - previousClose())" class="text-right"></td>
+			</tr>
+		</table>
+	</div>
+</div>

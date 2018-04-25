@@ -1,0 +1,11 @@
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Resources\bin\Release\OptionsPlay.Resources.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Resources\bin\Release\OptionsPlay.Resources.pdb
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Resources\obj\Release\OptionsPlay.Resources.ClientErrorMessages.resources
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Resources\obj\Release\OptionsPlay.Resources.DisplayNames.resources
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Resources\obj\Release\OptionsPlay.Resources.EnumsLocalization.resources
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Resources\obj\Release\OptionsPlay.Resources.ErrorMessages.resources
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Resources\obj\Release\OptionsPlay.Resources.LogMessages.resources
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Resources\obj\Release\OptionsPlay.Resources.csproj.GenerateResource.Cache
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Resources\obj\Release\OptionsPlay.Resources.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Resources\obj\Release\OptionsPlay.Resources.pdb
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Resources\obj\Release\OptionsPlay.Resources.csprojResolveAssemblyReference.cache

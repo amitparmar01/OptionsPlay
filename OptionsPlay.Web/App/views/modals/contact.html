@@ -1,0 +1,57 @@
+﻿<div id="contactModal" class="modal-dialog" >
+	<div class="modal-content">
+		<div class="modal-body">
+			<a class="modal-dismiss" data-dismiss="modal">x</a>
+			<div class="text-center">
+				<img id="contactLogo" src="Content/images/OptionsPlay/contactLogo.png" data-bind="css: { 'big': !isB2B }" />
+			</div>
+			<br />
+			<p>
+				Welcome to OptionsPlay, a better way to simplify and profit from the world of options.
+			</p>
+
+			<!-- ko if: isB2B -->
+			<p>
+				OptionsPlay packs the tools and techniques of pro Wall Street traders into a powerful, intuitive tool. Your investors will see your own branding, your own logos and your own trading information — they’ll see everything including market and historical data that you normally provide — but they’ll gain new ways to generate income and manage risk. Straight talk. Simple charts. Real power.
+			</p>
+			<p>
+				OptionsPlay Ideas presents a trade ticket for our members to enter into their broker platform.  As an integrated partner of OptionsPlay, our joint members will be able to submit orders to your platform directly from OptionsPlay Ideas.
+			</p>
+			<p>
+				To learn how OptionsPlay can be integrated with your trading platform, please contact: <a href="mailto:business.inquiries@optionsplay.com">business.inquiries@optionsplay.com</a>.
+			</p>
+			<p>
+				<img src="Content/images/mark-signature.png" alt="Mark's Signature" />
+			</p>
+			<p>
+				Mark Engelhardt<br />
+				CEO and Founder<br />
+				OptionsPlay<br />
+				<a href="http://www.optionsplay.com">www.optionsplay.com</a>
+			</p>
+			<!-- /ko -->
+			<!-- ko ifnot: isB2B -->
+			<p>
+				OptionsPlay packs the tools and techniques of pro Wall Street traders into a powerful, intuitive tool. You’ll gain new ways to generate income and manage risk. Straight talk. Simple charts. Real power.
+			</p>
+			<p>
+				Try it out, explore different strategies and experience the benefits of options trading!
+			</p>
+			<p>
+				<a href="http://www.optionsplay.com">www.optionsplay.com</a>
+			</p>
+			<p>
+				For business inquiries, click <a href="mailto:business.inquiries@optionsplay.com">here</a>.
+			</p>
+			<!-- /ko -->
+
+			<p class="smaller">
+				<i>Note: market data is delayed up to 20-minutes and trade ideas and historical analysis are generated nightly, both based on freely available data. We cannot attest to or be accountable for the accuracy of such data. Real-time data may be available for an additional fee.</i>
+			</p>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>
+

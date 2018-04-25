@@ -1,0 +1,15 @@
+﻿<div id="shareModal" class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" data-bind="click: reject" class="close" aria-hidden="true">&times;</button>
+			<h4 data-bind="text: title" class="modal-title"></h4>
+		</div>
+		<div class="modal-body">
+			<div data-bind="if: imageData != null" class="share-image">
+				<img data-bind="toggle: imageExpanded, attr: { src: imageData }, css: { expanded: imageExpanded }" alt="Image to share" />
+			</div>
+		</div>
+
+		<!-- ko compose: { model: formViewModelId, activationData: $data } --> <!-- /ko -->
+	</div>
+</div>

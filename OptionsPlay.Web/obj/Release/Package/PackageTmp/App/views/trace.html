@@ -1,0 +1,9 @@
+﻿<div data-bind="foreach: { data: libraryFunctionsInProgress, beforeRemove: removeNotification }" id="trace">
+	<div class="notification" data-bind="css: state">
+		<div class="function-name" data-bind="text: functionName"></div>
+		<div class="state" data-bind="t: stateTranslation"></div>
+		<div class="time" data-bind="if: state() === 'completed'">
+			<span data-bind="text: seconds"></span>.<span data-bind="text: milliseconds"></span><span data-bind="t: 'trace.seconds'"></span>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,58 @@
+24.03.2015 14:04:18  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 14:04:18  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 14:04:26  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  File mktdt03.txt Copied in 60ms
+24.03.2015 14:05:47  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 14:05:47  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 14:05:50  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  File mktdt03.txt Copied in 3ms
+24.03.2015 14:08:18  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 14:08:18  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 14:09:34  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 14:09:34  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 14:09:39  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  File mktdt73.txt Copied in 2893ms
+24.03.2015 14:10:18  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 14:10:18  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 14:11:44  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  File mktdt73.txt Copied in 10557ms
+24.03.2015 14:11:52  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Saving StockQuotesInfo
+24.03.2015 14:14:20  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 14:14:20  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 14:14:28  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  File mktdt03.txt Copied in 2978ms
+24.03.2015 14:16:31  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 14:16:31  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 14:16:33  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  File mktdt03.txt Copied in 17ms
+24.03.2015 14:22:10  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 14:22:10  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 14:22:12  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  File mktdt03.txt Copied in 6ms
+24.03.2015 16:51:21  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 16:51:21  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 16:53:11  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 16:53:11  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 16:53:27  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Error opening file 
+24.03.2015 17:00:23  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 17:00:23  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 17:02:23  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 17:02:23  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 17:08:41  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 17:08:41  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 17:11:25  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 17:11:25  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 17:12:23  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 17:12:23  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 17:15:42  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 17:15:42  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 17:16:28  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 17:16:28  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 17:17:19  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 17:17:19  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 17:20:05  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 17:20:05  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 17:20:32  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Error opening file 
+24.03.2015 17:20:51  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  File mktdt03.txt Copied in 41624ms
+24.03.2015 17:26:02  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 17:26:02  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 17:44:38  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 17:44:38  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 17:45:33  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 17:45:33  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 17:46:16  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting StockQuotesInfo
+24.03.2015 17:46:16  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Getting OptionQuotesInfo
+24.03.2015 17:47:02  DEBUG  OptionsPlay.Logging.Logger.Debug(d:\OptionsPlay\Mainline\Common\OptionsPlay.Logging\Logger.cs:29)  Saving StockQuotesInfo

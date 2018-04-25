@@ -1,0 +1,11 @@
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Cache\bin\Release\OptionsPlay.Cache.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Cache\bin\Release\OptionsPlay.Cache.pdb
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Cache\bin\Release\Newtonsoft.Json.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Cache\bin\Release\Newtonsoft.Json.xml
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Cache\obj\Release\OptionsPlay.Cache.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Cache\obj\Release\OptionsPlay.Cache.pdb
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Cache\obj\Release\OptionsPlay.Cache.csprojResolveAssemblyReference.cache
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Cache\bin\Release\OptionsPlay.Logging.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Cache\bin\Release\log4net.dll
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Cache\bin\Release\OptionsPlay.Logging.pdb
+D:\OptionsPlay\Mainline\Common\OptionsPlay.Cache\bin\Release\log4net.xml

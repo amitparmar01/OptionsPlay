@@ -1,0 +1,10 @@
+D:\OptionsPlay\Mainline\DAL\EntityFramework\OptionsPlay.EF.Encryption\bin\Release\OptionsPlay.EF.Encryption.dll.config
+D:\OptionsPlay\Mainline\DAL\EntityFramework\OptionsPlay.EF.Encryption\bin\Release\OptionsPlay.EF.Encryption.dll
+D:\OptionsPlay\Mainline\DAL\EntityFramework\OptionsPlay.EF.Encryption\bin\Release\OptionsPlay.EF.Encryption.pdb
+D:\OptionsPlay\Mainline\DAL\EntityFramework\OptionsPlay.EF.Encryption\bin\Release\EntityFramework.dll
+D:\OptionsPlay\Mainline\DAL\EntityFramework\OptionsPlay.EF.Encryption\bin\Release\EntityFramework.SqlServer.dll
+D:\OptionsPlay\Mainline\DAL\EntityFramework\OptionsPlay.EF.Encryption\bin\Release\EntityFramework.xml
+D:\OptionsPlay\Mainline\DAL\EntityFramework\OptionsPlay.EF.Encryption\bin\Release\EntityFramework.SqlServer.xml
+D:\OptionsPlay\Mainline\DAL\EntityFramework\OptionsPlay.EF.Encryption\obj\Release\OptionsPlay.EF.Encryption.dll
+D:\OptionsPlay\Mainline\DAL\EntityFramework\OptionsPlay.EF.Encryption\obj\Release\OptionsPlay.EF.Encryption.pdb
+D:\OptionsPlay\Mainline\DAL\EntityFramework\OptionsPlay.EF.Encryption\obj\Release\OptionsPlay.EF.Encryption.csprojResolveAssemblyReference.cache

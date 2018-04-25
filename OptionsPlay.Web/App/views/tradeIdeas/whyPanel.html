@@ -1,0 +1,90 @@
+﻿
+<div data-bind="fadeBackdropVisible: backdrop" class="backdrop"></div>
+
+<div data-bind="css: { hidden: !isInitialized() }" id="whyContainer" class="height-full position-relative">
+	<!-- ko compose: 'viewmodels/tradeIdeas/quoteWidget' --><!-- /ko -->
+
+	<section id="chartsAndEnglish" class="powerhouse-section toggle-trade-panel-wrapper">
+		<!-- Historical chart and news section -->
+		<div id="ChartsContainer">
+			<div id="chartsNavBar">
+				<ul class="nav nav-tabs nav-tabs-justified">
+					<li class="active">
+						<a data-bind="tab: { }" href="#powerhouseProHistoricalsChartTabContent" id="powerhouseProHistoricalsChartTab">
+							<span>日线图</span>
+						</a>
+					</li>
+
+					<li>
+						<a data-bind="tab: {onShown: onIntradayShown}" href="#powerhouseProNews" id="powerhouseProNewsTab">
+							<span>分时图</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div id="ChartsMainContent" class="tab-content">
+				<div id="powerhouseProHistoricalsChartTabContent" class="tab-pane active fade in">
+					<!-- ko compose: chartIq --><!-- /ko -->
+				</div>
+				<div data-bind="widget: {kind: 'intradayChart', stockCode: stockCode()}" id="powerhouseProNews" class="tab-pane fade">
+				</div>
+			</div>
+		</div>
+
+		<div data-bind="css: {'higher': false}" id="englishSection">
+			<div id="sentimentBtnGroup">
+				<fieldset class="inline-block">
+					<button data-bind="click: showBullishStrategies, activityTracker: { events: 'click', name: 'showBullishStrategies', value: ''}" class="btn btn-bullish uppercase sentiment-btn" type="button">
+						看涨推荐
+					</button>
+					<button data-bind="click: showBearishStrategies, activityTracker: { events: 'click', name: 'showBearishStrategies', value: ''}" class="btn btn-bearish uppercase sentiment-btn" type="button">
+						看跌推荐
+					</button>
+				</fieldset>
+			</div>
+
+			<!-- TradeIdea section -->
+			<!--<div id="tradeIdeaRule">-->
+				<!-- ko if: selectedTradeIdea -->
+				<!-- ko with: selectedTradeIdea -->
+				<!--<div data-bind="carousel: $parent.selectedTradeIdeaRuleIndex" id="rulesCarousel" class="carousel slide" data-interval="false" data-wrap="false">-->
+					<!-- Carousel items -->
+					<!--<div data-bind="foreach: rules" class="carousel-inner">
+						<div class="item">
+							<div data-bind="text: reason + ':'" class="title"></div>
+							<div data-bind="text: sentence"></div>
+						</div>
+					</div>-->
+					<!-- Carousel nav -->
+					<!-- ko if: rules.length > 1 -->
+					<!--<a data-bind="css: { hidden: $parent.isFirst }" class="carousel-control left" href="#rulesCarousel" data-slide="prev">&lsaquo;</a>
+					<a data-bind="css: { hidden: $parent.isLast }" class="carousel-control right" href="#rulesCarousel" data-slide="next">&rsaquo;</a>-->
+					<!-- /ko -->
+				<!--</div>-->
+				<!-- /ko -->
+				<!-- /ko -->
+			<!--</div>-->
+
+			<!-- Technicals section -->
+			<div id="priceAction">
+				<div class="title">价格变动:</div><br/>
+				<div data-bind="text: sentence"></div>
+			</div>
+		</div>
+
+		<!-- ko with: $root.context -->
+		<div data-bind="visible: !isTradePanelVisible(), click: showTradePanel, activityTracker: { events: 'click', name: 'showTradePanelButton', value: '' }"
+				class="toggle-trade-panel">
+			<span>Show Trade Panel</span>
+			<i class="fa fa-angle-right"></i>
+		</div>
+
+		<div data-bind="visible: isTradePanelVisible, click: hideTradePanel, activityTracker: { events: 'click', name: 'hideTradePanelButton', value: '' }"
+				class="toggle-trade-panel">
+			<i class="fa fa-angle-left"></i>
+			<span>Hide Trade Panel</span>
+		</div>
+		<!-- /ko -->
+	</section>
+</div>

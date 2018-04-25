@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BA944BFF-020E-406A-A1D2-5706E69D0FF4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OptionsPlay.DAL.EF.Core</RootNamespace>
+    <AssemblyName>OptionsPlay.DAL.EF.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dev|AnyCPU'">
+    <OutputPath>bin\Dev\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=3.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\structuremap.3.0.3.116\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Net4, Version=3.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\structuremap.3.0.3.116\lib\net40\StructureMap.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Configuration\ConfigDirectory.cs" />
+    <Compile Include="Entities\Configuration\ConfigValue.cs" />
+    <Compile Include="Entities\Holiday\Holiday.cs" />
+    <Compile Include="Entities\20140605\CacheEntity.cs" />
+    <Compile Include="Entities\20140605\CacheEntryStatus.cs" />
+    <Compile Include="Entities\20140605\CacheStatus.cs" />
+    <Compile Include="Helpers\SqlExecute.cs" />
+    <Compile Include="Migrations\201411270154307_CoreInitialize.cs" />
+    <Compile Include="Migrations\201411270154307_CoreInitialize.Designer.cs">
+      <DependentUpon>201411270154307_CoreInitialize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411270343247_AddRoles.cs" />
+    <Compile Include="Migrations\201411270343247_AddRoles.Designer.cs">
+      <DependentUpon>201411270343247_AddRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411270758115_InitialStrategiesData.cs" />
+    <Compile Include="Migrations\201411270758115_InitialStrategiesData.Designer.cs">
+      <DependentUpon>201411270758115_InitialStrategiesData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411270805033_AddAdminUser.cs" />
+    <Compile Include="Migrations\201411270805033_AddAdminUser.Designer.cs">
+      <DependentUpon>201411270805033_AddAdminUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411270808274_InitializeConfigurations.cs" />
+    <Compile Include="Migrations\201411270808274_InitializeConfigurations.Designer.cs">
+      <DependentUpon>201411270808274_InitializeConfigurations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411270821271_AddMarketDataConfigurations.cs" />
+    <Compile Include="Migrations\201411270821271_AddMarketDataConfigurations.Designer.cs">
+      <DependentUpon>201411270821271_AddMarketDataConfigurations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411270826525_AddMarketHolidayConfiguration.cs" />
+    <Compile Include="Migrations\201411270826525_AddMarketHolidayConfiguration.Designer.cs">
+      <DependentUpon>201411270826525_AddMarketHolidayConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411270918013_AddCacheStatus.cs" />
+    <Compile Include="Migrations\201411270918013_AddCacheStatus.Designer.cs">
+      <DependentUpon>201411270918013_AddCacheStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411281003473_AlterIdentitiesToLong.cs" />
+    <Compile Include="Migrations\201411281003473_AlterIdentitiesToLong.Designer.cs">
+      <DependentUpon>201411281003473_AlterIdentitiesToLong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Migrations\DbMigration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="OptionsPlayDatabaseInitializer.cs" />
+    <Compile Include="OptionsPlayDbContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\OptionsPlay.Common\OptionsPlay.Common.csproj">
+      <Project>{85025E83-4476-400A-B282-363256F61EFA}</Project>
+      <Name>OptionsPlay.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\OptionsPlay.Logging\OptionsPlay.Logging.csproj">
+      <Project>{69F28C8C-7550-4A78-996A-BE2C015D4E52}</Project>
+      <Name>OptionsPlay.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\OptionsPlay.Resources\OptionsPlay.Resources.csproj">
+      <Project>{96DE53E2-F6AB-4E61-808E-383C7416AD7C}</Project>
+      <Name>OptionsPlay.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\OptionsPlay.DAL.Interfaces\OptionsPlay.DAL.Interfaces.csproj">
+      <Project>{4EB7D6F0-8A8A-4F15-AC2F-078DCDF8F4D1}</Project>
+      <Name>OptionsPlay.DAL.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\OptionsPlay.Model\OptionsPlay.Model.csproj">
+      <Project>{187287E1-CE16-4B99-B56D-AE6308E06DC8}</Project>
+      <Name>OptionsPlay.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MigrationsData.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201411270154307_CoreInitialize.resx">
+      <DependentUpon>201411270154307_CoreInitialize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411270343247_AddRoles.resx">
+      <DependentUpon>201411270343247_AddRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411270758115_InitialStrategiesData.resx">
+      <DependentUpon>201411270758115_InitialStrategiesData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411270805033_AddAdminUser.resx">
+      <DependentUpon>201411270805033_AddAdminUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411270808274_InitializeConfigurations.resx">
+      <DependentUpon>201411270808274_InitializeConfigurations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411270821271_AddMarketDataConfigurations.resx">
+      <DependentUpon>201411270821271_AddMarketDataConfigurations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411270826525_AddMarketHolidayConfiguration.resx">
+      <DependentUpon>201411270826525_AddMarketHolidayConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411270918013_AddCacheStatus.resx">
+      <DependentUpon>201411270918013_AddCacheStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411281003473_AlterIdentitiesToLong.resx">
+      <DependentUpon>201411281003473_AlterIdentitiesToLong.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,384 @@
+﻿@import '../../mixins.less';
+
+.light {
+	@black: rgb(51, 51, 51); // #333333
+	@white: rgb(255, 255, 255); // #FFFFFF;
+	@off-white: rgb(243, 245, 248); // #F3F5F8;
+	@blue: rgb(0, 104, 179); // #0068B3;
+	@light-grey: rgb(232, 232, 232); // #E8E8E8;
+	@grey: rgb(166, 168, 171); // #A6A8AB
+	@grey-dark: rgb(145, 152, 174); // #9198AE;
+	@grey-darker: rgb(154, 170, 188); // #9AAABC;
+	@red: rgb(237, 0, 79); // #ED004F;
+	@green: rgb(0, 169, 79); // #00A94F;
+	@yellow: rgb(255, 228, 170); // #ffe4aa;
+	@light-green: rgb(122, 193, 67); // #7AC143
+	@background-light-color: rgb(174, 180, 196); // #AEB4C4
+	@dark-blue: rgb(7,53,109); //#07356d
+
+	@bullish: @red;
+	@bearish: @green;
+	@neutral: @yellow;
+
+	@trading-toolbox-title-color: rgb(115, 124, 151); //#737c97
+	.green {
+		color: @green !important;
+	}
+
+	.red {
+		color: @red !important;
+	}
+
+	.black {
+		color: @black !important;
+	}
+
+	input[type=button], button {
+		&:not(.active) {
+			box-shadow: none !important;
+		}
+	}
+
+	#mainContainer {
+		background-color: #FFFFFF;
+	}
+
+	.powerhouse-section,
+	#headerBackground,
+	.table-header {
+		background-color: @white;
+	}
+
+	.footer-toggler.fa.fa-angle-double-up {
+		background-color: @white;
+	}
+
+	#header,
+	#header a {
+		color: @black;
+	}
+
+	#headerMenu {
+		.fa.fa-angle-down {
+			color: @light-green;
+		}
+
+		.dropdown-list {
+			&:before {
+				border-bottom: 8px solid @black;
+			}
+
+			&:after {
+				border-bottom: 8px solid @white;
+			}
+
+			a {
+				color: @black;
+				background-color: @white;
+				border-color: @black;
+			}
+		}
+	}
+
+	#tradeIdeas #tradeIdeasGridWrapper .table-body {
+		background: white !important;
+		border-color: @off-white;
+
+		.table-row {
+			border-color: @off-white;
+		}
+	}
+
+	.white-logo {
+		display: none;
+	}
+
+	.toggle-trade-panel {
+		color: @blue;
+	}
+
+	.nav-tabs li {
+		font-size: 12px;
+
+		&.active a span {
+			border-color: @blue;
+		}
+
+		a:hover {
+			background-color: @white;
+		}
+
+		a span {
+			color: @blue;
+		}
+	}
+
+	.solidSentiment(@stop-position) {
+		&.bullish {
+			.solid(@bullish, @stop-position);
+		}
+
+		&.bearish {
+			.solid(@bearish, @stop-position);
+		}
+
+		&.neutral {
+			.solid(@neutral, @stop-position);
+		}
+	}
+
+	.fa {
+		&.bullish {
+			color: @bullish;
+		}
+
+		&.bearish {
+			color: @bearish;
+		}
+	}
+
+	.sentiment-name {
+		&.bullish {
+			color: @bullish;
+		}
+
+		&.bearish {
+			color: @bearish;
+		}
+
+		&.neutral {
+			color: @neutral;
+		}
+	}
+
+	.table-body .sentiment-gradient {
+		.solidSentiment(8px);
+	}
+
+	#symbolWidget {
+		.sentiment-gradient {
+			.solidSentiment(12px);
+		}
+
+		#symbolInput {
+			&.idea {
+				border-width: 2px;
+				margin: 6px 6px 2px 2px;
+			}
+
+			.fa.fa-search {
+				color: @light-green;
+			}
+		}
+
+		#quoteInfo .caption {
+			color: @grey;
+		}
+	}
+
+	#singleTradeView {
+		.sentiment-gradient {
+			.solidSentiment(12px);
+		}
+	}
+
+	.btn {
+		border-color: @white;
+		background-color: @light-grey;
+		color: #232323;
+
+		&.dropdown-toggle,
+		&.toggleMenu {
+			background-color: @white;
+		}
+
+		&.btn-active {
+			background-color: @grey-dark;
+		}
+	}
+
+	.btn-bearish {
+		background-color: @bearish;
+
+		&.active {
+			background-color: darken(@bearish, 5%);
+		}
+	}
+
+	.btn-bullish {
+		background-color: @bullish;
+
+		&.active {
+			background-color: darken(@bullish, 3%);
+		}
+	}
+
+	.btn-bullish, .btn-bearish {
+		color: @white;
+	}
+
+	.dropdown-menu, .menuSelect {
+		box-shadow: none;
+		border-color: @grey;
+	}
+
+	.trade-modify-panel .btn {
+		border-color: white;
+
+		&.trade-btn {
+			background-color: @blue;
+			border-right-color: @white;
+		}
+
+		&.modify-btn {
+			border-left-color: @white;
+		}
+	}
+
+	.toggleMenu, .dropdown-toggle {
+		border-color: @light-grey !important;
+	}
+
+	#supportAndResistance {
+		.support {
+			color: @green;
+            font-size: 12px;
+		}
+
+		.resistance {
+			color: @red;
+            font-size: 12px;
+		}
+	}
+
+	.carousel-indicators {
+		li {
+			border-color: @blue;
+		}
+
+		.active {
+			background-color: @blue;
+		}
+	}
+
+	.carousel-control {
+		color: @blue;
+	}
+
+	#tradingToolboxWrapper .carousel-inner .carousel-header {
+		background-color: @light-grey;
+		color: @trading-toolbox-title-color;
+	}
+
+	#powerhousePro #chartsAndEnglish #rulesCarousel .title {
+		text-transform: initial;
+	}
+
+	#toolboxContainer {
+		@background-color: @white;
+
+		.trade-name {
+			background-color: @light-grey;
+			border-radius: 0;
+			border-color: @background-light-color;
+			border-width: 2px;
+			text-transform: capitalize;
+
+			.uppercase {
+				text-transform: capitalize;
+			}
+		}
+
+		#whatifDetailsPane .whatif-pl .whatif-pl-value {
+			border-radius: 0;
+			border-color: @background-light-color;
+			border-width: 2px;
+		}
+
+		.sentence-container {
+			.trade-name {
+				border-radius: 0;
+				margin: 0;
+			}
+
+			.english-box {
+				margin: 0;
+				border-radius: 0;
+				border-top: none;
+				border-color: @background-light-color;
+				border-width: 2px;
+			}
+		}
+	}
+
+	#strategiesSection #investmentAmount {
+		.btn {
+			border-radius: 0px;
+			color: @dark-blue;
+		}
+
+		#investmentAmountInputWrapper input {
+			border-color: @dark-blue;
+			color: @dark-blue;
+		}
+
+		.instruction-container p {
+			color: @trading-toolbox-title-color;
+		}
+	}
+
+	#topBar .btn {
+		border-color: @white;
+		box-shadow: none;
+	}
+
+	#sdSliderText {
+		button.btn {
+			border-radius: 0;
+			padding: 3px 10px;
+		}
+	}
+
+	.combination-editor {
+		table {
+			th {
+				background-color: @grey-darker !important;
+			}
+
+			i {
+				color: @grey-darker;
+			}
+
+			.fa.fa-times-circle {
+				color: @blue;
+			}
+		}
+
+		#alterLeg,
+		#editorControl {
+			button, .btn {
+				border-radius: 0;
+				background-color: @light-grey;
+				color: @trading-toolbox-title-color;
+				font-size: 12px;
+
+				&.trade-btn {
+					background-color: @blue;
+					color: @white;
+				}
+			}
+		}
+	}
+
+	.combination-heading {
+		background-color: @light-grey;
+	}
+
+	.chart {
+		border-color: @background-light-color;
+	}
+
+	#priceByToggle {
+		border-color: #E8E8E8;
+	}
+}

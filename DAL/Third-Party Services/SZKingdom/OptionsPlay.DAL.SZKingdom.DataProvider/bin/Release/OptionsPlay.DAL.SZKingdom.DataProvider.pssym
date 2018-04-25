@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Symbols xmlns="http://schemas.postsharp.org/2.0/symbols">
+  <Class Class="#1=T:[OptionsPlay.Aspects]OptionsPlay.Aspects.TraceAttribute">
+    <Instance Declaration="#2=M:[OptionsPlay.DAL.SZKingdom.DataProvider]OptionsPlay.DAL.SZKingdom.DataProvider.MarketDataLibrary::ExecuteCommand([OptionsPlay.DAL.SZKingdom.DataProvider]OptionsPlay.DAL.SZKingdom.DataProvider.Entities.SZKingdomRequest, System.Collections.Generic.List{[OptionsPlay.DAL.SZKingdom.DataProvider]OptionsPlay.DAL.SZKingdom.DataProvider.Entities.SZKingdomArgument})" Id="9500478367eea45f">
+      <Target>
+        <JoinPoint Advising="#1" Description="#3=Wrapped by advice(s) OnEntry, OnSuccess, OnException, OnExit" />
+      </Target>
+    </Instance>
+  </Class>
+  <Class Class="#4=T:[OptionsPlay.Aspects]OptionsPlay.Aspects.CacheAttribute">
+    <Instance Declaration="#5=M:[OptionsPlay.DAL.SZKingdom.DataProvider]OptionsPlay.DAL.SZKingdom.DataProvider.MarketDataProvider::GetQuotationInformation(System.String)" Id="9500478374ceec9f">
+      <Target>
+        <JoinPoint Advising="#4" Description="#6=Intercepted by OnInvoke" />
+      </Target>
+    </Instance>
+  </Class>
+</Symbols>

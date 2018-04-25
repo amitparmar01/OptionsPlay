@@ -1,0 +1,226 @@
+﻿
+<div class="order-entry">
+	<!--<div data-bind="style: {'width': (orderLegs().length * 155 + 200) + 'px'}" class="legs-container">-->
+    <div data-bind="style: {'width': 355 + 'px'}" class="legs-container">
+    	<!-- ko if: isLoadingOptionsInfo -->
+    	<div class="lockUnlockCoverDiv">
+    		<div style=""></div>
+	  	</div>
+	  	<!-- /ko -->
+        <div data-bind="with: orderLegs().length == 1 ? orderLegs()[0] : emptyLegForMulti" class="single-leg-container">
+            <ul class="field-list order-leg">
+                <li>
+                    <label data-bind="t: 'trade.optionName'"></label>
+                    <span data-bind="text: optionName" class="option-name width-130 color:#36373B "></span>
+                </li>
+                <li>
+                    <label data-bind="t: 'trade.optionNumber'"></label>
+                    <input type="text" data-bind="kendoAutoComplete: optionNumberAutoComp" class="width-110 blue" />
+                </li>
+                <li>
+                    <label data-bind="t: 'trade.stockBiz'"></label>
+                    <input type="text" data-bind="kendoDropDownList: kendoStockBusiness" class="width-110 blue" />
+                </li>
+                <li>
+                    <label data-bind="t: 'trade.availableQuantity'" class="color:#343537"></label>
+                    <span data-bind="textFormatted: maxOrderQuantity" class="black"></span>
+                    <div class="covered-checkbox">
+                        <input type="checkbox" data-bind="checked: isCovered" />
+                        <label data-bind="t: 'trade.isCovered'"></label>
+                    </div>
+                </li>
+                <li>
+                    <label data-bind="t: 'trade.orderQuantity'"></label>
+                    <input type="text" data-bind="kendoNumericTextBox: kendoOrderQuantity" class="width-110 blue" />
+                </li>
+                <li>
+                    <label data-bind="t: 'trade.orderType'"></label>
+                    <input type="text" data-bind="kendoDropDownList: kendoOrderTypeOptions" class="width-110 blue" />
+                </li>
+                <li>
+                    <label data-bind="t: 'trade.orderPrice'"></label>
+                    <input type="text" data-bind="kendoNumericTextBox: kendoOrderPrice" class="width-110 blue" />
+                </li>
+                <li class="price-limit">
+                    <!-- ko if: priceNeeded() && orderPriceMax() -->
+                    <span data-bind="t: 'trade.downLimit'" class="yellow"></span>
+                    <span data-bind="textFormatted: orderPriceMin, format: '#.0000', click: orderPrice.bind($data, orderPriceMin())" class="green"></span>
+                    <span data-bind="t: 'trade.upLimit'" class="yellow"></span>
+                    <span data-bind="textFormatted: orderPriceMax, format: '#.0000', click: orderPrice.bind($data, orderPriceMax())" class="red"></span>
+                    <!-- /ko -->
+                </li>
+            </ul>
+            <div data-bind="if: option" class="option-quote">
+                <div data-bind="widget: {kind: 'option5DepthQuotes', option: option(), selectedPrice: orderPrice}"></div>
+            </div>
+        </div>
+        <div class="submit-order">
+            <button data-bind="t: 'trade.submitOrder', click: submitOrder, disable: submittingOrder" class="k-button"></button>
+            <button data-bind="t: 'trade.lockUnlockShares', click: openLockUnlockWindow" class="k-button"></button>
+        </div>
+    </div>
+</div>
+<div id="orderConfirm" data-bind="kendoWindow: kendoConfirmWindow, kendoSpinnner: submittingOrder">
+	<!-- ko if: submittingOrder-->
+	<div class="lockUnlockCoverDiv">
+		<div style=""></div>
+	</div>
+	<!-- /ko -->
+	<div class="order-ticket-confirmation">
+		<!-- ko if: combination() -->
+		<div data-bind="with: combination()" class="combination-info">
+			<div class="margin-left-80">
+			</div>
+			<div>
+				<span data-bind="t: 'trade.stockBizOptions.' + $parent.stockBusinessName()"></span>
+				<span data-bind="t: 'strategies.unit', i18nOptions: {count: $parent.combinationQuantity()}"></span>
+				<span data-bind="text: $parent.orderLegs()[0].securityName"></span>
+				<span data-bind="t: 'strategies.'+strategyName()"></span>
+				<span data-bind="t: 'trade.marketPrice'"></span>
+			</div>
+		</div>
+		<!-- /ko -->
+		<!-- ko if: orderLegs().length <= 1 -->
+		<ul data-bind="with: orderLegs()[0]">
+			<li>
+				<label data-bind="t: 'trade.optionName'"></label>
+				<span data-bind="text: optionName"></span>
+			</li>
+			<li>
+				<label data-bind="t: 'trade.optionNumber'"></label>
+				<span data-bind="text: optionNumber"></span>
+			</li>
+			<li>
+				<label data-bind="t: 'trade.stockBiz'"></label>
+				<span data-bind="t: 'trade.' + selectedStockBusinessName()"></span>
+			</li>
+			<li>
+				<label data-bind="t: 'trade.orderType'"></label>
+				<span data-bind="t: 'trade.' + orderTypeName()"></span>
+			</li>
+			<li>
+				<label data-bind="t: 'trade.orderPrice'"></label>
+				<span data-bind="text: orderPriceText"></span>
+			</li>
+			<li>
+				<label data-bind="t: 'trade.orderQuantity'"></label>
+				<span data-bind="text: orderQuantity"></span>
+			</li>
+		</ul>
+		<!-- /ko -->
+		<!-- ko if: orderLegs().length > 1 -->
+		<table>
+			<thead>
+				<tr>
+                    <th></th>
+					<th data-bind="t: 'trade.optionNumber'"></th>
+					<th data-bind="t: 'trade.optionName'"></th>
+					<th data-bind="t: 'trade.stockBiz'"></th>
+					<th data-bind="t: 'trade.orderQuantity'"></th>
+					<th data-bind="t: 'trade.orderType'"></th>
+					<th data-bind="t: 'trade.orderPrice'"></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: orderLegs">
+				<tr>
+                    <td class="text-center"><input type="checkbox" class="text-center" data-bind="checked: isChecked" /></td>
+					<td data-bind="text: optionNumber"></td>
+					<td data-bind="text: optionName"></td>
+					<td data-bind="t: 'trade.' + selectedStockBusinessName()"></td>
+					<!--<td data-bind="text: orderQuantity"></td>-->
+                    <td><input type="text" data-bind="kendoNumericTextBox: kendoOrderQuantityForMulti" class="width-110 blue" /></td>
+					<!--<td data-bind="t: 'trade.' + orderTypeName()"></td>-->
+                    <td><input type="text" data-bind="kendoDropDownList: kendoOrderTypeOptions" class="width-110 blue" /></td>
+					<!--<td data-bind="text: orderPriceText"></td>-->
+                    <td><input type="text" data-bind="value: orderPrice" class="width-110 blue" /></td>
+					<td>
+						<span data-bind="visible: success" class="fa fa-check-circle success-green"></span>
+						<!-- ko if: fail -->
+						<span data-bind="kendoTooltip: { content: errorMessage, position: 'top' }" class="fa fa-exclamation-circle alert-red"></span>
+						<!-- /ko -->
+						<!-- ko if: submitting -->
+						<span class="fa fa-spinner fa-spin"></span>
+						<!-- /ko -->
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- /ko -->
+		<div class="text-right">
+			<button data-bind="t: 'trade.submitOrder', click: confirmAndSubmit, disable: submittingOrder"></button>
+			<button data-bind="t: 'trade.cancel', click: closeConfirmWindow"></button>
+		</div>
+	</div>
+</div>
+
+<div id="exerciseWindow" data-bind="kendoWindow: kendoExerciseWindow">
+	<!-- ko if: submittingOrder-->
+	<div class="lockUnlockCoverDiv">
+		<div style=""></div>
+	</div>
+	<!-- /ko -->
+	<div class="order-ticket-confirmation">
+		<ul data-bind="with: orderLegs()[0]">
+			<li>
+				<label data-bind="t: 'trade.optionName'"></label>
+				<span data-bind="text: optionName"></span>
+				<span data-bind="t: 'trade.otmOptionWarning', visible: false"></span>
+			</li>
+			<li>
+				<label data-bind="t: 'trade.optionNumber'"></label>
+				<span data-bind="text: optionNumber"></span>
+			</li>
+			<li>
+				<label data-bind="t: 'trade.stockBiz'"></label>
+				<span data-bind="t: 'trade.' + selectedStockBusinessName()"></span>
+			</li>
+			<li>
+				<label data-bind="t: 'trade.orderQuantity'"></label>
+				<input type="text" data-bind="kendoNumericTextBox: kendoOrderQuantity" class="width-80 blue" />
+			</li>
+		</ul>
+		<div class="text-right">
+			<button data-bind="t: 'trade.submitOrder', click: confirmAndSubmit, disable: submittingOrder"></button>
+			<button data-bind="t: 'trade.cancel', click: closeExerciseWindow"></button>
+		</div>
+	</div>
+</div>
+
+<div id="lockUnlockShares" data-bind="kendoWindow: lockUnlockSharesWindowOptions">
+	<!-- ko if: submittingOrder-->
+	<div class="lockUnlockCoverDiv">
+		<div style=""></div>
+	</div>
+	<!-- /ko -->
+	<div class="order-ticket-confirmation order-lockunlock-confirmation">
+		<ul data-bind="with: lockUnlockOrder">
+			<li>
+				<label data-bind="t: 'trade.securityCode'"></label>
+				<input data-bind="kendoAutoComplete: securityCodeAutoComp" class="width-110 blue" />
+			</li>
+			<li>
+				<label data-bind="t: 'trade.securityName'"></label>
+				<span data-bind="text: securityName"></span>
+			</li>
+			<li>
+				<label data-bind="t:'portfolio.lockUnlockShares.maxLockableQuantity'"></label>
+				<a data-bind="text: maxLockQuantity, click: lockMax" class="cursor-pointer"></a>
+			</li>
+			<li>
+				<label data-bind="t:'portfolio.lockUnlockShares.maxUnlockableQuantity'"></label>
+				<a data-bind="text: maxUnlockQuantity, click: unlockMax" class="cursor-pointer"></a>
+			</li>
+			<li>
+				<label data-bind="t: 'trade.orderQuantity'"></label>
+				<input type="text" data-bind="kendoNumericTextBox: kendoOrderQuantity" class="width-110 blue" />
+			</li>
+		</ul>
+		<div class="text-right">
+			<button data-bind="t: 'portfolio.lockUnlockShares.lock', disable: submittingOrder && !lockUnlockOrder.maxLockQuantity(), click: lockUnlockShares.bind($data, 'lock')"></button>
+			<button data-bind="t: 'portfolio.lockUnlockShares.unlock', disable: submittingOrder && !lockUnlockOrder.maxUnlockQuantity(), click: lockUnlockShares.bind($data, 'unlock')"></button>
+			<button data-bind="t: 'portfolio.lockUnlockShares.refresh', disable: submittingOrder, click: lockUnlockShares.bind($data, 'refresh')"></button>
+			<button data-bind="t: 'trade.cancel', click: closeLockUnlockWindow"></button>
+		</div>
+	</div>
+</div>

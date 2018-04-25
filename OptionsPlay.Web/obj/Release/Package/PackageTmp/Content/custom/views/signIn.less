@@ -1,0 +1,152 @@
+﻿@import '../globalVariables';
+
+#signInForm {
+    height: 330px;
+    width: 500px;
+    background-color: white;
+    margin: 0px auto;
+}
+#remeberMeDiv{
+    width:40%; 
+    float:left; 
+    text-align:left; 
+    height:62px; 
+    line-height:80px; 
+    font-size:20px
+}
+
+#signInDiv{
+    width:60%;
+    float:left;
+    > button{
+        text-indent:1em;
+        color:#FFF;
+        letter-spacing:1em;
+    }
+}
+#accountType{
+    float: left;
+    font-size: 20px;
+    width: 100%;
+    text-align: left;
+    letter-spacing: 0.3em;
+}
+.form {
+    @border: 1px solid #DEDEDE;
+
+    display: inline-block;
+    padding: 10px 60px;
+    color: #646464;
+    background-color: #F8F8F8;
+    border-radius: 5px;
+    border: @border;
+
+    .title {
+        border-bottom: @border;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        color: gray;
+        text-indent: 5px;
+        font-weight: bold;
+    }
+
+    .row {
+        display: block;
+        margin-bottom: 10px;
+     
+    }
+
+    label input[type=checkbox] {
+      margin-left:-20px;
+        position: relative;
+        top: -1px;
+    }
+
+    /*[type=submit] {
+      width: 90%;
+height: inherit;
+    }*/
+}
+
+#browserCompatibilityWarning {
+    margin: 20px auto 0 auto;
+    padding: 10px;
+    width: 600px;
+    background-color: @blue;
+
+    .header {
+        color: @yellow;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .title, .description {
+        color: white;
+    }
+}
+
+
+.signInForm-logo {
+    margin: 0px auto;
+    height: 50px;
+    width: 70%;
+    background-color: white;
+    padding-left: 15px;
+    padding-top: 20px;
+ 
+}
+.signInForm-loggin {
+    height: 30px;
+    /*background-color: orange;*/
+    width: inherit;
+    text-align: center;
+    margin-top:9%;
+}
+.signForm-row{
+    height: 45px;
+    width: inherit;
+    /*background-color: purple;*/
+    margin: 10px auto;
+}
+
+#logginClass{
+    width:60%;
+    letter-spacing:0.2em;
+}
+
+.signForm-loggin {
+    height: 50px;
+    width: inherit;
+    /*background-color: green;*/
+    padding: 0px;
+}
+
+.signForm-loggin-remember {
+    height: 20px;
+    width: 40%;
+    /*background-color: pink;*/
+    display: inline-block;
+    position: relative;
+    margin-left: -75%;
+    margin-top: 4%;
+    }
+.signForm-loggin-button {
+position: relative;
+margin-left: 25%;
+/*background-color: red;*/
+width: 280px;
+margin-top: -6%; 
+}
+
+.signForm-loggin-buttonReal{
+    font-size:16px;
+    color:#FFF;
+    width:47%!important;
+    height:100%!important;
+    background-color:green!important;
+}
+
+.k-checkbox-logginUI{
+    width:70%;
+
+}

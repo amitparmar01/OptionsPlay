@@ -1,0 +1,216 @@
+﻿@import '../globalMixins';
+@import '../globalVariables';
+
+.exp-button {
+	background-color: lightskyblue;
+	color: @theme-blue;
+	border: none;
+	display: inline-block;
+	padding: 2px 0;
+	font-size: 12px;
+	margin: 1px;
+	font-family: "Microsoft Yahei", "黑体";
+	font-weight: 600;
+	&.active {
+		color: #f97f05;
+		border: 2px solid #0068b3;
+	}
+}
+
+.chains-toolbox-expiry {
+	border: 0px solid #566294;
+	margin-left:5px;
+	height:35px;
+	line-height: 35px;
+	align-content:center;
+	text-align: right;
+	
+	.options-input2 {
+		width: 50px;
+	}
+	.options-multipliers {
+		width: 100px;
+	}
+	.options-expiries{
+		width: 150px;
+	}
+	.exp-list {
+		vertical-align: middle;
+		&.width-overflow {
+			vertical-align: top;
+			line-height: 1;
+			& > .exp-button {
+				margin-top: 0;
+			}
+		}
+	}
+}
+
+.chains-toolbox-option {
+	//width: 27%;
+	//float: right;
+	font-weight: bold;
+	margin-left: 5px;
+	vertical-align: middle;
+	line-height: 35px;
+	text-align: right;
+	color: #566294;
+
+}
+
+#chainGridContainer,
+#listGridContainer {
+	clear:both;
+	position: absolute;
+	top: 35px;
+	bottom: 0;
+	width: 100%;
+	overflow-y: auto;
+	.user-select(none)
+}
+
+#chainsGrid {
+	thead th {
+		background-color: #d3d3d3;
+		color: #333;
+	}
+
+	th {
+		padding-left: 3px;
+		padding-right: 3px;
+		text-align: center;
+	}
+
+	text-decoration {
+		text-align: right;
+	}
+
+
+	.strike-column {
+		background-color: #d3d3d3;
+		color: #333;
+		width: 100px;
+	}
+
+
+	tr.itm {
+		td.call {
+			background-color: #eee;
+		}
+		td.put {
+			background-color: white;
+		}
+	}
+
+	tr.otm {
+		td.call {
+			background-color: white;
+		}
+		td.put {
+			background-color: #eee;
+		}
+	}
+
+	tr.callSelected {
+		td.call {
+			background-color: darkgrey;
+		}
+	}
+	tr.putSelected {
+		td.put {
+			background-color: darkgrey;
+		}
+	}
+
+	/*.itm {
+		background-color: #eee;
+	}
+
+	.otm {
+		background-color: white;
+	}*/
+
+	.up {
+		color: green;
+	}
+
+	.down {
+		color: red;
+	}
+
+	.fst-head th {
+		color: white;
+		font-size: 18px;
+	}
+
+	tr.option-row {
+		.border-box;
+
+		td {
+			font-size: 12px;
+			.border-box;
+			border: 1px solid transparent;
+
+			&.clickable {
+				cursor: pointer;
+
+				&:hover {
+					color: #f97f05 !important;
+					border-color: #0068b3;
+				}
+			}
+		}
+
+		&:hover {
+			td {
+				border-top-color: (@theme-blue * 4);
+				border-bottom-color: (@theme-blue * 4);
+				&:first-child {
+					border-left-color: (@theme-blue * 4);
+				}
+				&:last-child {
+					border-right-color: (@theme-blue * 4);
+				}
+			}
+		}
+	}
+
+	th {
+		font-size: 12px;
+	}
+
+	.number-th {
+		width: 80px;
+	}
+
+	.imp-th {
+		width: 70px;
+	}
+}
+
+#optionPLGraph {
+	.strategy-container-portfolio {
+		width: 500px;
+		height: 460px;
+	}
+}
+
+.order-btn-zone {
+	margin-top:10px;
+	text-align: center;
+}
+
+.order-btn {
+	background-color: @yellow;
+	color: @blue;
+	margin: 0 auto;
+	cursor: pointer;
+}
+
+.greekToggle {
+	width: 60px;
+	height: 25px;
+	margin: 3px;
+	margin-left: 10px;
+	cursor: pointer;
+}

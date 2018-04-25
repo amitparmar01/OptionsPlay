@@ -1,0 +1,56 @@
+﻿@import 'mixins.less';
+
+
+.animated {
+	.lh-animation-duration(1s);
+	.lh-animation-fill-mode(both);
+	.lh-animation-timing-function(cubic-bezier(.55,0,.1,1));
+	.lh-transition-timing-function(cubic-bezier(.55,0,.1,1));
+}
+
+.opaque() {
+	opacity: 1;
+}
+
+.transparent() {
+	opacity: 0;
+}
+
+.transform-none() {
+	.lh-transform(none);
+}
+
+.up() {
+	.lh-translate3d(0, -100%, 0);
+}
+
+.down() {
+	.lh-translate3d(0, 100%, 0);
+}
+
+.right() {
+	.lh-translate3d(-100%, 0, 0);
+}
+
+.left() {
+	.lh-translate3d(100%, 0, 0);
+}
+
+.zoomed-out() {
+	.lh-scale3d(0.32, 0.32, 1);
+}
+
+.keyframes-simple-animation(fadeIn, {.transparent}, {.opaque});
+.keyframes-simple-animation(fadeInDown, {.transparent; .up; }, {.opaque; .transform-none;});
+.keyframes-simple-animation(fadeInUp, {.transparent; .down; }, {.opaque; .transform-none;});
+.keyframes-simple-animation(fadeInLeft, {.transparent; .right; }, {.opaque; .transform-none;});
+.keyframes-simple-animation(fadeInRight, {.transparent; .left; }, {.opaque; .transform-none;});
+
+.keyframes-simple-animation(fadeOut, {.opaque;}, {.transparent;});
+.keyframes-simple-animation(fadeOutDown, {.opaque; .transform-none;}, {.transparent; .down; });
+.keyframes-simple-animation(fadeOutUp, {.opaque; .transform-none;}, {.transparent; .up; });
+.keyframes-simple-animation(fadeOutLeft, {.opaque; .transform-none;}, {.transparent; .left; });
+.keyframes-simple-animation(fadeOutRight, {.opaque; .transform-none;}, {.transparent; .right; });
+
+.keyframes-simple-animation(zoomIn, 0%, {opacity: 0.5; .zoomed-out;}, 50%, {.opaque});
+.keyframes-simple-animation(zoomOut, 0%, {.opaque; }, 100%, {opacity: 0.4; .zoomed-out;});

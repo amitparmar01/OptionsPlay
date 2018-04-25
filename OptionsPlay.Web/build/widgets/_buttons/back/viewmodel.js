@@ -1,0 +1,1 @@
+define([],function(){function e(){var e=this;this.activate=function(t){e.href=t.href}}return e});

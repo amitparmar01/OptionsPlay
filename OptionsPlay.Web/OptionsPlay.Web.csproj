@@ -1,0 +1,1573 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="BeforePublish;AfterPublish;Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A3489D27-5C93-4C24-A1AE-9847DD1999CC}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OptionsPlay.Web</RootNamespace>
+    <AssemblyName>OptionsPlay.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <EnableMSDeployAppOffline>true</EnableMSDeployAppOffline>
+    <PostSharpHostConfigurationFile>Web.config</PostSharpHostConfigurationFile>
+    <DontImportPostSharp>True</DontImportPostSharp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>3</WarningLevel>
+    <SkipPostSharp>True</SkipPostSharp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="BundleTransformer.Core">
+      <HintPath>..\packages\BundleTransformer.Core.1.9.30\lib\net40\BundleTransformer.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="BundleTransformer.Less">
+      <HintPath>..\packages\BundleTransformer.Less.1.9.31\lib\net40\BundleTransformer.Less.dll</HintPath>
+    </Reference>
+    <Reference Include="dotless.Core, Version=1.3.1.0, Culture=neutral, PublicKeyToken=96b446c9e63eae34, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\dotless.1.3.1.0\lib\dotless.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IntelliLock.Licensing">
+      <HintPath>..\packages\IntelliLock.Licensing.1.8.0.0\lib\net\IntelliLock.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.Core">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Core.1.2.0\lib\net40\JavaScriptEngineSwitcher.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.Msie">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Msie.1.2.0\lib\net40\JavaScriptEngineSwitcher.Msie.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.1.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.2\lib\portable-windows8+net40+sl5+windowsphone8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=1.9.1.221, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\mongocsharpdriver.1.9.1\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MsieJavaScriptEngine">
+      <HintPath>..\packages\MsieJavaScriptEngine.1.5.0\lib\net40\MsieJavaScriptEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NewRelic.Api.Agent, Version=2.24.218.0, Culture=neutral, PublicKeyToken=06552fced0b33d87, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NewRelic.Azure.WebSites.2.24.218.0\lib\NewRelic.Api.Agent.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp, Version=3.1.41.9, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\PostSharp.3.1.41\lib\net20\PostSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap, Version=3.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.3.0.3.116\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Net4, Version=3.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.3.0.3.116\lib\net40\StructureMap.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.web.3.0.0.108\lib\net40\StructureMap.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.1.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.1.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization.Less, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9b7581e0240fe480, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Web.Optimization.Less.1.2.5\lib\net40\System.Web.Optimization.Less.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="TA-Lib-Core">
+      <HintPath>..\packages\TA-Lib.0.5.0.3\lib\TA-Lib-Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebActivator, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App\dataServices\configurationService.js" />
+    <Content Include="App\dataServices\dataContext.js" />
+    <Content Include="App\dataServices\hostResolver.js" />
+    <Content Include="App\dataServices\dataServiceBase.js" />
+    <Content Include="App\dataServices\models\defaultModel.js" />
+    <Content Include="App\dataServices\models\historicalStrikeModel.js" />
+    <Content Include="App\dataServices\models\historicalOrderModel.js" />
+    <Content Include="App\dataServices\models\historicalTradeModel.js" />
+    <Content Include="App\dataServices\models\intradayOrderModel.js" />
+    <Content Include="App\dataServices\models\intradayTradeModel.js" />
+    <Content Include="App\dataServices\models\optionChainsModel.js" />
+    <Content Include="App\dataServices\models\portfolioItemGroupModel.js" />
+    <Content Include="App\dataServices\models\portfolioItemModel.js" />
+    <Content Include="App\dataServices\models\predictionsModel.js" />
+    <Content Include="App\dataServices\models\standardDeviationModel.js" />
+    <Content Include="App\dataServices\models\supportAndResistanceModel.js" />
+    <Content Include="App\dataServices\signalrDataService.js" />
+    <Content Include="App\dataServices\socketConnection.js" />
+    <Content Include="App\dataServices\traceDataService.js" />
+    <Content Include="App\dataServices\authenticationService.js" />
+    <Content Include="App\modules\browserDetection.js" />
+    <Content Include="App\modules\cache\cache.js" />
+    <Content Include="App\modules\cache\stores.js" />
+    <Content Include="App\modules\combinationTextGeneration.js" />
+    <Content Include="App\modules\combination\combinationChart.js" />
+    <Content Include="App\modules\combination\combinationEditor.js" />
+    <Content Include="App\modules\combination\combinationHelpers.js" />
+    <Content Include="App\modules\combination\combinationViewModel.js" />
+    <Content Include="App\modules\combination\enums.js" />
+    <Content Include="App\modules\combination\strategyHelpers.js" />
+    <Content Include="App\modules\configurations.js" />
+    <Content Include="App\modules\context.js" />
+    <Content Include="App\modules\custom\canvasHelpers.js" />
+    <Content Include="App\modules\custom\chartIQCommon.js" />
+    <Content Include="App\modules\custom\chartIQSmall.js" />
+    <Content Include="App\modules\disposableViewModel.js" />
+    <Content Include="App\modules\dropDownList.js" />
+    <Content Include="App\modules\events.js" />
+    <Content Include="App\modules\help.js" />
+    <Content Include="App\modules\helpers.js" />
+    <Content Include="App\modules\kendoNumericTextBox.js" />
+    <Content Include="App\modules\kendoWindow.js" />
+    <Content Include="App\modules\knockoutBindings\arrowMove.js" />
+    <Content Include="App\modules\knockoutBindings\bootstrap.js" />
+    <Content Include="App\modules\knockoutBindings\bootstrapDatePicker.js" />
+    <Content Include="App\modules\knockoutBindings\changeFlash.js" />
+    <Content Include="App\modules\knockoutBindings\chartBindings.js" />
+    <Content Include="App\modules\knockoutBindings\customBindings.js" />
+    <Content Include="App\modules\knockoutBindings\customControls.js" />
+    <Content Include="App\modules\knockoutBindings\customExtenders.js" />
+    <Content Include="App\modules\knockoutBindings\fadeBackdropVisible.js" />
+    <Content Include="App\modules\knockoutBindings\kendoExt.js" />
+    <Content Include="App\modules\knockoutBindings\koExtenders.js" />
+    <Content Include="App\modules\knockoutBindings\perfectScrollbar.js" />
+    <Content Include="App\modules\knockoutBindings\redGreen.js" />
+    <Content Include="App\modules\knockoutBindings\slideVisible.js" />
+    <Content Include="App\modules\loader.js" />
+    <Content Include="App\modules\grid.js" />
+    <Content Include="App\modules\notifications.js" />
+    <Content Include="App\modules\orderEnums.js" />
+    <Content Include="App\modules\sentimentsModel.js" />
+    <Content Include="App\modules\session.js" />
+    <Content Include="App\modules\strategies\strategyTemplates.js" />
+    <Content Include="App\modules\baseForm.js" />
+    <Content Include="App\modules\strategy.js" />
+    <Content Include="App\modules\strategyGroup.js" />
+    <Content Include="App\modules\validation.js" />
+    <Content Include="App\modules\validation\addToValidationContext.js" />
+    <Content Include="App\modules\validation\notEqualTo.js" />
+    <Content Include="App\modules\validation\onlyOneSecurityLeg.js" />
+    <Content Include="App\viewmodels\bottom.js" />
+    <Content Include="App\viewmodels\compositions\historicalInquiry.js" />
+    <Content Include="App\viewmodels\howPanel\incomeStrategies.js" />
+    <Content Include="App\viewmodels\howPanel\singleTrade.js" />
+    <Content Include="App\viewmodels\howPanel\tradingStrategies.js" />
+    <Content Include="App\viewmodels\index.js" />
+    <Content Include="App\viewmodels\tradeIdeas\chartIq.js" />
+    <Content Include="App\viewmodels\tradeIdeas\howPanel.js" />
+    <Content Include="App\viewmodels\tradeIdeas\quoteWidget.js" />
+    <Content Include="App\viewmodels\tradeIdeas\whyPanel.js" />
+    <Content Include="App\viewmodels\trade\paramSet.js" />
+    <Content Include="App\viewmodels\trade\portfolioList.js" />
+    <Content Include="App\viewmodels\trade\exercise.js" />
+    <Content Include="App\views\howPanel\incomeStrategies.html" />
+    <Content Include="App\views\howPanel\singleTrade.html" />
+    <Content Include="App\views\howPanel\tradingStrategies.html" />
+    <Content Include="App\views\modals\badBrowser.html" />
+    <Content Include="App\views\modals\contact.html" />
+    <Content Include="App\views\modals\disclaimer.html" />
+    <Content Include="App\views\modals\sessionTimeout.html" />
+    <Content Include="App\views\modals\share.html" />
+    <Content Include="App\views\modals\shareAuthenticate.html" />
+    <Content Include="App\views\modals\tradeTicket.html" />
+    <Content Include="App\views\tradeIdeas\chartIq.html" />
+    <Content Include="App\views\tradeIdeas\howPanel.html" />
+    <Content Include="App\views\tradeIdeas\quoteWidget.html" />
+    <Content Include="App\views\trade\paramSet.html" />
+    <Content Include="App\views\trade\portfolioList.html" />
+    <Content Include="App\views\trade\exercise.html" />
+    <Content Include="App\widgets\intradayChart\view.html" />
+    <Content Include="App\widgets\intradayChart\viewmodel.js" />
+    <Content Include="App\widgets\marketDataDetail\viewmodel.js" />
+    <Content Include="App\viewmodels\optionList.js" />
+    <Content Include="App\viewmodels\compositions\symbolLookup.js" />
+    <Content Include="App\viewmodels\generatePremium.js" />
+    <Content Include="App\viewmodels\compositions\languagePicker.js" />
+    <Content Include="App\viewmodels\portfolio.js" />
+    <Content Include="App\viewmodels\signIn.js" />
+    <Content Include="App\viewmodels\chains.js" />
+    <Content Include="App\viewmodels\quotes.js" />
+    <Content Include="App\viewmodels\strategies\strategyComparison.js" />
+    <Content Include="App\viewmodels\strategies\strategies.js" />
+    <Content Include="App\viewmodels\strategy\edit.js" />
+    <Content Include="App\viewmodels\strategy\group\all.js" />
+    <Content Include="App\viewmodels\strategy\group\edit.js" />
+    <Content Include="App\viewmodels\strategy\group\new.js" />
+    <Content Include="App\viewmodels\strategy\new.js" />
+    <Content Include="App\viewmodels\strategy\all.js" />
+    <Content Include="App\viewmodels\trace.js" />
+    <Content Include="App\viewmodels\tradeIdeas\tradeIdeas.js" />
+    <Content Include="App\viewmodels\tradeIdeas\tradeIdeaGrid.js" />
+    <Content Include="App\viewmodels\trade\intradayOrders.js" />
+    <Content Include="App\viewmodels\trade\intradayTrades.js" />
+    <Content Include="App\viewmodels\trade\orderEntry.js" />
+    <Content Include="App\viewmodels\trade\queryGrid.js" />
+    <Content Include="App\viewmodels\trade\queryOption.js" />
+    <Content Include="App\views\compositions\historicalInquiry.html" />
+    <Content Include="App\views\index.html" />
+    <Content Include="App\widgets\marketDataDetail\view.html" />
+    <Content Include="App\views\optionList.html" />
+    <Content Include="App\views\compositions\languagePicker.html" />
+    <Content Include="App\views\compositions\symbolLookup.html" />
+    <Content Include="App\views\signIn.html" />
+    <Content Include="App\views\generatePremium.html" />
+    <Content Include="App\views\portfolio.html" />
+    <Content Include="App\views\quotes.html" />
+    <Content Include="App\views\strategy\group\all.cshtml" />
+    <Content Include="App\views\strategy\group\edit.cshtml" />
+    <Content Include="App\views\strategy\group\new.cshtml" />
+    <Content Include="App\views\strategy\new.cshtml" />
+    <Content Include="App\views\strategy\all.cshtml" />
+    <Content Include="App\views\trace.html" />
+    <Content Include="App\views\tradeIdeas\tradeIdeas.html" />
+    <Content Include="App\views\tradeIdeas\whyPanel.html" />
+    <Content Include="App\views\trade\queryGrid.html" />
+    <Content Include="App\views\trade\intradayOrders.html" />
+    <Content Include="App\views\trade\intradayTrades.html" />
+    <Content Include="App\views\trade\lockableStocks.html" />
+    <Content Include="App\views\trade\orderEntry.html" />
+    <Content Include="App\views\trade\queryOption.html" />
+    <Content Include="App\widgets\chartIQ\view.html" />
+    <Content Include="App\widgets\chartIQ\viewmodel.js" />
+    <Content Include="App\widgets\combinationEditor\view.html" />
+    <Content Include="App\widgets\combinationEditor\viewmodel.js" />
+    <Content Include="App\widgets\option5DepthQuotes\view.html" />
+    <Content Include="App\widgets\option5DepthQuotes\viewmodel.js" />
+    <Content Include="App\widgets\_buttons\back\viewmodel.js" />
+    <Content Include="App\widgets\_buttons\back\view.html" />
+    <Content Include="App\widgets\_buttons\new\viewmodel.js" />
+    <Content Include="App\widgets\_buttons\new\view.html" />
+    <Content Include="App\widgets\_buttons\submit\viewmodel.js" />
+    <Content Include="App\widgets\_buttons\submit\view.html" />
+    <Content Include="build\main.js" />
+    <Content Include="build\views\bottom.html" />
+    <Content Include="build\views\chains.html" />
+    <Content Include="build\views\compositions\historicalInquiry.html" />
+    <Content Include="build\views\compositions\languagePicker.html" />
+    <Content Include="build\views\compositions\symbolLookup.html" />
+    <Content Include="build\views\generatePremium.html" />
+    <Content Include="build\views\howPanel\incomeStrategies.html" />
+    <Content Include="build\views\howPanel\singleTrade.html" />
+    <Content Include="build\views\howPanel\tradingStrategies.html" />
+    <Content Include="build\views\index.html" />
+    <Content Include="build\views\modals\badBrowser.html" />
+    <Content Include="build\views\modals\contact.html" />
+    <Content Include="build\views\modals\disclaimer.html" />
+    <Content Include="build\views\modals\sessionTimeout.html" />
+    <Content Include="build\views\modals\share.html" />
+    <Content Include="build\views\modals\shareAuthenticate.html" />
+    <Content Include="build\views\modals\tradeTicket.html" />
+    <Content Include="build\views\optionList.html" />
+    <Content Include="build\views\portfolio.html" />
+    <Content Include="build\views\quotes.html" />
+    <Content Include="build\views\shell.html" />
+    <Content Include="build\views\signIn.html" />
+    <Content Include="build\views\strategies\strategies.html" />
+    <Content Include="build\views\strategies\strategyComparison.html" />
+    <Content Include="build\views\trace.html" />
+    <Content Include="build\views\tradeIdeas\chartIq.html" />
+    <Content Include="build\views\tradeIdeas\howPanel.html" />
+    <Content Include="build\views\tradeIdeas\quoteWidget.html" />
+    <Content Include="build\views\tradeIdeas\tradeIdeas.html" />
+    <Content Include="build\views\tradeIdeas\whyPanel.html" />
+    <Content Include="build\views\trade\exercise.html" />
+    <Content Include="build\views\trade\intradayOrders.html" />
+    <Content Include="build\views\trade\intradayTrades.html" />
+    <Content Include="build\views\trade\lockableStocks.html" />
+    <Content Include="build\views\trade\orderEntry.html" />
+    <Content Include="build\views\trade\paramSet.html" />
+    <Content Include="build\views\trade\portfolioList.html" />
+    <Content Include="build\views\trade\queryGrid.html" />
+    <Content Include="build\views\trade\queryOption.html" />
+    <Content Include="build\widgets\chartIQ\view.html" />
+    <Content Include="build\widgets\chartIQ\viewmodel.js" />
+    <Content Include="build\widgets\combinationEditor\view.html" />
+    <Content Include="build\widgets\combinationEditor\viewmodel.js" />
+    <Content Include="build\widgets\intradayChart\view.html" />
+    <Content Include="build\widgets\intradayChart\viewmodel.js" />
+    <Content Include="build\widgets\marketDataDetail\view.html" />
+    <Content Include="build\widgets\marketDataDetail\viewmodel.js" />
+    <Content Include="build\widgets\option5DepthQuotes\view.html" />
+    <Content Include="build\widgets\option5DepthQuotes\viewmodel.js" />
+    <Content Include="build\widgets\plChartAndDetails\view.html" />
+    <Content Include="build\widgets\plChartAndDetails\viewmodel.js" />
+    <Content Include="build\widgets\_buttons\back\view.html" />
+    <Content Include="build\widgets\_buttons\back\viewmodel.js" />
+    <Content Include="build\widgets\_buttons\new\view.html" />
+    <Content Include="build\widgets\_buttons\new\viewmodel.js" />
+    <Content Include="build\widgets\_buttons\submit\view.html" />
+    <Content Include="build\widgets\_buttons\submit\viewmodel.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\custom\stx-demo-theme-1.css" />
+    <Content Include="Content\custom\stx-demo-theme-2.css" />
+    <Content Include="Content\custom\views\custom.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\images\chartIQ\stx-icons-arrow-color.png" />
+    <Content Include="Content\images\chartIQ\stx-icons-chart-control.png" />
+    <Content Include="Content\images\chartIQ\stx-icons-chart-panels.png" />
+    <Content Include="Content\images\chartIQ\stx-icons-chart-zoom.png" />
+    <Content Include="Content\images\chartIQ\stx-icons-draw.png" />
+    <Content Include="Content\images\chartIQ\stx-sprite.png" />
+    <Content Include="Content\images\helpFlag.png" />
+    <Content Include="Content\images\icon-checkmark.png" />
+    <Content Include="Content\images\icon-plSimulations_OPGreen.png" />
+    <Content Include="Content\images\icons\arrow-up.png" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="App\widgets\plChartAndDetails\viewmodel.js" />
+    <Content Include="App\widgets\plChartAndDetails\view.html" />
+    <Content Include="Content\images\firstCapitalLogo.png" />
+    <Content Include="Content\images\flags\china.gif" />
+    <Content Include="Content\images\flags\greatBritain.gif" />
+    <Content Include="Content\images\icons\alertStrip.png" />
+    <Content Include="Content\images\icons\autoExerciseFullQty.PNG" />
+    <Content Include="Content\images\icons\autoExerciseNone.png" />
+    <Content Include="Content\images\icons\autoExercisePartial.png" />
+    <Content Include="Content\images\icons\buyCoveredCallPL.png" />
+    <Content Include="Content\images\icons\Call ButterflyBuy.png" />
+    <Content Include="Content\images\icons\Call ButterflySell.png" />
+    <Content Include="Content\images\icons\Call CalendarBuy.png" />
+    <Content Include="Content\images\icons\Call CalendarSell.png" />
+    <Content Include="Content\images\icons\Call CondorBuy.png" />
+    <Content Include="Content\images\icons\Call CondorSell.png" />
+    <Content Include="Content\images\icons\Call DiagonalBuy.png" />
+    <Content Include="Content\images\icons\Call DiagonalSell.png" />
+    <Content Include="Content\images\icons\Call Ratio 1x2Buy.png" />
+    <Content Include="Content\images\icons\Call Ratio 1x2Sell.png" />
+    <Content Include="Content\images\icons\Call Ratio 2x3Buy.png" />
+    <Content Include="Content\images\icons\Call Ratio 2x3Sell.png" />
+    <Content Include="Content\images\icons\Call VerticalBuy.png" />
+    <Content Include="Content\images\icons\Call VerticalSell.png" />
+    <Content Include="Content\images\icons\CallBuy.png" />
+    <Content Include="Content\images\icons\CallSell.png" />
+    <Content Include="Content\images\icons\cancelOrder.png" />
+    <Content Include="Content\images\icons\closePosition_en-US.png" />
+    <Content Include="Content\images\icons\closePosition_zh-CN.png" />
+    <Content Include="Content\images\icons\CollarBuy.png" />
+    <Content Include="Content\images\icons\CollarSell.png" />
+    <Content Include="Content\images\icons\complexPosition_en-US.png" />
+    <Content Include="Content\images\icons\complexPosition_zh-CN.png" />
+    <Content Include="Content\images\icons\costBasis_en-US.png" />
+    <Content Include="Content\images\icons\costBasis_zh-CN.png" />
+    <Content Include="Content\images\icons\Covered CallBuy.png" />
+    <Content Include="Content\images\icons\Covered CallSell.png" />
+    <Content Include="Content\images\icons\Custom StrategyBuy.PNG" />
+    <Content Include="Content\images\icons\Custom StrategySell.PNG" />
+    <Content Include="Content\images\icons\Double DiagonalBuy.png" />
+    <Content Include="Content\images\icons\Double DiagonalSell.png" />
+    <Content Include="Content\images\icons\exercisedPosition.PNG" />
+    <Content Include="Content\images\icons\exerciseOrder.png" />
+    <Content Include="Content\images\icons\Financed VerticalBuy.png" />
+    <Content Include="Content\images\icons\Financed VerticalSell.png" />
+    <Content Include="Content\images\icons\flag.png" />
+    <Content Include="Content\images\icons\greekToggle.png" />
+    <Content Include="Content\images\icons\greekToggle1.png" />
+    <Content Include="Content\images\icons\hcToggle.png" />
+    <Content Include="Content\images\icons\Iron ButterflyBuy.png" />
+    <Content Include="Content\images\icons\Iron ButterflySell.png" />
+    <Content Include="Content\images\icons\Iron CondorBuy.png" />
+    <Content Include="Content\images\icons\Iron CondorSell.png" />
+    <Content Include="Content\images\icons\lastPriceToggle_zh-CN.png" />
+    <Content Include="Content\images\icons\lastPriceToggle_en-US.png" />
+    <Content Include="Content\images\icons\numberTextBox.png" />
+    <Content Include="Content\images\icons\positionListLookup.png" />
+    <Content Include="Content\images\icons\positionSymbolLookup.png" />
+    <Content Include="Content\images\icons\Protective PutBuy.png" />
+    <Content Include="Content\images\icons\Put ButterflyBuy.png" />
+    <Content Include="Content\images\icons\Put ButterflySell.png" />
+    <Content Include="Content\images\icons\Put CalendarBuy.png" />
+    <Content Include="Content\images\icons\Put CalendarSell.png" />
+    <Content Include="Content\images\icons\Put CondorBuy.png" />
+    <Content Include="Content\images\icons\Put CondorSell.png" />
+    <Content Include="Content\images\icons\Put DiagonalBuy.png" />
+    <Content Include="Content\images\icons\Put DiagonalSell.png" />
+    <Content Include="Content\images\icons\Put Ratio 1x2Buy.png" />
+    <Content Include="Content\images\icons\Put Ratio 1x2Sell.png" />
+    <Content Include="Content\images\icons\Put Ratio 2x3Buy.png" />
+    <Content Include="Content\images\icons\Put Ratio 2x3Sell.png" />
+    <Content Include="Content\images\icons\Put VerticalBuy.png" />
+    <Content Include="Content\images\icons\Put VerticalSell.png" />
+    <Content Include="Content\images\icons\PutBuy.PNG" />
+    <Content Include="Content\images\icons\PutSell.png" />
+    <Content Include="Content\images\icons\refresh.png" />
+    <Content Include="Content\images\icons\StockBuy.png" />
+    <Content Include="Content\images\icons\StockSell.png" />
+    <Content Include="Content\images\icons\StraddleBuy.png" />
+    <Content Include="Content\images\icons\StraddleSell.png" />
+    <Content Include="Content\images\icons\StrangleBuy.png" />
+    <Content Include="Content\images\icons\StrangleSell.png" />
+    <Content Include="Content\images\icons\Synthetic StockBuy.png" />
+    <Content Include="Content\images\icons\Synthetic StockSell.png" />
+    <Content Include="Content\images\light-bulb.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\strategies-icons.png" />
+    <Content Include="Content\kendo\black\sprite.png" />
+    <Content Include="Content\images\icons\alert.png" />
+    <Content Include="Content\images\icons\buyCallPL.png" />
+    <Content Include="Content\images\icons\buyPutPL.png" />
+    <Content Include="Content\images\icons\closePosition.png" />
+    <Content Include="Content\images\icons\generatePremium.png" />
+    <Content Include="Content\images\icons\longStockPL.png" />
+    <Content Include="Content\images\icons\sellCallPL.png" />
+    <Content Include="Content\images\icons\sellPutPL.png" />
+    <Content Include="Content\images\icons\showGreeks.png" />
+    <Content Include="Content\kendo\kendo.common.core.min.css" />
+    <Content Include="Content\kendo\kendo.common.min.css" />
+    <Content Include="Content\kendo\kendo.silver.min.css" />
+    <Content Include="Content\kendo\kendo.web.plugins.min.css" />
+    <Content Include="Content\kendo\silver\editor.png" />
+    <Content Include="Content\kendo\silver\imagebrowser.png" />
+    <Content Include="Content\kendo\silver\indeterminate.gif" />
+    <Content Include="Content\kendo\silver\loading-image.gif" />
+    <Content Include="Content\kendo\silver\loading.gif" />
+    <Content Include="Content\kendo\silver\loading_2x.gif" />
+    <Content Include="Content\kendo\silver\loding_big.gif" />
+    <Content Include="Content\kendo\silver\markers.png" />
+    <Content Include="Content\kendo\silver\markers_2x.png" />
+    <Content Include="Content\kendo\silver\slider-h.gif" />
+    <Content Include="Content\kendo\silver\slider-v.gif" />
+    <Content Include="Content\kendo\silver\sprite.png" />
+    <Content Include="Content\kendo\silver\sprite_2x.png" />
+    <Content Include="Content\kendo\textures\brushed-metal.png" />
+    <Content Include="Content\kendo\textures\dots1.png" />
+    <Content Include="Content\kendo\textures\dots10.png" />
+    <Content Include="Content\kendo\textures\dots11.png" />
+    <Content Include="Content\kendo\textures\dots12.png" />
+    <Content Include="Content\kendo\textures\dots13.png" />
+    <Content Include="Content\kendo\textures\dots2.png" />
+    <Content Include="Content\kendo\textures\dots3.png" />
+    <Content Include="Content\kendo\textures\dots4.png" />
+    <Content Include="Content\kendo\textures\dots5.png" />
+    <Content Include="Content\kendo\textures\dots6.png" />
+    <Content Include="Content\kendo\textures\dots7.png" />
+    <Content Include="Content\kendo\textures\dots8.png" />
+    <Content Include="Content\kendo\textures\dots9.png" />
+    <Content Include="Content\kendo\textures\glass-lighter.png" />
+    <Content Include="Content\kendo\textures\glass.png" />
+    <Content Include="Content\kendo\textures\highlight.png" />
+    <Content Include="Content\kendo\textures\hsv-gradient.png" />
+    <Content Include="Content\kendo\textures\hue.png" />
+    <Content Include="Content\kendo\textures\leather1.png" />
+    <Content Include="Content\kendo\textures\leather2.png" />
+    <Content Include="Content\kendo\textures\noise.png" />
+    <Content Include="Content\kendo\textures\stripe1.png" />
+    <Content Include="Content\kendo\textures\stripe2.png" />
+    <Content Include="Content\kendo\textures\stripe3.png" />
+    <Content Include="Content\kendo\textures\stripe4.png" />
+    <Content Include="Content\kendo\textures\stripe5.png" />
+    <Content Include="Content\kendo\textures\stripe6.png" />
+    <Content Include="Content\kendo\textures\transparency.png" />
+    <Content Include="Content\kendo\textures\transtexture.png" />
+    <Content Include="Content\localization\zh-CN.json" />
+    <Content Include="Content\localization\en-US.json" />
+    <Content Include="App\main.js" />
+    <Content Include="App\modules\formatting.js" />
+    <Content Include="App\modules\knockoutBindings\textFormatted.js" />
+    <Content Include="App\modules\knockoutBindings\translate.js" />
+    <Content Include="App\modules\localizer.js" />
+    <Content Include="App\viewmodels\shell.js" />
+    <Content Include="App\views\shell.html" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\pace.css" />
+    <Content Include="Content\perfect-scrollbar.css" />
+    <Content Include="Content\themes\base\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\custom\views\shell.less" />
+    <Content Include="Content\custom\views\trade.less" />
+    <Content Include="App\views\web.config" />
+    <Content Include="Content\custom\views\chains.less" />
+    <Content Include="Content\custom\views\portfolio.less" />
+    <Content Include="..\Common\OptionsPlay.Logging\Configurations\log4netDev.config">
+      <Link>App_Data\Configurations\log4netDev.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Common\OptionsPlay.Logging\Configurations\log4netRelease.config">
+      <Link>App_Data\Configurations\log4netRelease.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\Configurations\log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\custom\views\strategies.less" />
+    <Content Include="App\views\strategies\strategies.html" />
+    <Content Include="App\views\strategies\strategyComparison.html" />
+    <Content Include="Content\custom\views\manageStrategies.less" />
+    <Content Include="App\views\bottom.html" />
+    <Content Include="Content\custom\views\bottom.less" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\custom\views\quotes.less" />
+    <Content Include="Content\custom\globalVariables.less" />
+    <Content Include="Content\custom\views\generatePremium.less" />
+    <Content Include="App\views\chains.html" />
+    <Content Include="Content\custom\globalMixins.less" />
+    <Content Include="Content\custom\kendoGlobalOverrides.less" />
+    <Content Include="Content\custom\global.less" />
+    <Content Include="Gruntfile.js" />
+    <Content Include="newrelic\extensions\CoreInstrumentation.xml" />
+    <Content Include="newrelic\NewRelic.Agent.Core.dll" />
+    <Content Include="newrelic\newrelic.config" />
+    <Content Include="newrelic\extensions\extension.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\custom\views\languagePicker.less" />
+    <Content Include="Content\custom\chartIQ.less" />
+    <Content Include="Content\custom\views\signIn.less" />
+    <Content Include="Content\custom\views\optionList.less" />
+    <Content Include="App\Web.config" />
+    <None Include=".bin\git.cmd" />
+    <None Include=".bin\grunt.cmd" />
+    <None Include=".bin\node.cmd" />
+    <None Include=".bin\npm.cmd" />
+    <None Include="App\Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="App\Web.Dev.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="App\Web.Premier.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="App\Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="Content\custom\views\help.less" />
+    <Content Include="build\views\strategy\all.cshtml" />
+    <Content Include="build\views\strategy\edit.cshtml" />
+    <Content Include="build\views\strategy\group\all.cshtml" />
+    <Content Include="build\views\strategy\group\edit.cshtml" />
+    <Content Include="build\views\strategy\group\new.cshtml" />
+    <Content Include="build\views\strategy\new.cshtml" />
+    <Content Include="build\views\web.config" />
+    <Content Include="build\Web.config" />
+    <None Include="build\Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="build\Web.Dev.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="build\Web.Premier.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="build\Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="BundleTransformer.Configuration.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Content\powerhouse\custom-animate.less" />
+    <Content Include="Content\powerhouse\font-awesome.less" />
+    <Content Include="Content\powerhouse\global-loader.less" />
+    <Content Include="Content\powerhouse\mixins.less" />
+    <Content Include="Content\powerhouse\open-sans-font.less" />
+    <Content Include="Content\powerhouse\powerhouse-compatibility.less" />
+    <Content Include="Content\powerhouse\powerhouse-responsive.less" />
+    <Content Include="Content\powerhouse\powerhouse.less" />
+    <Content Include="Content\powerhouse\powerhouseFull\myOptionsPlay.bootstrap.modal.less" />
+    <Content Include="Content\powerhouse\powerhousePro\3rd-party-overrides.less" />
+    <Content Include="Content\powerhouse\powerhousePro\common-variables.less" />
+    <Content Include="Content\powerhouse\powerhousePro\global-loader.less" />
+    <Content Include="Content\powerhouse\powerhousePro\header-footer.less" />
+    <Content Include="Content\powerhouse\powerhousePro\help-framework.less" />
+    <Content Include="Content\powerhouse\powerhousePro\landingPage.less" />
+    <Content Include="Content\powerhouse\powerhousePro\local-loader.less" />
+    <Content Include="Content\powerhouse\powerhousePro\modals.less" />
+    <Content Include="Content\powerhouse\powerhousePro\portfolio.less" />
+    <Content Include="Content\powerhouse\powerhousePro\powerhouse-pro.less" />
+    <Content Include="Content\powerhouse\powerhousePro\profile.less" />
+    <Content Include="Content\powerhouse\powerhousePro\responsive\common.less" />
+    <Content Include="Content\powerhouse\powerhousePro\responsive\desktop.less" />
+    <Content Include="Content\powerhouse\powerhousePro\responsive\tablet.less" />
+    <Content Include="Content\powerhouse\powerhousePro\share-modal.less" />
+    <Content Include="Content\powerhouse\powerhousePro\strategies.less" />
+    <Content Include="Content\powerhouse\powerhousePro\strategiesIcons.less" />
+    <Content Include="Content\powerhouse\powerhousePro\strategies\combination-editors.less" />
+    <Content Include="Content\powerhouse\powerhousePro\strategies\expanded-chart-container.less" />
+    <Content Include="Content\powerhouse\powerhousePro\strategies\single-trade-view.less" />
+    <Content Include="Content\powerhouse\powerhousePro\strategies\slider.less" />
+    <Content Include="Content\powerhouse\powerhousePro\strategies\toolbox.less" />
+    <Content Include="Content\powerhouse\powerhousePro\strategies\variables.less" />
+    <Content Include="Content\powerhouse\powerhousePro\symbol-widget.less" />
+    <Content Include="Content\powerhouse\powerhousePro\symbol.less" />
+    <Content Include="Content\powerhouse\powerhousePro\themes\dark.less" />
+    <Content Include="Content\powerhouse\powerhousePro\themes\light.less" />
+    <Content Include="Content\powerhouse\powerhousePro\trade-ideas.less" />
+    <Content Include="Content\powerhouse\validation.less" />
+    <Content Include="Content\lesshat-prefixed.less" />
+    <Content Include="Content\toastr.less" />
+    <Content Include="Content\fonts\OpenSans-Bold-webfont.woff" />
+    <Content Include="Content\fonts\OpenSans-Italic-webfont.woff" />
+    <Content Include="Content\fonts\OpenSans-Regular-webfont.woff" />
+    <Content Include="Content\fonts\OpenSans.woff" />
+    <Content Include="node_modules\.bin\r.js.cmd" />
+    <Content Include="node_modules\grunt-contrib-requirejs\LICENSE-MIT" />
+    <Content Include="node_modules\grunt-contrib-requirejs\package.json" />
+    <Content Include="node_modules\grunt-contrib-requirejs\README.md" />
+    <Content Include="node_modules\grunt\.npmignore" />
+    <Content Include="node_modules\grunt\appveyor.yml" />
+    <Content Include="node_modules\grunt\CONTRIBUTING.md" />
+    <Content Include="node_modules\grunt\LICENSE-MIT" />
+    <Content Include="node_modules\grunt\node_modules\.bin\cake" />
+    <Content Include="node_modules\grunt\node_modules\.bin\cake.cmd" />
+    <Content Include="node_modules\grunt\node_modules\.bin\coffee" />
+    <Content Include="node_modules\grunt\node_modules\.bin\coffee.cmd" />
+    <Content Include="node_modules\grunt\node_modules\.bin\js-yaml" />
+    <Content Include="node_modules\grunt\node_modules\.bin\js-yaml.cmd" />
+    <Content Include="node_modules\grunt\node_modules\.bin\nopt" />
+    <Content Include="node_modules\grunt\node_modules\.bin\nopt.cmd" />
+    <Content Include="node_modules\grunt\node_modules\.bin\rimraf" />
+    <Content Include="node_modules\grunt\node_modules\.bin\rimraf.cmd" />
+    <Content Include="node_modules\grunt\node_modules\.bin\which" />
+    <Content Include="node_modules\grunt\node_modules\.bin\which.cmd" />
+    <Content Include="node_modules\grunt\node_modules\async\.gitmodules" />
+    <Content Include="node_modules\grunt\node_modules\async\.npmignore" />
+    <Content Include="node_modules\grunt\node_modules\async\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\async\Makefile" />
+    <Content Include="node_modules\grunt\node_modules\async\package.json" />
+    <Content Include="node_modules\grunt\node_modules\async\README.md" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\.npmignore" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\bin\cake" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\bin\coffee" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\CNAME" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\extras\jsl.conf" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\package.json" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\Rakefile" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\README" />
+    <Content Include="node_modules\grunt\node_modules\colors\package.json" />
+    <Content Include="node_modules\grunt\node_modules\colors\ReadMe.md" />
+    <Content Include="node_modules\grunt\node_modules\dateformat\package.json" />
+    <Content Include="node_modules\grunt\node_modules\dateformat\Readme.md" />
+    <Content Include="node_modules\grunt\node_modules\dateformat\test\test_weekofyear.sh" />
+    <Content Include="node_modules\grunt\node_modules\eventemitter2\package.json" />
+    <Content Include="node_modules\grunt\node_modules\eventemitter2\README.md" />
+    <Content Include="node_modules\grunt\node_modules\exit\.jshintrc" />
+    <Content Include="node_modules\grunt\node_modules\exit\.npmignore" />
+    <Content Include="node_modules\grunt\node_modules\exit\.travis.yml" />
+    <Content Include="node_modules\grunt\node_modules\exit\LICENSE-MIT" />
+    <Content Include="node_modules\grunt\node_modules\exit\package.json" />
+    <Content Include="node_modules\grunt\node_modules\exit\README.md" />
+    <Content Include="node_modules\grunt\node_modules\exit\test\fixtures\create-files.sh" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\.jshintrc" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\.npmignore" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\.travis.yml" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\LICENSE-MIT" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\.npmignore" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\.travis.yml" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\inherits\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\inherits\package.json" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\inherits\README.md" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\.npmignore" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\node_modules\lru-cache\.npmignore" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\node_modules\lru-cache\CONTRIBUTORS" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\node_modules\lru-cache\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\node_modules\lru-cache\package.json" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\node_modules\lru-cache\README.md" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\node_modules\sigmund\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\node_modules\sigmund\package.json" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\node_modules\sigmund\README.md" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\package.json" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\README.md" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\package.json" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\README.md" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\test\bash-results.json" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\lodash\package.json" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\lodash\README.md" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\package.json" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\README.md" />
+    <Content Include="node_modules\grunt\node_modules\getobject\.jshintrc" />
+    <Content Include="node_modules\grunt\node_modules\getobject\.npmignore" />
+    <Content Include="node_modules\grunt\node_modules\getobject\.travis.yml" />
+    <Content Include="node_modules\grunt\node_modules\getobject\LICENSE-MIT" />
+    <Content Include="node_modules\grunt\node_modules\getobject\package.json" />
+    <Content Include="node_modules\grunt\node_modules\getobject\README.md" />
+    <Content Include="node_modules\grunt\node_modules\glob\.npmignore" />
+    <Content Include="node_modules\grunt\node_modules\glob\.travis.yml" />
+    <Content Include="node_modules\grunt\node_modules\glob\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\glob\node_modules\graceful-fs\.npmignore" />
+    <Content Include="node_modules\grunt\node_modules\glob\node_modules\graceful-fs\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\glob\node_modules\graceful-fs\package.json" />
+    <Content Include="node_modules\grunt\node_modules\glob\node_modules\graceful-fs\README.md" />
+    <Content Include="node_modules\grunt\node_modules\glob\node_modules\inherits\package.json" />
+    <Content Include="node_modules\grunt\node_modules\glob\node_modules\inherits\README.md" />
+    <Content Include="node_modules\grunt\node_modules\glob\package.json" />
+    <Content Include="node_modules\grunt\node_modules\glob\README.md" />
+    <Content Include="node_modules\grunt\node_modules\glob\test\bash-results.json" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\.jshintrc" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\.npmignore" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\.travis.yml" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\LICENSE-MIT" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\lodash\package.json" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\lodash\README.md" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\.travis.yml" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\component.json" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\Gemfile" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\Gemfile.lock" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\libpeerconnection.log" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\package.json" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\Rakefile" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\README.markdown" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\package.json" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\README.md" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-util\.jshintrc" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-util\.npmignore" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-util\.travis.yml" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-util\LICENSE-MIT" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-util\package.json" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-util\README.md" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-util\test\fixtures\exec.cmd" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-util\test\fixtures\exec.sh" />
+    <Content Include="node_modules\grunt\node_modules\hooker\LICENSE-MIT" />
+    <Content Include="node_modules\grunt\node_modules\hooker\package.json" />
+    <Content Include="node_modules\grunt\node_modules\hooker\README.md" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\.npmignore" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\.travis.yml" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\package.json" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\README.md" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\README.md~" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\examples\custom_types.yaml" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\examples\dumper.json" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\examples\sample_document.yaml" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\HISTORY.md" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\.bin\esparse" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\.bin\esparse.cmd" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\.bin\esvalidate" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\.bin\esvalidate.cmd" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\HISTORY.md" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\node_modules\underscore.string\.npmignore" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\node_modules\underscore.string\.travis.yml" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\node_modules\underscore.string\bower.json" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\node_modules\underscore.string\component.json" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\node_modules\underscore.string\libpeerconnection.log" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\node_modules\underscore.string\package.json" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\node_modules\underscore.string\README.markdown" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\node_modules\underscore\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\node_modules\underscore\package.json" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\node_modules\underscore\README.md" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\package.json" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\README.md" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\esprima\package.json" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\esprima\README.md" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\package.json" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\README.md" />
+    <Content Include="node_modules\grunt\node_modules\lodash\package.json" />
+    <Content Include="node_modules\grunt\node_modules\lodash\README.md" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\.npmignore" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\node_modules\lru-cache\.npmignore" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\node_modules\lru-cache\CONTRIBUTORS" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\node_modules\lru-cache\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\node_modules\lru-cache\package.json" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\node_modules\lru-cache\README.md" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\node_modules\sigmund\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\node_modules\sigmund\package.json" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\node_modules\sigmund\README.md" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\package.json" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\README.md" />
+    <Content Include="node_modules\grunt\node_modules\nopt\.gitignore" />
+    <Content Include="node_modules\grunt\node_modules\nopt\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\nopt\node_modules\abbrev\CONTRIBUTING.md" />
+    <Content Include="node_modules\grunt\node_modules\nopt\node_modules\abbrev\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\nopt\node_modules\abbrev\package.json" />
+    <Content Include="node_modules\grunt\node_modules\nopt\node_modules\abbrev\README.md" />
+    <Content Include="node_modules\grunt\node_modules\nopt\package.json" />
+    <Content Include="node_modules\grunt\node_modules\nopt\README.md" />
+    <Content Include="node_modules\grunt\node_modules\rimraf\AUTHORS" />
+    <Content Include="node_modules\grunt\node_modules\rimraf\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\rimraf\package.json" />
+    <Content Include="node_modules\grunt\node_modules\rimraf\README.md" />
+    <Content Include="node_modules\grunt\node_modules\rimraf\test\run.sh" />
+    <Content Include="node_modules\grunt\node_modules\rimraf\test\setup.sh" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\.travis.yml" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\Gemfile" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\Gemfile.lock" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\package.json" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\Rakefile" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\README.markdown" />
+    <Content Include="node_modules\grunt\node_modules\which\bin\which" />
+    <Content Include="node_modules\grunt\node_modules\which\LICENSE" />
+    <Content Include="node_modules\grunt\node_modules\which\package.json" />
+    <Content Include="node_modules\grunt\node_modules\which\README.md" />
+    <Content Include="node_modules\grunt\package.json" />
+    <Content Include="node_modules\grunt\README.md" />
+    <Content Include="node_modules\requirejs\package.json" />
+    <Content Include="node_modules\requirejs\README.md" />
+    <Content Include="package.json" />
+    <None Include="Properties\PublishProfiles\Azure Dev Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Local Deploy.pubxml" />
+    <Content Include="newrelic\NewRelic.Profiler.dll" />
+    <Content Include="node_modules\.bin\r.js" />
+    <Content Include="node_modules\grunt-contrib-requirejs\tasks\requirejs.js" />
+    <Content Include="node_modules\grunt\internal-tasks\bump.js" />
+    <Content Include="node_modules\grunt\internal-tasks\subgrunt.js" />
+    <Content Include="node_modules\grunt\lib\grunt.js" />
+    <Content Include="node_modules\grunt\lib\grunt\cli.js" />
+    <Content Include="node_modules\grunt\lib\grunt\config.js" />
+    <Content Include="node_modules\grunt\lib\grunt\event.js" />
+    <Content Include="node_modules\grunt\lib\grunt\fail.js" />
+    <Content Include="node_modules\grunt\lib\grunt\file.js" />
+    <Content Include="node_modules\grunt\lib\grunt\help.js" />
+    <Content Include="node_modules\grunt\lib\grunt\option.js" />
+    <Content Include="node_modules\grunt\lib\grunt\task.js" />
+    <Content Include="node_modules\grunt\lib\grunt\template.js" />
+    <Content Include="node_modules\grunt\lib\util\task.js" />
+    <Content Include="node_modules\grunt\node_modules\async\index.js" />
+    <Content Include="node_modules\grunt\node_modules\async\lib\async.js" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\lib\coffee-script\browser.js" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\lib\coffee-script\cake.js" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\lib\coffee-script\coffee-script.js" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\lib\coffee-script\command.js" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\lib\coffee-script\grammar.js" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\lib\coffee-script\helpers.js" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\lib\coffee-script\index.js" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\lib\coffee-script\lexer.js" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\lib\coffee-script\nodes.js" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\lib\coffee-script\optparse.js" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\lib\coffee-script\parser.js" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\lib\coffee-script\repl.js" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\lib\coffee-script\rewriter.js" />
+    <Content Include="node_modules\grunt\node_modules\coffee-script\lib\coffee-script\scope.js" />
+    <Content Include="node_modules\grunt\node_modules\colors\colors.js" />
+    <Content Include="node_modules\grunt\node_modules\colors\example.html" />
+    <Content Include="node_modules\grunt\node_modules\colors\example.js" />
+    <Content Include="node_modules\grunt\node_modules\colors\MIT-LICENSE.txt" />
+    <Content Include="node_modules\grunt\node_modules\colors\test.js" />
+    <Content Include="node_modules\grunt\node_modules\colors\themes\winston-dark.js" />
+    <Content Include="node_modules\grunt\node_modules\colors\themes\winston-light.js" />
+    <Content Include="node_modules\grunt\node_modules\dateformat\lib\dateformat.js" />
+    <Content Include="node_modules\grunt\node_modules\dateformat\test\test_weekofyear.js" />
+    <Content Include="node_modules\grunt\node_modules\eventemitter2\index.js" />
+    <Content Include="node_modules\grunt\node_modules\eventemitter2\lib\eventemitter2.js" />
+    <Content Include="node_modules\grunt\node_modules\exit\Gruntfile.js" />
+    <Content Include="node_modules\grunt\node_modules\exit\lib\exit.js" />
+    <Content Include="node_modules\grunt\node_modules\exit\test\exit_test.js" />
+    <Content Include="node_modules\grunt\node_modules\exit\test\fixtures\10-stderr.txt" />
+    <Content Include="node_modules\grunt\node_modules\exit\test\fixtures\10-stdout-stderr.txt" />
+    <Content Include="node_modules\grunt\node_modules\exit\test\fixtures\10-stdout.txt" />
+    <Content Include="node_modules\grunt\node_modules\exit\test\fixtures\100-stderr.txt" />
+    <Content Include="node_modules\grunt\node_modules\exit\test\fixtures\100-stdout-stderr.txt" />
+    <Content Include="node_modules\grunt\node_modules\exit\test\fixtures\100-stdout.txt" />
+    <Content Include="node_modules\grunt\node_modules\exit\test\fixtures\1000-stderr.txt" />
+    <Content Include="node_modules\grunt\node_modules\exit\test\fixtures\1000-stdout-stderr.txt" />
+    <Content Include="node_modules\grunt\node_modules\exit\test\fixtures\1000-stdout.txt" />
+    <Content Include="node_modules\grunt\node_modules\exit\test\fixtures\log-broken.js" />
+    <Content Include="node_modules\grunt\node_modules\exit\test\fixtures\log.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\Gruntfile.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\lib\findup-sync.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\examples\g.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\examples\usr-local.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\glob.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\inherits\inherits.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\inherits\inherits_browser.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\inherits\test.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\minimatch.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\node_modules\lru-cache\lib\lru-cache.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\node_modules\lru-cache\test\basic.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\node_modules\lru-cache\test\foreach.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\node_modules\lru-cache\test\memory-leak.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\node_modules\sigmund\bench.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\node_modules\sigmund\sigmund.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\node_modules\sigmund\test\basic.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\test\basic.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\test\brace-expand.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\test\caching.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\test\defaults.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\node_modules\minimatch\test\extglob-ending-with-state-char.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\test\00-setup.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\test\bash-comparison.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\test\cwd-test.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\test\globstar-match.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\test\mark.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\test\new-glob-optional-options.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\test\nocase-nomagic.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\test\pause-resume.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\test\readme-issue.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\test\root-nomount.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\test\root.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\test\stat.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\glob\test\zz-cleanup.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\lodash\dist\lodash.compat.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\lodash\dist\lodash.compat.min.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\lodash\dist\lodash.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\lodash\dist\lodash.min.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\lodash\dist\lodash.underscore.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\lodash\dist\lodash.underscore.min.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\lodash\LICENSE.txt" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\node_modules\lodash\lodash.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\test\findup-sync_test.js" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\test\fixtures\a.txt" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\test\fixtures\aaa.txt" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\test\fixtures\a\b\bar.txt" />
+    <Content Include="node_modules\grunt\node_modules\findup-sync\test\fixtures\a\foo.txt" />
+    <Content Include="node_modules\grunt\node_modules\getobject\Gruntfile.js" />
+    <Content Include="node_modules\grunt\node_modules\getobject\lib\getobject.js" />
+    <Content Include="node_modules\grunt\node_modules\getobject\test\namespace_test.js" />
+    <Content Include="node_modules\grunt\node_modules\glob\examples\g.js" />
+    <Content Include="node_modules\grunt\node_modules\glob\examples\usr-local.js" />
+    <Content Include="node_modules\grunt\node_modules\glob\glob.js" />
+    <Content Include="node_modules\grunt\node_modules\glob\node_modules\graceful-fs\graceful-fs.js" />
+    <Content Include="node_modules\grunt\node_modules\glob\node_modules\graceful-fs\test\open.js" />
+    <Content Include="node_modules\grunt\node_modules\glob\node_modules\graceful-fs\test\ulimit.js" />
+    <Content Include="node_modules\grunt\node_modules\glob\node_modules\inherits\inherits.js" />
+    <Content Include="node_modules\grunt\node_modules\glob\test\00-setup.js" />
+    <Content Include="node_modules\grunt\node_modules\glob\test\bash-comparison.js" />
+    <Content Include="node_modules\grunt\node_modules\glob\test\cwd-test.js" />
+    <Content Include="node_modules\grunt\node_modules\glob\test\mark.js" />
+    <Content Include="node_modules\grunt\node_modules\glob\test\nocase-nomagic.js" />
+    <Content Include="node_modules\grunt\node_modules\glob\test\pause-resume.js" />
+    <Content Include="node_modules\grunt\node_modules\glob\test\root-nomount.js" />
+    <Content Include="node_modules\grunt\node_modules\glob\test\root.js" />
+    <Content Include="node_modules\grunt\node_modules\glob\test\zz-cleanup.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\examples.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\Gruntfile.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\index.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\lodash\dist\lodash.compat.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\lodash\dist\lodash.compat.min.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\lodash\dist\lodash.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\lodash\dist\lodash.min.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\lodash\dist\lodash.underscore.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\lodash\dist\lodash.underscore.min.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\lodash\LICENSE.txt" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\lodash\lodash.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\dist\underscore.string.min.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\lib\underscore.string.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\run-qunit.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\speed.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\strings.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\strings_standalone.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\test.html" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\test_standalone.html" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\test_underscore\arrays.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\test_underscore\chaining.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\test_underscore\collections.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\test_underscore\functions.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\test_underscore\index.html" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\test_underscore\objects.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\test_underscore\speed.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\test_underscore\utility.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\test_underscore\vendor\jquery.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\test_underscore\vendor\jslitmus.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\test_underscore\vendor\qunit.css" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\test_underscore\vendor\qunit.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\node_modules\underscore.string\test\underscore.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-log\test\index.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-util\Gruntfile.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-util\index.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-util\test\fixtures\Gruntfile-execArgv-child.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-util\test\fixtures\Gruntfile-execArgv.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-util\test\fixtures\Gruntfile-print-text.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-util\test\fixtures\spawn-multibyte.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-util\test\fixtures\spawn.js" />
+    <Content Include="node_modules\grunt\node_modules\grunt-legacy-util\test\index.js" />
+    <Content Include="node_modules\grunt\node_modules\hooker\child.js" />
+    <Content Include="node_modules\grunt\node_modules\hooker\dist\ba-hooker.js" />
+    <Content Include="node_modules\grunt\node_modules\hooker\dist\ba-hooker.min.js" />
+    <Content Include="node_modules\grunt\node_modules\hooker\grunt.js" />
+    <Content Include="node_modules\grunt\node_modules\hooker\lib\hooker.js" />
+    <Content Include="node_modules\grunt\node_modules\hooker\parent.js" />
+    <Content Include="node_modules\grunt\node_modules\hooker\test\hooker_test.js" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\encodings\big5.js" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\encodings\gbk.js" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\encodings\singlebyte.js" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\encodings\table\big5.js" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\encodings\table\gbk.js" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\generation\generate-big5-table.js" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\generation\generate-singlebyte.js" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\index.js" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\test\big5-test.js" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\test\big5File.txt" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\test\cyrillic-test.js" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\test\gbk-test.js" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\test\gbkFile.txt" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\test\greek-test.js" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\test\main-test.js" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\test\performance.js" />
+    <Content Include="node_modules\grunt\node_modules\iconv-lite\test\turkish-test.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\bin\js-yaml.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\examples\custom_types.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\examples\dumper.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\examples\sample_document.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\index.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\common.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\dumper.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\exception.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\loader.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\mark.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\require.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\schema.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\schema\default.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\schema\minimal.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\schema\safe.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\type.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\type\binary.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\type\bool.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\type\float.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\type\int.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\type\js\function.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\type\js\regexp.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\type\js\undefined.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\type\map.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\type\merge.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\type\null.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\type\omap.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\type\pairs.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\type\seq.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\type\set.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\type\str.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\lib\js-yaml\type\timestamp.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\examples\arguments.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\examples\choice.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\examples\constants.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\examples\help.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\examples\nargs.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\examples\parents.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\examples\prefix_chars.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\examples\sub_commands.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\examples\sum.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\examples\testformatters.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\index.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\action.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\action\append.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\action\append\constant.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\action\count.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\action\help.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\action\store.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\action\store\constant.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\action\store\false.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\action\store\true.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\action\subparsers.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\action\version.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\action_container.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\argparse.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\argument\error.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\argument\exclusive.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\argument\group.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\argument_parser.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\const.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\help\added_formatters.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\help\formatter.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\lib\namespace.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\node_modules\underscore.string\foo.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\node_modules\underscore.string\gulpfile.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\node_modules\underscore.string\lib\underscore.string.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\node_modules\underscore\underscore-min.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\argparse\node_modules\underscore\underscore.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\esprima\bin\esparse.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\esprima\bin\esvalidate.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\esprima\esprima.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\esprima\test\compat.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\esprima\test\reflect.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\esprima\test\run.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\esprima\test\runner.js" />
+    <Content Include="node_modules\grunt\node_modules\js-yaml\node_modules\esprima\test\test.js" />
+    <Content Include="node_modules\grunt\node_modules\lodash\lodash.js" />
+    <Content Include="node_modules\grunt\node_modules\lodash\lodash.min.js" />
+    <Content Include="node_modules\grunt\node_modules\lodash\lodash.underscore.js" />
+    <Content Include="node_modules\grunt\node_modules\lodash\lodash.underscore.min.js" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\minimatch.js" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\node_modules\lru-cache\lib\lru-cache.js" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\node_modules\lru-cache\test\basic.js" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\node_modules\lru-cache\test\foreach.js" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\node_modules\lru-cache\test\memory-leak.js" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\node_modules\sigmund\bench.js" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\node_modules\sigmund\sigmund.js" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\node_modules\sigmund\test\basic.js" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\test\basic.js" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\test\brace-expand.js" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\test\caching.js" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\test\defaults.js" />
+    <Content Include="node_modules\grunt\node_modules\minimatch\test\extglob-ending-with-state-char.js" />
+    <Content Include="node_modules\grunt\node_modules\nopt\bin\nopt.js" />
+    <Content Include="node_modules\grunt\node_modules\nopt\examples\my-program.js" />
+    <Content Include="node_modules\grunt\node_modules\nopt\lib\nopt.js" />
+    <Content Include="node_modules\grunt\node_modules\nopt\node_modules\abbrev\abbrev.js" />
+    <Content Include="node_modules\grunt\node_modules\nopt\node_modules\abbrev\test.js" />
+    <Content Include="node_modules\grunt\node_modules\rimraf\bin.js" />
+    <Content Include="node_modules\grunt\node_modules\rimraf\rimraf.js" />
+    <Content Include="node_modules\grunt\node_modules\rimraf\test\test-async.js" />
+    <Content Include="node_modules\grunt\node_modules\rimraf\test\test-sync.js" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\dist\underscore.string.min.js" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\lib\underscore.string.js" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\run-qunit.js" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\speed.js" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\strings.js" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\strings_standalone.js" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\test.html" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\test_standalone.html" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\test_underscore\arrays.js" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\test_underscore\chaining.js" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\test_underscore\collections.js" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\test_underscore\functions.js" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\test_underscore\objects.js" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\test_underscore\speed.js" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\test_underscore\temp.js" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\test_underscore\temp_tests.html" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\test_underscore\test.html" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\test_underscore\utility.js" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\test_underscore\vendor\jquery.js" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\test_underscore\vendor\jslitmus.js" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\test_underscore\vendor\qunit.css" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\test_underscore\vendor\qunit.js" />
+    <Content Include="node_modules\grunt\node_modules\underscore.string\test\underscore.js" />
+    <Content Include="node_modules\grunt\node_modules\which\which.js" />
+    <Content Include="node_modules\requirejs\bin\r.js" />
+    <Content Include="node_modules\requirejs\require.js" />
+    <Content Include="Scripts\almond-custom.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-tagsinput.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\chartIQ\getComputedStyleFix.js" />
+    <Content Include="Scripts\chartIQ\restoreAlert.js" />
+    <Content Include="Scripts\chartIQ\stx.js" />
+    <Content Include="Scripts\chartIQ\stxCustom.js" />
+    <Content Include="Scripts\chartIQ\stxKernelOs.js" />
+    <Content Include="Scripts\chartIQ\stxModulus.js" />
+    <Content Include="Scripts\chartIQ\stxThirdParty.js" />
+    <Content Include="Scripts\chartIQ\stxTimeZoneData.js" />
+    <Content Include="Scripts\durandal\activator.js" />
+    <Content Include="Scripts\durandal\app.js" />
+    <Content Include="Scripts\durandal\binder.js" />
+    <Content Include="Scripts\durandal\composition.js" />
+    <Content Include="Scripts\durandal\events.js" />
+    <Content Include="Scripts\durandal\plugins\dialog.js" />
+    <Content Include="Scripts\durandal\plugins\history.js" />
+    <Content Include="Scripts\durandal\plugins\http.js" />
+    <Content Include="Scripts\durandal\plugins\observable.js" />
+    <Content Include="Scripts\durandal\plugins\router.js" />
+    <Content Include="Scripts\durandal\plugins\serializer.js" />
+    <Content Include="Scripts\durandal\plugins\widget.js" />
+    <Content Include="Scripts\durandal\system.js" />
+    <Content Include="Scripts\durandal\transitions\animateCss.js" />
+    <Content Include="Scripts\durandal\transitions\entrance.js" />
+    <Content Include="Scripts\durandal\viewEngine.js" />
+    <Content Include="Scripts\durandal\viewLocator.js" />
+    <Content Include="Scripts\highstock.js" />
+    <Content Include="Scripts\i18next.amd.withJQuery-1.7.2.js" />
+    <Content Include="Scripts\isotope.pkgd.js" />
+    <Content Include="Scripts\isotope.pkgd.min.js" />
+    <Content Include="Scripts\jquery-2.1.0.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jquery.hotkeys.js" />
+    <Content Include="Scripts\autoNumeric-1.9.25.js" />
+    <None Include="Scripts\jquery.validate\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.placeholder.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.2.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.2.min.js" />
+    <Content Include="Scripts\jquery.ui.touch-punch.min.js" />
+    <Content Include="Scripts\jquery.validate\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jstat-0.1.0.min.js" />
+    <Content Include="Scripts\kendo\kendo.all.min.js" />
+    <Content Include="Scripts\kendo\kendo.culture.zh-CN.min.js" />
+    <Content Include="Scripts\kendo\kendo.web.plugins.js" />
+    <Content Include="Scripts\knockout-3.1.0.js" />
+    <Content Include="Scripts\knockout-kendo.js" />
+    <Content Include="Scripts\knockout-kendo.min.js" />
+    <Content Include="Scripts\knockout.mapping-2.4.1.js" />
+    <Content Include="Scripts\knockout.validation.debug.js" />
+    <Content Include="Scripts\knockout.validation.js" />
+    <Content Include="Scripts\pace.js" />
+    <Content Include="Scripts\perfect-scrollbar.js" />
+    <Content Include="Scripts\r.js" />
+    <Content Include="Scripts\require-2.1.11.js" />
+    <Content Include="Scripts\text.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\Api\SignalsController.cs" />
+    <Compile Include="Controllers\Api\SuggestionController.cs" />
+    <Compile Include="Controllers\Api\PredictionController.cs" />
+    <Compile Include="Controllers\StrategyGroupsManagerController.cs" />
+    <Compile Include="Helpers\BundleExtensions.cs" />
+    <Compile Include="Helpers\HtmlHelpers.cs" />
+    <Content Include="App\views\strategy\edit.cshtml" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FiltersConfig.cs" />
+    <Compile Include="App_Start\GlobalConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\StructuremapMvc.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Api\MarketDataController.cs" />
+    <Compile Include="Controllers\Api\QuotationController.cs" />
+    <Compile Include="Controllers\Api\InterestRateController.cs" />
+    <Compile Include="Controllers\Api\StrategyGroupsController.cs" />
+    <Compile Include="Controllers\Api\StrategiesController.cs" />
+    <Compile Include="Controllers\Api\ConfigurationController.cs" />
+    <Compile Include="Controllers\Api\AuthenticationController.cs" />
+    <Compile Include="Controllers\Api\Base\BaseApiController.cs" />
+    <Compile Include="Controllers\Api\OptionChainsController.cs" />
+    <Compile Include="Controllers\Api\PortfolioController.cs" />
+    <Compile Include="Controllers\Api\SZKingdomTestController.cs" />
+    <Compile Include="Controllers\Api\OrderController.cs" />
+    <Compile Include="Controllers\DurandalViewsProvider.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Helpers\PagingHelper.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Scripts\jquery-2.1.0.intellisense.js" />
+    <Content Include="Views\Shared\Strategy\_Strategy.cshtml" />
+    <Content Include="Views\Shared\Strategy\_StrategyDetail.cshtml" />
+    <Content Include="Views\Shared\Strategy\_StrategyGroup.cshtml" />
+    <Content Include="Views\Shared\_ValidationErrors.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Dev.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Premier.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\OptionsPlay.BusinessLogic.Common\OptionsPlay.BusinessLogic.Common.csproj">
+      <Project>{cc96aa47-ce03-42c3-b832-b3f5e7b2cb35}</Project>
+      <Name>OptionsPlay.BusinessLogic.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessLogic\OptionsPlay.BusinessLogic.MarketData\OptionsPlay.BusinessLogic.MarketData.csproj">
+      <Project>{6b386e25-5a7f-4792-8978-b4e9066117f2}</Project>
+      <Name>OptionsPlay.BusinessLogic.MarketData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessLogic\OptionsPlay.BusinessLogic\OptionsPlay.BusinessLogic.csproj">
+      <Project>{f2e3c277-6cf8-468e-a6ae-7414419e13e8}</Project>
+      <Name>OptionsPlay.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\OptionsPlay.Cache\OptionsPlay.Cache.csproj">
+      <Project>{1a11b4ad-4d09-4a15-9c73-fefcb138cde4}</Project>
+      <Name>OptionsPlay.Cache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\OptionsPlay.Common\OptionsPlay.Common.csproj">
+      <Project>{85025E83-4476-400A-B282-363256F61EFA}</Project>
+      <Name>OptionsPlay.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\OptionsPlay.IoC\OptionsPlay.IoC.csproj">
+      <Project>{1b481514-54a1-44e7-b29a-0fc5317fe9be}</Project>
+      <Name>OptionsPlay.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\OptionsPlay.Logging\OptionsPlay.Logging.csproj">
+      <Project>{69F28C8C-7550-4A78-996A-BE2C015D4E52}</Project>
+      <Name>OptionsPlay.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\OptionsPlay.Resources\OptionsPlay.Resources.csproj">
+      <Project>{96DE53E2-F6AB-4E61-808E-383C7416AD7C}</Project>
+      <Name>OptionsPlay.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\OptionsPlay.Security\OptionsPlay.Security.csproj">
+      <Project>{602965F3-B562-4545-9E08-4642ED018187}</Project>
+      <Name>OptionsPlay.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\OptionsPlay.TechnicalAnalysis\OptionsPlay.TechnicalAnalysis.csproj">
+      <Project>{c1f21ded-a481-451f-b2e3-42e457663cce}</Project>
+      <Name>OptionsPlay.TechnicalAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Common\OptionsPlay.Model\OptionsPlay.Model.csproj">
+      <Project>{187287E1-CE16-4B99-B56D-AE6308E06DC8}</Project>
+      <Name>OptionsPlay.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\EntityFramework\OptionsPlay.DAL.EF.Core\OptionsPlay.DAL.EF.Core.csproj">
+      <Project>{BA944BFF-020E-406A-A1D2-5706E69D0FF4}</Project>
+      <Name>OptionsPlay.DAL.EF.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\EntityFramework\OptionsPlay.EF.Encryption\OptionsPlay.EF.Encryption.csproj">
+      <Project>{C6D9EDCC-E9A7-4C3C-AE4A-51897DADCA58}</Project>
+      <Name>OptionsPlay.EF.Encryption</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Third-Party Services\SZKingdom\OptionsPlay.DAL.SZKingdom.Common\OptionsPlay.DAL.SZKingdom.Common.csproj">
+      <Project>{0FDE2710-C57E-4F17-84B4-4F005E15C971}</Project>
+      <Name>OptionsPlay.DAL.SZKingdom.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OptionsPlay.BusinessLogic.MarketDataProcessing.Common\OptionsPlay.BusinessLogic.MarketDataProcessing.Common.csproj">
+      <Project>{a02b554a-97e6-47bf-b521-f747be3b5deb}</Project>
+      <Name>OptionsPlay.BusinessLogic.MarketDataProcessing.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OptionsPlay.BusinessLogic.MarketDataProcessing\OptionsPlay.BusinessLogic.MarketDataProcessing.csproj">
+      <Project>{bb02289d-7587-4cb5-8f11-1fcd21d02c5c}</Project>
+      <Name>OptionsPlay.BusinessLogic.MarketDataProcessing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OptionsPlay.MarketData.Indicators\OptionsPlay.MarketData.Indicators.csproj">
+      <Project>{6c995254-8d66-4aaf-989c-75fb702d30a4}</Project>
+      <Name>OptionsPlay.MarketData.Indicators</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OptionsPlay.MarketData\OptionsPlay.MarketData.csproj">
+      <Project>{abab6c17-967a-4efe-ac63-4e9bcf25025b}</Project>
+      <Name>OptionsPlay.MarketData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OptionsPlay.Optimization\OptionsPlay.Optimization.csproj">
+      <Project>{cf4e252e-3e78-4461-80c1-efe6491913d7}</Project>
+      <Name>OptionsPlay.Optimization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web\OptionsPlay.Web.Infrastructure\OptionsPlay.Web.Infrastructure.csproj">
+      <Project>{2105d13f-8526-4b81-88c5-cc927dac8ca4}</Project>
+      <Name>OptionsPlay.Web.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web\OptionsPlay.Web.SignalR\OptionsPlay.Web.SignalR.csproj">
+      <Project>{f785f5e4-0f59-4f51-8c54-d211cb717b9e}</Project>
+      <Name>OptionsPlay.Web.SignalR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web\OptionsPlay.Web.ViewModels.Providers\OptionsPlay.Web.ViewModels.Providers.csproj">
+      <Project>{d97787a4-717d-456c-98ab-5f3e34110e7d}</Project>
+      <Name>OptionsPlay.Web.ViewModels.Providers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web\OptionsPlay.Web.ViewModels\OptionsPlay.Web.ViewModels.csproj">
+      <Project>{6ab81b08-6b6c-4b49-afe9-2582762630e1}</Project>
+      <Name>OptionsPlay.Web.ViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App\viewmodels\modals\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dev|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Premier|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;POSTSHARP_CONSTRAINTS</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8406</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/OptionsPlay.Web</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Debug' ">
+    <CallTarget Targets="CustomCollectFiles" />
+  </Target>
+  <Target Name="CustomCollectFiles" Condition=" '$(Configuration)' == 'Debug' ">
+    <ItemGroup>
+      <_NativeLibs Include="..\DAL\Third-Party Services\SZKingdom\NativeLibrary\dll\*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_NativeLibs)" DestinationFolder="$(OutputPath)" SkipUnchangedFiles="true" />
+  </Target>
+  <Import Project="..\packages\PostSharp.3.1.41\tools\PostSharp.targets" Condition="Exists('..\packages\PostSharp.3.1.41\tools\PostSharp.targets')" />
+  <Target Name="EnsurePostSharpImported" BeforeTargets="BeforeBuild" Condition="'$(PostSharp30Imported)' == ''">
+    <Error Condition="!Exists('..\packages\PostSharp.3.1.41\tools\PostSharp.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://www.postsharp.net/links/nuget-restore." />
+    <Error Condition="Exists('..\packages\PostSharp.3.1.41\tools\PostSharp.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://www.postsharp.net/links/nuget-restore." />
+  </Target>
+  <Target Name="NpmBuild" BeforeTargets="BeforeBuild">
+    <Exec Command="npm install" />
+  </Target>
+  <Target Name="GruntBuildDebug" AfterTargets="NpmBuild">
+    <Exec Command="grunt build" />
+  </Target>
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <PropertyGroup>
+  </PropertyGroup>
+</Project>

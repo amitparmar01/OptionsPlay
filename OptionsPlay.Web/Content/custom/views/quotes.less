@@ -1,0 +1,258 @@
+﻿@import '../globalVariables';
+@import '../globalMixins';
+
+#quoteMainContainer {
+	height: 100%;
+	@border: 2px solid #b3b3b3;
+	.round-border-right(){
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}
+	.round-border-left(){
+		border-top-left-radius: 4px;
+		border-bottom-left-radius: 4px;
+	}
+
+	#stockAndCandle {
+		width: 100%;
+		height: 40%;
+
+		#underlyingPanel {
+			//width: 49.9%;
+			height: 100%;
+			overflow: auto;
+			background-color: white;
+			//float: left;
+			border-right: @border;
+			.round-border-right();
+			cursor: default;
+		}
+
+		#quoteChartsContainer {
+			height: 100%;
+			position: relative;
+			background-color: white;
+			border-left: @border;
+			.round-border-left();
+
+			.nav > li > a {
+				padding: 5px 10px;
+			}
+
+			#chartsMainContent {
+				position: absolute;
+				top: 28px;
+				bottom: 0;
+				width: 100%;
+
+				& > .tab-pane {
+					height: 100%;
+				}
+
+				.chartIq-widget {
+					height: 100%;
+
+					& > .stx-wrapper {
+						height: 100%;
+
+						& > .stx-content {
+							height: 100%;
+						}
+					}
+				}
+			}
+
+			.chart-container {
+				background: white;
+				height: 100%;
+				position: relative;
+
+				.chart {
+					border-width: 2px;
+					border-style: solid;
+				}
+			}
+
+			#chartContainer {
+				position: absolute;
+				width: 100%;
+				top: 30px;
+				bottom: 0;
+			}
+
+			#intradayChart > div {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	#optionsAndDetails {
+		width: 100%;
+		height: 60%;
+		margin-left: -15px;
+		#optionTChainAndList {
+			background-color: white;
+			border-right: @border;
+			.round-border-right();
+			cursor: default;
+		}
+		#marketDataDetails {
+			padding-left: 5px;
+			background-color: white;
+			border-left: @border;
+			.round-border-left();
+			
+			@thin-border: 1px solid #b3b3b3;
+			.volume-ratio,.five-level-ask,.five-level-bid,.basic-info {
+				border-top: @thin-border;
+				width: 100%;
+			}
+			.volume-ratio {
+				text-align: left;
+			}
+			.basic-info {
+				
+			}
+		}
+	}
+	div[class*="col-"] {
+		padding: 0;
+	}
+}
+
+.quote-table {
+	max-width: 10000px;
+
+	table {
+		max-width: 100000px;
+		margin-bottom: 0;
+		table-layout: fixed;
+		.user-select(none);
+
+		tr.selected {
+			td {
+				background-color: darkgrey;
+			}
+		}
+
+		td {
+			padding: 0 5px;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+
+		colgroup {
+			col.column-index {
+				width: 20px;
+			}
+
+			col.column-code {
+				width: 60px;
+			}
+
+			col.column-name {
+				width: 60px;
+			}
+
+			col.column-warning {
+				width: 20px;
+			}
+
+			col.column-change-percentage {
+				width: 60px;
+			}
+
+			col.column-last {
+				width: 50px;
+			}
+
+			col.column-change {
+				width: 4em;
+			}
+
+			col.column-bid {
+				width: 4em;
+			}
+
+			col.column-ask {
+				width: 4em;
+			}
+
+			col.column-volume {
+				width: 5em;
+			}
+
+			col.column-open {
+				width: 5em;
+			}
+
+			col.column-high {
+				width: 5em;
+			}
+
+			col.column-low {
+				width: 5em;
+			}
+
+			col.column-previous-close {
+				width: 5em;
+			}
+
+			col.column-turnover {
+				width: 7em;
+			}
+
+			col.column-amplitude {
+				width: 4em;
+			}
+
+			col.column-buy-volume,
+			col.column-sell-volume {
+				width: 5em;
+			}
+
+			col.column-fundamental {
+				width: 4em;
+			}
+		}
+	}
+}
+
+.quotes-chartiq {
+	//height: 365px;
+}
+
+.table-header-frozen {
+	position: relative;
+	height: 100%;
+
+	.table-header {
+		height: 40px;
+
+		td, th {
+			text-overflow: ellipsis;
+			line-height: 2em;
+			white-space: nowrap;
+			font-weight: 600;
+		}
+	}
+
+	.table-body {
+		position: absolute;
+		top: 40px;
+		bottom: 0;
+		margin: 0;
+		width: 100%;
+	}
+}
+
+.optionable-quotations {
+	width: 100%;
+	margin: auto;
+	text-align: center;
+	font-family: @font-heiti;
+	font-size: 14px;
+	line-height: 1.5em;
+}
+

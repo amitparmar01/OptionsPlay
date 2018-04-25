@@ -1,0 +1,185 @@
+﻿<div class="modal-dialog" id="tradedCombinationModal">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-bind="click: reject, activityTracker: { events: 'click', name: 'tradeTicketCloseButton', value: loggedData }" aria-hidden="true">&times;</button>
+			<h4 data-bind="text: title" class="modal-title"></h4>
+		</div>
+		<div class="modal-body">
+			<!-- ko ifnot: isTradeTicketHandlerDefined -->
+			<h5>
+				<!-- ko if: optionLegs().length + securityLegs().length === 1 -->
+				Enter the following leg into your broker’s platform.
+				<!-- /ko -->
+				<!-- ko if: optionLegs().length + securityLegs().length > 1 -->
+				Enter the following legs into your broker’s platform as a single strategy.
+				<!-- /ko -->
+			</h5>
+			<!-- /ko -->
+			<table class="table table-bordered table-striped table-hover legTable">
+				<thead>
+					<tr>
+						<th>
+							BUY/SELL
+						</th>
+						<th>
+							QUANTITY
+						</th>
+						<th>
+							EXPIRY
+						</th>
+						<th>
+							STRIKE
+						</th>
+						<th>TYPE</th>
+						<th>PREMIUM</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- ko foreach: optionLegs() -->
+					<tr>
+						<td>
+							<span data-bind="text: quantity > 0 ? 'BUY' : 'SELL'"></span>
+						</td>
+						<td>
+							<span data-bind="text: Math.abs(quantity)"></span>
+						</td>
+						<td>
+							<span data-bind="textFormatted: expiry, format: { type: 'date', dateFormat: 'T dd yyyy' }"></span>
+							<span data-bind="visible: $parent.optionType == 'M'">(Mini)</span>
+						</td>
+						<td>
+							<span data-bind="text: strike"></span>
+						</td>
+						<td>
+							<span data-bind="text: type"></span>
+						</td>
+						<td data-bind="attr: { title: price == 0 ? 'You are buying/selling a leg for $0' : '' }">
+							<span data-bind="text: price"></span>
+							<span data-bind="visible: price == 0">
+								<i class="fa fa-exclamation red"></i>
+							</span>
+						</td>
+					</tr>
+					<!-- /ko -->
+					<!-- ko foreach: securityLegs() -->
+					<tr>
+						<td>
+							<span data-bind="text: quantity > 0 ? 'BUY' : 'SELL'"></span>
+						</td>
+						<td>
+							<span data-bind="text: Math.abs(quantity)"></span>
+						</td>
+						<td></td>
+						<td></td>
+						<td>
+							<span data-bind="text: type"></span>
+						</td>
+						<td data-bind="attr: { title: price == 0 ? 'You are buying/selling a leg for $0' : '' }">
+							<span data-bind="text: price"></span>
+							<span data-bind="visible: price == 0">
+								<i class="fa fa-exclamation red"></i>
+							</span>
+						</td>
+					</tr>
+					<!-- /ko -->
+				</tbody>
+			</table>
+			<div id="tradeTicketPricePanel">
+				<div data-bind="if: isNakedPut">
+					<p>Selling Naked Puts requires significant margin and permission from your broker. Please check with your Brokerage firm to see if you have the capabilities of trading Naked Puts.</p>
+				</div>
+				<div id="priceTablePanel">
+					<table class="table table-bordered table-striped table-hover price-table">
+						<thead>
+							<tr>
+								<td>
+									<b>BID PRICE</b>
+								</td>
+								<td>
+									<b>MID PRICE</b>
+								</td>
+								<td>
+									<b>ASK PRICE</b>
+								</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<span data-bind="textFormatted: bid, format: 'currency'"></span>
+								</td>
+								<td>
+									<strong><span data-bind="textFormatted: mid, format: 'currency'"></span></strong>
+								</td>
+								<td>
+									<span data-bind="textFormatted: ask, format: 'currency'"></span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div>
+						<div class="arrow-container" data-bind="css: recommendedPrice">
+							<i class="fa fa-arrow-up op-arrow"></i>
+							<img src="Content/images/OptionsPlay/main-logo.png" alt="main logo">
+						</div>
+					</div>
+				</div>
+				<div id="tradeInfoPanel">
+					<p>Strategy: <span data-bind="text: strategyName"></span></p>
+					<p>Risk: <span data-bind="text: risk"></span></p>
+					<p>Reward: <span data-bind="text: reward"></span></p>
+					<p>Days to Expiry: <span data-bind="text: daysToExpire"></span></p>
+				</div>
+			</div>
+			<div id="tradeTicketCheckList">
+				<div class="panel panel-default">
+					<div class="panel-heading" data-bind="click: toggleCheckList, activityTracker: { events: 'click', name: 'tradeTicketShowCheckListButton', value: loggedData }">
+						STRATEGY CHECKLIST &nbsp;&nbsp; <i class="fa" data-bind="css: { 'fa-angle-double-up': showCheckList(), 'fa-angle-double-down': !showCheckList() }"></i>
+						<span id="checkListPreview" class="pull-right">
+							<!-- ko foreach: checkListItems -->
+							<i data-bind="css: className.split(' ')[0]" class="fa fa-circle"></i>
+							<!-- /ko -->
+						</span>
+					</div>
+					<div class="panel-body">
+						<table class="table checklist-table">
+							<tbody>
+								<!-- ko foreach: checkListItems -->
+								<tr>
+									<td>
+										<table class="table title-table">
+											<tbody>
+												<tr>
+													<td><i data-bind="css: className"></i></td>
+													<td data-bind="text: title"></td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+									<td data-bind="html: sentence"></td>
+								</tr>
+								<!-- /ko -->
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="modal-footer">
+			<!-- ko if: isTradeTicketHandlerDefined && !canExecuteTrade() -->
+			<span class="red">To place this complex option trade, please call the trade desk.</span>
+			<!-- /ko -->
+			<!-- ko if: canExecuteTrade -->
+			<button data-bind="click: accept, activityTracker: { events: 'click', name: 'tradeTicketSubmitButton', value: loggedData }" type="button" class="btn btn-default">
+				Submit
+			</button>
+			<!-- /ko -->
+			<!-- ko ifnot: canExecuteTrade -->
+			<button data-bind="click: reject, activityTracker: { events: 'click', name: 'tradeTicketCloseButton', value: loggedData }" type="button" class="btn btn-default">
+				Close
+			</button>
+			<!-- /ko -->
+		</div>
+	</div>
+</div>

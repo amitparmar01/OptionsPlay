@@ -1,0 +1,138 @@
+﻿@import '../lesshat-prefixed.less';
+
+.middle-alligned-blocks() {
+	display: inline-table;
+	vertical-align: middle;
+
+	> * {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+.float-inline() {
+	&:after {
+		clear: both;
+		content: "";
+		display: block;
+	}
+
+	> * {
+		float: left;
+	}
+}
+
+.overlay() {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgb(0, 0, 0);
+	opacity: 0;
+	z-index: 9999;
+}
+
+.ellipsis-overflow() {
+	white-space: nowrap;
+	overflow: hidden;
+	-ms-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+}
+
+.limit-width-with-ellipsis(@max-width) {
+	.ellipsis-overflow();
+	max-width: @max-width;
+}
+
+.square(@size) {
+	width: @size;
+	height: @size;
+}
+
+.solid(@color, @stop-position) {
+	// note: no need in gradients for now. used solid background allow support IE 9
+	//@color-white-transparent: rgba(255, 255, 255, 0);
+
+	//background: -moz-linear-gradient(left, @color @stop-position, @color-white-transparent @stop-position, @color-white-transparent 0%); /* FF3.6+ */
+	//background: -webkit-gradient(linear, left top, right top, color-stop(@stop-position,@color), color-stop(@stop-position,@color-white-transparent), color-stop(0%,@color-white-transparent)); /* Chrome,Safari4+ */
+	//background: -webkit-linear-gradient(left, @color @stop-position,@color-white-transparent @stop-position,@color-white-transparent 0%); /* Chrome10+,Safari5.1+ */
+	//background: -o-linear-gradient(left, @color @stop-position,@color-white-transparent @stop-position,@color-white-transparent 0%); /* Opera 11.10+ */
+	//background: -ms-linear-gradient(left, @color @stop-position,@color-white-transparent @stop-position,@color-white-transparent 0%); /* IE10+ */
+	//background: linear-gradient(to right, @color @stop-position,@color-white-transparent @stop-position,@color-white-transparent 0%); /* W3C */
+
+	background: @color;
+	position: absolute;
+	width: @stop-position - 1px;
+	height: 100%;
+}
+
+.keyframes(@name) {
+	@-webkit-keyframes @name {
+		.-frames(-webkit-);
+	}
+
+	@-moz-keyframes	@name {
+		.-frames(-moz-);
+	}
+
+	@keyframes @name {
+		.-frames();
+	}
+}
+
+.keyframes-simple-animation(@name, @onePrefix, @one, @twoPrefix, @two, @threePrefix, @three) {
+	@frames: {
+		@{onePrefix} { @one(); }
+		@{twoPrefix} { @two(); }
+		@{threePrefix} { @three(); }
+	};
+	@-moz-keyframes @name
+	{
+		 @frames();
+	}
+	
+	@-webkit-keyframes @name
+	{
+		@frames();
+	}
+	
+	@keyframes @name
+	{
+		@frames();
+	}
+
+	.@{name} {
+		.lh-animation-name(@name);
+	}
+}
+
+.keyframes-simple-animation(@name, @fromPrefix, @from, @toPrefix, @to) {
+	@frames: {
+		@{fromPrefix} { @from(); }
+		@{toPrefix} { @to(); }
+	};
+	@-moz-keyframes @name
+	{
+		 @frames();
+	}
+	
+	@-webkit-keyframes @name
+	{
+		@frames();
+	}
+	
+	@keyframes @name
+	{
+		@frames();
+	}
+
+	.@{name} {
+		.lh-animation-name(@name);
+	}
+}
+
+.keyframes-simple-animation(@name, @from, @to) {
+	.keyframes-simple-animation(@name, from, @from, to, @to)
+}

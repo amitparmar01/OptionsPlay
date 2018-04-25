@@ -1,0 +1,4 @@
+﻿Sources were got from:
+https://securentity.codeplex.com/
+
+And modified by ourselves.

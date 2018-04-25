@@ -1,0 +1,122 @@
+﻿@using OptionsPlay.Resources
+@using OptionsPlay.Web.Helpers
+@model OptionsPlay.Web.ViewModels.StrategyViewModel
+
+<form data-bind="submit: submit, template: { afterRender: addToValidationContext }" id="strategyForm">
+	<!-- ko widget: { kind: '_buttons/back', href: '#/strategy/all' } -->
+	<!-- /ko -->
+	<h3 data-bind="text: formCaption" id="formCaption"></h3>
+	<hr />
+	<div>
+		@Html.LabelFor(m => m.Name)
+		@Html.HiddenFor(m => m.Id, new { data_bind = "value: id" })
+		@Html.TextBoxFor(m => m.Name, new { data_bind = "value: name", @class = "k-textbox" })
+		@Html.ValidationMessageFor(m => m.Name)
+	</div>
+	<div id="strategyDetails">
+		<div>
+			@Html.LabelFor(m => m.BuyDetails)
+			<!-- ko with: buyDetails -->
+			@{ Html.RenderPartialFor(m => m.BuyDetails, "Strategy/_StrategyDetail"); }
+			<!-- /ko -->
+		</div>
+		<div>
+			@Html.LabelFor(m => m.SellDetails)
+			<!-- ko with: sellDetails -->
+			@{ Html.RenderPartialFor(m => m.SellDetails, "Strategy/_StrategyDetail"); }
+			<!-- /ko -->
+		</div>
+	</div>
+	<div>
+		<div class="checkbox">
+			@Html.CheckBoxFor(m => m.CanCustomizeWidth, new { data_bind = "checked: canCustomizeWidth" })
+			@Html.LabelFor(m => m.CanCustomizeWidth)
+		</div>
+	</div>
+	<div>
+		<div class="checkbox">
+			@Html.CheckBoxFor(m => m.CanCustomizeWingspan, new { data_bind = "checked: canCustomizeWingspan" })
+			@Html.LabelFor(m => m.CanCustomizeWingspan)
+		</div>
+	</div>
+	<div>
+		<div class="checkbox">
+			@Html.CheckBoxFor(m => m.CanCustomizeExpiry, new { data_bind = "checked: canCustomizeExpiry" })
+			@Html.LabelFor(m => m.CanCustomizeExpiry)
+		</div>
+	</div>
+	<div>
+		@Html.LabelFor(m => m.Image)
+		@Html.TextBoxFor(m => m.Image, new { data_bind = "value: image", @class = "k-textbox" })
+		@Html.ValidationMessageFor(m => m.Image)
+	</div>
+	<div>
+		@Html.LabelFor(m => m.PairStrategyId)
+		@Html.DropDownListFor(m => m.PairStrategyId, Model.PairStrategyOptions,
+			new { data_bind = "options: pairStrategyOptions, optionsValue: 'value', optionsText: 'text', optionsCaption: 'Select Pair Strategy', value: pairStrategyId" })
+	</div>
+	<div>
+		<div class="inline-block">
+			@Html.LabelFor(m => m.Legs)
+		</div>
+		<input type="button" data-bind="click: addLeg" id="addLegButton" class="k-button" value="Add" />
+	</div>
+	<div data-bind="foreach: { data: legs, afterAdd: addToValidationContext }">
+		<div class="strategy-leg">
+			<input type="button" data-bind="click: $root.deleteLeg, visible: $root.legs().length > 1" class="k-button" value="X" title="Delete" />
+			<div>
+				@Html.HiddenFor(m => m.Legs[0].Id,
+					new { data_bind = "value: id, attr: { name: legIdName($index), id: legIdName($index) }" })
+			</div>
+			<div>
+				@Html.LabelFor(m => m.Legs[0].BuyOrSell,
+					new { data_bind = "attr: { for: buyOrSellName($index) }" })
+				@Html.DropDownListFor(m => m.Legs[0].BuyOrSell, Model.Legs[0].BuyOrSellOptions, "Select Buy or Sell",
+					new { data_bind = "value: buyOrSell, attr: { name: buyOrSellName($index), id: buyOrSellName($index) }" })
+				@Html.ValidationMessageFor(m => m.Legs[0].BuyOrSell, null,
+					new { data_bind = "attr: { 'data-valmsg-for': buyOrSellName($index) }" })
+			</div>
+			<div>
+				@Html.LabelFor(m => m.Legs[0].Quantity,
+					new { data_bind = "attr: { for: quantityName($index) }" })
+				@Html.TextBoxFor(m => m.Legs[0].Quantity,
+					new { data_bind = "value: quantity, attr: { name: quantityName($index), id: quantityName($index) }", @class = "k-textbox" })
+				@Html.ValidationMessageFor(m => m.Legs[0].Quantity, null,
+					new { data_bind = "attr: { 'data-valmsg-for': quantityName($index) }" })
+			</div>
+			<div>
+				@Html.LabelFor(m => m.Legs[0].Strike,
+					new { data_bind = "attr: { for: strikeName($index) }" })
+				@Html.TextBoxFor(m => m.Legs[0].Strike,
+					new { data_bind = "value: strike, attr: { name: strikeName($index), id: strikeName($index) }", @class = "k-textbox" })
+				@Html.ValidationMessageFor(m => m.Legs[0].Strike, null,
+					new { data_bind = "attr: { 'data-valmsg-for': strikeName($index) }" })
+			</div>
+			<div>
+				@Html.LabelFor(m => m.Legs[0].Expiry,
+					new { data_bind = "attr: { for: expiryName($index) }" })
+				@Html.TextBoxFor(m => m.Legs[0].Expiry,
+					new { data_bind = "value: expiry, attr: { name: expiryName($index), id: expiryName($index) }", @class = "k-textbox" })
+				@Html.ValidationMessageFor(m => m.Legs[0].Expiry, null,
+					new { data_bind = "attr: { 'data-valmsg-for': expiryName($index) }" })
+			</div>
+			<div>
+				@Html.LabelFor(m => m.Legs[0].LegType,
+					new { data_bind = "attr: { for: legTypeName($index) }" })
+				@Html.DropDownListFor(m => m.Legs[0].LegType, Model.Legs[0].LegTypeOptions, "Select Leg Type",
+					new
+					{
+						data_bind = "value: legType, attr: { name: legTypeName($index), id: legTypeName($index) }, event: { change: $root.legTypeChanged }",
+						data_val = true,
+						data_val_onlyOneSecurityLeg = ErrorMessages.OnlyOneSecurityLeg
+					})
+				@Html.ValidationMessageFor(m => m.Legs[0].LegType, null,
+					new { data_bind = "attr: { 'data-valmsg-for': legTypeName($index) }" })
+			</div>
+		</div>
+	</div>
+	<hr />
+	<!-- ko widget: { kind: '_buttons/submit', value: 'Save' } -->
+	<!-- /ko -->
+	@{ Html.RenderPartial("_ValidationErrors"); }
+</form>

@@ -1,0 +1,24 @@
+﻿
+<div class="query-option">
+    <div class="legs-container">
+        <div class="single-leg-container-2">
+            <ul class="field-list-2">
+                <li>
+                    <label data-bind="t: 'trade.startDate'"></label>
+                    <input data-bind="kendoDatePicker: {value: histStartDate, format: 'yyyy/MM/dd'}" class="datepicker" />
+                </li>
+                <li>
+                    <label data-bind="t: 'trade.endDate'"></label>
+                    <input data-bind="kendoDatePicker: {value: histEndDate, format: 'yyyy/MM/dd'}" class="datepicker" />
+                </li>
+                <li>
+                    <label data-bind="t: 'trade.queryType'"></label>
+                    <input type="text" data-bind="kendoDropDownList: kendoQueryType" class="width-110 blue" />
+                </li>
+            </ul>
+        </div>
+        <div class="submit-order">
+            <button data-bind="t: 'labels.query', click: showOrdersOrTradesOrStrikes() == 0 ? pullHistoricalOrder : (showOrdersOrTradesOrStrikes() == 1 ? pullHistoricalTrade : pullHistoricalStrike) "></button>
+        </div>
+    </div>
+</div>

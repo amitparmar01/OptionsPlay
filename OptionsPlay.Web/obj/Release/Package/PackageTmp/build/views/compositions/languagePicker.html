@@ -1,0 +1,9 @@
+﻿<div id="languages">
+	<div data-bind="foreach: languages">
+		<span data-bind="click: $root.setLanguage, css: { active: $data === $root.selectedLanguage() }">
+			<img data-bind="attr: { src: imgSrc }" alt="country flag" />
+			<!-- ko text: title -->
+			<!-- /ko -->
+		</span>
+	</div>
+</div>

@@ -1,0 +1,121 @@
+﻿<div data-bind="widget: { kind: '_buttons/new', href: '#/strategy/new', name: 'Strategy' }">
+</div>
+
+<div id="gridContainer">
+	<table data-bind="kendoGrid: kendoGridOptions" id="strategiesGrid">
+		<thead>
+			<tr>
+				<th id="widthHeader">Width</th>
+				<th id="wingspanHeader">Wingspan</th>
+				<th id="expiryHeader">Expiry</th>
+			</tr>
+			<tr>
+				<th rowspan="2" class="k-header toggle"></th>
+				<th rowspan="2" class="k-header strategy-name">Name</th>
+				<th rowspan="2" class="k-header" id="imageHeader">Image</th>
+				<th colspan="3" class="k-header text-center">Can Customize</th>
+				<th rowspan="2" class="k-header strategy-name">Pair Strategy</th>
+				<th rowspan="2" class="k-header"></th>
+			</tr>
+		</thead>
+	</table>
+</div>
+
+<script type="text/html" id="rowTemplate">
+	<tr data-bind="css: cssClass">
+		<td data-bind="click: $root.toggleDetails" class="toggle">
+			<span class="k-icon k-plus" data-bind="css: { 'k-minus': detailsAreVisible }"></span>
+		</td>
+		<td data-bind="text: name"></td>
+		<td data-bind="text: image"></td>
+		<td class="text-center">
+			<input type="checkbox" data-bind="checked: canCustomizeWidth" disabled="disabled" />
+		</td>
+		<td class="text-center">
+			<input type="checkbox" data-bind="checked: canCustomizeWingspan" disabled="disabled" />
+		</td>
+		<td class="text-center">
+			<input type="checkbox" data-bind="checked: canCustomizeExpiry" disabled="disabled" />
+		</td>
+		<td data-bind="text: pairStrategyName"></td>
+		<td>
+			<a data-bind="attr: { href: '#/strategy/edit/' + id }" class="k-button">Edit</a>
+			<span data-bind="click: $root.deleteStrategy" class="k-button">Delete</span>
+		</td>
+	</tr>
+	<tr data-bind="visible: detailsAreVisible" class="details-row">
+		<td></td>
+		<td colspan="7">
+			<div>
+				<div class="inline-block">
+					Buy Details
+					<!-- ko template: { name: 'strategyDetails', data: buyDetails } -->
+					<!-- /ko -->
+				</div>
+				<div class="inline-block">
+					Sell Details
+					<!-- ko template: { name: 'strategyDetails', data: sellDetails } -->
+					<!-- /ko -->
+				</div>
+			</div>
+			<div data-bind="foreach: legs" class="strategy-legs">
+				<div class="inline-block">
+					Leg#<span data-bind="text: $index() + 1"></span>
+					<table>
+						<tr>
+							<td>Buy or Sell</td>
+							<td data-bind="text: buyOrSell"></td>
+						</tr>
+						<tr>
+							<td>Quantity</td>
+							<td data-bind="text: quantity"></td>
+						</tr>
+						<tr>
+							<td>Strike</td>
+							<td data-bind="text: strike"></td>
+						</tr>
+						<tr>
+							<td>Expiry</td>
+							<td data-bind="text: expiry"></td>
+						</tr>
+						<tr>
+							<td>Leg Type</td>
+							<td data-bind="text: legType"></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</td>
+	</tr>
+</script>
+
+<script type="text/html" id="strategyDetails">
+	<table>
+		<tr>
+			<td>Risk</td>
+			<td data-bind="text: risk"></td>
+		</tr>
+		<tr>
+			<td>Sentiments</td>
+			<td>
+				<div data-bind="text: firstSentiment"></div>
+				<div data-bind="text: secondSentiment"></div>
+				<div data-bind="text: thirdSentiment"></div>
+			</td>
+		</tr>
+		<tr>
+			<td>Reward</td>
+			<td data-bind="text: reward"></td>
+		</tr>
+		<tr>
+			<td>Display Order</td>
+			<td data-bind="text: displayOrder"></td>
+		</tr>
+		<tr>
+			<td>Display</td>
+			<td>
+				<input type="checkbox" data-bind="checked: display" disabled="disabled" />
+			</td>
+		</tr>
+	</table>
+</script>
